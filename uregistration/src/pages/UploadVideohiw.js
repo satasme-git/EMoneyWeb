@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { Link } from "react-router-dom";
+
 
 class UploadVideohit extends React.Component {
 
@@ -53,12 +55,17 @@ class UploadVideohit extends React.Component {
                                             style={{ fontSize: "34px", paddingTop: "5px" }}
                                         ></i>
                                     </a>
-            &emsp;&emsp;
+                                    &emsp;
                                     <div class="header__left" >
 
-                                        <a href="/howitworks" class="nav__link pricing__link text_violet" >
-                                            How it Works
-                            </a>
+                                    <Link to="/UserHome">
+                    <img
+                      src="/assets/webicon.png"
+                      style={{ width: "15vh", height: "8vh" }}
+                    />
+    
+                    <br />
+                  </Link>
                                     </div>
                                     <div class="header__right">
                                         <a href="/register" class="button-register button_yellow ">
@@ -127,11 +134,19 @@ class UploadVideohit extends React.Component {
                     }
                 })()}
                 <div class="article-list">
+
                     <div class="container" style={{ width: "100%", height: "100% ", backgroundColor: "white" }}>
-                        <div class="intro">
-                            <h3 class="text-center" style={{ color: "rgb(3,23,44)", marginTop: "10%" }}><br /><strong>Browsing&nbsp;Videos,&nbsp;ads,&nbsp;Websites&nbsp;</strong><br /><br /></h3>
-                            <p class="text-center">Focus on what you are good at and what works best for you.B All you have to do is upload videos and earn points </p>
-                        </div>
+                    <div class="intro">
+              <h2
+                class="text-center"
+                style={{ color: "rgb(3,23,44)", marginTop: "100px" , paddingLeft:"10px", paddingRight:"10px"}}
+              >
+               Browsing Videos, ads, Websites 
+              </h2>
+              <p class="text-center" style={{ color: "rgb(3,23,44)" ,paddingLeft:"5px", paddingRight:"5px" }}>
+            Focus on what you are good at and what works best for you.B All you have to do is upload videos and earn points 
+              </p>
+            </div>
                         <div class="row articles">
                             <div class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item"> <h3 style={{ color: "rgb(3,23,44)" }}>Step 01</h3><a href="#"><img class="img-fluid" src="assets/Image/earn/cme.png" alt="" /></a>
 

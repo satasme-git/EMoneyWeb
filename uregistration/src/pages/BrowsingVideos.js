@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { Link } from "react-router-dom";
+
 
 class BrowsingVideos extends React.Component {
 
@@ -57,9 +59,14 @@ class BrowsingVideos extends React.Component {
             &emsp;&emsp;
                                     <div class="header__left" >
 
-                                        <a href="/howitworks" class="nav__link pricing__link text_violet" >
-                                            How it Works
-                            </a>
+                                    <Link to="/UserHome">
+                    <img
+                      src="/assets/webicon.png"
+                      style={{ width: "15vh", height: "8vh" }}
+                    />
+    
+                    <br />
+                  </Link>
                                     </div>
                                     <div class="header__right">
                                         <a href="/register" class="button-register button_yellow ">

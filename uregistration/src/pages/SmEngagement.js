@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { Link } from "react-router-dom";
+
 
 class SmEngagement extends React.Component {
 
@@ -56,9 +58,14 @@ class SmEngagement extends React.Component {
             &emsp;&emsp;
                                     <div class="header__left" >
 
-                                        <a href="/howitworks" class="nav__link pricing__link text_violet" >
-                                            How it Works
-                            </a>
+                                    <Link to="/UserHome">
+                    <img
+                      src="/assets/webicon.png"
+                      style={{ width: "15vh", height: "8vh" }}
+                    />
+    
+                    <br />
+                  </Link>
                                     </div>
                                     <div class="header__right">
                                         <a href="/register" class="button-register button_yellow ">
@@ -128,7 +135,7 @@ class SmEngagement extends React.Component {
                 })()}
                 <div class="article-list" style={{ width: "100%", height: "100% " }}>
                     <div class="container">
-                        <div class="intro">
+                        <div class="intro"><br/>
                             <h3 class="text-center" style={{ color: "rgb(3,23,44)", marginTop: "13%" }}><br /><strong>&nbsp;Social&nbsp; Media&nbsp;Engagements&nbsp;</strong><br /><br /></h3>
                             <p class="text-center">Focus on what you are good at and what works best for you.</p>
                         </div>

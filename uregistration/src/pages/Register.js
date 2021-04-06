@@ -310,7 +310,14 @@ class Register extends React.Component {
 								<div class="regwithemal1">
 									Register With Email
 					</div>
+
+
 								<form onSubmit={this.userSignup}>
+
+
+
+
+
 									<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 										<input class="input100" type="text" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.changeEmailHandlter} />
 										<span class="focus-input100"></span>

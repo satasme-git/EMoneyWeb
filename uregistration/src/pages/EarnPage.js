@@ -23,33 +23,33 @@ class EarnPage extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            userServices.getUserById(Cookies.get('user')).then(res => {
-                this.setState({ username: res.data.fname });
-            });
+        //     userServices.getUserById(Cookies.get('user')).then(res => {
+        //         this.setState({ username: res.data.fname });
+        //     });
 
-            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-                var earnblock = document.getElementById("earnblock");
-                if (res.data == "compeleted") {
-                    this.setState({ earnstatus: '' });
-                    var social = document.getElementById("socialearn");
-                    var upload = document.getElementById("uplaodearn");
-                    social.href = "/earnmanagement";
-                    upload.href = "/uploadvideo";
-                    earnblock.setAttribute("style","color: #FF4019;display:none");
-                } else {
-                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-                    earnblock.setAttribute("style","color: #FF4019;display:''");
-                }
-            });
-        } else {
-            this.props.history.push('/login');
-        }
+        //     userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+        //         var earnblock = document.getElementById("earnblock");
+        //         if (res.data == "compeleted") {
+        //             this.setState({ earnstatus: '' });
+        //             var social = document.getElementById("socialearn");
+        //             var upload = document.getElementById("uplaodearn");
+        //             social.href = "/earnmanagement";
+        //             upload.href = "/uploadvideo";
+        //             earnblock.setAttribute("style","color: #FF4019;display:none");
+        //         } else {
+        //             this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+        //             earnblock.setAttribute("style","color: #FF4019;display:''");
+        //         }
+        //     });
+        // } else {
+        //     this.props.history.push('/login');
+        // }
 
     }
 
@@ -166,12 +166,12 @@ class EarnPage extends React.Component {
                         </div>
                         <main class="s-layout__content" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
                             <div>
-
-                                <div class="" style={{ marginTop: "70px" }}>
-                                    <h1 class="text-center">Choose the method of Earning</h1>
+{/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
+                                <div class="" style={{ marginTop: "80px" }}>
+                                    <h1 class="text-center" style={{fontSize:"3.5vmax"}}>Choose the method of Earning</h1>
                                     <h5 class="text-center" id="earnblock" >{this.state.earnstatus} <a style={{color:"blue"}} href="/profile">Go To Profile</a></h5>
 
-                                    {/* <!--testcard view--> */}
+{/*                                
                                     <div class="row text-center" style={{ marginTop: "-5%", height: "100%", padding: "80px" }}>
                                         <div class="col-md-4" style={{ padding: "10px" }}>
                                             <div class="cardearn">
@@ -179,11 +179,11 @@ class EarnPage extends React.Component {
                                                 <div class="cradtext">
                                                     Browse Videos in Youtube
                                                 </div>
-                                                {/* <Link to="/ytvideowatch" > */}
+                                     
                                                 <button class="button">
                                                     <a id="videoearn"><span>EARN</span></a>
                                                 </button>
-                                                {/* </Link> */}
+                                    
                                             </div>
                                         </div>
                                         <br />
@@ -194,7 +194,7 @@ class EarnPage extends React.Component {
                                                     Leave Engagement On Social Media
                                                 </div>
                                                 <button class="button" >
-                                                    {/* /earnmanagement */}
+                                               
                                                     <a id="socialearn"><span>EARN</span></a>
                                                 </button>
                                             </div>
@@ -215,7 +215,7 @@ class EarnPage extends React.Component {
                                                 <div class="cradtext">
                                                     Upload Video
                                                 </div>
-                                                {/* onClick={this.redirectToUpload} */}
+                                   
                                                 <button class="button" >
                                                     <a id="uplaodearn"><span>EARN</span></a>
                                                 </button>
@@ -229,9 +229,140 @@ class EarnPage extends React.Component {
 
 
 
-                                    </div>
+                                    </div> */}
 
                                 </div>
+
+
+{/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
+
+{/* ///////////////////////////////Earn point card ///////////////////////////////////////////////////////////// */}
+        {/* Row for the card*/}
+        <div className="row " style={{marginTop:"80px"}} >    
+          {/* Column for card*/}
+          <div className="col-sm-4" style={{padding:"5px"}}> 
+            <div className="card mx-auto" style={{width: '23rem'}}> 
+              <img className="card-img-top" src="assets\Earnpage-images\watchvideoimg.png" alt="Card image cap" /> 
+              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
+              
+                <h5 className="card-title"> 
+                Browse Videos in Youtube  
+                </h5> 
+                <p className="card-text" > 
+                Only thing you need to do in this method is browsing ads, videos and websites.By 
+                using this method of earning you can earn points easily. 
+                </p> 
+                <br/>
+                <Link to="/profile" >
+                <a href="#" className="btn btn-success" > 
+                EARN NOW
+                </a>
+                </Link> 
+              </div> 
+            </div> 
+          </div> 
+          {/* Another column for card */}
+          <div className="col-sm-4" style={{padding:"5px"}}> 
+            <div className="card  mx-auto" style={{width: '23rem'}}> 
+              <img className="card-img-top" src="assets\Earnpage-images\sociaimg,.png" alt="Card image cap" />
+              
+              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
+                <h5 className="card-title"> 
+                Leave Engagement On Social Media 
+                </h5> 
+                <p className="card-text"> 
+                You can choose this method easily. Only you have to do is complete the 
+                tasks provided by us, By using your social media account and earn points. 
+                </p> 
+                <a href="#" className="btn btn-success"> 
+                EARN NOW
+                </a> 
+              </div> 
+            </div> 
+          </div>
+
+               {/* Another column for card */}
+          <div className="col-sm-4" style={{padding:"5px"}}> 
+            <div className="card  mx-auto" style={{width: '23rem'}}> 
+              <img className="card-img-top" src="assets\Earnpage-images\videouploadimg.jpg"  alt="Card image cap" /> 
+              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
+                <h5 className="card-title"> 
+                Upload Video
+                </h5> 
+                <p className="card-text"> 
+                By uploading videos you can earn points. If you are a content creator,
+                 this is the most suitable method of earnings.Your video's maximum time duration should be 5 minutes.<br/><br/>
+                </p> 
+                <Link to="/profile" >
+                <a href="#" className="btn btn-success" > 
+                EARN NOW
+                </a>
+                </Link> 
+              </div> 
+            </div> 
+          </div> 
+          {/* Another column for card */}
+
+          </div>
+      
+<div className="row "  >  
+
+    {/* Another column for card */}
+    <div className="col-sm-4" style={{padding:"5px"}}> 
+            <div className="card  mx-auto" style={{width: '23rem'}}> 
+              <img className="card-img-top" src="assets\Earnpage-images\surveyimg.png" alt="Card image cap" /> 
+              
+              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
+                <h5 className="card-title"> 
+                Fill out surveys
+                </h5> 
+                <p className="card-text"> 
+                This is the part you’ve been waiting for. Once you’ve successfully completed the
+                 survey, you receive payment for your efforts<br/>
+                </p> 
+
+                <Link to="/profile" >
+                <a href="#" className="btn btn-success" > 
+                EARN NOW
+                </a>
+                </Link> 
+              </div> 
+            </div> 
+          </div> 
+        
+{/* </div> */}
+
+   {/* Another column for card */}
+   <div className="col-sm-4" style={{padding:"5px"}}> 
+            <div className="card  mx-auto" style={{width: '23rem'}}> 
+              <img className="card-img-top" src="assets\Earnpage-images\aaa.png"  alt="Card image cap" /> 
+              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
+                <h5 className="card-title"> 
+                Link Click
+                </h5> 
+                <p className="card-text"> 
+                This is the part you’ve been waiting for. Once you’ve successfully completed the
+                 Clicked the Link , you receive payment for your efforts<br/>
+                </p> 
+                <Link to="/profile" >
+                <a href="#" className="btn btn-success" > 
+                EARN NOW
+                </a>
+                </Link> 
+              </div> 
+            </div> 
+          </div>
+
+
+           </div> 
+           <br/><br/>
+          {/* Another column for card */}
+{/* ///////////////////////////////Earn point card ///////////////////////////////////////////////////////////// */}
+
+
+
+
+
                             </div>
                         </main>
                     </div></div>

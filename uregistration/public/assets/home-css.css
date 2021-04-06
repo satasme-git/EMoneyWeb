@@ -567,7 +567,14 @@ body {
     padding: 10%;
   }
 
-
+  .header__left{
+   
+ width: 72px;
+  height:41px;
+  
+  }
+  
+  
 
 
 }
@@ -1476,12 +1483,10 @@ body {
 
 
 
-
-
 .howtmkmoney
 
-{      font-size: 4.5em;
-  font-weight: 700;
+{     font-size: 4.5vmax;
+  font-weight: 600;
   color:#0d335d ;
   text-align: center;
   padding-bottom: 40px;

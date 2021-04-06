@@ -30,46 +30,46 @@ class EarnHistory extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            earningService.getSocialEarning(Cookies.get('user')).then(res => {
-                this.setState({ social_earn: res.data });
-            });
+        //     earningService.getSocialEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ social_earn: res.data });
+        //     });
 
-            earningService.getVideoEarning(Cookies.get('user')).then(res => {
-                this.setState({ watch_earn: res.data });
-            });
+        //     earningService.getVideoEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ watch_earn: res.data });
+        //     });
 
-            earningService.getOtherEarning(Cookies.get('user')).then(res => {
-                this.setState({ other_earn: res.data });
-            });
+        //     earningService.getOtherEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ other_earn: res.data });
+        //     });
 
-            earningService.getPercent(Cookies.get('user')).then(res => {
-                this.setState({ percent: res.data });
-            });
+        //     earningService.getPercent(Cookies.get('user')).then(res => {
+        //         this.setState({ percent: res.data });
+        //     });
 
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            userServices.getUserById(Cookies.get('user')).then(res => {
-                this.setState({ username: res.data.fname });
-            });
+        //     userServices.getUserById(Cookies.get('user')).then(res => {
+        //         this.setState({ username: res.data.fname });
+        //     });
 
-            paymentService.getPayedAll(Cookies.get('user')).then(res => {
-                this.setState({ total_withdraw: '$ ' + res.data });
-            });
+        //     paymentService.getPayedAll(Cookies.get('user')).then(res => {
+        //         this.setState({ total_withdraw: '$ ' + res.data });
+        //     });
 
-            paymentService.getPayedList(Cookies.get('user')).then(res => {
-                this.setState({ pay_list: res.data });
-            });
-        } else {
-            this.props.history.push('/login');
-        }
+        //     paymentService.getPayedList(Cookies.get('user')).then(res => {
+        //         this.setState({ pay_list: res.data });
+        //     });
+        // } else {
+        //     this.props.history.push('/login');
+        // }
 
     }
 
@@ -103,10 +103,13 @@ class EarnHistory extends React.Component {
         return (
             <div >
                 <Helmet>
+                
+               
                     <link type="text/css" rel="stylesheet" href="/assets/css/app69fd.css?id=d97cc8504a674a3a9f71" />
                     <link rel="stylesheet" href="/assets/css/dash.css" />
                     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
                     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+                    
                 </Helmet>
                 <header class="header" style={{marginLeft:"63px",height:"63px"}}>
                     <section class="container header__inner">
@@ -178,14 +181,16 @@ class EarnHistory extends React.Component {
                                 </ul>
                             </nav>
                         </div>
-                        <main class="s-layout__content" style={{ width: "100%", height: "100%", backgroundColor: "#dfeef2" }}>
+                        <main class="s-layout__content" style={{ width: "100%", height: "100%", backgroundColor: "#F5F6F9" }}>
                             <div>
                                 <div class="container">
-                                    <div class="container-fluid" style={{ marginTop: "70px", marginRight: "-10px", marginLeft: "-10px", alignContent: "center" }}>
-                                        <h1 style={{ marginLeft: "25%", color: "rgb(3,23,44)", marginTop: "3%" }}>Earning Summary</h1>
+                                    <div class="container-fluid" style={{ marginTop: "70px", marginRight: "-10px", marginLeft: "-7px", alignContent: "center" }}>
+                                        <h1 style={{textAlign:"center", color: "rgb(3,23,44)", marginTop: "3%" , fontSize:"5.5vh" }}>Earning Summary</h1>
+
+
                                         <div class="row" style={{ padding: "padding: 40px" }}>
                                             <div class="col-sm-12" style={{ padding: "10px" }}>
-                                                <div class="card" style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)", padding: "30px", backgroundColor: "#ffffff", borderRadius: "5px" }}>
+                                                <div class="card" style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 19px 38px rgba(0,0,0,0.15)", padding: "30px", backgroundColor: "#ffffff",  borderRadius: "17px",border:"none" }}>
                                                     <div class="title1" style={{ fontSize: "25px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }} >Total  Earning Amount</div>
                                                     <div class="title2" style={{ fontSize: "15px", fontWeight: "200", textAlign: "left", color: "rgb(3,23,44)" }}> we will send your payment once your payment threshold is reached</div><br />
                                                     <div class="title3" style={{ fontSize: "30px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}> {this.state.total_earning}</div>
@@ -196,7 +201,7 @@ class EarnHistory extends React.Component {
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12 col-md-4" style={{ padding: "10px" }}>
-                                                <div class="card" style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)", padding: "30px", backgroundColor: "#ffffff", borderRadius: "5px" }}>
+                                                <div class="card" style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 19px 38px rgba(0,0,0,0.15)",  padding: "30px", backgroundColor: "#ffffff",  borderRadius: "17px",border:"none"}}>
                                                     <div class="title1" style={{ fontSize: "25px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}>Social Media Earnings</div>
                                                     <div class="title3" style={{ fontSize: "30px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}> {this.state.social_earn}</div>
 
@@ -205,14 +210,14 @@ class EarnHistory extends React.Component {
 
 
                                             <div class="col-sm-12 col-md-4" style={{ padding: "10px" }} >
-                                                <div class="card " style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)", padding: "30px", backgroundColor: "#ffffff", borderRadius: "5px" }}>
+                                                <div class="card " style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 19px 38px rgba(0,0,0,0.15)",  padding: "30px", backgroundColor: "#ffffff",  borderRadius: "17px",border:"none"}}>
                                                     <div class="title1" style={{ fontSize: "25px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}>Watched Video Earnings</div>
                                                     <div class="title3" style={{ fontSize: "30px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}> {this.state.watch_earn}</div>
 
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-4" style={{ padding: "10px" }} >
-                                                <div class="card" style={{ padding: "20px", marginBottom: "10px", boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)", padding: "30px", backgroundColor: "#ffffff", borderRadius: "5px" }}>
+                                                <div class="card" style={{ padding: "20px",  borderRadius: "17px", marginBottom: "10px",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",  padding: "30px", backgroundColor: "#ffffff",border:"none" }}>
                                                     <div class="title1" style={{ fontSize: "25px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}>Others Earnings </div>
                                                     <div class="title3" style={{ fontSize: "30px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}> {this.state.other_earn}</div>
 
@@ -223,15 +228,14 @@ class EarnHistory extends React.Component {
 
 
 
+                                        <h1 style={{textAlign:"center",  color: "rgb(3,23,44)", marginTop: "3%" , fontSize:"5vh"  , marginBottom:"13px"}}>Withdraw Summary</h1>
 
-
-                                        <div class="row" style={{ marginBottom: "5%" }}>
-                                            <h1 style={{ marginLeft: "25%", marginBottom: "10px", color: "rgb(3,23,44)" }}>
-                                                Withdraw Summary
-                                        </h1>
+                                        <div class="row">
+                                        
+                                
                                             <div class="col-sm-12" >
-                                                <div class="card" style={{ padding: "10px" }}>
-                                                    <div class="title1" style={{ fontSize: "25px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}> Total Withdrawal Amount
+                                                <div class="card" style={{ padding: "30px" , boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none", borderRadius: "17px" }}>
+                                                    <div class="title1" style={{ fontSize: "25px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)"  }}> Total Withdrawal Amount
                                                     </div>
                                                     <div class="title3" style={{ fontSize: "30px", fontWeight: "600", textAlign: "left", color: "rgb(3,23,44)" }}> {this.state.total_withdraw}</div>
                                                     <br />
@@ -269,11 +273,12 @@ class EarnHistory extends React.Component {
 
                                                         </tbody>
                                                     </table>
+                                                
 
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div><br></br><br></br><br></br>
 
                                     </div>
                                 </div>
