@@ -23,33 +23,33 @@ class EarnPage extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+        var user = Cookies.get('user');
+        if (user != null) {
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
 
-        //     userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-        //         var earnblock = document.getElementById("earnblock");
-        //         if (res.data == "compeleted") {
-        //             this.setState({ earnstatus: '' });
-        //             var social = document.getElementById("socialearn");
-        //             var upload = document.getElementById("uplaodearn");
-        //             social.href = "/earnmanagement";
-        //             upload.href = "/uploadvideo";
-        //             earnblock.setAttribute("style","color: #FF4019;display:none");
-        //         } else {
-        //             this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-        //             earnblock.setAttribute("style","color: #FF4019;display:''");
-        //         }
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+                var earnblock = document.getElementById("earnblock");
+                if (res.data == "compeleted") {
+                    this.setState({ earnstatus: '' });
+                    var social = document.getElementById("socialearn");
+                    var upload = document.getElementById("uplaodearn");
+                    // social.href = "/earnmanagement";
+                    // upload.href = "/uploadvideo";
+                    earnblock.setAttribute("style", "color: #FF4019;display:none");
+                } else {
+                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+                    earnblock.setAttribute("style", "color: #FF4019;display:''");
+                }
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
     }
 
@@ -95,20 +95,20 @@ class EarnPage extends React.Component {
                     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
                     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
                 </Helmet>
-                <header class="header" style={{marginLeft:"63px",height:"63px"}}>
+                <header class="header" style={{ marginLeft: "63px", height: "63px" }}>
                     <section class="container header__inner">
                         <div class="header__right">
 
-                                <span class="utext">{this.state.total_earning}</span>
-                                <Link to="/profile" >
-                                    <li class="nav-item dropdown  user-menu">
-                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                            <span class="utext">{this.state.total_earning}</span>
+                            <Link to="/profile" >
+                                <li class="nav-item dropdown  user-menu">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
-                                            <i class="fa fa-user"></i>
-                                            <span class="hidden-xs">{this.state.username}</span>
-                                        </a>
-                                    </li>
-                                </Link>
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-xs">{this.state.username}</span>
+                                    </a>
+                                </li>
+                            </Link>
                         </div>
                     </section>
 
@@ -164,14 +164,14 @@ class EarnPage extends React.Component {
                                 </ul>
                             </nav>
                         </div>
-                        <main class="s-layout__content" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
+                        <main class="s-layout__content" style={{ height: "100%", backgroundColor: "#dfeef2", padding: "50px" }}>
                             <div>
-{/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
+                                {/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
                                 <div class="" style={{ marginTop: "80px" }}>
-                                    <h1 class="text-center" style={{fontSize:"3.5vmax"}}>Choose the method of Earning</h1>
-                                    <h5 class="text-center" id="earnblock" >{this.state.earnstatus} <a style={{color:"blue"}} href="/profile">Go To Profile</a></h5>
+                                    <h1 class="text-center" style={{ fontSize: "3.5vmax" }}>Choose the method of Earning</h1>
+                                    <h5 class="text-center" id="earnblock" >{this.state.earnstatus} <a style={{ color: "blue" }} href="/profile">Go To Profile</a></h5>
 
-{/*                                
+                                    {/*                                
                                     <div class="row text-center" style={{ marginTop: "-5%", height: "100%", padding: "80px" }}>
                                         <div class="col-md-4" style={{ padding: "10px" }}>
                                             <div class="cardearn">
@@ -234,130 +234,122 @@ class EarnPage extends React.Component {
                                 </div>
 
 
-{/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
+                                {/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
 
-{/* ///////////////////////////////Earn point card ///////////////////////////////////////////////////////////// */}
-        {/* Row for the card*/}
-        <div className="row " style={{marginTop:"80px"}} >    
-          {/* Column for card*/}
-          <div className="col-sm-4" style={{padding:"5px"}}> 
-            <div className="card mx-auto" style={{width: '23rem'}}> 
-              <img className="card-img-top" src="assets\Earnpage-images\watchvideoimg.png" alt="Card image cap" /> 
-              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
-              
-                <h5 className="card-title"> 
-                Browse Videos in Youtube  
-                </h5> 
-                <p className="card-text" > 
-                Only thing you need to do in this method is browsing ads, videos and websites.By 
-                using this method of earning you can earn points easily. 
-                </p> 
-                <br/>
-                <Link to="/profile" >
-                <a href="#" className="btn btn-success" > 
-                EARN NOW
+                                {/* ///////////////////////////////Earn point card ///////////////////////////////////////////////////////////// */}
+                                {/* Row for the card*/}
+                                <div className="row " style={{ marginTop: "80px" }} >
+                                    {/* Column for card*/}
+                                    <div className="col-sm-4 col-md-4 col-lg-4" style={{ padding: "5px" }}>
+                                        <div className="card mx-auto" style={{ width: '23rem' }}>
+                                            <img className="card-img-top" src="assets\Earnpage-images\watchvideoimg.png" alt="Card image cap" />
+                                            <div className="card-body" style={{ textAlign: "center", boxShadow: "0 19px 38px rgba(0,0,0,0.15)", border: "none", }}>
+
+                                                <h5 className="card-title">
+                                                    Browse Videos in Youtube
+                </h5>
+                                                <p className="card-text" >
+                                                    Only thing you need to do in this method is browsing ads and videos.By
+                                                    using this method of earning you can earn points easily.
+                </p>
+                                                <br />
+                                                <a className="btn btn-success" >
+                                                    EARN NOW
                 </a>
-                </Link> 
-              </div> 
-            </div> 
-          </div> 
-          {/* Another column for card */}
-          <div className="col-sm-4" style={{padding:"5px"}}> 
-            <div className="card  mx-auto" style={{width: '23rem'}}> 
-              <img className="card-img-top" src="assets\Earnpage-images\sociaimg,.png" alt="Card image cap" />
-              
-              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
-                <h5 className="card-title"> 
-                Leave Engagement On Social Media 
-                </h5> 
-                <p className="card-text"> 
-                You can choose this method easily. Only you have to do is complete the 
-                tasks provided by us, By using your social media account and earn points. 
-                </p> 
-                <a href="#" className="btn btn-success"> 
-                EARN NOW
-                </a> 
-              </div> 
-            </div> 
-          </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Another column for card */}
+                                    <div className="col-sm-4 col-md-4 col-lg-4" style={{ padding: "5px" }}>
+                                        <div className="card  mx-auto" style={{ width: '23rem' }}>
+                                            <img className="card-img-top" src="assets\Earnpage-images\sociaimg,.png" alt="Card image cap" />
 
-               {/* Another column for card */}
-          <div className="col-sm-4" style={{padding:"5px"}}> 
-            <div className="card  mx-auto" style={{width: '23rem'}}> 
-              <img className="card-img-top" src="assets\Earnpage-images\videouploadimg.jpg"  alt="Card image cap" /> 
-              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
-                <h5 className="card-title"> 
-                Upload Video
-                </h5> 
-                <p className="card-text"> 
-                By uploading videos you can earn points. If you are a content creator,
-                 this is the most suitable method of earnings.Your video's maximum time duration should be 5 minutes.<br/><br/>
-                </p> 
-                <Link to="/profile" >
-                <a href="#" className="btn btn-success" > 
-                EARN NOW
-                </a>
-                </Link> 
-              </div> 
-            </div> 
-          </div> 
-          {/* Another column for card */}
+                                            <div className="card-body" style={{ textAlign: "center", boxShadow: "0 19px 38px rgba(0,0,0,0.15)", border: "none", }}>
+                                                <h5 className="card-title">
+                                                    Leave Engagement On Social Media
+                                                </h5>
+                                                <p className="card-text">
+                                                    You can choose this method easily. Only you have to do is complete the
+                                                    tasks provided by us, By using your social media account and earn points.
+                                                </p>
+                                                <a href="/earnmanagement" className="btn btn-success">
+                                                    EARN NOW
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-          </div>
-      
-<div className="row "  >  
+                                    {/* Another column for card */}
+                                    <div className="col-sm-4 col-md-4 col-lg-4" style={{ padding: "5px" }}>
+                                        <div className="card  mx-auto" style={{ width: '23rem' }}>
+                                            <img className="card-img-top" src="assets\Earnpage-images\videouploadimg.jpg" alt="Card image cap" />
+                                            <div className="card-body" style={{ textAlign: "center", boxShadow: "0 19px 38px rgba(0,0,0,0.15)", border: "none", }}>
+                                                <h5 className="card-title">
+                                                    Upload Video
+                                                </h5>
+                                                <p className="card-text">
+                                                    By uploading videos you can earn points. If you are a content creator,
+                                                    this is the most suitable method of earnings.Your video's maximum time duration should be 5 minutes.<br /><br />
+                                                </p>
+                                                <a href="/uploadvideo" className="btn btn-success" >
+                                                    EARN NOW
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Another column for card */}
 
-    {/* Another column for card */}
-    <div className="col-sm-4" style={{padding:"5px"}}> 
-            <div className="card  mx-auto" style={{width: '23rem'}}> 
-              <img className="card-img-top" src="assets\Earnpage-images\surveyimg.png" alt="Card image cap" /> 
-              
-              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
-                <h5 className="card-title"> 
-                Fill out surveys
-                </h5> 
-                <p className="card-text"> 
-                This is the part you’ve been waiting for. Once you’ve successfully completed the
-                 survey, you receive payment for your efforts<br/>
-                </p> 
+                                </div>
 
-                <Link to="/profile" >
-                <a href="#" className="btn btn-success" > 
-                EARN NOW
-                </a>
-                </Link> 
-              </div> 
-            </div> 
-          </div> 
-        
-{/* </div> */}
+                                <div className="row "  >
 
-   {/* Another column for card */}
-   <div className="col-sm-4" style={{padding:"5px"}}> 
-            <div className="card  mx-auto" style={{width: '23rem'}}> 
-              <img className="card-img-top" src="assets\Earnpage-images\aaa.png"  alt="Card image cap" /> 
-              <div className="card-body" style={{textAlign:"center",boxShadow: "0 19px 38px rgba(0,0,0,0.15)",border:"none",}}> 
-                <h5 className="card-title"> 
-                Link Click
-                </h5> 
-                <p className="card-text"> 
-                This is the part you’ve been waiting for. Once you’ve successfully completed the
-                 Clicked the Link , you receive payment for your efforts<br/>
-                </p> 
-                <Link to="/profile" >
-                <a href="#" className="btn btn-success" > 
-                EARN NOW
-                </a>
-                </Link> 
-              </div> 
-            </div> 
-          </div>
+                                    {/* Another column for card */}
+                                    <div className="col-sm-4 col-md-4 col-lg-4" style={{ padding: "5px" }}>
+                                        <div className="card  mx-auto" style={{ width: '23rem' }}>
+                                            <img className="card-img-top" src="assets\Earnpage-images\surveyimg.png" alt="Card image cap" />
+
+                                            <div className="card-body" style={{ textAlign: "center", boxShadow: "0 19px 38px rgba(0,0,0,0.15)", border: "none", }}>
+                                                <h5 className="card-title">
+                                                    Fill out surveys
+                                                </h5>
+                                                <p className="card-text">
+                                                    This is the part you’ve been waiting for. Once you’ve successfully completed the
+                                                    survey, you receive payment for your efforts<br />
+                                                </p>
+
+                                                <a href="/servey" className="btn btn-success" >
+                                                    EARN NOW
+                                                    </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* </div> */}
+
+                                    {/* Another column for card */}
+                                    <div className="col-sm-4 col-md-4 col-lg-4" style={{ padding: "5px" }}>
+                                        <div className="card  mx-auto" style={{ width: '23rem' }}>
+                                            <img className="card-img-top" src="assets\Earnpage-images\linkclick.png" alt="Card image cap" />
+                                            <div className="card-body" style={{ textAlign: "center", boxShadow: "0 19px 38px rgba(0,0,0,0.15)", border: "none", }}>
+                                                <h5 className="card-title">
+                                                    Link Click
+                                                </h5>
+                                                <p className="card-text">
+                                                    This is the part you’ve been waiting for. Once you’ve successfully completed the
+                                                    Engagement in website , you receive payment for your efforts<br />
+                                                </p>
+                                                <a href="/linkclick" className="btn btn-success" >
+                                                    EARN NOW
+                                                 </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-           </div> 
-           <br/><br/>
-          {/* Another column for card */}
-{/* ///////////////////////////////Earn point card ///////////////////////////////////////////////////////////// */}
+                                </div>
+                                <br /><br />
+                                {/* Another column for card */}
+                                {/* ///////////////////////////////Earn point card ///////////////////////////////////////////////////////////// */}
 
 
 

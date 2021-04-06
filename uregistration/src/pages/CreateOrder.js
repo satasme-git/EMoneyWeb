@@ -102,137 +102,137 @@ class Dash extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // const value = queryString.parse(this.props.location.search);
-        // const token = value.url;
-        // if (token != null) {
-        //     var menu11 = document.getElementById("menu11");
-        //     var menu22 = document.getElementById("menu22");
-        //     var menu33 = document.getElementById("menu33");
-        //     var menu44 = document.getElementById("menu44");
-        //     var menu55 = document.getElementById("menu55");
+        var user = Cookies.get('user');
+        const value = queryString.parse(this.props.location.search);
+        const token = value.url;
+        if (token != null) {
+            var menu11 = document.getElementById("menu11");
+            var menu22 = document.getElementById("menu22");
+            var menu33 = document.getElementById("menu33");
+            var menu44 = document.getElementById("menu44");
+            var menu55 = document.getElementById("menu55");
 
-        //     var menu1 = document.getElementById("menu1");
-        //     var menu2 = document.getElementById("menu2");
-        //     var menu3 = document.getElementById("menu3");
-        //     var menu4 = document.getElementById("menu4");
-        //     var menu5 = document.getElementById("menu5");
+            var menu1 = document.getElementById("menu1");
+            var menu2 = document.getElementById("menu2");
+            var menu3 = document.getElementById("menu3");
+            var menu4 = document.getElementById("menu4");
+            var menu5 = document.getElementById("menu5");
 
-        //     if (token.includes("youtube")) {
-        //         menu11.classList.add("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu11').trigger('click');
-        //         menu1.classList.add("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ youtube_link: token });
-        //     } else if (token.includes("facebook")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.add("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu22').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.add("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ facebook_link: token });
-        //     } else if (token.includes("instagram")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.add("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu33').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.add("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ insta_link: token });
-        //     } else if (token.includes("twitter")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.add("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu44').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.add("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ twitter_link: token });
-        //     } else if (token.includes("tiktok")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.add("active");
-        //         $('#menu55').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.add("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ tiktok_link: token });
-        //     }
-        // }
-        // if (user != null) {
-        //     orderService.getMinMax().then(res => {
-        //         this.setState({ packageMinMax: res.data });
-        //         this.loadPackages();
-        //     });
+            if (token.includes("youtube")) {
+                menu11.classList.add("active");
+                menu22.classList.remove("active");
+                menu33.classList.remove("active");
+                menu44.classList.remove("active");
+                menu55.classList.remove("active");
+                $('#menu11').trigger('click');
+                menu1.classList.add("active");
+                menu2.classList.remove("active");
+                menu3.classList.remove("active");
+                menu4.classList.remove("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ youtube_link: token });
+            } else if (token.includes("facebook")) {
+                menu11.classList.remove("active");
+                menu22.classList.add("active");
+                menu33.classList.remove("active");
+                menu44.classList.remove("active");
+                menu55.classList.remove("active");
+                $('#menu22').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.add("active");
+                menu3.classList.remove("active");
+                menu4.classList.remove("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ facebook_link: token });
+            } else if (token.includes("instagram")) {
+                menu11.classList.remove("active");
+                menu22.classList.remove("active");
+                menu33.classList.add("active");
+                menu44.classList.remove("active");
+                menu55.classList.remove("active");
+                $('#menu33').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.remove("active");
+                menu3.classList.add("active");
+                menu4.classList.remove("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ insta_link: token });
+            } else if (token.includes("twitter")) {
+                menu11.classList.remove("active");
+                menu22.classList.remove("active");
+                menu33.classList.remove("active");
+                menu44.classList.add("active");
+                menu55.classList.remove("active");
+                $('#menu44').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.remove("active");
+                menu3.classList.remove("active");
+                menu4.classList.add("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ twitter_link: token });
+            } else if (token.includes("tiktok")) {
+                menu11.classList.remove("active");
+                menu22.classList.remove("active");
+                menu33.classList.remove("active");
+                menu44.classList.remove("active");
+                menu55.classList.add("active");
+                $('#menu55').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.remove("active");
+                menu3.classList.remove("active");
+                menu4.classList.remove("active");
+                menu5.classList.add("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ tiktok_link: token });
+            }
+        }
+        if (user != null) {
+            orderService.getMinMax().then(res => {
+                this.setState({ packageMinMax: res.data });
+                this.loadPackages();
+            });
 
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
-        //     this.generateYoutubePrice(1600, "views");
-        // } else {
-        //     this.props.history.push('/login');
-        // }
-        // this.setState({ serveyid: Date.now() });
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
+            this.generateYoutubePrice(1600, "views");
+        } else {
+            this.props.history.push('/login');
+        }
+        this.setState({ serveyid: Date.now() });
 
     }
 
