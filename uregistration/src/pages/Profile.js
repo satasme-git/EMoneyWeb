@@ -736,23 +736,6 @@ class Profile extends React.Component {
                             </div>
                             <div class="col-sm-4" style={{ textAlign: "center" }}><br></br>
                                 <h4 class="card-title">Profile Image</h4>
-<<<<<<< HEAD
-
-
-                                
-                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img>
-                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img>
-                                {/* /////////////////////new upload iamge/////////////// */}
-                                <div class="input-group mb-3">
-
-  <div class="custom-file">
-
-    <input type="file" class="custom-file-input" id="inputGroupFile01"  accept="image/*" name="myImage" onChange={this.changeThumbnail}/>
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-  </div>
-</div>
-                                <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} />
-=======
                                 {/* /////////////////////new upload iamge/////////////// */}
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -769,7 +752,6 @@ class Profile extends React.Component {
                                 {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img> */}
                                 {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img> */}
                                 {/* <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} /> */}
->>>>>>> a3a6cbd43d572b45007b3e73e390911c3dc3232b
                                 {/* <button class="btn btn-outline-primary icon-button" onClick={this.uploadImages} type="button" style={{ width: "15%", marginTop: "10px", marginLeft: "39%" }}><i class="fa fa-camera"></i></button> */}
                             </div>
                         </div>

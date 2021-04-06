@@ -245,6 +245,7 @@ class EarnPage extends React.Component {
 <div class="row">
   <div class="col-sm-4" style={{padding:"20px", marginLeft:"-8px"}}>
 <div class="card">
+    
   <img
    src="assets\Earnpage-images\watchvideoimg.png"
     class="card-img-top"
@@ -252,11 +253,8 @@ class EarnPage extends React.Component {
   />
   <div class="card-body">
     <h5 class="card-title" style={{textAlign:"center"}}> Browse Videos in Youtube  </h5>
-    <p class="card-text">
-    Only thing you need to do in this method is browsing ads, videos and websites.By 
-                using this method of earning you can earn points easily. 
-    </p><br/>
-    <a href="#!" class="btn btn-primary" style={{ backgroundColor:"#16c79a" , border:"none"}}>EARN NOW</a>
+<br/>
+    <a href="#!" class="btn btn-primary" style={{ backgroundColor:"#16c79a" , border:"none" , width:"100%"}}>EARN NOW</a>
     <br/>
   </div>
 </div>
@@ -272,11 +270,8 @@ class EarnPage extends React.Component {
   />
   <div class="card-body">
     <h5 class="card-title"  style={{textAlign:"center"}}>Leave Engagement On Social Media  </h5>
-    <p class="card-text">
-    You can choose this method easily. Only you have to do is complete the 
-                tasks provided by us, By using your social media account and earn points. 
-    </p>
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none"}}>EARN NOW</a>
+
+    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none",width:"100%"}}>EARN NOW</a>
   </div>
 </div>
 </div>
@@ -291,11 +286,8 @@ class EarnPage extends React.Component {
   />
   <div class="card-body">
     <h5 class="card-title"  style={{textAlign:"center"}}>    Upload Video </h5>
-    <p class="card-text">
-    By uploading videos you can earn points. If you are a content creator,
-                 this is the most suitable method of earnings.Your video's maximum time duration should be 5 minutes.
-    </p>
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none"}}>EARN NOW</a>
+    <br/>
+    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none", width:"100%"}}>EARN NOW</a>
   </div>
 </div>
 
@@ -320,11 +312,8 @@ class EarnPage extends React.Component {
   />
   <div class="card-body">
     <h5 class="card-title"  style={{textAlign:"center"}}>       Fill out surveys </h5>
-    <p class="card-text">
-    This is the part you’ve been waiting for. Once you’ve successfully completed the
-                 survey, you receive payment for your efforts<br/>
-    </p>
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none"}}>EARN NOW</a>
+    
+    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none" ,width:"100%"}}>EARN NOW</a>
   </div>
 </div>
 </div>
@@ -337,10 +326,8 @@ class EarnPage extends React.Component {
   />
   <div class="card-body">
     <h5 class="card-title"  style={{textAlign:"center"}}>Link Click </h5>
-    <p class="card-text">
-    This is the part you’ve been waiting for. Once you’ve successfully completed the Clicked the Link , you receive payment for your efforts
-    </p>
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none"}}>EARN NOW</a>
+  
+    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none" , width:"100%"}}>EARN NOW</a>
   </div>
 </div></div>
 
