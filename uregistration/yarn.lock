@@ -10313,6 +10313,11 @@
   "resolved" "https://registry.npmjs.org/react-side-effect/-/react-side-effect-2.1.1.tgz"
   "version" "2.1.1"
 
+"react-simple-snake@^0.2.2":
+  "integrity" "sha512-MP5s3IDs6+9S0GrxBYi0oGjvm2/vFMq7GmYhVbjEhRjJUlH3kAxoyOBLTfFpGq3+Fkx2OUSFBbR3l8n1iG5qkg=="
+  "resolved" "https://registry.npmjs.org/react-simple-snake/-/react-simple-snake-0.2.2.tgz"
+  "version" "0.2.2"
+
 "react-style-tag@^2.0.2":
   "integrity" "sha512-Gt9T1Qa7OnkjESwNp0fyycwU/Cisok5tE4zkMAMA71enERgolmVUyQaWPiCb7TMy+sbAy9Nq6rG9KP0oXQmqxw=="
   "resolved" "https://registry.npmjs.org/react-style-tag/-/react-style-tag-2.0.2.tgz"
