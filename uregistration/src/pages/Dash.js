@@ -28,37 +28,37 @@ class Dash extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            earningService.getToday(Cookies.get('user')).then(res => {
-                this.setState({ today_earning: res.data });
-            });
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     earningService.getToday(Cookies.get('user')).then(res => {
+        //         this.setState({ today_earning: res.data });
+        //     });
 
-            earningService.getYesterdayEarning(Cookies.get('user')).then(res => {
-                this.setState({ yesterday_earning: res.data });
-            });
+        //     earningService.getYesterdayEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ yesterday_earning: res.data });
+        //     });
 
-            earningService.getWeekEarning(Cookies.get('user')).then(res => {
-                this.setState({ week_earning: res.data });
-            });
+        //     earningService.getWeekEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ week_earning: res.data });
+        //     });
 
-            earningService.getMonthEarning(Cookies.get('user')).then(res => {
-                this.setState({ month_earning: res.data });
-            });
+        //     earningService.getMonthEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ month_earning: res.data });
+        //     });
 
-            earningService.getBalance(Cookies.get('user')).then(res => {
-                this.setState({ balance: res.data });
-            });
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        //     earningService.getBalance(Cookies.get('user')).then(res => {
+        //         this.setState({ balance: res.data });
+        //     });
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            userServices.getUserById(Cookies.get('user')).then(res => {
-                this.setState({ username: res.data.fname });
-            });
-        } else {
-            this.props.history.push('/login');
-        }
+        //     userServices.getUserById(Cookies.get('user')).then(res => {
+        //         this.setState({ username: res.data.fname });
+        //     });
+        // } else {
+        //     this.props.history.push('/login');
+        // }
 
     }
     redirectToDash = (e) => {
@@ -171,27 +171,30 @@ class Dash extends React.Component {
                             </nav>
                         </div>
 
-                        <main class="s-layout__content" style={{ height: "100%", width: "100%", backgroundColor: "#dfeef2" }} >
+                        <main class="s-layout__content" style={{ height: "100%", width: "100%", backgroundColor: "#F2F5FA" }} >
                             <div class="container">
                                 <div class="container-fluid" style={{ marginTop: "70px", marginRight: "-10px", marginLeft: "-10px", alignContent: "center" }}>
-                                    <h2 class="text-center" style={{ marginTop: "10px" }} >Overall Earnings <br /></h2>
+                                    {/* <h2 class="text-center" style={{ marginTop: "10px" }} >Overall Earnings <br /></h2> */}
+                                    <h2 class="text-center" style={{ marginTop: "2%" ,fontSize:"5vh", textAlign:"center" }} >Overall Earnings </h2>
                                     <div class="row">
-                                        <div class="col-7">
+                                        <div class="col-sm-7">
                                             <div class="row" style={{ alignContent: "center" }}>
                                                 <div class="col-sm-12" style={{ padding: "10px" }}>
                                                     <div
-                                                        class="card"
+                                                        class="card" 
                                                         style={{
                                                             padding: "20px",
                                                             marginBottom: "10px",
-                                                            boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)",
+                                                          border:"none",
                                                             padding: "30px",
                                                             backgroundColor: "#ffffff",
-                                                            borderRadius: "5px",
+                                                            borderRadius: "17px",
+                                                            boxShadow: "0 19px 38px rgba(0,0,0,0.15)",
+                                                            
                                                         }}
                                                     >
-                                                        <h4 class="card-title"> &nbsp;Today(Points)</h4>
-                                                        <h6 class="text-muted card-subtitle mb-2">
+                                                        <h4 class="card-title" style={{fontSize:"3.8vh"}}> &nbsp;Today(Points)</h4>
+                                                        <h6 class="text-muted card-subtitle mb-2" style={{fontSize:"3.8vh"}}>
                                                             {this.state.today_earning}
                                                         </h6>
                                                     </div>
@@ -202,14 +205,15 @@ class Dash extends React.Component {
                                                         style={{
                                                             padding: "20px",
                                                             marginBottom: "10px",
-                                                            boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)",
+                                                            boxShadow: "0 19px 38px rgba(0,0,0,0.15)",
                                                             padding: "30px",
                                                             backgroundColor: "#ffffff",
-                                                            borderRadius: "5px",
+                                                            borderRadius: "17px",
+                                                            border:"none",
                                                         }}
                                                     >
-                                                        <h4 class="card-title">&nbsp; Yesterday(Points)</h4>
-                                                        <h6 class="text-muted card-subtitle mb-2">
+                                                        <h4 class="card-title"  style={{fontSize:"3.8vh"}} >&nbsp; Yesterday(Points)</h4>
+                                                        <h6 class="text-muted card-subtitle mb-2" style={{fontSize:"3.8vh"}}>
                                                             {this.state.yesterday_earning}
                                                         </h6>
                                                     </div>
@@ -221,15 +225,16 @@ class Dash extends React.Component {
                                                         style={{
                                                             padding: "20px",
                                                             marginBottom: "10px",
-                                                            boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)",
+                                                            boxShadow: "0 19px 38px rgba(0,0,0,0.15)",
                                                             padding: "30px",
                                                             backgroundColor: "#ffffff",
-                                                            borderRadius: "5px",
+                                                            borderRadius: "17px",
+                                                            border:"none",
                                                         }}
                                                     >
-                                                        <h4 class="card-title">Last 7 days(Points)</h4>
+                                                        <h4 class="card-title"  style={{fontSize:"3.8vh"}}>Last 7 days(Points)</h4>
 
-                                                        <h6 class="text-muted card-subtitle mb-2">
+                                                        <h6 class="text-muted card-subtitle mb-2" style={{fontSize:"3.8vh"}}>
                                                             {this.state.week_earning}
                                                         </h6>
                                                     </div>
@@ -240,30 +245,34 @@ class Dash extends React.Component {
                                                         style={{
                                                             padding: "20px",
                                                             marginBottom: "10px",
-                                                            boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)",
+                                                            boxShadow: "0 19px 38px rgba(0,0,0,0.15)",
                                                             padding: "30px",
                                                             backgroundColor: "#ffffff",
-                                                            borderRadius: "5px",
+                                                            borderRadius: "17px",
+                                                            border:"none",
                                                         }}
                                                     >
-                                                        <h4 class="card-title">This month(Points)</h4>
-                                                        <h6 class="text-muted card-subtitle mb-2">
+                                                        <h4 class="card-title"  style={{fontSize:"3.8vh"}}>This month(Points)</h4>
+                                                        <h6 class="text-muted card-subtitle mb-2" style={{fontSize:"3.8vh"}}>
                                                             {this.state.month_earning}
                                                         </h6>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-5">
+                                        
+                                        <div class="col-sm-5">
                                             <div class>
                                                 <div
                                                     class="card"
                                                     style={{
                                                         marginBottom: "10px",
-                                                        boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.2)",
+                                                        boxShadow: "0 19px 38px rgba(0,0,0,0.15)",
                                                         padding: "5px",
                                                         backgroundColor: "#ffffff",
-                                                        borderRadius: "5px",
+                                                        borderRadius: "17px",
+                                                        border:"none",
+                                                        marginTop:"10px"
                                                     }}
                                                 >
                                                     {/* ////////////////////////////////////// */}
@@ -271,8 +280,9 @@ class Dash extends React.Component {
                                                         id="carouselExampleControls"
                                                         className="carousel slide"
                                                         data-ride="carousel"
+                                                        style={{padding:"10px"}}
                                                     >
-                                                        <h2 style={{ textAlign: "center", fontSize: "3vh" }}>
+                                                        <h2 style={{ textAlign: "center", fontSize:"1.5vmax" }}>
                                                             {" "}
                             Highlights Scores{" "}
                                                         </h2>
@@ -284,7 +294,7 @@ class Dash extends React.Component {
                                                                         className="widraw"
                                                                         style={{
                                                                             textAlign: "center ",
-                                                                            fontSize: "2.5vh",
+                                                                            fontSize:"1.3vmax",
                                                                             fontWeight: "bold",
                                                                             marginLeft: "10px",
                                                                         }}
@@ -298,10 +308,11 @@ class Dash extends React.Component {
                                                                 <div
                                                                     className="widraw"
                                                                     style={{
-                                                                        textAlign: "center ",
-                                                                        fontSize: "2.5vh",
+                                                                        
+                                                                        fontSize:"1.3vmax",
                                                                         fontWeight: "bold",
-                                                                        marginLeft: "10px",
+                                                                        marginRight:"10px",
+                                                                        
                                                                     }}
                                                                 >
                                                                     {" "}
@@ -394,10 +405,10 @@ class Dash extends React.Component {
                                             </div>
                                         </div>
 
-                                        <h2 class="text-center" style={{ marginTop: "5%" }} >Place Your Social Media Orders <br /></h2>
+                                        <h2 class="text-center" style={{ marginTop: "5%" ,fontSize:"2.8vmax", textAlign:"center" }} >Place Your Social Media Orders <br /></h2>
                                         <div style={{ alignContent: "center" }}>
                                             {/* <h3 style={{ marginTop: "5%", textAlign: "center" }}>Place Your Social Media Orders</h3> */}
-
+<br></br>
                                             <div class="allcard" style={{ marginTop: "10px", height: "30%" }}>
                                                 <div class="row">
                                                     <div class="col-6 col-sm-4 col-md-2">
@@ -451,7 +462,7 @@ class Dash extends React.Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row" style={{ marginTop: "5%", width: "80%", marginBottom: "5%" }}>
+                                            <div class="row" style={{ marginTop: "5%", marginBottom: "5%" }}>
                                                 <div class="col-md-6 mx-auto " >
                                                     <Link to="/createorder" >
                                                         <button class="mx-auto d-block" style={{

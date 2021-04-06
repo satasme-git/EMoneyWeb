@@ -129,12 +129,17 @@ class Howitworks1 extends React.Component {
                       style={{ fontSize: "34px", paddingTop: "5px" }}
                     ></i>
                   </a>
-            &emsp;&emsp;
+            &emsp;
                 <div class="header__left" >
 
-                    <a href="/howitworks" class="nav__link pricing__link text_violet" >
-                      How it Works
-                            </a>
+                <Link to="/UserHome">
+                    <img
+                      src="/assets/webicon.png"
+                      style={{ width: "15vh", height: "8vh" }}
+                    />
+    
+                    <br />
+                  </Link>
                   </div>
                   <div class="header__right">
                     <a href="/register" class="button-register button_yellow ">

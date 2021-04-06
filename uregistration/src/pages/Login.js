@@ -281,9 +281,9 @@ class Login extends React.Component {
                                         } >
                                         <i className="fa fa-facebook" /> Connect with Facebook </button>
                                 </div>
+                                <br></br>
 
-
-                                <div style={{ marginTop: "5%", width: "100%" }}>
+                                <div style={{ width: "100%" }}>
                                     {this.state.isLogined ?
                                         <GoogleLogout
                                             clientId={CLIENT_ID}

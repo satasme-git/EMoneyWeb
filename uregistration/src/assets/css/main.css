@@ -1,5 +1,5 @@
-
 /* registration */
+
 .regwithemal {
   font-size: 90%;
   margin-left: 7%;
@@ -12,8 +12,7 @@
   margin-left: 7%;
   margin-top: -1%;
   color: #000000de;
-  font-weight:500;
-
+  font-weight: 500;
   padding-bottom: 5px;
 }
 
@@ -22,7 +21,9 @@
   margin-top: 5%;
 }
 
+
 /*line*/
+
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -47,6 +48,7 @@
   src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -56,10 +58,12 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: Poppins-Regular, sans-serif;
 }
+
 
 /*---------------------------------------------*/
 
@@ -84,9 +88,15 @@ a:hover {
   color: #57b846;
 }
 
+
 /*---------------------------------------------*/
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0px;
 }
 
@@ -98,10 +108,12 @@ p {
   margin: 0px;
 }
 
-ul, li {
+ul,
+li {
   margin: 0px;
   list-style-type: none;
 }
+
 
 /*---------------------------------------------*/
 
@@ -115,7 +127,8 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
@@ -183,6 +196,7 @@ textarea:-ms-input-placeholder {
   color: #999999;
 }
 
+
 /*---------------------------------------------*/
 
 button {
@@ -198,6 +212,7 @@ button:hover {
 iframe {
   border: none !important;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
@@ -222,6 +237,7 @@ iframe {
   line-height: 1.5;
   color: #666666;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -266,6 +282,7 @@ iframe {
   padding: 90px 130px 33px 95px;
 }
 
+
 /*------------------------------------------------------------------
 [  ]*/
 
@@ -277,12 +294,13 @@ iframe {
   max-width: 100%;
 }
 
+
 /*------------------------------------------------------------------
 [  ]*/
 
 .login100-form {
-   margin-left: 25%;
-   width: 50%;
+  margin-left: 25%;
+  width: 50%;
 }
 
 .login100-form-title {
@@ -296,6 +314,7 @@ iframe {
   display: block;
   padding: 10%;
 }
+
 
 /*---------------------------------------------*/
 
@@ -316,8 +335,10 @@ iframe {
   background: #e6e6e6;
   height: 50px;
   border-radius: 25px;
+  margin-left: -40;
   padding: 0 30px 0 68px;
 }
+
 
 /*------------------------------------------------------------------
 [ Focus ]*/
@@ -342,15 +363,15 @@ iframe {
 
 @-webkit-keyframes anim-shadow {
   to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
   }
 }
 
 @keyframes anim-shadow {
   to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
   }
 }
 
@@ -381,6 +402,7 @@ iframe {
   color: #57b846;
   padding-left: 28px;
 }
+
 
 /*------------------------------------------------------------------
 [ Button ]*/
@@ -424,9 +446,6 @@ iframe {
 .login100-form-btn:hover {
   background: #333333;
 }
-
-
-
 
 .container-login100-form-btn1 {
   width: 100%;
@@ -474,33 +493,34 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
+      padding: 177px 90px 33px 85px;
   }
   .login100-pic {
-    width: 35%;
+      width: 35%;
   }
   .login100-form {
-    width: 50%;
+      width: 50%;
   }
 }
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 100px 80px 33px 80px;
+      padding: 100px 80px 33px 80px;
   }
   .login100-pic {
-    display: none;
+      display: none;
   }
   .login100-form {
-    width: 100%;
+      width: 100%;
   }
 }
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 90px 15px 15px;
+      padding: 100px 90px 15px 15px;
   }
 }
+
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -561,12 +581,14 @@ iframe {
 
 @media (max-width: 992px) {
   .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
+      visibility: visible;
+      opacity: 1;
   }
 }
 
+
 /* login */
+
 .regwithemalw {
   font-size: 90%;
   margin-left: 7%;
@@ -579,8 +601,7 @@ iframe {
   margin-left: 7%;
   margin-top: -1%;
   color: #000000de;
-  font-weight:500;
-
+  font-weight: 500;
   padding-bottom: 5px;
 }
 
@@ -589,7 +610,9 @@ iframe {
   margin-top: 5%;
 }
 
+
 /*line*/
+
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -614,6 +637,7 @@ iframe {
   src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -623,10 +647,12 @@ iframe {
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: Poppins-Regular, sans-serif;
 }
+
 
 /*---------------------------------------------*/
 
@@ -651,9 +677,15 @@ a:hover {
   color: #57b846;
 }
 
+
 /*---------------------------------------------*/
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0px;
 }
 
@@ -665,10 +697,12 @@ p {
   margin: 0px;
 }
 
-ul, li {
+ul,
+li {
   margin: 0px;
   list-style-type: none;
 }
+
 
 /*---------------------------------------------*/
 
@@ -682,7 +716,8 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
@@ -750,6 +785,7 @@ textarea:-ms-input-placeholder {
   color: #999999;
 }
 
+
 /*---------------------------------------------*/
 
 button {
@@ -765,6 +801,7 @@ button:hover {
 iframe {
   border: none !important;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
@@ -789,6 +826,7 @@ iframe {
   line-height: 1.5;
   color: #666666;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -830,8 +868,9 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 90px 130px 33px 95px;
+  /* padding: 90px 130px 33px 95px; */
 }
+
 
 /*------------------------------------------------------------------
 [  ]*/
@@ -844,12 +883,13 @@ iframe {
   max-width: 100%;
 }
 
+
 /*------------------------------------------------------------------
 [  ]*/
 
 .login100-formw {
-   margin-left: 25%;
-   width: 50%;
+  margin-left: 25%;
+  width: 50%;
 }
 
 .login100-form-titlew {
@@ -863,6 +903,7 @@ iframe {
   display: block;
   padding: 10%;
 }
+
 
 /*---------------------------------------------*/
 
@@ -885,6 +926,7 @@ iframe {
   border-radius: 25px;
   padding: 0 20px 0 68px;
 }
+
 
 /*------------------------------------------------------------------
 [ Focus ]*/
@@ -909,15 +951,15 @@ iframe {
 
 @-webkit-keyframes anim-shadow {
   to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
   }
 }
 
 @keyframes anim-shadow {
   to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
+      box-shadow: 0px 0px 70px 25px;
+      opacity: 0;
   }
 }
 
@@ -949,10 +991,11 @@ iframe {
   padding-left: 28px;
 }
 
+
 /*------------------------------------------------------------------
 [ Button ]*/
 
-.container-login100-form-btnw{
+.container-login100-form-btnw {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -991,9 +1034,6 @@ iframe {
 .login100-form-btnw:hover {
   background: #333333;
 }
-
-
-
 
 .container-login100-form-btn1w {
   width: 100%;
@@ -1041,65 +1081,57 @@ iframe {
 
 @media (max-width: 992px) {
   .wrap-login100w {
-    padding: 100px 90px 33px 85px;
+      padding: 100px 90px 33px 85px;
   }
   .login100-picw {
-    width: 35%;
+      width: 35%;
   }
   .login100-formw {
-    width: 50%;
+      width: 50%;
   }
 }
-
-
-
 
 @media (max-width: 380px) {
   .wrap-login100w {
-    padding: 100px 90px 33px 85px;
+      padding: 100px 90px 33px 85px;
   }
   .login100-picw {
-    width: 35%;
+      width: 35%;
   }
   .login100-formw {
-    width: 50%;
+      width: 50%;
   }
-
-
   .login100-form-titlew {
-    font-family: Segoe UI;
-    font-size: 50px;
-    color: #333333;
-    line-height: 1.2;
-    text-align: center;
-    margin-top: -20%;
-    margin-left: -30px;
-    width: 100%;
-    display: block;
-    
+      font-family: Segoe UI;
+      font-size: 50px;
+      color: #333333;
+      line-height: 1.2;
+      text-align: center;
+      margin-top: -20%;
+      margin-left: -30px;
+      width: 100%;
+      display: block;
   }
 }
 
-
-
-
 @media (max-width: 768px) {
   .wrap-login100w {
-    padding: 100px 160px 33px 80px;
+      padding: 100px 160px 33px 80px;
   }
   .login100-picw {
-    display: none;
+      display: none;
   }
   .login100-formw {
-    width: 100%;
+      width: 100%;
   }
 }
 
 @media (max-width: 576px) {
   .wrap-login100w {
-    padding: 100px 90px 15px 15px;
+      padding: 100px 90px 15px 15px;
   }
 }
+
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -1160,7 +1192,7 @@ iframe {
 
 @media (max-width: 992px) {
   .alert-validatew::before {
-    visibility: visible;
-    opacity: 1;
+      visibility: visible;
+      opacity: 1;
   }
 }

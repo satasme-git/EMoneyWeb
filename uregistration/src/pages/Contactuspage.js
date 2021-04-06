@@ -32,9 +32,9 @@ class Contactuspage extends React.Component {
       <div id="homepage" className="is-header">
         <Helmet>
           <meta charSet="utf-8" />
-          <title>My Title</title>
+          <title>Contact Us</title>
           <link rel="canonical" href="http://mysite.com/example" />
-          <title>Home</title>
+
           <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           <meta
             name="description"
@@ -52,7 +52,7 @@ class Contactuspage extends React.Component {
             rel="stylesheet"
             href="/assets/css/app69fd.css?id=d97cc8504a674a3a9f71"
           />
-          <link rel="stylesheet" href="/assets/home-css.css" />
+          {/* <link rel="stylesheet" href="/assets/home-css.css" /> */}
           <link rel="stylesheet" href="/assets/assets/fonts/ionicons.min.css" />
           <link rel="stylesheet" href="/assets/assets/css/Footer-Dark.css" />
           <link rel="stylesheet" href="/assets/assets/css/styles.css"></link>
@@ -61,36 +61,50 @@ class Contactuspage extends React.Component {
         {(() => {
           if (Cookies.get('user') == null) {
             return (
-              <header class="header" style={{ backgroundColor: "white", height: "10%", width: "100%" }}>
-
-                <section class="container header__inner" >
-                  <a class="action" href="/howitworks">
+              <header
+              class="header"
+              style={{ backgroundColor: "white", height: "10", width: "100%" }}
+            >
+              <section class="container header__inner">
+                <Link to="/UserHome">
+                  <a class="action">
                     <i
                       class="fa fa-arrow-circle-left"
-                      style={{ fontSize: "34px", paddingTop: "5px" }}
+                      style={{ fontSize: "34px", paddingTop: "14px" }}
                     ></i>
                   </a>
-            &emsp;&emsp;
-                <div class="header__left" >
-
-                    <a href="/homebl" class="nav__link pricing__link text_violet" >
-                      Home
-                            </a>
-                  </div>
-                  <div class="header__right">
-                    <a href="/register" class="button-register button_yellow ">
-                      Registration
-                            </a>
-                    <a href="/login" class="button-enter button_yellow ">
-                      <div class="button-enter__text">
-                        <span>Login</span>
-                      </div>
-                      <img class="button-enter__icon" src="assets/Image/earn/user.svg" alt=""></img>
-                    </a>
-                  </div>
-                </section>
-
-              </header>
+                </Link>
+                &emsp;
+                <div class="header__left">
+                 
+                <Link to="/UserHome">
+                    <img
+                      src="/assets/webicon.png"
+                      style={{ width: "161px", height: "61px" }}
+                    />
+    
+                    <br />
+                  </Link>
+                  
+                </div>
+                <div class="header__right">
+                  <a href="/register" class="button-register button_yellow " style={{ textDecoration: 'none' }}>
+                    Registration
+                  </a>
+    
+                  <a href="/login" class="button-enter button_yellow " style={{ textDecoration: 'none' }}>
+                    <div class="button-enter__text">
+                      <span>Login</span>
+                    </div>
+                    <img
+                      class="button-enter__icon"
+                      src="assets/Image/earn/user.svg"
+                      alt=""
+                    ></img>
+                  </a>
+                </div>
+              </section>
+            </header>
             )
           } else {
             return (
@@ -162,7 +176,7 @@ class Contactuspage extends React.Component {
                             />
                           </div>
                           <br />
-                          <div style={{ fontSize: "80px", color: "#383e56" }}>
+                          <div style={{ fontSize: "4vmax", color: "#383e56" }}>
                             Contact Information
                       </div>
                         </div><br />
@@ -181,7 +195,7 @@ class Contactuspage extends React.Component {
                         </div>
 
                         <div class="col-md-12">
-                          <div style={{ fontSize: "35px", textAlign: "center" }}>
+                          <div style={{ fontSize: "2vmax", textAlign: "center" }}>
 
                             <div style={{ color: "#383e56" }}>
                               <i class="fa fa-phone"></i>&nbsp;
@@ -191,7 +205,7 @@ class Contactuspage extends React.Component {
 
                             <div style={{ color: "#383e56" }}>
                               <i class="fa fa-envelope"></i>&nbsp;
-                          hello@gmail.com
+                              support@emoneytag.com
                          </div><br /><br />
 
 
@@ -212,11 +226,11 @@ class Contactuspage extends React.Component {
 
               </div>
             </div>
-
+            <br></br><br></br>
           </div>
         </main>{" "}
 
-
+       
 
 
 

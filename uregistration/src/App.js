@@ -40,6 +40,10 @@ import SurveyHome from './pages/temp/Surveyhome';
 import SurveyView from './pages/temp/Surveyquestionview';
 // end temp
 
+//////////////////////////////////////////////Login & register////////////////////////////////////////////////////////////////
+import Loginnew from './pages/Loginnew'
+import Registernew from './pages/Registernew'
+
 // start admin
 
 import Dashboard from "./pages/Dashboard";
@@ -158,6 +162,9 @@ class App extends Component {
                      <Route path="/earnhistory" component={EarnHistory}></Route>
                      {/* <Route path="/earnpage" component={EarnPage}></Route> */}
                      {/* <Route path="/dashboard" component={Dash}></Route> */}
+
+                     <Route path="/loginnew" component={Loginnew}></Route>
+                     <Route path="/registernew" component={Registernew}></Route>
 
 
                      {/* temp path */}

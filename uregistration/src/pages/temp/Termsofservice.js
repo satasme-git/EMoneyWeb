@@ -51,29 +51,50 @@ class Termsofservice extends React.Component {
         {(() => {
           if (Cookies.get('user') == null) {
             return (
-              <header class="header" style={{ backgroundColor: "white", height: "10", width: "100%" }}>
-
-                <section class="container header__inner" >
-                  <div class="header__left" >
-
-                    <a href="/homebl" class="nav__link pricing__link text_violet" >
-                      Home
+              <header
+              class="header"
+              style={{ backgroundColor: "white", height: "10", width: "100%" }}
+            >
+              <section class="container header__inner">
+                <Link to="/homebl">
+                  <a class="action">
+                    <i
+                      class="fa fa-arrow-circle-left"
+                      style={{ fontSize: "34px", paddingTop: "14px" }}
+                    ></i>
                   </a>
-                  </div>
-                  <div class="header__right">
-                    <a href="/register" class="button-register button_yellow ">
-                      Registration
-                            </a>
-                    <a href="/login" class="button-enter button_yellow ">
-                      <div class="button-enter__text">
-                        <span>Login</span>
-                      </div>
-                      <img class="button-enter__icon" src="assets/Image/earn/user.svg" alt=""></img>
-                    </a>
-                  </div>
-                </section>
-
-              </header>
+                </Link>
+                &emsp;
+                <div class="header__left">
+                 
+                <Link to="/UserHome">
+                    <img
+                      src="/assets/webicon.png"
+                      style={{ width: "161px", height: "61px" }}
+                    />
+    
+                    <br />
+                  </Link>
+                  
+                </div>
+                <div class="header__right">
+                  <a href="/register" class="button-register button_yellow " style={{ textDecoration: 'none' }}>
+                    Registration
+                  </a>
+    
+                  <a href="/login" class="button-enter button_yellow " style={{ textDecoration: 'none' }}>
+                    <div class="button-enter__text">
+                      <span>Login</span>
+                    </div>
+                    <img
+                      class="button-enter__icon"
+                      src="assets/Image/earn/user.svg"
+                      alt=""
+                    ></img>
+                  </a>
+                </div>
+              </section>
+            </header>
             )
           } else {
             return (
@@ -123,8 +144,8 @@ class Termsofservice extends React.Component {
 
 
         <div class="row">
-          <div class="col-3"></div>
-          <div class="col-6" style={{ marginTop: "120px" }}>
+          <div class="col-2"></div>
+          <div class="col-8" style={{ marginTop: "120px" }}>
 
             <div className="privcy" style={{ color: "#0f3057" }}>
 
@@ -257,7 +278,7 @@ Address 2,<br /><br /><br />
             </div>
 
           </div>
-          <div class="col-3"></div>
+          <div class="col-2"></div>
         </div>
 
 

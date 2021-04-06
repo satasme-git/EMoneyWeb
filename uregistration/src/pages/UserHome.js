@@ -19,12 +19,12 @@ class UserHome extends React.Component {
   }
 
   componentDidMount() {
-    var user = Cookies.get('user');
-    if (user != null) {
+    // var user = Cookies.get('user');
+    // if (user != null) {
 
-    } else {
-      this.props.history.push('/login');
-    }
+    // } else {
+    //   this.props.history.push('/login');
+    // }
   }
 
   redirectToHomebl = (e) => {
@@ -174,10 +174,12 @@ class UserHome extends React.Component {
           }}
         >
           <section class="container header__inner">
+         
+
             <div class="header__left">
               <Link to="/UserHome">
                 <img
-                  src="/assets/webicon.png"
+                  src="/assets/webiconCopy.png"
                   style={{ width: "161px", height: "61px" }}
                 />
 
@@ -270,8 +272,8 @@ class UserHome extends React.Component {
                         <img
                           src="/assets/fevicon/fasterman.jpg"
                           style={{
-                            width: "70%",
-                            height: "90%",
+                            width: "60%",
+                            height: "100%",
                             marginTop: "5%",
                             marginLeft: "20%",
                             marginTop: "-1%",
@@ -434,7 +436,7 @@ class UserHome extends React.Component {
                       <div class="imageali">
                         <img
                           src="/assets/Image/new image size/icon/1.png"
-                          style={{ width: "40%", height: "40%" }}
+                          style={{ width: "32%", height: "32%" }}
                         ></img>
                       </div>
                     </div>
@@ -457,7 +459,7 @@ class UserHome extends React.Component {
                       <div class="imageali">
                         <img
                           src="/assets/Image/new image size/icon/2.png"
-                          style={{ width: "40%", height: "40%" }}
+                          style={{ width: "32%", height: "32%" }}
                         ></img>
                       </div>
                     </div>
@@ -480,7 +482,7 @@ class UserHome extends React.Component {
                         {" "}
                         <img
                           src="/assets/Image/new image size/icon/5.png"
-                          style={{ width: "40%", height: "40%" }}
+                          style={{ width: "32%", height: "32%" }}
                         ></img>
                       </div>
                     </div>
@@ -502,7 +504,7 @@ class UserHome extends React.Component {
                       <div class="imageali">
                         <img
                           src="/assets/Image/new image size/icon/3.png"
-                          style={{ width: "40%", height: "40%" }}
+                          style={{ width: "32%", height: "32%" }}
                         ></img>
                       </div>
                     </div>
@@ -524,7 +526,7 @@ class UserHome extends React.Component {
                       <div class="imageali">
                         <img
                           src="/assets/Image/new image size/icon/4.png"
-                          style={{ width: "40%", height: "40%" }}
+                          style={{ width: "32%", height: "32%" }}
                         ></img>
                       </div>
                     </div>
@@ -548,7 +550,7 @@ class UserHome extends React.Component {
                       <div class="imageali">
                         <img
                           src="/assets/Image/new image size/icon/6.png"
-                          style={{ width: "40%", height: "40%" }}
+                          style={{ width: "32%", height: "32%" }}
                         ></img>
                       </div>
                     </div>
@@ -678,7 +680,7 @@ class UserHome extends React.Component {
                 </ul>
 
                 <img
-                  src="/assets/finalgif.gif"
+                  src="/assets/gif2.gif"
                   width="100%"
                   height="100%"
                 ></img>
