@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "servey_questions")
-public class YesNoServeyQuestions {
+public class ServeyQuestions {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id_serveyq")
@@ -28,11 +28,11 @@ public class YesNoServeyQuestions {
 	@JoinColumn(name="serveyid",referencedColumnName="id_servey")
 	private Servey servey;
 	
-	public YesNoServeyQuestions() {
+	public ServeyQuestions() {
 		super();
 	}
 
-	public YesNoServeyQuestions(long id, String question, String status, Servey servey) {
+	public ServeyQuestions(long id, String question, String status, Servey servey) {
 		super();
 		this.id = id;
 		this.question = question;

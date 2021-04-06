@@ -686,26 +686,26 @@ class Profile extends React.Component {
                                 <h4 class="card-title">User Profile</h4>
 
 
-                                
 
-                            <table  style={{marginLeft:"50px"}} >
 
-<tr style={{textAlign:"left"}}>
-  <td>E-mail</td>&nbsp;&nbsp;&nbsp;:&nbsp;
+                                <table style={{ marginLeft: "50px" }} >
+
+                                    <tr style={{ textAlign: "left" }}>
+                                        <td>E-mail</td>&nbsp;&nbsp;&nbsp;:&nbsp;
   <td>{this.state.premail}</td>
 
-</tr>
-<tr style={{textAlign:"left"}}>
-  <td>Contact No</td>&nbsp;&nbsp;&nbsp;:&nbsp;
+                                    </tr>
+                                    <tr style={{ textAlign: "left" }}>
+                                        <td>Contact No</td>&nbsp;&nbsp;&nbsp;:&nbsp;
   <td>{this.state.prmobile}</td>
 
-</tr>
-<tr style={{textAlign:"left"}}>
-  <td>Earned Points</td>&nbsp;&nbsp;&nbsp;:&nbsp;
+                                    </tr>
+                                    <tr style={{ textAlign: "left" }}>
+                                        <td>Earned Points</td>&nbsp;&nbsp;&nbsp;:&nbsp;
   <td>{this.state.prearningtotal}</td>
 
-</tr>
-</table>
+                                    </tr>
+                                </table>
 
 
                                 {/* <h6 class="text-muted card-subtitle mb-2">{this.state.profilecomplete}</h6><span>E-mail</span>
@@ -736,6 +736,7 @@ class Profile extends React.Component {
                             </div>
                             <div class="col-sm-4" style={{ textAlign: "center" }}><br></br>
                                 <h4 class="card-title">Profile Image</h4>
+<<<<<<< HEAD
 
 
                                 
@@ -751,6 +752,24 @@ class Profile extends React.Component {
   </div>
 </div>
                                 <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} />
+=======
+                                {/* /////////////////////new upload iamge/////////////// */}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} src={this.state.profileimage}></img>
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="myImage" onChange={this.changeThumbnail} />
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                </div>
+
+
+                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img> */}
+                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img> */}
+                                {/* <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} /> */}
+>>>>>>> a3a6cbd43d572b45007b3e73e390911c3dc3232b
                                 {/* <button class="btn btn-outline-primary icon-button" onClick={this.uploadImages} type="button" style={{ width: "15%", marginTop: "10px", marginLeft: "39%" }}><i class="fa fa-camera"></i></button> */}
                             </div>
                         </div>

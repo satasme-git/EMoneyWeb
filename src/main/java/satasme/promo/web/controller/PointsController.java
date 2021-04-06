@@ -161,6 +161,18 @@ public class PointsController {
 			if (p.getPoints()>maxpoints) {
 				maxpoints=p.getPoints();
 			}
+		}else if(source.equals("Servey Fill")) {
+			cr.add(Restrictions.eq("pointSource", "Servey Fill"));
+			Points p=(Points) cr.uniqueResult();
+			if (p.getPoints()>maxpoints) {
+				maxpoints=p.getPoints();
+			}
+		}else if(source.equals("Website Views")) {
+			cr.add(Restrictions.eq("pointSource", "Website Views"));
+			Points p=(Points) cr.uniqueResult();
+			if (p.getPoints()>maxpoints) {
+				maxpoints=p.getPoints();
+			}
 		}
 		return String.valueOf(maxpoints);
 	}
@@ -194,7 +206,7 @@ public class PointsController {
 		String dailypoint = node.get("point").asText();
 		Criteria cr = em.unwrap(Session.class).createCriteria(DailyEarnLimit.class);
 		cr.add(Restrictions.eq("type", "Daily Limit"));
-		cr.add(Restrictions.eq("dailylimit", Double.valueOf(dailypoint)));
+//		cr.add(Restrictions.eq("limit", Double.valueOf(dailypoint)));
 		if (cr.list().isEmpty()) {
 			DailyEarnLimit limit=new DailyEarnLimit();
 			limit.setLimit(Double.valueOf(dailypoint));
@@ -214,7 +226,7 @@ public class PointsController {
 		String dailypoint = node.get("point").asText();
 		Criteria cr = em.unwrap(Session.class).createCriteria(DailyEarnLimit.class);
 		cr.add(Restrictions.eq("type", "Payout Limit"));
-		cr.add(Restrictions.eq("dailylimit", Double.valueOf(dailypoint)));
+//		cr.add(Restrictions.eq("dailylimit", Double.valueOf(dailypoint)));
 		if (cr.list().isEmpty()) {
 			DailyEarnLimit limit=new DailyEarnLimit();
 			limit.setLimit(Double.valueOf(dailypoint));

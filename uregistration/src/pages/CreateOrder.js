@@ -1874,8 +1874,8 @@ class Dash extends React.Component {
                 });
             }
         } else if (menu6.classList.contains("active")) {
-            var ti_f_check = document.getElementById("ti_f_check");
-            var fcountry = document.getElementById("ti_f_country");
+            var ti_f_check = document.getElementById("w_v_check");
+            var fcountry = document.getElementById("w_v_country");
             var options = fcountry && fcountry.options;
             var fresult = [];
             var opt;
@@ -1887,11 +1887,11 @@ class Dash extends React.Component {
 
                 }
             }
-            var fagegroupmin = document.getElementById("ti_f_agegroup_min").value;
-            var fagegroupmax = document.getElementById("ti_f_agegroup_max").value;
+            var fagegroupmin = document.getElementById("w_v_agegroup_min").value;
+            var fagegroupmax = document.getElementById("w_v_agegroup_max").value;
             var fagegroup = fagegroupmin + " to " + fagegroupmax;
             // var fagegroup = document.getElementById("ti_f_agegroup").value;
-            var fgendertag = document.getElementById("ti_f_gmale");
+            var fgendertag = document.getElementById("w_v_gmale");
             var fgender = "";
             if (fgendertag.checked) {
                 fgender = "male";
@@ -1899,7 +1899,7 @@ class Dash extends React.Component {
                 fgender = "female";
             }
             if (ti_f_check.checked) {
-                let orderdetails = { user: Cookies.get('user'), country: fresult, social: 'tiktok', agegroup: fagegroup, gender: fgender, link: this.state.tiktok_link, cost: this.state.final_earning, service: 'followers', count: this.state.tw_followers }
+                let orderdetails = { user: Cookies.get('user'), country: fresult, social: 'website', agegroup: fagegroup, gender: fgender, link: this.state.web_link, cost: this.state.final_earning, service: 'views', count: this.state.w_views }
 
                 orderService.saveorder(orderdetails).then(res => {
                     if (res.status === 200 && res.statusText === 'OK') {

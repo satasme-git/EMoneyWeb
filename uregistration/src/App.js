@@ -38,6 +38,7 @@ import AddSurvey from './pages/temp/addsurveyqus';
 import ApproveSurvey from './pages/temp/Approvesurveyqus';
 import SurveyHome from './pages/temp/Surveyhome';
 import SurveyView from './pages/temp/Surveyquestionview';
+import ServeyList from './pages/temp/ServeyList';
 // end temp
 
 //////////////////////////////////////////////Login & register////////////////////////////////////////////////////////////////
@@ -76,6 +77,12 @@ import Twimg from "./pages/temp/Twitterigetimage";
 import Ytimg from "./pages/temp/Youtbethumblin";
 import Termsofservice from "./pages/temp/Termsofservice";
 import Privacypolicy from "./pages/temp/Privacypolicy";
+import Approvesurveyqus from "./pages/temp/Approvesurveyqus";
+import Surveyquestionview from "./pages/temp/Surveyquestionview";
+import LinkClicks from "./pages/temp/LinkClicks";
+import LinkEarnHistory from "./pages/temp/LinkEarnHistory";
+import ServeyEarnHistory from "./pages/temp/ServeyEarnHistory";
+
 
 
 //end admin
@@ -190,6 +197,9 @@ class App extends Component {
                      <Route path="/surveyview" component={SurveyView}></Route>
                      <Route path="/privacypolicy" component={Privacypolicy}></Route>
                      <Route path="/termsofservice" component={Termsofservice}></Route>
+                     <Route path="/serveyview" component={Surveyquestionview}></Route>
+                     <Route path="/servey" component={ServeyList}></Route>
+                     <Route path="/linkclick" component={LinkClicks}></Route>
                      {/* temp path end */}
 
 
@@ -205,6 +215,8 @@ class App extends Component {
                      <Route path="/admin/youtubeearnhistory" exact component={YouTubeEarnHistory}></Route>
                      <Route path="/admin/Twitterearnhistory" exact component={TwitterEarnHistory}></Route>
                      <Route path="/admin/TikTokearnhistory" exact component={TikTokEarnHistory}></Route>
+                     <Route path="/admin/serveyhistory" exact component={ServeyEarnHistory}></Route>
+                     <Route path="/admin/linkhistory" exact component={LinkEarnHistory}></Route>
                      <Route path="/admin/point" component={Point}></Route>
                      <Route path="/admin/users" component={Users}></Route>
 
@@ -215,6 +227,7 @@ class App extends Component {
                      <Route path="/admin/tikTok" exact component={ETikTok}></Route>
                      <Route path="/admin/link" exact component={ELink}></Route>  
                      <Route path="/admin/servey" exact component={EServey}></Route>  
+                     <Route path="/admin/viewservey" exact component={Approvesurveyqus}></Route> 
 
                   </Switch>
 

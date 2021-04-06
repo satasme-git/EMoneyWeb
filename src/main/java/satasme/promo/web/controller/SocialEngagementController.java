@@ -57,20 +57,20 @@ public class SocialEngagementController {
 		String service = node.get("service").asText();
 		String userid = node.get("userid").asText();
 		String orderid = node.get("orderid").asText();
-		
+
 		Criteria cr1 = em.unwrap(Session.class).createCriteria(User.class);
 		cr1.add(Restrictions.eq("id", Long.valueOf(userid)));
 		User user = (User) cr1.uniqueResult();
-		
-		Criteria cr2 = em.unwrap(Session.class).createCriteria(Orders.class);
-		cr2.add(Restrictions.eq("id", orderid));
-		Orders order = (Orders) cr2.uniqueResult();
+
 		String crrdate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-		
+
 		Criteria cr = em.unwrap(Session.class).createCriteria(Points.class);
-		cr.add(Restrictions.eq("pointSource", service));
+		if (service.equals("Website View")) {
+			cr.add(Restrictions.eq("pointSource", "Website Views"));
+		} else {
+			cr.add(Restrictions.eq("pointSource", service));
+		}
 		Points points = (Points) cr.uniqueResult();
-		
 
 		Criteria cre = em.unwrap(Session.class).createCriteria(UserPoints.class);
 		cre.add(Restrictions.eq("user", user));
@@ -80,39 +80,64 @@ public class SocialEngagementController {
 		for (UserPoints up : po_list) {
 			totalpoints += up.getPoints();
 		}
-		totalpoints=totalpoints+points.getPoints();
-		double daily_limit=0;
+		totalpoints = totalpoints + points.getPoints();
+		double daily_limit = 0;
 		Criteria crdl = em.unwrap(Session.class).createCriteria(DailyEarnLimit.class);
 		crdl.add(Restrictions.eq("type", "Daily Limit"));
 		if (!(crdl.list().isEmpty())) {
-			DailyEarnLimit limit=(DailyEarnLimit) crdl.uniqueResult();
-			daily_limit=limit.getLimit();
+			DailyEarnLimit limit = (DailyEarnLimit) crdl.uniqueResult();
+			daily_limit = limit.getLimit();
 		}
 		if (totalpoints >= daily_limit) {
 			return "exceed";
 		} else {
-			UserSocialEngagement engagement = new UserSocialEngagement();
-			engagement.setService(service);
-			engagement.setDate(crrdate);
-			engagement.setUser(user);
-			engagement.setOrders(order);
-			this.engagementsrep.save(engagement);
+			if (!(service.equals("Servey Fill") || service.equals("Website View"))) {
+				Criteria cr2 = em.unwrap(Session.class).createCriteria(Orders.class);
+				cr2.add(Restrictions.eq("id", orderid));
+				Orders order = (Orders) cr2.uniqueResult();
+				UserSocialEngagement engagement = new UserSocialEngagement();
+				engagement.setService(service);
+				engagement.setDate(crrdate);
+				engagement.setUser(user);
+				engagement.setOrders(order);
+				this.engagementsrep.save(engagement);
+				
+				
+				//check order availability
+				Criteria crue = em.unwrap(Session.class).createCriteria(UserSocialEngagement.class);
+				cr2.add(Restrictions.eq("orders", order));
+				cr2.add(Restrictions.like("service", service));
+				int size = crue.list().size();
+				String qty = order.getQty();
+				if (order.getService().contains(",")) {
+					String[] split = order.getService().split(",");
+					for (String s : split) {
+						int getqty=Integer.parseInt(s);
+						if (getqty>=size) {
+							order.setStatus("completed");
+						}
+					}
+				}else {
+					int getqty=Integer.parseInt(qty);
+					if (getqty>=size) {
+						order.setStatus("completed");
+					}
+				}
 
-			
-			//add points
-			
-			UserPoints userPoints = new UserPoints();
-			userPoints.setPoints(points.getPoints());
-			userPoints.setPointSource(service);
-			userPoints.setDate(crrdate);
-			userPoints.setStatus("Active");
-			userPoints.setUser(user);
-			this.userPointsRepository.save(userPoints);
+				// add points
+
+				UserPoints userPoints = new UserPoints();
+				userPoints.setPoints(points.getPoints());
+				userPoints.setPointSource(service);
+				userPoints.setDate(crrdate);
+				userPoints.setStatus("Active");
+				userPoints.setUser(user);
+				this.userPointsRepository.save(userPoints);
+			}
 
 			return "success";
 		}
 
-		
 	}
 
 	@GetMapping("/{id}/{service}")

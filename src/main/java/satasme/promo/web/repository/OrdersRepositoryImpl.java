@@ -76,6 +76,9 @@ public class OrdersRepositoryImpl implements OrdersRepositoryCustom {
 		} else if (serviceget.equals("Tiktok Followers")) {
 			social = "tiktok";
 			service = "followers";
+		}else if (serviceget.equals("Website Views")) {
+			social = "website";
+			service = "views";
 		}
 		crpk.add(Restrictions.eq("social", social));
 		crpk.add(Restrictions.eq("status", "confirmed"));
@@ -199,6 +202,8 @@ public class OrdersRepositoryImpl implements OrdersRepositoryCustom {
 						service = "Twitter Followers";
 					} else if (social.equals("tiktok") && orders.getService().equals("followers")) {
 						service = "Tiktok Followers";
+					}else if (social.equals("website") && orders.getService().equals("views")) {
+						service = "Website Views";
 					}
 					cr.add(Restrictions.eq("service", service));
 					cr.add(Restrictions.eq("orders", orders));
@@ -321,6 +326,29 @@ public class OrdersRepositoryImpl implements OrdersRepositoryCustom {
 				}
 			} else if (social.equals("tiktok")) {
 				String[] ar1 = { "Tiktok Followers" };
+				double total_points = 0;
+				for (int i = 0; i < ar1.length; i++) {
+					crup.add(Restrictions.eq("pointSource", ar1[i]));
+
+					if (!crup.list().isEmpty()) {
+						List<UserPoints> up_list = crup.list();
+						for (UserPoints up : up_list) {
+							total_points += up.getPoints();
+						}
+					}
+				}
+				if (total_points!=0) {
+					UserEarningResponse uer = new UserEarningResponse();
+					uer.setEarning(String.valueOf(total_points));
+					uer.setEmail(user.getEmail());
+					uer.setFname(user.getFname());
+					uer.setLname(user.getLname());
+					erlist.add(uer);
+				}
+				
+				
+			}else if (social.equals("website")) {
+				String[] ar1 = { "Website Views" };
 				double total_points = 0;
 				for (int i = 0; i < ar1.length; i++) {
 					crup.add(Restrictions.eq("pointSource", ar1[i]));
