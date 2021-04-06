@@ -177,6 +177,18 @@ class Earnreferal extends React.Component {
                     </div>
                   </div>
                 </a>
+
+
+
+                
+                <div class="row" style={{textAlign:"center"}}>
+  <div class="col-2"></div>
+  <div class="col-8">
+       
+</div>
+  <div class="col-2"></div>
+</div>
+
                 <p class="description" style={{ padding: "10px", fontSize: "15px" }}>
                   Refer Your Friends and Earn Money with Referral Links.You can share your links online, via email, and text, and when a friend signs up and does the necessary action, you’ll be credited with points.
                 </p>

@@ -736,22 +736,21 @@ class Profile extends React.Component {
                             </div>
                             <div class="col-sm-4" style={{ textAlign: "center" }}><br></br>
                                 <h4 class="card-title">Profile Image</h4>
-{/* /////////////////////new upload iamge/////////////// */}
+
+
+                                
+                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img>
+                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img>
+                                {/* /////////////////////new upload iamge/////////////// */}
                                 <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Upload</span>
-  </div>
+
   <div class="custom-file">
-  <img style={{ width: "35%", height: "35%", marginLeft: "30%" }}  src={this.state.profileimage}></img>
+
     <input type="file" class="custom-file-input" id="inputGroupFile01"  accept="image/*" name="myImage" onChange={this.changeThumbnail}/>
     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
   </div>
 </div>
-
-                                
-                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img> */}
-                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img> */}
-                                {/* <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} /> */}
+                                <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} />
                                 {/* <button class="btn btn-outline-primary icon-button" onClick={this.uploadImages} type="button" style={{ width: "15%", marginTop: "10px", marginLeft: "39%" }}><i class="fa fa-camera"></i></button> */}
                             </div>
                         </div>

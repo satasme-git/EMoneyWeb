@@ -60,9 +60,9 @@ class Homebl extends React.Component {
                             <header class="header" style={{ backgroundColor: "white", height: "10%", width: "100%" }}>
 
                                 <section class="container header__inner" >
-                                    <div class="header__left" >
+                                    <div class="header__left"style={{marginTop:"10px"}} >
 
-                                        <a href="/howitworks" class="nav__link pricing__link text_violet" >
+                                        <a href="/howitworks" class="nav__link pricing__link text_violet"  >
                                             How it Works
                             </a>
                                     </div>

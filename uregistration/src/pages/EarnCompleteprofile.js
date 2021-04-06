@@ -220,12 +220,19 @@ class EarnCompleteprofile extends React.Component {
 
 
                 </a>
+
+                <div class="row" style={{textAlign:"center"}}>
+  <div class="col-2"></div>
+  <div class="col-8">
                 <p class="description" style={{ padding: "25px", textAlign: "Center", fontSize: "15px" }}>
                   Focus on what you are good at and what works best for you.
                   There are 3 ways to earn money on emoneyTag and each of them
                   is distinguished by a feature that might suit you best.
                   Engagement and your time are key to high earnings.
-                </p>
+                </p></div>
+  <div class="col-2"></div>
+</div>
+
               </div>
             </div>
           </div>

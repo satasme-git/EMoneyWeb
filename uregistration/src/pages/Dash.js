@@ -282,6 +282,19 @@ class Dash extends React.Component {
                                                         data-ride="carousel"
                                                         style={{padding:"10px"}}
                                                     >
+
+<div class="wordCarousel " style={{ textAlign: "center" }}>
+                <span>Promote</span>
+                <div style={{ justifyContent: "center", alignItems: "center" }}>
+                  <ul class="flip4">
+                    <li style={{ color: "#E1306C" }}>Instagram </li>
+                    <li style={{ color: "#4267B2" }}>Facebook</li>
+                    <li style={{ color: "#FF0000" }}>YouTube</li>
+                    <li style={{ color: "#1DA1F2" }}>Twitter</li>
+                    <li style={{ color: "#BD081C" }}>Pinterest</li>
+                  </ul>
+                </div>
+              </div>
                                                         <h2 style={{ textAlign: "center", fontSize:"1.5vmax" }}>
                                                             {" "}
                             Highlights Scores{" "}
