@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
 import pointService from '../services/pointService';
+import toast from 'toast-me';
 
 class Points extends React.Component {
 
@@ -109,6 +110,27 @@ class Points extends React.Component {
     pointService.addPoints(p).then(res => {
       pointService.getPoints().then(res => {
         this.setState({ points: res.data });
+      });
+    });
+  }
+
+  updateDailyLimit = event => {
+    let p = { point: this.state.daily_limit }
+    pointService.addMaxPoints(p).then(res => {
+      toast('Daily limit updated', { position: 'bottom' });
+      pointService.getDailyMaxEarning().then(res => {
+        this.setState({ daily_limit: res.data });
+        
+      });
+    });
+  }
+
+  updatePayoutLimit = event => {
+    let p = { point: this.state.payout_limit }
+    pointService.addPayLimit(p).then(res => {
+      toast('Payout limit updated', { position: 'bottom' });
+      pointService.getPayoutEarning().then(res => {
+        this.setState({ payout_limit: res.data });
       });
     });
   }
@@ -274,10 +296,10 @@ class Points extends React.Component {
                             <tbody>
                               <tr>
                                 <td>
-                                  <label htmlFor="fname">Max($):</label><br />
+                                  <label htmlFor="fname">Max(Points):</label><br />
                                   <input type="text" id="fname" name="fname" placeholder="ex: 100" value={this.state.daily_limit} onChange={this.changeDailyLimit} /><br /><br />
 
-                                  <input type="submit" className="btn btn-success" defaultValue="Submit" />
+                                  <button type="submit" className="btn btn-success" onClick={this.updateDailyLimit} >Update</button>
                                 </td>
                               </tr>
                             </tbody>
@@ -305,7 +327,7 @@ class Points extends React.Component {
                                   <label htmlFor="fname">Limit($):</label><br />
                                   <input type="text" id="fname" name="fname" placeholder="ex:Min 10" value={this.state.payout_limit} onChange={this.changePayoutLimit} /><br /><br />
 
-                                  <input type="submit" className="btn btn-success" defaultValue="Submit" />
+                                  <button type="submit" className="btn btn-success" defaultValue="Submit" onClick={this.updatePayoutLimit} >Update</button>
                                 </td>
                               </tr>
                             </tbody>

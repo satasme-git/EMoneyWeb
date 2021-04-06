@@ -44,7 +44,6 @@ public class UserSocialEngagementRepositoryImpl implements UserSocialEngagementR
 		Criteria cre = em.unwrap(Session.class).createCriteria(UserSocialEngagement.class);
 		cre.add(Restrictions.eq("user", user));
 		List<SocialEngagementResponse> engagementByUser=new ArrayList();
-		
 		for (Orders orders : ordersByService) {
 			boolean found=false;
 			SocialEngagementResponse response=new SocialEngagementResponse();

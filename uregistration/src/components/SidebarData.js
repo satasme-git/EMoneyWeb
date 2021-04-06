@@ -106,6 +106,16 @@ export const SidebarData = [
         path: "/admin/TikTokearnhistory",
         icon: <SiIcons.SiTiktok />,
       },
+      {
+        title: "Web Earn Hostory ",
+        path: "/admin/linkhistory",
+        icon: <AiIcons.AiFillChrome />,
+      },
+      {
+        title: "Servey Earn History",
+        path: "/admin/serveyhistory",
+        icon: <AiIcons.AiOutlineOrderedList />,
+      },
     ],
   },
   
@@ -120,7 +130,11 @@ export const SidebarData = [
     path: "/admin/adminmanageorders",
     icon: <FaIcons.FaFirstOrder />,
   },
-  
+  {
+    title: "Pending Serveys",
+    path: "/admin/viewservey",
+    icon: <AiIcons.AiOutlineOrderedList />,
+  },
   {
     title: "Payment Summery",
     path: "/admin/adminpaymentmanagement",

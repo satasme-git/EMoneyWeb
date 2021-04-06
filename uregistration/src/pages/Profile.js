@@ -681,9 +681,12 @@ class Profile extends React.Component {
                         <div class="row">
                             <div class="col-sm-4"><br></br>
                                 <h4 class="card-title">User Profile</h4>
-                                <h6 class="text-muted card-subtitle mb-2">{this.state.profilecomplete}</h6><span>E-mail</span>
-                                <h5 class="card-title">{this.state.premail}</h5><span>Contact no</span>
-                                <h5 class="card-title">{this.state.prmobile}</h5><span>Earned Points</span>
+                                <h6 class="text-muted card-subtitle mb-2">{this.state.profilecomplete}</h6>
+                                <span>E-mail</span>
+                                <h5 class="card-title">{this.state.premail}</h5>
+                                <span>Contact no</span>
+                                <h5 class="card-title">{this.state.prmobile}</h5>
+                                <span>Earned Points</span>
                                 <h5 class="card-title">{this.state.prearningtotal}</h5>
                             </div>
                             <div class="col-sm-4" ><br></br>

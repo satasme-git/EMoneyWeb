@@ -25,6 +25,10 @@ class pointService{
         return axios.post(POINT_API_BASE_URL+"/max",points);
     }
 
+    addPayLimit(points){
+        return axios.post(POINT_API_BASE_URL+"/paylimit",points);
+    }
+
     getServicePoints(source){
         return axios.get(POINT_API_BASE_URL+"/media/"+source);
     }

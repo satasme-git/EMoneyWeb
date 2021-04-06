@@ -6,15 +6,84 @@ import "jquery/dist/jquery.min.js";
 import $ from "jquery";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Sidebar from "../../components/Sidebar";
+import serveyService from "../../services/serveyService";
+import moment from 'moment'
 
 class Approvesurveyqus extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+
+
+      serveys: [],
+      serveyquestions: []
+
+
+    }
+  }
+
+
+
   componentDidMount() {
+
+    serveyService.getPendingServey().then(res => {
+
+      this.setState({ serveys: res.data });
+
+    });
+
+    serveyService.getPendingServeyQuestions().then(res => {
+
+      this.setState({ serveyquestions: res.data });
+
+    });
+
+  }
+
+  componentDidUpdate() {
     //initialize datatable
     $(document).ready(function () {
       $("#example").DataTable();
-      $("#example2").DataTable();
     });
   }
+
+  approveServey(servey) {
+    serveyService.approveServey(servey.id).then(res => {
+
+      serveyService.getPendingServey().then(res => {
+
+        this.setState({ serveys: res.data });
+
+      });
+
+      serveyService.getPendingServeyQuestions().then(res => {
+
+        this.setState({ serveyquestions: res.data });
+
+      });
+
+    });
+  }
+
+  deleteServey(servey) {
+    serveyService.deleteServey(servey.id).then(res => {
+
+      serveyService.getPendingServey().then(res => {
+
+        this.setState({ serveys: res.data });
+
+      });
+
+      serveyService.getPendingServeyQuestions().then(res => {
+
+        this.setState({ serveyquestions: res.data });
+
+      });
+
+    });
+  }
+
   render() {
     return (
       <div>
@@ -91,6 +160,8 @@ class Approvesurveyqus extends React.Component {
             href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css"
           />
         </Helmet>
+        <Sidebar />
+
         <div id="preloader">
           <div className="loader" />
         </div>
@@ -142,6 +213,9 @@ class Approvesurveyqus extends React.Component {
                 </div>
               </div>
             </div>
+
+
+
             {/* page title area end */}
             <div className="main-content-inner">
               <div className="row">
@@ -151,271 +225,251 @@ class Approvesurveyqus extends React.Component {
                     <div className="card-body">
                       <h4 className="header-title">Approve survey question</h4>
                       <div className="data-tables">
-                        <table id="example" class="display" style={{textAlign:"center" }}  >
+
+
+
+
+
+                        <table id="example" class="display" style={{ textAlign: "center" }}  >
                           <thead>
                             <tr>
                               <th>Name</th>
                               <th>Email</th>
+                              <th>Date</th>
                               <th>View</th>
                               <th>Action</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Praveen</td>
-                              <td>Praveen@gmail.com</td>
-                              <td>
-                                <i
-                                  class="ti-eye"
-                                  data-toggle="modal"
-                                  data-target="#exampleModalLong"
-                                ></i>
-                              </td>
-                              <td>
-                                {" "}
-                             
-                              
+                            {this.state.serveys.map((data) => {
+
+                              return (
+                                <tr>
+                                  <td>{data.user.fname} {data.user.lname}</td>
+                                  <td>{data.user.email}</td>
+                                  <td>{moment(data.addedDate).format('DD/MM/YYYY')}</td>
+                                  <td>
+                                    <i
+                                      class="ti-eye"
+                                      data-toggle="modal"
+                                      data-target={"#" + data.id}
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <button
+                                      type="button"
+                                      className="btn btn-success"
+                                      onClick={() => this.approveServey({ id: data.id })}
+                                      style={{ backgroundColor: "green" }}>
+                                      Approve
+                                </button>&nbsp;
                                 <button
-                                  type="button"
-                                  className="btn btn-success"
-                                  style={{ backgroundColor: "green" }}
-                                >
-                                  Approve
+                                      type="button"
+                                      className="btn btn-danger"
+                                      onClick={() => this.deleteServey({ id: data.id })}
+                                      style={{ backgroundColor: "red" }}>
+                                      Delete
                                 </button>
-                              </td>
-                            </tr>
+                                  </td>
+                                </tr>
+                              );
+                            })}
                           </tbody>
                         </table>
+
+
                       </div>
                     </div>
                     {/* Vertically centered modal start */}
-                    <div className="col-lg-6 mt-5">
-                      {/* Modal */}
-                      <div className="modal fade" id="exampleModalLong">
-                        <div
-                          className="modal-dialog modal-dialog-centered"
-                          role="document"
-                        >
-                          <div className="modal-content">
-                            <div className="modal-header">
-                              <h5 className="modal-title">Questions Details</h5>
-                              <button
-                                type="button"
-                                className="close"
-                                data-dismiss="modal"
+                    {this.state.serveys.map((data) => {
+                      let count = 0;
+                      return (
+                        <div>
+                          <div className="col-lg-6 mt-5">
+                            {/* Modal */}
+                            <div className="modal fade" id={data.id}>
+                              <div
+                                className="modal-dialog modal-dialog-centered"
+                                role="document"
                               >
-                                <span>×</span>
-                              </button>
-                            </div>
-                            <div className="modal-body">
+                                <div className="modal-content">
+                                  <div className="modal-header">
+                                    <h5 className="modal-title">Questions  Details</h5>
+                                    <button
+                                      type="button"
+                                      className="close"
+                                      data-dismiss="modal"
+                                    >
+                                      <span>×</span>
+                                    </button>
+                                  </div>
+                                  <div className="modal-body">
 
-                         <table style={{width:"100%" }} > <li className="form-line" data-type="control_radio" id="id_6">
-            <label className="form-label form-label-top form-label-auto" id="label_6" htmlFor="input_6"> 1. Have you ever heard about [Site Name]? </label>
-            <div id="cid_6" className="form-input-wide" data-layout="full">
-              <div className="form-single-column" role="group" aria-labelledby="label_6" data-component="radio">
-                <span className="form-radio-item" style={{clear: 'left'}}>
-                  <span className="dragger-item">
-                  </span>
-                  <input type="radio" className="form-radio" id="input_6_0" name="q6_1Have" defaultValue="Yes" />
-                  <label id="label_input_6_0" htmlFor="input_6_0"> Yes </label>
-                </span>
-                <span className="form-radio-item" style={{clear: 'left'}}>
-                  <span className="dragger-item">
-                  </span>
-                  <input type="radio" className="form-radio" id="input_6_1" name="q6_1Have" defaultValue="No" />
-                  <label id="label_input_6_1" htmlFor="input_6_1"> No </label>
-                </span>
-              </div>
-            </div>
-          </li>
-          <li className="form-line" data-type="control_radio" id="id_35">
-            <label className="form-label form-label-top form-label-auto" id="label_35" htmlFor="input_35"> 1. Have you ever heard about [Site Name]? </label>
-            <div id="cid_35" className="form-input-wide" data-layout="full">
-              <div className="form-single-column" role="group" aria-labelledby="label_35" data-component="radio">
-                <span className="form-radio-item" style={{clear: 'left'}}>
-                  <span className="dragger-item">
-                  </span>
-                  <input type="radio" className="form-radio" id="input_35_0" name="q35_1Have35" defaultValue="Yes" />
-                  <label id="label_input_35_0" htmlFor="input_35_0"> Yes </label>
-                </span>
-                <span className="form-radio-item" style={{clear: 'left'}}>
-                  <span className="dragger-item">
-                  </span>
-                  <input type="radio" className="form-radio" id="input_35_1" name="q35_1Have35" defaultValue="No" />
-                  <label id="label_input_35_1" htmlFor="input_35_1"> No </label>
-                </span>
-              </div>
-            </div>
-          </li>
-          <li className="form-line" data-type="control_radio" id="id_36">
-            <label className="form-label form-label-top form-label-auto" id="label_36" htmlFor="input_36"> 1. Have you ever heard about [Site Name]? </label>
-            <div id="cid_36" className="form-input-wide" data-layout="full">
-              <div className="form-single-column" role="group" aria-labelledby="label_36" data-component="radio">
-                <span className="form-radio-item" style={{clear: 'left'}}>
-                  <span className="dragger-item">
-                  </span>
-                  <input type="radio" className="form-radio" id="input_36_0" name="q36_1Have36" defaultValue="Yes" />
-                  <label id="label_input_36_0" htmlFor="input_36_0"> Yes </label>
-                </span>
-                <span className="form-radio-item" style={{clear: 'left'}}>
-                  <span className="dragger-item">
-                  </span>
-                  <input type="radio" className="form-radio" id="input_36_1" name="q36_1Have36" defaultValue="No" />
-                  <label id="label_input_36_1" htmlFor="input_36_1"> No </label>
-                </span>
-              </div>
-            </div>
-          </li>
+                                    <table style={{ width: "100%" }} >
 
+                                      {this.state.serveyquestions.map((data1) => {
+                                        if (data1.servey.id === data.id) {
+                                          count++;
+                                          return (
+                                            <div>
+                                              {(() => {
+                                                if (data1.qtype == "yesno") {
+                                                  return (
+                                                    <li className="form-line" data-type="control_radio" id="id_6">
+                                                      <label className="form-label form-label-top form-label-auto" id="label_6" htmlFor="input_6"> {count + ". " + data1.question} </label>
+                                                      <div id="cid_6" className="form-input-wide" data-layout="full">
+                                                        <div className="form-single-column" role="group" aria-labelledby="label_6" data-component="radio">
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "1"} name={data1.id} />
+                                                            <label id="label_input_6_0" htmlFor={data1.id + "1"}> Yes </label>
+                                                          </span>
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "2"} name={data1.id} />
+                                                            <label id="label_input_6_1" htmlFor={data1.id + "2"}> No </label>
+                                                          </span>
+                                                        </div>
+                                                      </div>
+                                                    </li>
+                                                  )
+                                                } else if (data1.qtype == "multiple") {
+                                                  return (
+                                                    <li className="form-line" data-type="control_checkbox" id="id_74">
+                                                      <label className="form-label form-label-top form-label-auto" id="label_74" htmlFor="input_74"> {count + ". " + data1.question} </label>
+                                                      <div id="cid_74" className="form-input-wide" data-layout="full">
+                                                        <div className="form-single-column" role="group" aria-labelledby="label_74" data-component="checkbox">
+                                                          <span className="form-checkbox-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="checkbox" className="form-checkbox" id={data1.id + "0"} name={data1.id} />
+                                                            <label id="label_input_74_0" htmlFor={data1.id + "0"}> {data1.answers.split("~")[0]} </label>
+                                                          </span>
+                                                          <span className="form-checkbox-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="checkbox" className="form-checkbox" id={data1.id + "1"} name={data1.id} />
+                                                            <label id="label_input_74_1" htmlFor={data1.id + "1"}> {data1.answers.split("~")[1]} </label>
+                                                          </span>
+                                                          <span className="form-checkbox-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="checkbox" className="form-checkbox" id={data1.id + "2"} name={data1.id} />
+                                                            <label id="label_input_74_2" htmlFor={data1.id + "2"}> {data1.answers.split("~")[2]} </label>
+                                                          </span>
+                                                          <span className="form-checkbox-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="checkbox" className="form-checkbox" id={data1.id + "3"} name={data1.id} />
+                                                            <label id="label_input_74_3" htmlFor={data1.id + "3"}> {data1.answers.split("~")[3]} </label>
+                                                          </span>
+                                                          <span className="form-checkbox-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="checkbox" className="form-checkbox" id={data1.id + "4"} name={data1.id} />
+                                                            <label id="label_input_74_3" htmlFor={data1.id + "4"}> {data1.answers.split("~")[4]} </label>
+                                                          </span>
+                                                        </div>
+                                                      </div>
+                                                    </li>
+                                                  )
+                                                } else if (data1.qtype == "single") {
+                                                  return (
+                                                    <li className="form-line" data-type="control_radio" id="id_51">
+                                                      <label className="form-label form-label-top form-label-auto" id="label_51" htmlFor="input_51"> {count + ". " + data1.question} </label>
+                                                      <div id="cid_51" className="form-input-wide" data-layout="full">
+                                                        <div className="form-single-column" role="group" aria-labelledby="label_51" data-component="radio">
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "0"} name={data1.id} />
+                                                            <label id="label_input_51_0" htmlFor={data1.id + "0"}> {data1.answers.split("~")[0]} </label>
+                                                          </span>
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "1"} name={data1.id} />
+                                                            <label id="label_input_51_1" htmlFor={data1.id + "1"}> {data1.answers.split("~")[1]} </label>
+                                                          </span>
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "2"} name={data1.id} />
+                                                            <label id="label_input_51_2" htmlFor={data1.id + "2"}> {data1.answers.split("~")[2]} </label>
+                                                          </span>
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "3"} name={data1.id} />
+                                                            <label id="label_input_51_3" htmlFor={data1.id + "3"}> {data1.answers.split("~")[3]} </label>
+                                                          </span>
+                                                          <span className="form-radio-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <input type="radio" className="form-radio" id={data1.id + "4"} name={data1.id} />
+                                                            <label id="label_input_51_3" htmlFor={data1.id + "4"}> {data1.answers.split("~")[4]} </label>
+                                                          </span>
+                                                        </div>
+                                                      </div>
+                                                    </li>
+                                                  )
+                                                } else if (data1.qtype == "essay") {
+                                                  return (
+                                                    <li className="form-line" data-type="control_checkbox" id="id_74">
+                                                      <label className="form-label form-label-top form-label-auto" id="label_74" htmlFor="input_74"> {count + ". " + data1.question} </label>
+                                                      <div id="cid_74" className="form-input-wide" data-layout="full">
+                                                        <div className="form-single-column" role="group" aria-labelledby="label_74" data-component="checkbox">
+                                                          <span className="form-checkbox-item" style={{ clear: 'left' }}>
+                                                            <span className="dragger-item">
+                                                            </span>
+                                                            <textarea id="input_74_0" name="q74_typeA74[]" style={{ border: "1px solid" }}></textarea>
+                                                          </span>
 
+                                                        </div>
+                                                      </div>
+                                                    </li>
+                                                  )
+                                                }
+                                              })()}
+                                            </div>
 
-          <li className="form-line" data-type="control_checkbox" id="id_74">
-                <label className="form-label form-label-top form-label-auto" id="label_74" htmlFor="input_74"> Type a question </label>
-                <div id="cid_74" className="form-input-wide" data-layout="full">
-                  <div className="form-single-column" role="group" aria-labelledby="label_74" data-component="checkbox">
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_74_0" name="q74_typeA74[]" defaultValue="Type option 1" />
-                      <label id="label_input_74_0" htmlFor="input_74_0"> Type option 1 </label>
-                    </span>
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_74_1" name="q74_typeA74[]" defaultValue="Type option 2" />
-                      <label id="label_input_74_1" htmlFor="input_74_1"> Type option 2 </label>
-                    </span>
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_74_2" name="q74_typeA74[]" defaultValue="Type option 3" />
-                      <label id="label_input_74_2" htmlFor="input_74_2"> Type option 3 </label>
-                    </span>
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_74_3" name="q74_typeA74[]" defaultValue="Type option 4" />
-                      <label id="label_input_74_3" htmlFor="input_74_3"> Type option 4 </label>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li className="form-line" data-type="control_checkbox" id="id_75">
-                <label className="form-label form-label-top form-label-auto" id="label_75" htmlFor="input_75"> Type a question </label>
-                <div id="cid_75" className="form-input-wide" data-layout="full">
-                  <div className="form-single-column" role="group" aria-labelledby="label_75" data-component="checkbox">
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_75_0" name="q75_typeA75[]" defaultValue="Type option 1" />
-                      <label id="label_input_75_0" htmlFor="input_75_0"> Type option 1 </label>
-                    </span>
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_75_1" name="q75_typeA75[]" defaultValue="Type option 2" />
-                      <label id="label_input_75_1" htmlFor="input_75_1"> Type option 2 </label>
-                    </span>
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_75_2" name="q75_typeA75[]" defaultValue="Type option 3" />
-                      <label id="label_input_75_2" htmlFor="input_75_2"> Type option 3 </label>
-                    </span>
-                    <span className="form-checkbox-item" style={{clear: 'left'}}>
-                      <span className="dragger-item">
-                      </span>
-                      <input type="checkbox" className="form-checkbox" id="input_75_3" name="q75_typeA75[]" defaultValue="Type option 4" />
-                      <label id="label_input_75_3" htmlFor="input_75_3"> Type option 4 </label>
-                    </span>
-                  </div>
-                </div>
-              </li>
+                                          );
+                                        }
 
-
-              <li className="form-line" data-type="control_radio" id="id_51">
-              <label className="form-label form-label-top form-label-auto" id="label_51" htmlFor="input_51"> Type a question </label>
-              <div id="cid_51" className="form-input-wide" data-layout="full">
-                <div className="form-single-column" role="group" aria-labelledby="label_51" data-component="radio">
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_51_0" name="q51_typeA51" defaultValue="Type option 1" />
-                    <label id="label_input_51_0" htmlFor="input_51_0"> Type option 1 </label>
-                  </span>
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_51_1" name="q51_typeA51" defaultValue="Type option 2" />
-                    <label id="label_input_51_1" htmlFor="input_51_1"> Type option 2 </label>
-                  </span>
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_51_2" name="q51_typeA51" defaultValue="Type option 3" />
-                    <label id="label_input_51_2" htmlFor="input_51_2"> Type option 3 </label>
-                  </span>
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_51_3" name="q51_typeA51" defaultValue="Type option 4" />
-                    <label id="label_input_51_3" htmlFor="input_51_3"> Type option 4 </label>
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li className="form-line" data-type="control_radio" id="id_52">
-              <label className="form-label form-label-top form-label-auto" id="label_52" htmlFor="input_52"> Type a question </label>
-              <div id="cid_52" className="form-input-wide" data-layout="full">
-                <div className="form-single-column" role="group" aria-labelledby="label_52" data-component="radio">
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_52_0" name="q52_typeA52" defaultValue="Type option 1" />
-                    <label id="label_input_52_0" htmlFor="input_52_0"> Type option 1 </label>
-                  </span>
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_52_1" name="q52_typeA52" defaultValue="Type option 2" />
-                    <label id="label_input_52_1" htmlFor="input_52_1"> Type option 2 </label>
-                  </span>
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_52_2" name="q52_typeA52" defaultValue="Type option 3" />
-                    <label id="label_input_52_2" htmlFor="input_52_2"> Type option 3 </label>
-                  </span>
-                  <span className="form-radio-item" style={{clear: 'left'}}>
-                    <span className="dragger-item">
-                    </span>
-                    <input type="radio" className="form-radio" id="input_52_3" name="q52_typeA52" defaultValue="Type option 4" />
-                    <label id="label_input_52_3" htmlFor="input_52_3"> Type option 4 </label>
-                  </span>
-                </div>
-              </div>
-            </li>
-</table>
-<br/>
+                                      })
+                                      }
 
 
 
-                             
-                         
-                            </div>
-                            <div className="modal-footer">
-                              <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-dismiss="modal"
-                              >
-                                Close
-                              </button>
+                                    </table>
+                                    <br />
+
+
+                                  </div>
+                                  <div className="modal-footer">
+                                    <button
+                                      type="button"
+                                      className="btn btn-secondary"
+                                      data-dismiss="modal"
+                                    >
+                                      Close
+                                  </button>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+
+                      );
+
+                    })
+                    }
+
+
+
                     {/* Vertically centered modal end */}
                   </div>
                 </div>
