@@ -304,7 +304,7 @@ class EarnPage extends React.Component {
 {/* ///////////////////////////////////////////new card view////////////////////////////// */}
 
 <div class="container">
-
+<div class="earncard">  
 <div class="row" >
   <div class="col-sm-4" style={{padding:"20px", marginLeft:"-8px"}}>
 <div class="card" >
@@ -337,6 +337,7 @@ class EarnPage extends React.Component {
 
 
 
+</div>
 </div>
 </div>
 
