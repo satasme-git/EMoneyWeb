@@ -1,5 +1,6 @@
 package satasme.promo.web.controller;
 
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
@@ -9,6 +10,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,7 +75,11 @@ public class LoginController {
 							uid = "facebook";
 							pwfound = true;
 						} else {
-							if (login.getKey().equals(key)) {
+							int strength = 10; // work factor of bcrypt
+							 BCryptPasswordEncoder bCryptPasswordEncoder =
+							  new BCryptPasswordEncoder(strength, new SecureRandom());
+							 
+							if (bCryptPasswordEncoder.matches(key, login.getKey())) {
 								pwfound = true;
 
 								login.setIsloggedin(true);

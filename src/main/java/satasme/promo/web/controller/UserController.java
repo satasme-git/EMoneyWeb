@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +33,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -235,7 +237,11 @@ public class UserController {
 				Login login = new Login();
 				if (node.get("key") != null) {
 //					String pw= bCryptPasswordEncoder.encode(node.get("key").asText());
-					login.setKey(node.get("key").asText());
+					int strength = 10; // work factor of bcrypt
+					 BCryptPasswordEncoder bCryptPasswordEncoder =
+					  new BCryptPasswordEncoder(strength, new SecureRandom());
+					 String encodedPassword = bCryptPasswordEncoder.encode(node.get("key").asText());
+					login.setKey(encodedPassword);
 				}
 				login.setIsloggedin(false);
 				login.setUser(user);
