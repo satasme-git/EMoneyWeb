@@ -60,13 +60,13 @@ class Homebl extends React.Component {
                             <header class="header" style={{ backgroundColor: "white", height: "10%", width: "100%" }}>
 
                                 <section class="container header__inner" >
-                                    <div class="header__left"style={{marginTop:"10px"}} >
+                                    <div class="header__left"style={{marginTop:"14px"}} >
 
                                         <a href="/howitworks" class="nav__link pricing__link text_violet"  >
                                             How it Works
                             </a>
                                     </div>
-                                    <div class="header__right">
+                                    <div class="header__right" style={{marginTop:"10px"}} >
                                         <a href="/register" class="button-register button_yellow ">
                                             Registration
                             </a>
@@ -138,37 +138,37 @@ class Homebl extends React.Component {
                             <img src="https://static.zareklamy.com/images/icons/webapp.svg" alt="Use the web app in your browser" aria-hidden="true" style={{ outline: "2px solid #1A1A1A", outlineOffset: "-2px;" }} /> </a>
                     </div>
                 </div>
-                <h1 class="text-center" style={{ marginTop: "50px", color: "rgb(3,23,44)" }}>Spend your leisure time Wisely</h1>
+                <h1 class="text-center" style={{ marginTop: "50px", color: "rgb(3,23,44)" }}>Spend your leisure time Wisely</h1><br/>
                 {/* <!--articles--> */}
                 <div class="article-list">
                     <div class="container" style={{ marginTop: "10px" }}>
                         <div class="intro" style={{ marginBottom: "10px" }}>
-                            <h2 class="text-center" style={{ color: "rgb(3,23,44)" }}>Methods of Earnings</h2>
+                            <h2 class="text-center" style={{ color: "rgb(3,23,44)" , textAlign:"center" }}>Methods of Earnings</h2>
                             <p class="text-center" style={{ color: "rgb(3,23,44)" }}>Turn your leisure time in to profit. Spend it usefully. </p>
                         </div>
                         <div class="row articles">
-                            <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/Image/earn/pile.jpg" alt="" /></a>
+                            <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/Image/earn/pile.jpg" alt="" /></a><br/><br/>
                                 <h3 class="name">Social Media Engagements</h3>
                                 <p class="description" style={{ color: "rgb(3,23,44)" }}>By using your social media account and earn points. You can earn points by using your Facebook, Twitter, Instagram, YouTube and TikTok social media accounts.your one tap can earn points for you.</p>
                                 <div style={{ textAlign: "center" }}>
                                     <a class="action" href="/login"><i class="fa fa-arrow-circle-right" style={{ fontSize: "40px" }} ></i></a>
-                                </div>
+                                </div><br/>
                             </div>
                             <div
-                                class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/Image/earn/lap.jpg" alt="" /></a>
+                                class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/Image/earn/lap.jpg" alt="" /></a><br/><br/>
                                 <h3 class="name">Browse ads, Watch Videos</h3>
                                 <p class="description" style={{ color: "rgb(3,23,44)" }}>Only thing you  need to do in this method is browsing ads, videos and websites.By using this method of earning you can earn points easily. You don't need to create accounts or use your social media accounts.</p>
                                 <div style={{ textAlign: "center" }}>
                                     <a class="action" href="/login"><i class="fa fa-arrow-circle-right" style={{ fontSize: "40px" }} ></i></a>
-                                </div>
+                                </div><br/>
                             </div>
                             <div
-                                class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/Image/earn/business.jpg" alt="" /></a>
+                                class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/Image/earn/business.jpg" alt="" /></a><br/><br/>
                                 <h3 class="name">Upload Videos</h3>
-                                <p class="description" style={{ color: "rgb(3,23,44)" }}>By uploading videos you can earn points. If you are a content creator, this is the most suitable method of earnings. Your video's maximum time duration should be 5 minutes.Your video appears on websites that suit your target audience</p>
+                                <p class="description" style={{ color: "rgb(3,23,44)" }}>By uploading videos you can earn points. If you are a content creator, this is the most suitable method of earnings. Your video's maximum time duration should be 5 minutes.Your video appears on websites that suit your target audience</p><br/>
                                 <div style={{ textAlign: "center" }}>
                                     <a class="action" href="/login"><i class="fa fa-arrow-circle-right" style={{ fontSize: "40px" }} ></i></a>
-                                </div>
+                                </div><br/>
                             </div>
                         </div>
                     </div>
@@ -189,7 +189,7 @@ class Homebl extends React.Component {
                             <div class="col-sm-6 col-md-5 col-lg-4 item">
                                 <div class="box"><i class="fa fa-flash icon"></i>
                                     <h3 class="name">Improve Channel Rankings and Positions</h3>
-                                    <p class="description" style={{ color: "rgb(3,23,44)" }}>The more views you have, the higher your video rises in the “recommended” section.</p></div>
+                                    <p class="description" style={{ color: "rgb(3,23,44)" }}>The more views you have, the higher your video rises in the “recommended.</p></div>
                             </div>
                             <div class="col-sm-6 col-md-5 col-lg-4 item">
                                 <div class="box"><i class="fa fa-list-alt icon"></i>
@@ -204,7 +204,7 @@ class Homebl extends React.Component {
                             <div class="col-sm-6 col-md-5 col-lg-4 item">
                                 <div class="box"><i class="fa fa-clock-o icon"></i>
                                     <h3 class="name">Under control </h3>
-                                    <p class="description" style={{ color: "rgb(3,23,44)" }}>You can precisely choose how you want to earn – by browsing websites, videos, ads. Leaving engagement on social media. Writing comments.</p></div>
+                                    <p class="description" style={{ color: "rgb(3,23,44)" }}>You can precisely choose how you want to earn – by browsing websites, videos, ads. Leaving engagement on social media. Writing comments.</p><br/></div>
                             </div>
                             <div class="col-sm-6 col-md-5 col-lg-4 item">
                                 <div class="box"><i class="fa fa-star icon"></i>
@@ -213,7 +213,7 @@ class Homebl extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br/>
                 <h2 class="text-center" style={{ color: "rgb(3,23,44)" }}>Start Making Money Today</h2>
                 <div class="row" style={{ textAlign: "center", padding: "40px" }}>
                     <div class="col-sm"></div>
@@ -244,7 +244,7 @@ class Homebl extends React.Component {
                                     </div>
                                     <div class="col-md-6 item text">
                                         <h3>EmoneyTag</h3>
-                                        <p>You can choose this method easily. Only you have to do is complete the
+                                        <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                                         tasks provided by us, By using your social media account and earn points.
                                         You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>
