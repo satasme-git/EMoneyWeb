@@ -228,7 +228,7 @@ class Howitworks1 extends React.Component {
                     {" "}
                     Complete Your Profile({this.state.profile} points)
                   </h5>
-                  <br />
+                  <br /> <br />
                   <div class="image">
                     <img
                       src="assets/Image/earn/completeprofile.png"
@@ -236,14 +236,13 @@ class Howitworks1 extends React.Component {
                     />
                   </div>
                   <p class="description">
-                    You can choose this method easily. Only you have to do is
-                    complete Your Profile then earn points for you.{" "}
+                  This approach is easy to pick. All you have to do now is complete and fill in the details and finish your profile and win the given points for yourself.
                   </p>
                   <a class="action" href="/EarnCompleteprofile">
                     <i
                       class="fa fa-arrow-circle-right"
                       style={{ fontSize: "34px" }}
-                    ></i>
+                    ></i><br/><br/>
                   </a>
                 </div>
               </div>
@@ -254,7 +253,7 @@ class Howitworks1 extends React.Component {
                     {" "}
                     Refer Your Friends({this.state.referal} points)
                   </h5>
-                  <br />
+                  <br /> <br />
                   <div class="image">
                     <img
                       src="assets/Image/earn/referfriend.png"
@@ -284,11 +283,7 @@ class Howitworks1 extends React.Component {
                     <img src="assets/Image/earn/see.png" alt="sample59" />
                   </div>
                   <p class="description">
-                    You can choose this method easily. Only you have to do is
-                    complete the tasks provided by us, By using your social
-                    media account and earn points. You can earn points by using
-                   social
-                    media accounts.
+                  Only you have to do is complete the tasks provided by us, By using your social media account and earn points. You can earn points by using social media accounts.
                   </p>
                   <a class="action" href="/smengagement">
                     <i
@@ -364,7 +359,7 @@ class Howitworks1 extends React.Component {
                   <div class="col-sm-6 col-md-3 item">
                     <h3>Services</h3>
                     <ul>
-                      <li><a href="/termsofservice">Terms of Servivce</a></li>
+                      <li><a href="/termsofservice">Terms of Service</a></li>
                       <li><a href="/privacypolicy">Privacy Policy</a></li>
                       <li><a href="#"></a></li>
                     </ul>

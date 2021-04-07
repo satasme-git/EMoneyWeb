@@ -167,7 +167,7 @@ class UploadVideohit extends React.Component {
                                 <div class="col-sm-6 col-md-3 item">
                                     <h3>Services</h3>
                                     <ul>
-                                        <li><a href="/termsofservice">Terms of Servivce</a></li>
+                                        <li><a href="/termsofservice">Terms of Service</a></li>
                                         <li><a href="/privacypolicy">Privacy Policy</a></li>
                                         <li><a href="#"></a></li>
                                     </ul>

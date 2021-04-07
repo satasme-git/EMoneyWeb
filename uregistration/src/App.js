@@ -45,6 +45,8 @@ import LinkClicks from "./pages/LinkClicks";
 //////////////////////////////////////////////Login & register////////////////////////////////////////////////////////////////
 import Loginnew from './pages/Loginnew'
 import Registernew from './pages/Registernew'
+import Newpassword from './pages/newpassword'
+import Resetpassword from './pages/Resetpassword'
 
 // start admin
 
@@ -167,6 +169,9 @@ class App extends Component {
 
                      <Route path="/loginnew" component={Loginnew}></Route>
                      <Route path="/registernew" component={Registernew}></Route>
+                     <Route path="/newpassword" component={Newpassword}></Route>
+                     <Route path="/resetpassword" component={Resetpassword}></Route>
+
 
 
                      {/* temp path */}

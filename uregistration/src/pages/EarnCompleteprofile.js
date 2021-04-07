@@ -245,7 +245,7 @@ class EarnCompleteprofile extends React.Component {
                 <div class="col-sm-6 col-md-3 item">
                   <h3>Services</h3>
                   <ul>
-                    <li><a href="/termsofservice">Terms of Servivce</a></li>
+                    <li><a href="/termsofservice">Terms of Service</a></li>
                     <li><a href="/privacypolicy">Privacy Policy</a></li>
                     <li><a href="#"></a></li>
                   </ul>
@@ -260,7 +260,7 @@ class EarnCompleteprofile extends React.Component {
                 </div>
                 <div class="col-md-6 item text">
                   <h3>EmoneyTag</h3>
-                  <p>You can choose this method easily. Only you have to do is complete the
+                  <p style={{color:"#fff"}}>You can choose this method easily. Only you have to do is complete the
                   tasks provided by us, By using your social media account and earn points.
                   You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

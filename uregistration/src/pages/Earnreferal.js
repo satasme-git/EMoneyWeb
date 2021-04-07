@@ -184,14 +184,14 @@ class Earnreferal extends React.Component {
                 <div class="row" style={{textAlign:"center"}}>
   <div class="col-2"></div>
   <div class="col-8">
-       
+  <p class="description" style={{ padding: "10px", fontSize: "15px"}}>
+                  Refer Your Friends and Earn Money with Referral Links.You can share your links online, via email, and text, and when a friend signs up and does the necessary action, you’ll be credited with points.
+                </p>
 </div>
   <div class="col-2"></div>
 </div>
 
-                <p class="description" style={{ padding: "10px", fontSize: "15px" }}>
-                  Refer Your Friends and Earn Money with Referral Links.You can share your links online, via email, and text, and when a friend signs up and does the necessary action, you’ll be credited with points.
-                </p>
+        
               </div>
 
 
@@ -208,7 +208,7 @@ class Earnreferal extends React.Component {
                 <div class="col-sm-6 col-md-3 item">
                   <h3>Services</h3>
                   <ul>
-                    <li><a href="/termsofservice">Terms of Servivce</a></li>
+                    <li><a href="/termsofservice">Terms of Service</a></li>
                     <li><a href="/privacypolicy">Privacy Policy</a></li>
                     <li><a href="#"></a></li>
                   </ul>
