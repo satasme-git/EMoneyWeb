@@ -9,6 +9,10 @@ import userServices from "../services/userServices";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
+
+
+
 
 class Dash extends React.Component {
     constructor(props) {
@@ -84,6 +88,10 @@ class Dash extends React.Component {
                 }
             ]
         });
+
+
+       
+        
     }
 
     render() {
@@ -97,8 +105,11 @@ class Dash extends React.Component {
                     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
                     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
+
+
+
                 </Helmet>
-                <header class="header" style={{marginLeft:"63px",height:"63px"}}>
+                <header class="header" style={{marginLeft:"63px",height:"63px" ,  zIndex:"100"}}>
                     <section class="container header__inner">
                         <div class="header__right">
 
@@ -120,7 +131,7 @@ class Dash extends React.Component {
                 <div class="main" style={{ height: "100%", width: "100%", backgroundColor: "#dfeef2" }}>
 
                     <div class="s-layout">
-                        <div class="s-layout__sidebar" style={{ height: "100%" }}>
+                        <div class="s-layout__sidebar" style={{ height: "100%", zIndex:"100" }}>
                             <a class="s-sidebar__trigger" href="#0">
                                 <i class="fa fa-bars"></i>
                             </a>
@@ -239,7 +250,7 @@ class Dash extends React.Component {
                                                         </h6>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12" style={{ padding: "10px" }}>
+                                                <div class="col-sm-12" style={{ padding: "10px"  }}>
                                                     <div
                                                         class="card"
                                                         style={{
@@ -250,6 +261,8 @@ class Dash extends React.Component {
                                                             backgroundColor: "#ffffff",
                                                             borderRadius: "17px",
                                                             border:"none",
+                                                            zIndex: 3,
+                                                           
                                                         }}
                                                     >
                                                         <h4 class="card-title"  style={{fontSize:"3.8vh"}}>This month(Points)</h4>
@@ -260,111 +273,117 @@ class Dash extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        <div class="col-sm-5">
+        {/* ////////////////////////////////Highlights Scores/////////////////////// */}
+
+
+
+
+        {/* /////////////////////new highlight socre//////////////////////////////////////////////// */}
+
+
+
+
+        {/* /////////////////////new highlight socre//////////////////////////////////////////////// */}
+                                        <div class="col-sm-5" style={{marginTop:"290px" }}>
                                             <div class>
-                                                <div
-                                                    class="card"
-                                                    style={{
-                                                        marginBottom: "10px",
-                                                        boxShadow: "0 19px 38px rgba(0,0,0,0.15)",
-                                                        padding: "5px",
-                                                        backgroundColor: "#ffffff",
-                                                        borderRadius: "17px",
-                                                        border:"none",
-                                                        marginTop:"10px"
-                                                    }}
-                                                >
-                                                    {/* ////////////////////////////////////// */}
-                                                    <div
-                                                        id="carouselExampleControls"
-                                                        className="carousel slide"
-                                                        data-ride="carousel"
-                                                        style={{padding:"10px"}}
-                                                    >
 
-<div class="wordCarousel " style={{ textAlign: "center" }}>
-                <span>Promote</span>
-                <div style={{ justifyContent: "center", alignItems: "center" }}>
-                  <ul class="flip4">
-                    <li style={{ color: "#E1306C" }}>Instagram </li>
-                    <li style={{ color: "#4267B2" }}>Facebook</li>
-                    <li style={{ color: "#FF0000" }}>YouTube</li>
-                    <li style={{ color: "#1DA1F2" }}>Twitter</li>
-                    <li style={{ color: "#BD081C" }}>Pinterest</li>
-                  </ul>
-                </div>
-              </div>
-                                                        <h2 style={{ textAlign: "center", fontSize:"1.5vmax" }}>
-                                                            {" "}
-                            Highlights Scores{" "}
-                                                        </h2>
-                                                        <img class="" src="assets\images\Browse websites.png"></img>
-                                                        <div className="carousel-inner">
-                                                            <div className="carousel-item active">
-                                                                <div className="sidescore">
-                                                                    <div
-                                                                        className="widraw"
-                                                                        style={{
-                                                                            textAlign: "center ",
-                                                                            fontSize:"1.3vmax",
-                                                                            fontWeight: "bold",
-                                                                            marginLeft: "10px",
-                                                                        }}
-                                                                    >
-                                                                        {" "}
-                                  (Robert Charles) Withdraw : 20${" "}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="carousel-item">
-                                                                <div
-                                                                    className="widraw"
-                                                                    style={{
-                                                                        
-                                                                        fontSize:"1.3vmax",
-                                                                        fontWeight: "bold",
-                                                                        marginRight:"10px",
-                                                                        
-                                                                    }}
-                                                                >
-                                                                    {" "}
-                                (Michael Joseph) Withdraw : 15${" "}
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
-                                                        <a
-                                                            className="carousel-control-prev"
-                                                            href="#carouselExampleControls"
-                                                            role="button"
-                                                            data-slide="prev"
-                                                        >
-                                                            <span
-                                                                className="carousel-control-prev-icon"
-                                                                aria-hidden="true"
-                                                            />
-                                                            <span className="sr-only">Previous</span>
-                                                        </a>
-                                                        <a
-                                                            className="carousel-control-next"
-                                                            href="#carouselExampleControls"
-                                                            role="button"
-                                                            data-slide="next"
-                                                        >
-                                                            <span
-                                                                className="carousel-control-next-icon"
-                                                                aria-hidden="true"
-                                                            />
-                                                            <span className="sr-only">Next</span>
-                                                        </a>
-                                                    </div>
-                                                    {/* ////////////////////////////////////// */}
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <div class='wrapper'>
+  <div class='carousel' style={{zIndex:2}}>
+    <div class='carousel__item'>
+ 
+      <div class='carousel__item-body'>
+      <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+      <div style={{fontWeight:"500", textAlign:"center" , color:"white"}}><h2>1000$ </h2></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4> - Danial - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+     
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center",color:"white"}}><h3>456$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4> - Belx - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+    
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center" ,color:"white"}}><h3>978$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4> - Merex - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+     
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center" ,color:"white"}}><h3>236$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4>  - Nshex - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+ 
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center",color:"white"}}><h3>497$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4> - Kesal - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+      
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center" ,color:"white"}}><h3>715$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4>  - Baleij - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+     
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center",color:"white"}}><h3>364$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4> - Yeax - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+    
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center",color:"white"}}><h3>916$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4> - Nefer - </h4></p>
+      </div>
+    </div>
+    <div class='carousel__item'>
+   
+    <div class='carousel__item-body'>
+    <div style={{fontWeight:"500", textAlign:"center" , color:"#ffcc29"}}><h3>Highlights</h3></div>
+
+      <div style={{fontWeight:"500", textAlign:"center",color:"white"}}><h3>147$ </h3></div>
+      <p style={{textAlign:"center" , color:"white"}} ><h4>  - Ruwel - </h4></p>
+      </div>
+    </div>
+  </div>
+</div>
+                                       
+</div>
+
+   {/* ///////////////////////////////new slide show////////////////////////////////////////////   */}
+
+
+
+   {/* ///////////////////////////////new slide show////////////////////////////////////////////   */}
+
+               </div>
                                     </div>
-                                    <div class="allcard" style={{ marginTop: "10px", height: "30%", width: "100%" }}>
+                                    {/* <div class="allcard" style={{ marginTop: "10px", height: "30%", width: "100%" }}> */}
 
 
                                         {/* <div class="row" style={{ marginTop: "30px", alignContent: "center" }}>
@@ -404,12 +423,19 @@ class Dash extends React.Component {
                                                 </div>
                                             </div>
                                         </div> */}
-                                        <div class="row" style={{ marginTop: "5%", width: "100%" }}>
+
+                                      
+
+{/* <div class="row" style={{textAlign:"center"}}> */}
+
+  <div className="earnset" >     
+   <br/>   <br/> 
+                                        <div class="row" style={{ marginTop: "5%", width: "100%" , marginLeft:"3px"  }}>
                                             <div class="col-md-6 mx-auto " >
                                                 <Link to="/earnpage" >
                                                     <button class="mx-auto d-block" style={{
                                                         borderRadius: "25px", outline: "none", textDecoration: "none", display: "flex", justifyContent: "center", alignItems: "center", textTransform: "uppercase",
-                                                        height: "45px",
+                                                        height: "55px",
                                                         width: "230px", opacity: " 1", backgroundColor: " #ffffff", border: "1px solid rgba(22, 76, 167, 0.6)"
                                                     }} >
                                                         <span>Earn More</span>
@@ -419,10 +445,164 @@ class Dash extends React.Component {
                                         </div>
 
                                         <h2 class="text-center" style={{ marginTop: "5%" ,fontSize:"2.8vmax", textAlign:"center" }} >Place Your Social Media Orders <br /></h2>
-                                        <div style={{ alignContent: "center" }}>
+                                        {/* <div style={{ alignContent: "center" }}> */}
                                             {/* <h3 style={{ marginTop: "5%", textAlign: "center" }}>Place Your Social Media Orders</h3> */}
-<br></br>
-                                            <div class="allcard" style={{ marginTop: "10px", height: "30%" }}>
+                                            <br></br><br></br>
+                                            </div>  
+
+
+{/* </div> */}
+<br/><br/>
+                                  
+{/* ////////////////////////////////////new crad/////////////////////////////////////////////////////////// */}
+<div class="allcard">
+  
+                <div class="row">
+                  <div class="col-6 col-sm-4 col-md-2">
+                    <div
+                      style={{
+                        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        padding: "0 0 20px 0",
+                        textAlign: "center",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "35px",
+                      }}
+                    >
+                      <a
+                        class="card-block stretched-link text-decoration-none"
+                      ></a>
+
+                      <div class="imageali">
+                        <img
+                          src="/assets/Image/new image size/icon/1.png"
+                          style={{ width: "32%", height: "32%" }}
+                        ></img>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-2">
+                    <div
+                      style={{
+                        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        padding: "0 0 20px 0",
+                        textAlign: "center",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "35px",
+                      }}
+                    >
+                      <a
+                        class="card-block stretched-link text-decoration-none"
+                        href=""
+                      ></a>
+                      <div class="imageali">
+                        <img
+                          src="/assets/Image/new image size/icon/2.png"
+                          style={{ width: "32%", height: "32%" }}
+                        ></img>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-2">
+                    <div
+                      style={{
+                        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        padding: "0 0 20px 0",
+                        textAlign: "center",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "35px",
+                      }}
+                    >
+                      <a
+                        class="card-block stretched-link text-decoration-none"
+                      ></a>
+                      <div class="imageali">
+                        {" "}
+                        <img
+                          src="/assets/Image/new image size/icon/5.png"
+                          style={{ width: "32%", height: "32%" }}
+                        ></img>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-2">
+                    <div
+                      style={{
+                        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        padding: "0 0 20px 0",
+                        textAlign: "center",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "35px",
+                      }}
+                    >
+                      <a
+                        class="card-block stretched-link text-decoration-none"
+                      ></a>
+                      <div class="imageali">
+                        <img
+                          src="/assets/Image/new image size/icon/3.png"
+                          style={{ width: "32%", height: "32%" }}
+                        ></img>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-2">
+                    <div
+                      style={{
+                        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        padding: "0 0 20px 0",
+                        textAlign: "center",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "35px",
+                      }}
+                    >
+                      <a
+                        class="card-block stretched-link text-decoration-none"
+                      ></a>
+                      <div class="imageali">
+                        <img
+                          src="/assets/Image/new image size/icon/4.png"
+                          style={{ width: "32%", height: "32%" }}
+                        ></img>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+
+                  <div class="col-6 col-sm-4 col-md-2">
+                    <div
+                      style={{
+                        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                        padding: "0 0 20px 0",
+                        textAlign: "center",
+                        backgroundColor: "#ffffff",
+                        borderRadius: "35px",
+                      }}
+                    >
+                      <a
+                        class="card-block stretched-link text-decoration-none"
+                        href="#"
+                      ></a>
+                      <div class="imageali">
+                        <img
+                          src="/assets/Image/new image size/icon/6.png"
+                          style={{ width: "32%", height: "32%" }}
+                        ></img>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                </div>
+              </div>
+
+{/* ////////////////////////////////////new crad/////////////////////////////////////////////////////////// */}
+                                          
+
+
+                                            {/* <div class="allcard" >
                                                 <div class="row">
                                                     <div class="col-6 col-sm-4 col-md-2">
                                                         <div style={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)", padding: "0 0 20px 0", textAlign: "center", backgroundColor: "#ffffff", borderRadius: "35px" }}>
@@ -474,7 +654,9 @@ class Dash extends React.Component {
                                                         <br />
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
+
+
                                             <div class="row" style={{ marginTop: "5%", marginBottom: "5%" }}>
                                                 <div class="col-md-6 mx-auto " >
                                                     <Link to="/createorder" >
@@ -490,8 +672,8 @@ class Dash extends React.Component {
 
                                             </div>
 
-                                        </div>
-                                    </div>
+                                        {/* </div> */}
+                                   
                                 </div>
                             </div>
 

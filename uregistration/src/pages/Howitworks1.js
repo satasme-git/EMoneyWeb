@@ -126,7 +126,7 @@ class Howitworks1 extends React.Component {
                   <a class="action" href="/howitworks">
                     <i
                       class="fa fa-arrow-circle-left"
-                      style={{ fontSize: "34px", paddingTop: "5px" }}
+                      style={{ fontSize: "34px", paddingTop: "14px" }}
                     ></i>
                   </a>
             &emsp;
@@ -287,8 +287,8 @@ class Howitworks1 extends React.Component {
                     You can choose this method easily. Only you have to do is
                     complete the tasks provided by us, By using your social
                     media account and earn points. You can earn points by using
-                    Facebook, Twitter, Instagram, YouTube and TikTok social
-                    media accounts.your one tap can earn points for you.{" "}
+                   social
+                    media accounts.
                   </p>
                   <a class="action" href="/smengagement">
                     <i
@@ -379,7 +379,7 @@ class Howitworks1 extends React.Component {
                   </div>
                   <div class="col-md-6 item text">
                     <h3>EmoneyTag</h3>
-                    <p>You can choose this method easily. Only you have to do is complete the
+                    <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                     tasks provided by us, By using your social media account and earn points.
                     You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

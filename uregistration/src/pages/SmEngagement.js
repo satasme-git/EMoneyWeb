@@ -52,7 +52,7 @@ class SmEngagement extends React.Component {
                                     <a class="action" href="/howitworks1">
                                         <i
                                             class="fa fa-arrow-circle-left"
-                                            style={{ fontSize: "34px", paddingTop: "5px" }}
+                                            style={{ fontSize: "34px", paddingTop: "14px"  }}
                                         ></i>
                                     </a>
             &emsp;&emsp;

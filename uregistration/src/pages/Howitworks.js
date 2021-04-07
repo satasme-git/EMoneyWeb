@@ -152,7 +152,7 @@ class Howitworks extends React.Component {
                 marginTop: "150px",
               }}
             >
-              Discover how it is easy to use 
+              Discover How It's Easy to Use 
             </h1>
             <div
               class="col-md-6 col-lg-4 item"
@@ -166,7 +166,8 @@ class Howitworks extends React.Component {
                 <p style={{ textAlign: "center", fontSize: "25px" }}>
                   How to Make Money Online
                 </p>
-                <div style={{ textAlign: "center" }}> <a class="action" href="/howitworks1"><i class="fa fa-arrow-circle-right" style={{ fontSize: "60px" }} ></i></a></div>
+
+                <div style={{ textAlign: "center" }}> <a class="action" href="/howitworks1"><i class="fa fa-arrow-circle-right" style={{ fontSize: "60px" }} ></i></a></div><br/>
                 {/* <a class="action" href="/howitworks1">
                   <i
                     class="fa fa-arrow-circle-right"
@@ -186,7 +187,7 @@ class Howitworks extends React.Component {
                 <p style={{ textAlign: "center", fontSize: "25px" }}>
                   Promote your YouTube/ Social media
                 </p>
-                <div style={{ textAlign: "center" }}> <a class="action" href="/howitworks2"><i class="fa fa-arrow-circle-right" style={{ fontSize: "60px" }} ></i></a></div>
+                <div style={{ textAlign: "center" }}> <a class="action" href="/howitworks2"><i class="fa fa-arrow-circle-right" style={{ fontSize: "60px" }} ></i></a></div><br/>
                 {/* <a class="action" href="/howitworks2">
                   <i
                     class="fa fa-arrow-circle-right"
@@ -219,7 +220,7 @@ class Howitworks extends React.Component {
                 </div>
                 <div class="col-md-6 item text">
                   <h3>EmoneyTag</h3>
-                  <p>You can choose this method easily. Only you have to do is complete the
+                  <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                   tasks provided by us, By using your social media account and earn points.
                   You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>
