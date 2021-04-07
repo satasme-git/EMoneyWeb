@@ -5,10 +5,10 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 import { $, jQuery } from 'jquery';
-import serveyService from "../../services/serveyService";
+import serveyService from "../services/serveyService";
 import queryString from 'query-string';
-import earningService from "../../services/earningService";
-import userServices from "../../services/userServices";
+import earningService from "../services/earningService";
+import userServices from "../services/userServices";
 import Cookies from "js-cookie";
 import toast from 'toast-me';
 

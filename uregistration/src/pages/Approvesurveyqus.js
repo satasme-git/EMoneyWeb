@@ -6,8 +6,8 @@ import "jquery/dist/jquery.min.js";
 import $ from "jquery";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Sidebar from "../../components/Sidebar";
-import serveyService from "../../services/serveyService";
+import Sidebar from "../components/Sidebar";
+import serveyService from "../services/serveyService";
 import moment from 'moment'
 
 class Approvesurveyqus extends React.Component {

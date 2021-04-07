@@ -10,9 +10,10 @@ import "datatables.net-dt/js/dataTables.dataTables";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
 import { Helmet } from "react-helmet";
-import adminEarningService from "../../services/adminEarningService";
-import Sidebar from '../../components/Sidebar';
-import paymentService from "../../services/paymentService";
+import adminEarningService from "../services/adminEarningService";
+import Sidebar from '../components/Sidebar';
+import paymentService from "../services/paymentService";
+import serveyService from "../services/serveyService";
 
 class InstagramEarnHistory extends React.Component {
 
@@ -41,13 +42,13 @@ class InstagramEarnHistory extends React.Component {
     // });
     var completediv = document.getElementById("completediv");
     completediv.setAttribute("style", "display:none");
-    adminEarningService.getSocialEarning("website").then(res => {
+    serveyService.getSocialEarning().then(res => {
 
       this.setState({ pending: res.data });
 
     });
 
-    adminEarningService.getUserSocialEarning("website").then(res => {
+    serveyService.getUserSocialEarning().then(res => {
 
       this.setState({ payed: res.data });
 
@@ -68,19 +69,19 @@ class InstagramEarnHistory extends React.Component {
       pendingdiv.setAttribute("style", "display:");
       completediv.setAttribute("style", "display:none");
       
-      adminEarningService.getUserSocialEarning("website").then(res => {
+      serveyService.getUserSocialEarning().then(res => {
 
         this.setState({ payed: res.data });
-
+  
       });
       $("#example1").DataTable();
     } else {
       pendingdiv.setAttribute("style", "display:none");
       completediv.setAttribute("style", "display:");
-      adminEarningService.getSocialEarning("website").then(res => {
+      serveyService.getSocialEarning().then(res => {
 
         this.setState({ pending: res.data });
-
+  
       });
       $("#example2").DataTable();
     }
@@ -164,7 +165,7 @@ class InstagramEarnHistory extends React.Component {
                     <h4 className="page-title pull-left">Dashboard</h4>
                     <ul className="breadcrumbs pull-left">
                       <li> <Link to="/admin/admindash" > <a >Home</a> </Link></li>
-                      <li><span>Web Earn History</span></li>
+                      <li><span>Survey Earn History</span></li>
                     </ul>
                   </div>
                 </div>
@@ -177,7 +178,7 @@ class InstagramEarnHistory extends React.Component {
                 <div className="col-12 mt-5">
                   <div className="row">
                     <div className="col-4 col-sm-4 col-md-3">Customers Earn History<input id="pending" defaultChecked type="radio" name="answer" defaultValue="completepay" onClick={this.changePaymentType} /></div>
-                    <div className="col-4 col-sm-4 col-md-3">Web Links Earn History<input id="completed" type="radio" name="answer" defaultValue="Pennding" onClick={this.changePaymentType} />
+                    <div className="col-4 col-sm-4 col-md-3">Survey Earn History<input id="completed" type="radio" name="answer" defaultValue="Pennding" onClick={this.changePaymentType} />
                     </div>
                   </div>
                 </div>
@@ -218,13 +219,13 @@ class InstagramEarnHistory extends React.Component {
               <div className="col-12 mt-5" id="completediv">
                 <div className="card">
                   <div className="card-body" id="Completetable">
-                    <h4 className="header-title">Web Links Earn History</h4>
+                    <h4 className="header-title">Survey Earn History</h4>
 
                     <table id="example2" class="display">
                       <thead>
                         <tr>
                           <th>Service</th>
-                          <th>Url </th>
+                          <th>Date </th>
                           <th>Count(Clicks)</th>
                         </tr>
                       </thead>

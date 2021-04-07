@@ -266,7 +266,7 @@ class UserHome extends React.Component {
                     <div
                       id="quick_start"
                       class="preset-card"
-                      onClick={this.redirectToWatch}
+                      // onClick={this.redirectToWatch}
                     >
                       <div class="preset-card__image quick_start">
                         <img
