@@ -32,37 +32,37 @@ class Dash extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     earningService.getToday(Cookies.get('user')).then(res => {
-        //         this.setState({ today_earning: res.data });
-        //     });
+        var user = Cookies.get('user');
+        if (user != null) {
+            earningService.getToday(Cookies.get('user')).then(res => {
+                this.setState({ today_earning: res.data });
+            });
 
-        //     earningService.getYesterdayEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ yesterday_earning: res.data });
-        //     });
+            earningService.getYesterdayEarning(Cookies.get('user')).then(res => {
+                this.setState({ yesterday_earning: res.data });
+            });
 
-        //     earningService.getWeekEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ week_earning: res.data });
-        //     });
+            earningService.getWeekEarning(Cookies.get('user')).then(res => {
+                this.setState({ week_earning: res.data });
+            });
 
-        //     earningService.getMonthEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ month_earning: res.data });
-        //     });
+            earningService.getMonthEarning(Cookies.get('user')).then(res => {
+                this.setState({ month_earning: res.data });
+            });
 
-        //     earningService.getBalance(Cookies.get('user')).then(res => {
-        //         this.setState({ balance: res.data });
-        //     });
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getBalance(Cookies.get('user')).then(res => {
+                this.setState({ balance: res.data });
+            });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
     }
     redirectToDash = (e) => {

@@ -23,33 +23,33 @@ class EarnPage extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+        var user = Cookies.get('user');
+        if (user != null) {
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
 
-        //     userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-        //         var earnblock = document.getElementById("earnblock");
-        //         if (res.data == "compeleted") {
-        //             this.setState({ earnstatus: '' });
-        //             var social = document.getElementById("socialearn");
-        //             var upload = document.getElementById("uplaodearn");
-        //             social.href = "/earnmanagement";
-        //             upload.href = "/uploadvideo";
-        //             earnblock.setAttribute("style","color: #FF4019;display:none");
-        //         } else {
-        //             this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-        //             earnblock.setAttribute("style","color: #FF4019;display:''");
-        //         }
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+                var earnblock = document.getElementById("earnblock");
+                if (res.data == "compeleted") {
+                    this.setState({ earnstatus: '' });
+                    var social = document.getElementById("socialearn");
+                    var upload = document.getElementById("uplaodearn");
+                    // social.href = "/earnmanagement";
+                    // upload.href = "/uploadvideo";
+                    earnblock.setAttribute("style", "color: #FF4019;display:none");
+                } else {
+                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+                    earnblock.setAttribute("style", "color: #FF4019;display:''");
+                }
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
     }
 
@@ -95,20 +95,20 @@ class EarnPage extends React.Component {
                     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
                     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
                 </Helmet>
-                <header class="header" style={{marginLeft:"63px",height:"63px"}}>
+                <header class="header" style={{ marginLeft: "63px", height: "63px" }}>
                     <section class="container header__inner">
                         <div class="header__right">
 
-                                <span class="utext">{this.state.total_earning}</span>
-                                <Link to="/profile" >
-                                    <li class="nav-item dropdown  user-menu">
-                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                            <span class="utext">{this.state.total_earning}</span>
+                            <Link to="/profile" >
+                                <li class="nav-item dropdown  user-menu">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
-                                            <i class="fa fa-user"></i>
-                                            <span class="hidden-xs">{this.state.username}</span>
-                                        </a>
-                                    </li>
-                                </Link>
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-xs">{this.state.username}</span>
+                                    </a>
+                                </li>
+                            </Link>
                         </div>
                     </section>
 
@@ -164,14 +164,14 @@ class EarnPage extends React.Component {
                                 </ul>
                             </nav>
                         </div>
-                        <main class="s-layout__content" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
+                        <main class="s-layout__content" style={{ height: "100%", backgroundColor: "#dfeef2", padding: "50px" }}>
                             <div>
-{/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
+                                {/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
                                 <div class="" style={{ marginTop: "80px" }}>
-                                    <h1 class="text-center" style={{fontSize:"3.5vmax"}}>Choose the method of Earning</h1>
-                                    <h5 class="text-center" id="earnblock" >{this.state.earnstatus} <a style={{color:"blue"}} href="/profile">Go To Profile</a></h5>
+                                    <h1 class="text-center" style={{ fontSize: "3.5vmax" }}>Choose the method of Earning</h1>
+                                    <h5 class="text-center" id="earnblock" >{this.state.earnstatus} <a style={{ color: "blue" }} href="/profile">Go To Profile</a></h5>
 
-{/*                                
+                                    {/*                                
                                     <div class="row text-center" style={{ marginTop: "-5%", height: "100%", padding: "80px" }}>
                                         <div class="col-md-4" style={{ padding: "10px" }}>
                                             <div class="cardearn">

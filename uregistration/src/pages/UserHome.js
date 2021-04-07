@@ -19,12 +19,12 @@ class UserHome extends React.Component {
   }
 
   componentDidMount() {
-    // var user = Cookies.get('user');
-    // if (user != null) {
+    var user = Cookies.get('user');
+    if (user != null) {
 
-    // } else {
-    //   this.props.history.push('/login');
-    // }
+    } else {
+      this.props.history.push('/login');
+    }
   }
 
   redirectToHomebl = (e) => {

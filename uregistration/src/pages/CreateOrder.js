@@ -95,6 +95,16 @@ class Dash extends React.Component {
             serveyid: '',
             serveyclick: false,
             total_questions: 0,
+            y_v_gmalecheck: 'checked',
+            y_v_gfemalecheck: '',
+            y_s_gmalecheck: 'checked',
+            y_s_gfemalecheck: '',
+            f_pal_gmalecheck: 'checked',
+            f_pal_gfemalecheck: '',
+            f_pol_gmalecheck: 'checked',
+            f_pol_gfemalecheck: '',
+            f_s_gmalecheck: 'checked',
+            f_s_gfemalecheck: '',
             options: [{ name: 'Srilanka', id: 1 }, { name: 'Miyanmar', id: 2 }]
         }
 
@@ -102,137 +112,143 @@ class Dash extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // const value = queryString.parse(this.props.location.search);
-        // const token = value.url;
-        // if (token != null) {
-        //     var menu11 = document.getElementById("menu11");
-        //     var menu22 = document.getElementById("menu22");
-        //     var menu33 = document.getElementById("menu33");
-        //     var menu44 = document.getElementById("menu44");
-        //     var menu55 = document.getElementById("menu55");
+        var user = Cookies.get('user');
+        const value = queryString.parse(this.props.location.search);
+        const token = value.url;
+        if (token != null) {
+            var menu11 = document.getElementById("menu11");
+            var menu22 = document.getElementById("menu22");
+            var menu33 = document.getElementById("menu33");
+            var menu44 = document.getElementById("menu44");
+            var menu55 = document.getElementById("menu55");
 
-        //     var menu1 = document.getElementById("menu1");
-        //     var menu2 = document.getElementById("menu2");
-        //     var menu3 = document.getElementById("menu3");
-        //     var menu4 = document.getElementById("menu4");
-        //     var menu5 = document.getElementById("menu5");
+            var menu1 = document.getElementById("menu1");
+            var menu2 = document.getElementById("menu2");
+            var menu3 = document.getElementById("menu3");
+            var menu4 = document.getElementById("menu4");
+            var menu5 = document.getElementById("menu5");
 
-        //     if (token.includes("youtube")) {
-        //         menu11.classList.add("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu11').trigger('click');
-        //         menu1.classList.add("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ youtube_link: token });
-        //     } else if (token.includes("facebook")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.add("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu22').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.add("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ facebook_link: token });
-        //     } else if (token.includes("instagram")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.add("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu33').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.add("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ insta_link: token });
-        //     } else if (token.includes("twitter")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.add("active");
-        //         menu55.classList.remove("active");
-        //         $('#menu44').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.add("active");
-        //         menu5.classList.remove("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ twitter_link: token });
-        //     } else if (token.includes("tiktok")) {
-        //         menu11.classList.remove("active");
-        //         menu22.classList.remove("active");
-        //         menu33.classList.remove("active");
-        //         menu44.classList.remove("active");
-        //         menu55.classList.add("active");
-        //         $('#menu55').trigger('click');
-        //         menu1.classList.remove("active");
-        //         menu2.classList.remove("active");
-        //         menu3.classList.remove("active");
-        //         menu4.classList.remove("active");
-        //         menu5.classList.add("active");
-        //         //
-        //         menu1.classList.remove("fade");
-        //         menu2.classList.remove("fade");
-        //         menu3.classList.remove("fade");
-        //         menu4.classList.remove("fade");
-        //         menu5.classList.remove("fade");
-        //         this.setState({ tiktok_link: token });
-        //     }
-        // }
-        // if (user != null) {
-        //     orderService.getMinMax().then(res => {
-        //         this.setState({ packageMinMax: res.data });
-        //         this.loadPackages();
-        //     });
+            if (token.includes("youtube")) {
+                menu11.classList.add("active");
+                menu22.classList.remove("active");
+                menu33.classList.remove("active");
+                menu44.classList.remove("active");
+                menu55.classList.remove("active");
+                $('#menu11').trigger('click');
+                menu1.classList.add("active");
+                menu2.classList.remove("active");
+                menu3.classList.remove("active");
+                menu4.classList.remove("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ youtube_link: token });
+            } else if (token.includes("facebook")) {
+                menu11.classList.remove("active");
+                menu22.classList.add("active");
+                menu33.classList.remove("active");
+                menu44.classList.remove("active");
+                menu55.classList.remove("active");
+                $('#menu22').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.add("active");
+                menu3.classList.remove("active");
+                menu4.classList.remove("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ facebook_link: token });
+            } else if (token.includes("instagram")) {
+                menu11.classList.remove("active");
+                menu22.classList.remove("active");
+                menu33.classList.add("active");
+                menu44.classList.remove("active");
+                menu55.classList.remove("active");
+                $('#menu33').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.remove("active");
+                menu3.classList.add("active");
+                menu4.classList.remove("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ insta_link: token });
+            } else if (token.includes("twitter")) {
+                menu11.classList.remove("active");
+                menu22.classList.remove("active");
+                menu33.classList.remove("active");
+                menu44.classList.add("active");
+                menu55.classList.remove("active");
+                $('#menu44').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.remove("active");
+                menu3.classList.remove("active");
+                menu4.classList.add("active");
+                menu5.classList.remove("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ twitter_link: token });
+            } else if (token.includes("tiktok")) {
+                menu11.classList.remove("active");
+                menu22.classList.remove("active");
+                menu33.classList.remove("active");
+                menu44.classList.remove("active");
+                menu55.classList.add("active");
+                $('#menu55').trigger('click');
+                menu1.classList.remove("active");
+                menu2.classList.remove("active");
+                menu3.classList.remove("active");
+                menu4.classList.remove("active");
+                menu5.classList.add("active");
+                //
+                menu1.classList.remove("fade");
+                menu2.classList.remove("fade");
+                menu3.classList.remove("fade");
+                menu4.classList.remove("fade");
+                menu5.classList.remove("fade");
+                this.setState({ tiktok_link: token });
+            }
+        }
+        if (user != null) {
+            orderService.getMinMax().then(res => {
+                this.setState({ packageMinMax: res.data });
+                this.loadPackages();
+            });
 
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
-        //     this.generateYoutubePrice(1600, "views");
-        // } else {
-        //     this.props.history.push('/login');
-        // }
-        // this.setState({ serveyid: Date.now() });
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
+            this.generateYoutubePrice(1600, "views");
+        } else {
+            this.props.history.push('/login');
+        }
+        document.getElementById("y_s_gmale").disabled = true;
+        document.getElementById("y_s_gfemale").disabled = true;
+        document.getElementById("f_s_gmale").disabled = true;
+        document.getElementById("f_s_gfemale").disabled = true;
+        document.getElementById("f_pal_gmale").disabled = true;
+        document.getElementById("f_pal_gfemale").disabled = true;
+        this.setState({ serveyid: Date.now() });
 
     }
 
@@ -852,12 +868,13 @@ class Dash extends React.Component {
             inputtag.disabled = false;
             rangetag.disabled = false;
             countrytag.disabled = false;
+            maletag.disabled = false;
+            femaletag.disabled = false;
             agegroupmintag.disabled = false;
             agegroupmaxtag.disabled = false;
             agegroupmintag.setAttribute("style", "border: solid 1px black;border-radius: 5px; width: 50px; margin-left: 5px; padding: 2px");
             agegroupmaxtag.setAttribute("style", "border: solid 1px black;border-radius: 5px; width: 50px; margin-left: 5px; padding: 2px");
-            maletag.disabled = false;
-            femaletag.disabled = false;
+
         } else {
             inputtag.disabled = true;
             rangetag.disabled = true;
@@ -1926,6 +1943,10 @@ class Dash extends React.Component {
     }
 
 
+    checkClick() {
+        alert("aaaaaaaaaaa")
+    }
+
     render() {
 
         return (
@@ -2018,7 +2039,7 @@ class Dash extends React.Component {
                         <main class="s-layout__content" style={{ height: "100%", marginTop: "50px", width: "100%", }}>
                             <div>
                                 <div class="container">
-                                    <h2 style={{ marginBottom: "10px", textAlign:"center" , marginTop: "50px" }}><strong> I Want To Promote My </strong></h2>
+                                    <h2 style={{ marginBottom: "10px", textAlign: "center", marginTop: "50px" }}><strong> I Want To Promote My </strong></h2>
                                     <div class="" style={{ marginLeft: "20px", marginRight: "20px", marginBottom: "20px", width: "95%" }}>
 
 
@@ -2043,8 +2064,8 @@ class Dash extends React.Component {
                                                     <a class="nav-link menu5" data-toggle="tab" href="#menu5" id="menu55" onClick={() => this.changeNavLink('menu5')}><img class="button-enter__icon" src="assets/img/icons/tik.png" alt="" /></a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link menu6" data-toggle="tab" href="#menu6" id="menu66" onClick={() => this.changeNavLink('menu6')}><img class="button-enter__icon"  src="assets/img/icons/clicknow.png" alt="" /></a>
-                                                    
+                                                    <a class="nav-link menu6" data-toggle="tab" href="#menu6" id="menu66" onClick={() => this.changeNavLink('menu6')}><img class="button-enter__icon" src="assets/img/icons/clicknow.png" alt="" /></a>
+
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link menu7" data-toggle="tab" href="#menu7" id="menu77" onClick={() => this.changeNavLink('menu7')}><img class="button-enter__icon" src="assets/img/icons/survey.png" alt="" /></a>
@@ -2146,8 +2167,8 @@ class Dash extends React.Component {
                                                         </div>
                                                         <div class="col-12 col-md-4">
                                                             <span style={{ marginTop: "10px" }}><b>Gender</b></span>&nbsp;&nbsp;
-                                                                <input id="y_v_gmale" type="radio" name="y_viewsradio" checked="checked" />Male&nbsp;
-                                                                <input id="y_v_gfemale" type="radio" name="y_viewsradio" />Female&nbsp;
+                                                                <input id="y_v_gmale" type="radio" name="y_viewsradio" checked={this.state.y_v_gmalecheck} onClick={e => this.setState({ y_v_gmalecheck: "checked", y_v_gfemalecheck: "" })} />Male&nbsp;
+                                                                <input id="y_v_gfemale" type="radio" name="y_viewsradio" checked={this.state.y_v_gfemalecheck} onClick={e => this.setState({ y_v_gmalecheck: "", y_v_gfemalecheck: "checked" })} />Female&nbsp;
                                                         </div>
                                                     </div>
                                                     {/* <button class="button" id="y_s_settings" type="button"  style={{ marginLeft: "10px", backgroundColor: "rgb(255, 255, 255)", borderRadius: "200px", border: "solid", color: "rgb(11,11,11)", fontSize: "14px", height: "38px", borderColor: "#e7e7e7" }}><strong>Settings</strong></button> */}
@@ -2237,8 +2258,9 @@ class Dash extends React.Component {
                                                             </div>
                                                             <div class="col-12 col-md-4">
                                                                 <span><b>Gender</b></span>&nbsp;&nbsp;
-                                                    <input id="y_s_gmale" type="radio" name="y_viewsradio" disabled="disable" checked="checked" />Male&nbsp;
-                                                    <input id="y_s_gfemale" type="radio" name="y_viewsradio" disabled="disable" />Female&nbsp;
+                                                    <input id="y_s_gmale" type="radio" name="y_subscriberadio" checked={this.state.y_s_gmalecheck} onClick={e => this.setState({ y_s_gmalecheck: 'checked', y_s_gfemalecheck: '' })} />Male&nbsp;
+                                                    <input id="y_s_gfemale" type="radio" name="y_subscriberadio" checked={this.state.y_s_gfemalecheck} onClick={e => this.setState({ y_s_gmalecheck: '', y_s_gfemalecheck: 'checked' })} />Female&nbsp;
+
                                                             </div>
                                                             {/* <button class="button" id="y_s_settings" type="button"  style={{ marginLeft: "10px", backgroundColor: "rgb(255, 255, 255)", borderRadius: "200px", border: "solid", color: "rgb(11,11,11)", fontSize: "14px", height: "38px", borderColor: "#e7e7e7" }}><strong>Settings</strong></button> */}
                                                         </div>
@@ -2343,8 +2365,8 @@ class Dash extends React.Component {
                                                             </div>
                                                             <div class="col-12 col-md-4">
                                                                 <span><b>Gender</b></span>&nbsp;&nbsp;
-                                                    <input id="f_pol_gmale" type="radio" name="f_pol_radio" checked="checked" />Male&nbsp;
-                                                    <input id="f_pol_gfemale" type="radio" name="f_pol_radio" />Female&nbsp;
+                                                    <input id="f_pol_gmale" type="radio" name="f_pol_radio" checked={this.state.f_pal_gmalecheck} onClick={e => this.setState({ f_pal_gmalecheck: "checked", f_pal_gfemalecheck: "" })} />Male&nbsp;
+                                                    <input id="f_pol_gfemale" type="radio" name="f_pol_radio" checked={this.state.f_pal_gfemalecheck} onClick={e => this.setState({ f_pal_gmalecheck: "", f_pal_gfemalecheck: "checked" })} />Female&nbsp;
                                                     {/* <button class="button" id="y_s_settings" type="button"  style={{ marginLeft: "10px", backgroundColor: "rgb(255, 255, 255)", borderRadius: "200px", border: "solid", color: "rgb(11,11,11)", fontSize: "14px", height: "38px", borderColor: "#e7e7e7" }}><strong>Settings</strong></button> */}
                                                             </div>
                                                         </div>
@@ -2429,17 +2451,17 @@ class Dash extends React.Component {
                                                                 <div>
                                                                     <span><b>Age Group</b></span>&nbsp;&nbsp;
                                                                 <span>From:</span>
-                                                                    <input type="number" disabled="disable" min="14" max="60" id="f_pal_agegroup_min" style={{ border: "solid 1px gray", width: "50px", marginLeft: "5px", padding: "2px", borderRadius: "5px" }} />
+                                                                    <input type="number" min="14" max="60" id="f_pal_agegroup_min" style={{ border: "solid 1px gray", width: "50px", marginLeft: "5px", padding: "2px", borderRadius: "5px" }} />
                                                                 &nbsp;&nbsp;
                                                                 <span>To:</span>
-                                                                    <input type="number" disabled="disable" min="14" max="60" id="f_pal_agegroup_max" style={{ border: "solid 1px gray", width: "50px", marginLeft: "5px", padding: "2px", borderRadius: "5px" }} />
+                                                                    <input type="number" min="14" max="60" id="f_pal_agegroup_max" style={{ border: "solid 1px gray", width: "50px", marginLeft: "5px", padding: "2px", borderRadius: "5px" }} />
                                                                 </div>
                                                                 <br />
                                                             </div>
                                                             <div class="col-12 col-md-4">
                                                                 <span><b>Gender</b></span>&nbsp;&nbsp;
-                                                    <input id="f_pal_gmale" disabled="disable" type="radio" name="f_pal_radio" checked="checked" />Male&nbsp;
-                                                    <input id="f_pal_gfemale" disabled="disable" type="radio" name="f_pal_radio" />Female&nbsp;
+                                                    <input id="f_pal_gmale"type="radio" name="f_pal_radio" checked={this.state.f_pol_gmalecheck} onClick={e => this.setState({ f_pol_gmalecheck: "checked", f_pol_gfemalecheck: "" })} />Male&nbsp;
+                                                    <input id="f_pal_gfemale" type="radio" name="f_pal_radio" checked={this.state.f_pol_gfemalecheck} onClick={e => this.setState({ f_pol_gmalecheck: "", f_pol_gfemalecheck: "checked" })} />Female&nbsp;
                                                     {/* <button class="button" id="y_s_settings" type="button"  style={{ marginLeft: "10px", backgroundColor: "rgb(255, 255, 255)", borderRadius: "200px", border: "solid", color: "rgb(11,11,11)", fontSize: "14px", height: "38px", borderColor: "#e7e7e7" }}><strong>Settings</strong></button> */}
                                                             </div>
                                                         </div>
@@ -2531,8 +2553,8 @@ class Dash extends React.Component {
                                                             </div>
                                                             <div class="col-12 col-md-4">
                                                                 <span><b>Gender</b></span>&nbsp;&nbsp;
-                                                    <input id="f_s_gmale" type="radio" disabled="disable" name="f_s_radio" checked="checked" />Male&nbsp;
-                                                    <input id="f_s_gfemale" type="radio" disabled="disable" name="f_s_radio" />Female&nbsp;
+                                                    <input id="f_s_gmale" type="radio" name="f_s_radio" checked={this.state.f_s_gmalecheck} onClick={e => this.setState({ f_s_gmalecheck: "checked", f_s_gfemalecheck: "" })} />Male&nbsp;
+                                                    <input id="f_s_gfemale" type="radio" name="f_s_radio" checked={this.state.f_s_gfemalecheck} onClick={e => this.setState({ f_s_gmalecheck: "", f_s_gfemalecheck: "checked" })} />Female&nbsp;
                                                     {/* <button class="button" id="y_s_settings" type="button"  style={{ marginLeft: "10px", backgroundColor: "rgb(255, 255, 255)", borderRadius: "200px", border: "solid", color: "rgb(11,11,11)", fontSize: "14px", height: "38px", borderColor: "#e7e7e7" }}><strong>Settings</strong></button> */}
                                                             </div>
                                                         </div>
