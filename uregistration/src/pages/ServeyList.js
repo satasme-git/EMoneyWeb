@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import socialmedia from '../../services/socialmedia';
+import socialmedia from '../services/socialmedia';
 import toast from 'toast-me';
 import { Link } from 'react-router-dom';
-import userServices from "../../services/userServices";
-import earningService from "../../services/earningService";
+import userServices from "../services/userServices";
+import earningService from "../services/earningService";
 import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
-import Pagination from '../../components/Pagination';
-import ServeyCard from '../../components/ServeyCard';
+import Pagination from '../components/Pagination';
+import ServeyCard from '../components/ServeyCard';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-import pointService from "../../services/pointService";
-import serveyService from "../../services/serveyService";
+import pointService from "../services/pointService";
+import serveyService from "../services/serveyService";
 
 class ServeyList extends React.Component {
 

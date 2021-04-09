@@ -17,10 +17,10 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 /*///////////////////////import add question page/////////////////*/
-import Addyesnoquestion from "./temp/Addyesnoquestion";
-import Addsinglechoicequestion from "./temp/Addsinglechoicequestion";
-import Addmultiplechoicequstion from "./temp/Addmultiplechoicequstion";
-import Addeasyquestion from "./temp/Addeasyquestion";
+import Addyesnoquestion from "./Addyesnoquestion";
+import Addsinglechoicequestion from "./Addsinglechoicequestion";
+import Addmultiplechoicequstion from "./Addmultiplechoicequstion";
+import Addeasyquestion from "./Addeasyquestion";
 import serveyService from "../services/serveyService";
 /*///////////////////////import add question page/////////////////*/
 

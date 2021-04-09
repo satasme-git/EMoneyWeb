@@ -12,7 +12,7 @@ import Referral from "./pages/Referal";
 import CreateOrder from "./pages/CreateOrder";
 import Orders from "./pages/Order";
 // import EarnPage from "./pages/EarnPage";
-// start temp
+// start user
 import EarnPage from './pages/EarnPage';
 import YTVideoWatch from './pages/YTVideoWatch';
 import EarnEnagement from './pages/EarnEngagement';
@@ -34,12 +34,13 @@ import Earnreferal from './pages/Earnreferal';
 import SmEngagement from './pages/SmEngagement';
 import BrowsingVideos from './pages/BrowsingVideos';
 import UploadVideohit from './pages/UploadVideohiw';
-import AddSurvey from './pages/temp/addsurveyqus';
-import ApproveSurvey from './pages/temp/Approvesurveyqus';
-import SurveyHome from './pages/temp/Surveyhome';
-import SurveyView from './pages/temp/Surveyquestionview';
-import ServeyList from './pages/temp/ServeyList';
-// end temp
+import AddSurvey from './pages/addsurveyqus';
+import ApproveSurvey from './pages/Approvesurveyqus';
+import SurveyHome from './pages/Surveyhome';
+import SurveyView from './pages/Surveyquestionview';
+import ServeyList from './pages/ServeyList';
+import LinkClicks from "./pages/LinkClicks";
+// end user
 
 //////////////////////////////////////////////Login & register////////////////////////////////////////////////////////////////
 import Loginnew from './pages/Loginnew'
@@ -69,21 +70,15 @@ import ELink from "./pages/ELink";
 import EServey from "./pages/EServey";
 import Dashb from "./pages/Dash";
 import VerifyEmail from "./pages/VerifyEmail";
-import GetPath from "./pages/temp/getPath";
 import Contactuspage from "./pages/Contactuspage";
 import Point from "./pages/Point";
 import Users from "./pages/Users";
-import Instaimg from "./pages/temp/Instrgamgetimage";
-import Tikimg from "./pages/temp/Tiktokgetimage";
-import Twimg from "./pages/temp/Twitterigetimage";
-import Ytimg from "./pages/temp/Youtbethumblin";
-import Termsofservice from "./pages/temp/Termsofservice";
-import Privacypolicy from "./pages/temp/Privacypolicy";
-import Approvesurveyqus from "./pages/temp/Approvesurveyqus";
-import Surveyquestionview from "./pages/temp/Surveyquestionview";
-import LinkClicks from "./pages/temp/LinkClicks";
-import LinkEarnHistory from "./pages/temp/LinkEarnHistory";
-import ServeyEarnHistory from "./pages/temp/ServeyEarnHistory";
+import Termsofservice from "./pages/Termsofservice";
+import Privacypolicy from "./pages/Privacypolicy";
+import Approvesurveyqus from "./pages/Approvesurveyqus";
+import Surveyquestionview from "./pages/Surveyquestionview";
+import LinkEarnHistory from "./pages/LinkEarnHistory";
+import ServeyEarnHistory from "./pages/ServeyEarnHistory";
 
 
 
@@ -191,11 +186,7 @@ class App extends Component {
                      <Route path="/tiktokfollow" component={TiktokFollow}></Route>
                      <Route path="/twitterfollow" component={TwitterFollow}></Route>
                      <Route path="/verifyemail" component={VerifyEmail}></Route>
-                     <Route path="/getpath" component={GetPath}></Route>
                      <Route path="/contactus" component={Contactuspage}></Route>
-                     <Route path="/instaimg" component={Instaimg}></Route>
-                     <Route path="/tikimg" component={Tikimg}></Route>
-                     <Route path="/twimg" component={Twimg}></Route>
                      <Route path="/addsurvey" component={AddSurvey}></Route>
                      <Route path="/approvesurvey" component={ApproveSurvey}></Route>
                      <Route path="/surveyhome" component={SurveyHome}></Route>

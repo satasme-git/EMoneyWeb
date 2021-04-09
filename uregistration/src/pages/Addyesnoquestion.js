@@ -4,14 +4,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import serveyService from "../services/serveyService";
 import Cookies from "js-cookie";
-import serveyService from "../../services/serveyService";
+import { toast } from "react-toast";
 
-class Addeasyquestion extends React.Component {
+class Addyesnoquestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = { values: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   createUI() {
@@ -24,19 +26,26 @@ class Addeasyquestion extends React.Component {
                 <ul className="form-section ">
                   <label
                     className="form-label form-label-top form-label-auto"
-                    id="label_6"
+                    id="1"
                     htmlFor="input_6"
                   >
-                   {i + 1}. Type a question{" "}
+                    {i + 1}. Type a question{" "}
                   </label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">Question</span>
+                  <div className="input-group input-group-sm mb-3">
+                    <div className="input-group-prepend">
+                      <span
+                        className="input-group-text"
+                        id="inputGroup-sizing-sm"
+                      >
+                        Question
+                      </span>
                     </div>
-                    <input type = "textarea"  type="text" value={el||''} onChange={this.handleChange.bind(this, i)} 
-                      class="form-control"
-                      aria-label="With textarea"
-                    ></input>
+                    <input
+                      type="text" value={el || ''} onChange={this.handleChange.bind(this, i)}
+                      className="form-control"
+                      aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
                     <br />
                     <input
                       type='button' value='Remove' onClick={this.removeClick.bind(this, i)}
@@ -87,6 +96,7 @@ class Addeasyquestion extends React.Component {
     let values = [...this.state.values];
 
     var user = Cookies.get('user');
+    let settings = { user: user, serveyid: this.props.serveyid, type: "yesno", question: values[i] }
     serveyService.deleteServeyQuestion(this.props.serveyid, values[i]).then(res => {
       if (res.data == "deleted") {
         // toast('Question added.', { position: 'bottom' })
@@ -108,7 +118,7 @@ class Addeasyquestion extends React.Component {
     // alert(values[i])
     // alert(this.props.serveyid)
     var user = Cookies.get('user');
-    let settings = { user: user, serveyid: this.props.serveyid, type: "essay", question: values[i] }
+    let settings = { user: user, serveyid: this.props.serveyid, type: "yesno", question: values[i] }
 
     serveyService.saveServeyQuestion(settings).then(res => {
       if (res.data == "success") {
@@ -128,33 +138,47 @@ class Addeasyquestion extends React.Component {
 
   handleSubmit(event) {
     alert("A name was submitted: " + this.state.values.join(", "));
+
+    // var user = Cookies.get('user');
+    // let settings = { user: user, serveyid: this.props.serveyid}
+
+    // serveyService.completeQuestion(settings).then(res => {
+    //   if (res.data == "success") {
+    //     alert('Question added.')
+    //   } else {
+    //     alert('Something went wrong. Please try again.')
+    //   }
+    // });
     event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form >
         {this.createUI()}
-        <br /> <br />
-        <div class="row" style={{ textAlign: "center" }}>
-          <div class="container">
-            <div class="row" style={{ textAlign: "center" }}>
-              <div class="col">
-                <input
-                  type="button"
-                  class="btn btn-success"
-                  style={{ width: "300px" }}
-                  value="Add Qustion"
-                  onClick={this.addClick.bind(this)}
-                />
-              </div>
+
+        <br />
+        <br />
+        <div class="container">
+          <div class="row" style={{ textAlign: "center" }}>
+            <div class="col">
+              <input
+                type="button"
+                class="btn btn-success"
+                style={{ width: "300px" }}
+                value="Add Question"
+                onClick={this.addClick.bind(this)}
+
+              />
+
             </div>
           </div>
         </div>
+
         <div class="container"></div>
       </form>
     );
   }
 }
 
-export default Addeasyquestion;
+export default Addyesnoquestion;

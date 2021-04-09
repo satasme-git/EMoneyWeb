@@ -255,121 +255,101 @@ class EarnPage extends React.Component {
                                 </div>
 
 
-{/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
+                                {/* ////////////////////////////////////////////old emoney card ///////////////////////////////////////////////////// */}
 
 
 
 
-{/* ///////////////////////////////////////////new card view////////////////////////////// */}
+                                {/* ///////////////////////////////////////////new card view////////////////////////////// */}
 
-<div class="container">
-    <div class="earncard">  
-<div class="row">
-  <div class="col-sm-4" style={{padding:"20px", marginLeft:"-8px"}}>
-<div class="card">
-    
-  <img
-   src="assets\Earnpage-images\watchvideoimg.png"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="card-body">
-    <h5 class="card-title" style={{textAlign:"center"}}> Browse Videos in Youtube  </h5>
-<br/>
-    <a href="#!" class="btn btn-primary" style={{ backgroundColor:"#16c79a" , border:"none" , width:"100%"}}>EARN NOW</a>
-    <br/>
-  </div>
-</div>
-</div>
+                                <div class="container">
+                                    <div class="earncard">
+                                        <div class="row">
+                                            <div class="col-sm-4" style={{ padding: "20px", marginLeft: "-8px" }}>
+                                                <div class="card">
 
-
-  <div class="  col-sm-4" style={{padding:"20px" , marginLeft:"-8px"}}>
-<div class="card">
-  <img
-   src="assets\Earnpage-images\sociaimg,.png"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="card-body">
-    <h5 class="card-title"  style={{textAlign:"center"}}>Leave Engagement On Social Media  </h5>
-
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none",width:"100%"}}>EARN NOW</a>
-  </div>
-</div>
-</div>
+                                                    <img
+                                                        src="assets\Earnpage-images\watchvideoimg.png"
+                                                        class="card-img-top"
+                                                        alt="..."
+                                                    />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title" style={{ textAlign: "center" }}> Browse Videos in Youtube  </h5>
+                                                        <br />
+                                                        <a class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" }}>EARN NOW</a>
+                                                        <br />
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
-  <div class=" col-sm-4"style={{padding:"20px" ,marginLeft:"-8px"}} >
-<div class="card">
-  <img
-   src="assets\Earnpage-images\videouploadimg.jpg"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="card-body">
-    <h5 class="card-title"  style={{textAlign:"center"}}>    Upload Video </h5>
-    <br/>
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none", width:"100%"}}>EARN NOW</a>
-  </div>
-</div>
+                                            <div class="  col-sm-4" style={{ padding: "20px", marginLeft: "-8px" }}>
+                                                <div class="card">
+                                                    <img
+                                                        src="assets\Earnpage-images\sociaimg,.png"
+                                                        class="card-img-top"
+                                                        alt="..."
+                                                    />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title" style={{ textAlign: "center" }}>Leave Engagement On Social Media  </h5>
 
-</div>
-</div>
-</div>
-</div>
+                                                        <a href="/earnmanagement" class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" }}>EARN NOW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
-{/* ///////////////////////////////////////////new card view////////////////////////////// */}
+                                            <div class=" col-sm-4" style={{ padding: "20px", marginLeft: "-8px" }} >
+                                                <div class="card">
+                                                    <img
+                                                        src="assets\Earnpage-images\videouploadimg.jpg"
+                                                        class="card-img-top"
+                                                        alt="..."
+                                                    />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title" style={{ textAlign: "center" }}>    Upload Video </h5>
+                                                        <br />
+                                                        <a href="/uploadvideo" class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" }}>EARN NOW</a>
+                                                    </div>
+                                                </div>
 
-<br/>
-{/* ///////////////////////////////////////////new card view////////////////////////////// */}
+                                            </div>
+                                            <div class="col-sm-4" style={{ padding: "20px", marginLeft: "-8px" }}>
+                                                <div class="card" >
+                                                    <img
+                                                        src="assets\Earnpage-images\surveyimg.png"
+                                                        class="card-img-top"
+                                                        alt="..."
+                                                    />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title" style={{ textAlign: "center" }}>       Fill out surveys </h5>
 
-<div class="container">
-<div class="earncard">  
-<div class="row" >
-  <div class="col-sm-4" style={{padding:"20px", marginLeft:"-8px"}}>
-<div class="card" >
-  <img
-    src="assets\Earnpage-images\surveyimg.png"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="card-body">
-    <h5 class="card-title"  style={{textAlign:"center"}}>       Fill out surveys </h5>
-    
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none" ,width:"100%"}}>EARN NOW</a>
-  </div>
-</div>
-</div>
-  <div class="  col-sm-4" style={{padding:"20px" , marginLeft:"-8px"}}>
-<div class="card">
-  <img
-    src="assets\Earnpage-images\linkclick.png"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="card-body">
-    <h5 class="card-title"  style={{textAlign:"center"}}>Link Click </h5>
-  
-    <a href="#!" class="btn btn-primary" style={{backgroundColor:"#16c79a" , border:"none" , width:"100%"}}>EARN NOW</a>
-  </div>
-</div></div>
+                                                        <a href="/servey" class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" }}>EARN NOW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  col-sm-4" style={{ padding: "20px", marginLeft: "-8px" }}>
+                                                <div class="card">
+                                                    <img
+                                                        src="assets\Earnpage-images\linkclick.png"
+                                                        class="card-img-top"
+                                                        alt="..."
+                                                    />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title" style={{ textAlign: "center" }}>Link Click </h5>
 
+                                                        <a href="/linkclick" class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" }}>EARN NOW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                {/* ///////////////////////////////////////////new card view////////////////////////////// */}
 
-
-</div>
-</div>
-</div>
-
-
-{/* ///////////////////////////////////////////new card view////////////////////////////// */}
-
-
-
-
-
-
+                                <br />
+                             
                             </div>
                         </main>
                     </div></div>
