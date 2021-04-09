@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
 
 class Homebl extends React.Component {
     logout = (e) => {
@@ -28,6 +29,14 @@ class Homebl extends React.Component {
     }
 
     render() {
+
+
+        
+    $(window).on('load', function () {
+        $("#cover").fadeOut(1000);
+        });
+    
+        
         return (
             <div id="homepage" className="is-header" style={{ backgroundColor: "white", height: "100%", width: "100%" }}>
                 <Helmet>
@@ -126,6 +135,21 @@ class Homebl extends React.Component {
                         )
                     }
                 })()}
+
+
+                  {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+
                 <div class="jumbotron hero-technology" >
                     <h1 class="text-left text-primary hero-title" style={{ marginTop: "100px", marginLeft: "10%" }}>Make Money Online</h1>
                     <p class="text-left d-lg-flex hero-subtitle" style={{ marginRight: "86px", marginLeft: "102px", marginTop: "20px" }}>Any where any time earn money. One tap can earn you money. Spend your time WISELY.</p>

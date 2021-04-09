@@ -185,7 +185,7 @@ class Contactuspage extends React.Component {
                           <div class="box">
                             <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                               {" "}
-                    fill up the from and Team will get back to you within 24 hours
+                    Fill up the form and team will get back to you within 24 hours
                   </h5>
                             <br />
 
@@ -308,7 +308,7 @@ class Contactuspage extends React.Component {
                 <div class="col-sm-6 col-md-3 item">
                   <h3>Services</h3>
                   <ul>
-                    <li><a href="/termsofservice">Terms of Servivce</a></li>
+                    <li><a href="/termsofservice">Terms of Serivce</a></li>
                     <li><a href="/privacypolicy">Privacy Policy</a></li>
                     <li>
                       <a href="#"></a>
@@ -328,7 +328,7 @@ class Contactuspage extends React.Component {
                 </div>
                 <div class="col-md-6 item text">
                   <h3>EmoneyTag</h3>
-                  <p>
+                  <p style={{color:"white"}}>
                     You can choose this method easily. Only you have to do is
                     complete the tasks provided by us, By using your social
                     media account and earn points. You can earn points by using

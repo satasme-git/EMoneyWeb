@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
 
 class EarnPage extends React.Component {
 
@@ -23,33 +24,33 @@ class EarnPage extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            userServices.getUserById(Cookies.get('user')).then(res => {
-                this.setState({ username: res.data.fname });
-            });
+        //     userServices.getUserById(Cookies.get('user')).then(res => {
+        //         this.setState({ username: res.data.fname });
+        //     });
 
-            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-                var earnblock = document.getElementById("earnblock");
-                if (res.data == "compeleted") {
-                    this.setState({ earnstatus: '' });
-                    var social = document.getElementById("socialearn");
-                    var upload = document.getElementById("uplaodearn");
-                    // social.href = "/earnmanagement";
-                    // upload.href = "/uploadvideo";
-                    earnblock.setAttribute("style", "color: #FF4019;display:none");
-                } else {
-                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-                    earnblock.setAttribute("style", "color: #FF4019;display:''");
-                }
-            });
-        } else {
-            this.props.history.push('/login');
-        }
+        //     userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+        //         var earnblock = document.getElementById("earnblock");
+        //         if (res.data == "compeleted") {
+        //             this.setState({ earnstatus: '' });
+        //             var social = document.getElementById("socialearn");
+        //             var upload = document.getElementById("uplaodearn");
+        //             // social.href = "/earnmanagement";
+        //             // upload.href = "/uploadvideo";
+        //             earnblock.setAttribute("style", "color: #FF4019;display:none");
+        //         } else {
+        //             this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+        //             earnblock.setAttribute("style", "color: #FF4019;display:''");
+        //         }
+        //     });
+        // } else {
+        //     this.props.history.push('/login');
+        // }
 
     }
 
@@ -86,6 +87,13 @@ class EarnPage extends React.Component {
     }
 
     render() {
+
+        $(window).on('load', function () {
+            $("#cover").fadeOut(2050);
+            });
+    
+
+            
         return (
             <div style={{ backgroundColor: "#dfeef2" }}>
                 <Helmet>
@@ -114,6 +122,19 @@ class EarnPage extends React.Component {
 
                 </header>
                 <div class="main">
+
+                      {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
 
                     <div class="s-layout">
                         <div class="s-layout__sidebar" style={{ height: "100%" }}>

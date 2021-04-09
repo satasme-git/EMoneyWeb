@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
 
 class Howitworks extends React.Component {
   logout = (e) => {
@@ -29,12 +30,23 @@ class Howitworks extends React.Component {
     });
   }
   render() {
+
+
+    $(window).on('load', function () {
+      $("#cover").fadeOut(1000);
+      });
+    
+
+
     return (
       <div
         id="homepage"
         className="is-header"
         style={{ backgroundColor: "white", height: "100%", width: "100%" }}
       >
+
+
+        
         <Helmet>
           <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
           <link rel="stylesheet" href="/assets/assets/fonts/ionicons.min.css" />
@@ -142,6 +154,20 @@ class Howitworks extends React.Component {
         <div
           style={{ height: "100%", width: "100%", backgroundColor: "white" }}
         >
+     {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+     <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+      
+
           <div class="row">
             <h1
               style={{

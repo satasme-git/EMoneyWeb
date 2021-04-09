@@ -180,7 +180,7 @@ class SmEngagement extends React.Component {
                                 </div>
                                 <div class="col-md-6 item text">
                                     <h3>EmoneyTag</h3>
-                                    <p>You can choose this method easily. Only you have to do is complete the
+                                    <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                                     tasks provided by us, By using your social media account and earn points.
                                     You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

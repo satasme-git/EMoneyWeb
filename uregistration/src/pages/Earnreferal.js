@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
 
 
 class Earnreferal extends React.Component {
@@ -29,6 +30,13 @@ class Earnreferal extends React.Component {
     });
   }
   render() {
+
+
+    $(window).on('load', function () {
+      $("#cover").fadeOut(2050);
+      });
+
+
     return (
       <div
         id="homepage"
@@ -136,6 +144,21 @@ class Earnreferal extends React.Component {
             )
           }
         })()}
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+
         <div class="article-list" style={{ width: "100%", height: "100% " }}>
           <div class="container">
             <div class="intro">
@@ -223,7 +246,7 @@ class Earnreferal extends React.Component {
                 </div>
                 <div class="col-md-6 item text">
                   <h3>EmoneyTag</h3>
-                  <p>You can choose this method easily. Only you have to do is complete the
+                  <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                   tasks provided by us, By using your social media account and earn points.
                   You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

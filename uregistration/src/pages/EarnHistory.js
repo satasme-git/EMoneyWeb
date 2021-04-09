@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import paymentService from "../services/paymentService";
+import $ from 'jquery';
 
 class EarnHistory extends React.Component {
     constructor(props) {
@@ -30,46 +31,46 @@ class EarnHistory extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            earningService.getSocialEarning(Cookies.get('user')).then(res => {
-                this.setState({ social_earn: res.data });
-            });
+        //     earningService.getSocialEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ social_earn: res.data });
+        //     });
 
-            earningService.getVideoEarning(Cookies.get('user')).then(res => {
-                this.setState({ watch_earn: res.data });
-            });
+        //     earningService.getVideoEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ watch_earn: res.data });
+        //     });
 
-            earningService.getOtherEarning(Cookies.get('user')).then(res => {
-                this.setState({ other_earn: res.data });
-            });
+        //     earningService.getOtherEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ other_earn: res.data });
+        //     });
 
-            earningService.getPercent(Cookies.get('user')).then(res => {
-                this.setState({ percent: res.data });
-            });
+        //     earningService.getPercent(Cookies.get('user')).then(res => {
+        //         this.setState({ percent: res.data });
+        //     });
 
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            userServices.getUserById(Cookies.get('user')).then(res => {
-                this.setState({ username: res.data.fname });
-            });
+        //     userServices.getUserById(Cookies.get('user')).then(res => {
+        //         this.setState({ username: res.data.fname });
+        //     });
 
-            paymentService.getPayedAll(Cookies.get('user')).then(res => {
-                this.setState({ total_withdraw: '$ ' + res.data });
-            });
+        //     paymentService.getPayedAll(Cookies.get('user')).then(res => {
+        //         this.setState({ total_withdraw: '$ ' + res.data });
+        //     });
 
-            paymentService.getPayedList(Cookies.get('user')).then(res => {
-                this.setState({ pay_list: res.data });
-            });
-        } else {
-            this.props.history.push('/login');
-        }
+        //     paymentService.getPayedList(Cookies.get('user')).then(res => {
+        //         this.setState({ pay_list: res.data });
+        //     });
+        // } else {
+        //     this.props.history.push('/login');
+        // }
 
     }
 
@@ -100,6 +101,12 @@ class EarnHistory extends React.Component {
     }
 
     render() {
+
+        $(window).on('load', function () {
+            $("#cover").fadeOut(2050);
+            });
+    
+    
         return (
             <div >
                 <Helmet>
@@ -181,6 +188,19 @@ class EarnHistory extends React.Component {
                                 </ul>
                             </nav>
                         </div>
+
+                          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
                         <main class="s-layout__content" style={{ width: "100%", height: "100%", backgroundColor: "#F5F6F9" }}>
                             <div>
                                 <div class="container">
