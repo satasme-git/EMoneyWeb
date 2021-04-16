@@ -121,8 +121,6 @@ public class ServeyController {
 
 			}
 		} else if (node.get("type").asText().equals("single") || node.get("type").asText().equals("multiple")) {
-			System.out.println("aaaaaaaa");
-			System.out.println("bbbbbbbbbbbbbbb");
 			if (node.get("question").asText().isEmpty()) {
 				return "empty";
 			} else if (node.get("ans1").asText().isEmpty() || node.get("ans2").asText().isEmpty()

@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
 import paymentService from "../services/paymentService";
+import Cookies from 'js-cookie';
 
 class FacebookEarnHistory extends React.Component {
   constructor(props) {
@@ -26,18 +27,25 @@ class FacebookEarnHistory extends React.Component {
     }
   }
   componentDidMount() {
-    var completediv = document.getElementById("completediv");
-    completediv.setAttribute("style", "display:none");
-    adminEarningService.getSocialEarning("facebook").then(res => {
 
-      this.setState({ payed: res.data });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      adminEarningService.getSocialEarning("facebook").then(res => {
 
-    });
-    adminEarningService.getUserSocialEarning("facebook").then(res => {
+        this.setState({ payed: res.data });
 
-      this.setState({ pending: res.data });
+      });
+      adminEarningService.getUserSocialEarning("facebook").then(res => {
 
-    });
+        this.setState({ pending: res.data });
+
+      });
+    }
+
     // var completediv = document.getElementById("completediv");
     // completediv.setAttribute("style", "display:none");
     // paymentService.getPending().then(res => {
@@ -72,7 +80,7 @@ class FacebookEarnHistory extends React.Component {
     } else {
       pendingdiv.setAttribute("style", "display:none");
       completediv.setAttribute("style", "display:");
-      
+
       adminEarningService.getUserSocialEarning("facebook").then(res => {
 
         this.setState({ pending: res.data });

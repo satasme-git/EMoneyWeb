@@ -139,8 +139,8 @@ public class UserController {
 		Criteria cr = em.unwrap(Session.class).createCriteria(User.class);
 		cr.add(Restrictions.eq("id", userid));
 		User crruser = (User) cr.uniqueResult();
-		String emailtext = "<h3>Please click below link to verify your email.<h3> \n  " + "emoneytag.com/verifyemail?click="
-				+ crruser.getRefcode().replace("[", "");
+		String emailtext = "<h3>Please click below link to verify your email.<h3> \n  "
+				+ "emoneytag.com/verifyemail?click=" + crruser.getRefcode().replace("[", "");
 		sendMessageWithAttachment(crruser.getEmail(), "Email Verification For EmoneyTag", emailtext);
 		return "success";
 	}
@@ -173,6 +173,54 @@ public class UserController {
 			crruser.setEmail(tempemail);
 			crruser.setTempemail(null);
 			this.userRepository.save(crruser);
+			return "success";
+		} catch (Exception e) {
+			return "failed";
+		}
+	}
+
+	@PostMapping("/{email}/sendpwlink")
+	public String SendResetpw(@PathVariable(value = "email") String email) {
+		try {
+			Criteria cr2 = em.unwrap(Session.class).createCriteria(User.class);
+			cr2.add(Restrictions.eq("email", email));
+			if (cr2.list().isEmpty()) {
+				return "notfound";
+			}else {
+				User crruser = (User) cr2.uniqueResult();
+				Criteria cr3 = em.unwrap(Session.class).createCriteria(Login.class);
+				cr3.add(Restrictions.eq("user", crruser));
+				Login login = (Login) cr3.uniqueResult();
+				if(login.getKey().equals("google") || login.getKey().equals("facebook")) { 
+					return "social";
+				}else {
+				String emailtext = "<h3>Please click below link to reset your email.</h3>  <br/> "
+						+ "emoneytag.com/newpassword?click=" + crruser.getRefcode().replace("[", "");
+				sendMessageWithAttachment(crruser.getEmail(), "Password Reset For EmoneyTag", emailtext);
+				return "success";
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "failed";
+		}
+	}
+	
+	@PostMapping("/resetpw")
+	public String ResetPassword(@RequestBody ObjectNode node) {
+		try {
+			Criteria cr2 = em.unwrap(Session.class).createCriteria(User.class);
+			cr2.add(Restrictions.eq("refcode", "[" + node.get("user").asText()));
+			User crruser = (User) cr2.uniqueResult();
+			Criteria cr3 = em.unwrap(Session.class).createCriteria(Login.class);
+			cr3.add(Restrictions.eq("user", crruser));
+			Login login = (Login) cr3.uniqueResult();
+			int strength = 10; // work factor of bcrypt
+			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength,
+					new SecureRandom());
+			String encodedPassword = bCryptPasswordEncoder.encode(node.get("pw").asText());
+			login.setKey(encodedPassword);
+			this.loginRepository.save(login);
 			return "success";
 		} catch (Exception e) {
 			return "failed";
@@ -238,9 +286,9 @@ public class UserController {
 				if (node.get("key") != null) {
 //					String pw= bCryptPasswordEncoder.encode(node.get("key").asText());
 					int strength = 10; // work factor of bcrypt
-					 BCryptPasswordEncoder bCryptPasswordEncoder =
-					  new BCryptPasswordEncoder(strength, new SecureRandom());
-					 String encodedPassword = bCryptPasswordEncoder.encode(node.get("key").asText());
+					BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength,
+							new SecureRandom());
+					String encodedPassword = bCryptPasswordEncoder.encode(node.get("key").asText());
 					login.setKey(encodedPassword);
 				}
 				login.setIsloggedin(false);
@@ -566,7 +614,7 @@ public class UserController {
 	}
 
 	void sendMessageWithAttachment(String to, String subject, String text) {
-		// ...   , String pathToAttachment
+		// ... , String pathToAttachment
 
 		try {
 			MimeMessage message = javaMailSender.createMimeMessage();
@@ -576,7 +624,7 @@ public class UserController {
 			helper.setFrom("noreply@emoneytag.com");
 			helper.setTo(to);
 			helper.setSubject(subject);
-			helper.setText(text,true);
+			helper.setText(text, true);
 
 //			FileSystemResource file = new FileSystemResource(new File(pathToAttachment));
 //			helper.addAttachment("Invoice", file);

@@ -6,6 +6,7 @@ import toast from 'toast-me';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
 import serveyService from '../services/serveyService';
+import Cookies from 'js-cookie';
 
 
 class EServey extends React.Component {
@@ -26,27 +27,34 @@ class EServey extends React.Component {
   }
 
   componentDidMount() {
-    PackageService.getPackageMinMax("servey", "views").then(res => {
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            sviewmin: res.data.min,
-            sviewmax: res.data.max
-          }
-        );
-      }
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      PackageService.getPackageMinMax("servey", "views").then(res => {
 
-    PackageService.getPackageData("servey", "views").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              sviewmin: res.data.min,
+              sviewmax: res.data.max
+            }
+          );
+        }
+      });
 
-      this.setState({ sviewdata: res.data });
-    });
+      PackageService.getPackageData("servey", "views").then(res => {
 
-    serveyService.getQuestionPrice().then(res => {
+        this.setState({ sviewdata: res.data });
+      });
 
-      this.setState({ sqprice: res.data });
-    });
+      serveyService.getQuestionPrice().then(res => {
+
+        this.setState({ sqprice: res.data });
+      });
+    }
+
   }
 
   saveSViewsMinMax(social, service) {

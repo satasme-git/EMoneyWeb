@@ -9,6 +9,7 @@ import $ from "jquery";
 import { Helmet } from "react-helmet";
 import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 import { Link } from 'react-router-dom';
 import paymentService from '../services/paymentService';
@@ -31,23 +32,30 @@ class YouTubeEarnHistory extends React.Component {
 
 
   componentDidMount() {
-    var completediv = document.getElementById("completediv");
-    completediv.setAttribute("style", "display:none");
 
-    adminEarningService.getUserSocialEarning("youtube").then(res => {
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
 
-      this.setState({ pending: res.data });
+      adminEarningService.getUserSocialEarning("youtube").then(res => {
 
-      // console.log("customer->", JSON.stringify(res.data))
+        this.setState({ pending: res.data });
 
-    });
+        // console.log("customer->", JSON.stringify(res.data))
 
-    adminEarningService.getSocialEarning("youtube").then(res => {
+      });
 
-      this.setState({ payed: res.data });
-      console.log("service->", JSON.stringify(res.data))
+      adminEarningService.getSocialEarning("youtube").then(res => {
 
-    });
+        this.setState({ payed: res.data });
+        console.log("service->", JSON.stringify(res.data))
+
+      });
+    }
+
 
   }
 

@@ -11,6 +11,7 @@ import $ from "jquery";
 import { Helmet } from "react-helmet";
 import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 
 class TikTokEarnHistory extends React.Component {
@@ -28,18 +29,25 @@ class TikTokEarnHistory extends React.Component {
 
 
   componentDidMount() {
-    var completediv = document.getElementById("completediv");
-    completediv.setAttribute("style", "display:none");
-    adminEarningService.getSocialEarning("tiktok").then(res => {
 
-      this.setState({ pending: res.data });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      adminEarningService.getSocialEarning("tiktok").then(res => {
 
-    });
-    adminEarningService.getUserSocialEarning("tiktok").then(res => {
+        this.setState({ pending: res.data });
 
-      this.setState({ payed: res.data });
+      });
+      adminEarningService.getUserSocialEarning("tiktok").then(res => {
 
-    });
+        this.setState({ payed: res.data });
+
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -56,11 +64,11 @@ class TikTokEarnHistory extends React.Component {
     if (e.target.id == "pending") {
       pendingdiv.setAttribute("style", "display:");
       completediv.setAttribute("style", "display:none");
-      
+
       adminEarningService.getUserSocialEarning("tiktok").then(res => {
 
         this.setState({ payed: res.data });
-  
+
       });
       $("#example1").DataTable();
     } else {
@@ -69,7 +77,7 @@ class TikTokEarnHistory extends React.Component {
       adminEarningService.getSocialEarning("tiktok").then(res => {
 
         this.setState({ pending: res.data });
-  
+
       });
       $("#example2").DataTable();
     }

@@ -15,6 +15,7 @@ import "datatables.net-dt/css/jquery.dataTables.min.css";
 //Datatable Modules
 import $ from 'jquery';
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 class AdminManageOrders extends React.Component {
 
@@ -30,11 +31,18 @@ class AdminManageOrders extends React.Component {
   }
 
   componentDidMount() {
-    OrderService.getOrderData().then(res => {
 
-      this.setState({ orderdata: res.data });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      OrderService.getOrderData().then(res => {
 
-    });
+        this.setState({ orderdata: res.data });
+
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -141,7 +149,7 @@ class AdminManageOrders extends React.Component {
           {/* main content area start */}
           <div className="main-content">
             {/* header area start */}
-            <br/>
+            <br />
             <div className="page-title-area">
               <div className="row align-items-center">
                 <div className="col-sm-6">

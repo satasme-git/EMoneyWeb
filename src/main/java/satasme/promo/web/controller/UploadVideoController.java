@@ -50,8 +50,8 @@ public class UploadVideoController {
 	@PostMapping("/{id}")
 	public String uploadFile(@PathVariable(value = "id") long userid, @RequestParam("category") String category,
 			@RequestParam("vname") String vname, @RequestParam("hashtag") String hashtag,
-			@RequestParam("duration") String duration,@RequestParam("psource") String psource, @RequestParam("video") MultipartFile video,
-			@RequestParam("thumbnail") MultipartFile thumb) {
+			@RequestParam("duration") String duration, @RequestParam("psource") String psource,
+			@RequestParam("video") MultipartFile video, @RequestParam("thumbnail") MultipartFile thumb) {
 		String message1 = "";
 		String message2 = "";
 		boolean errorfound = false;
@@ -105,7 +105,7 @@ public class UploadVideoController {
 				Criteria cr2 = em.unwrap(Session.class).createCriteria(Points.class);
 				cr2.add(Restrictions.eq("pointSource", psource));
 				Points points = (Points) cr2.uniqueResult();
-				UserPoints userPoints=new UserPoints();
+				UserPoints userPoints = new UserPoints();
 				userPoints.setPoints(points.getPoints());
 				userPoints.setPointSource(psource);
 				userPoints.setDate(crrdate);
@@ -113,7 +113,7 @@ public class UploadVideoController {
 				userPoints.setUser(crruser);
 				this.userPointsRepository.save(userPoints);
 			}
-			
+
 			return "success";
 		}
 	}
@@ -124,7 +124,7 @@ public class UploadVideoController {
 		return uploadVideoRepositoryCustom.finduploadsById(userid);
 
 	}
-	
+
 	@GetMapping
 	public List<VideoUpload> getListFiles() {
 

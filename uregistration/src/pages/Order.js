@@ -48,9 +48,9 @@ class Order extends React.Component {
 
     componentDidUpdate() {
         //initialize datatable
-        $(document).ready(function () {
+        
             $("#example").DataTable();
-        });
+       
 
     }
 

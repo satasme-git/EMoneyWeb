@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
 import feedbackService from '../services/feedbackService';
+import Cookies from 'js-cookie';
 
 class Feedback extends React.Component {
 
@@ -17,18 +18,25 @@ class Feedback extends React.Component {
 
 
       feedbacks: [],
-      message:""
+      message: ""
 
     }
   }
 
   componentDidMount() {
     //initialize datatable
-    feedbackService.getFeedbacks().then(res => {
 
-      this.setState({ feedbacks: res.data });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      feedbackService.getFeedbacks().then(res => {
 
-    });
+        this.setState({ feedbacks: res.data });
+
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -42,17 +50,17 @@ class Feedback extends React.Component {
   changeMessage = (e) => {
     this.setState({ message: e.target.value });
   };
-  
 
-  SendFeedbackResponse (data) {
+
+  SendFeedbackResponse(data) {
     let details = { feedid: data.id, message: this.state.message }
     feedbackService.SendFeedbackResponse(details).then(res => {
       if (res.status === 200 && res.statusText === 'OK') {
         if (res.data == "success") {
-           feedbackService.getFeedbacks().then(res => {
+          feedbackService.getFeedbacks().then(res => {
 
             this.setState({ feedbacks: res.data });
-      
+
           });
         }
 
@@ -129,7 +137,7 @@ class Feedback extends React.Component {
           {/* main content area start */}
           <div className="main-content">
             {/* header area start */}
-            <br/>
+            <br />
             <div className="page-title-area">
               <div className="row align-items-center">
                 <div className="col-sm-6">
@@ -227,10 +235,10 @@ class Feedback extends React.Component {
                                   <div className="row">
                                     <div className="col-sm">
                                       <label htmlFor="lname">Reply : </label><br />
-                                      <textarea id="w3review" name="w3review" rows={4} cols={50} style={{ border: "solid 2px" }} value={this.state.message} onChange={this.changeMessage}/>
+                                      <textarea id="w3review" name="w3review" rows={4} cols={50} style={{ border: "solid 2px" }} value={this.state.message} onChange={this.changeMessage} />
                                     </div>
                                     <div className="modal-footer">
-                                      <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => this.SendFeedbackResponse({ id: data.id})} >Send</button>
+                                      <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => this.SendFeedbackResponse({ id: data.id })} >Send</button>
                                     </div>
                                   </div>
                                 </div>

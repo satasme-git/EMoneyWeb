@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet";
 import uploadVideoService from "../services/uploadVideoService";
 import ReactPlayer from 'react-player'
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 class Approvevdeos extends React.Component {
   constructor(props) {
@@ -26,11 +27,18 @@ class Approvevdeos extends React.Component {
     }
   }
   componentDidMount() {
-    uploadVideoService.getAllVideos().then(res => {
 
-      this.setState({ uploads: res.data });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      uploadVideoService.getAllVideos().then(res => {
 
-    });
+        this.setState({ uploads: res.data });
+
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -43,7 +51,7 @@ class Approvevdeos extends React.Component {
 
   uploadVideo(order) {
     uploadVideoService.uploadVideo(order.oid).then(res => {
-// alert("aaaaaaaaaaa")
+      // alert("aaaaaaaaaaa")
     });
   }
 
@@ -112,7 +120,7 @@ class Approvevdeos extends React.Component {
           {/* <!-- main content area start -->  */}
           <div class="main-content">
             {/*  <!-- header area start --> */}
-            <br/>
+            <br />
             <div className="page-title-area">
               <div className="row align-items-center">
                 <div className="col-sm-6">
@@ -160,11 +168,11 @@ class Approvevdeos extends React.Component {
                                   </td>
 
                                   <td>
-                                    <button button type="button" style={{ backgroundColor: "green",margin:"5px" }} onClick={() => this.uploadVideo({ oid: data.id })} class="btn btn-secondary" >
+                                    <button button type="button" style={{ backgroundColor: "green", margin: "5px" }} onClick={() => this.uploadVideo({ oid: data.id })} class="btn btn-secondary" >
                                       <i class="ti-save"></i>
                                     </button>
 
-                                    <button button type="button" style={{ backgroundColor: "red",margin:"5px"  }} onClick={() => this.deleteVideo({ oid: data.id })} class="btn btn-secondary">
+                                    <button button type="button" style={{ backgroundColor: "red", margin: "5px" }} onClick={() => this.deleteVideo({ oid: data.id })} class="btn btn-secondary">
                                       <i class="ti-trash"></i>
                                     </button>
                                   </td>

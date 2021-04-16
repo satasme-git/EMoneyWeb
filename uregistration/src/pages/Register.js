@@ -434,7 +434,7 @@ class Register extends React.Component {
 										Forgot Username Or Password?
 						</span>&nbsp;
 
-									<a class="txt2" href="#">
+									<a class="txt2" href="/register">
 										Reset Password
 						</a>
 								</div>

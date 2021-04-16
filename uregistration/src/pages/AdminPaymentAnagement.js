@@ -9,30 +9,38 @@ import $ from "jquery";
 import Sidebar from '../components/Sidebar';
 import { Helmet } from "react-helmet";
 import paymentService from '../services/paymentService';
+import Cookies from 'js-cookie';
 
 class AdminPaymentAnagement extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      
+
       pending: [],
-      payed:[]
+      payed: []
 
     }
   }
 
   componentDidMount() {
     //initialize datatable
-    var completediv = document.getElementById("completediv");
-    completediv.setAttribute("style", "display:none");
-    paymentService.getPending().then(res => {
-      this.setState({ pending: res.data });
-    });
 
-    paymentService.getPayed().then(res => {
-      this.setState({ payed: res.data });
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      paymentService.getPending().then(res => {
+        this.setState({ pending: res.data });
+      });
+
+      paymentService.getPayed().then(res => {
+        this.setState({ payed: res.data });
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -209,7 +217,7 @@ class AdminPaymentAnagement extends React.Component {
                                   <td>{data.amount}</td>
                                   <td>{data.currency}</td>
                                   <td>
-                                    <button type="button" className="btn btn-success" onClick={() => this.payToUser({ uid: data.cus_id,amount:data.amount })} >
+                                    <button type="button" className="btn btn-success" onClick={() => this.payToUser({ uid: data.cus_id, amount: data.amount })} >
                                       Mark As Payed
                                     </button>
                                   </td>
@@ -241,17 +249,17 @@ class AdminPaymentAnagement extends React.Component {
                           </tr>
                         </thead>
                         <tbody>
-                        {this.state.payed.map((data) => {
-                              return (
-                                <tr>
-                                  <td>{data.user.fname} {data.user.lname}</td>
-                                  <td>{data.user.email}</td>
-                                  <td>{data.date}</td>
-                                  <td>Paypal</td>
-                                  <td>{data.amount}</td>
-                                </tr>
-                              );
-                            })}
+                          {this.state.payed.map((data) => {
+                            return (
+                              <tr>
+                                <td>{data.user.fname} {data.user.lname}</td>
+                                <td>{data.user.email}</td>
+                                <td>{data.date}</td>
+                                <td>Paypal</td>
+                                <td>{data.amount}</td>
+                              </tr>
+                            );
+                          })}
                           {/* <tr>
                             <td>001</td>
                             <td> parveen </td>

@@ -14,6 +14,7 @@ import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
 import paymentService from "../services/paymentService";
 import serveyService from "../services/serveyService";
+import Cookies from 'js-cookie';
 
 class InstagramEarnHistory extends React.Component {
 
@@ -40,6 +41,25 @@ class InstagramEarnHistory extends React.Component {
     //   this.setState({ customer: res.data });
 
     // });
+
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      adminEarningService.getSocialEarning("website").then(res => {
+
+        this.setState({ pending: res.data });
+
+      });
+
+      adminEarningService.getUserSocialEarning("website").then(res => {
+
+        this.setState({ payed: res.data });
+
+      });
+    }
     var completediv = document.getElementById("completediv");
     completediv.setAttribute("style", "display:none");
     serveyService.getSocialEarning().then(res => {
@@ -68,11 +88,11 @@ class InstagramEarnHistory extends React.Component {
     if (e.target.id == "pending") {
       pendingdiv.setAttribute("style", "display:");
       completediv.setAttribute("style", "display:none");
-      
+
       serveyService.getUserSocialEarning().then(res => {
 
         this.setState({ payed: res.data });
-  
+
       });
       $("#example1").DataTable();
     } else {
@@ -81,7 +101,7 @@ class InstagramEarnHistory extends React.Component {
       serveyService.getSocialEarning().then(res => {
 
         this.setState({ pending: res.data });
-  
+
       });
       $("#example2").DataTable();
     }

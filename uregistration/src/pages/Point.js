@@ -10,6 +10,7 @@ import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
 import pointService from '../services/pointService';
 import toast from 'toast-me';
+import Cookies from 'js-cookie';
 
 class Points extends React.Component {
 
@@ -59,17 +60,25 @@ class Points extends React.Component {
     // } else {
     //     this.props.history.push('/login');
     // }
-    pointService.getPoints().then(res => {
-      this.setState({ points: res.data });
-    });
 
-    pointService.getDailyMaxEarning().then(res => {
-      this.setState({ daily_limit: res.data });
-    });
 
-    pointService.getPayoutEarning().then(res => {
-      this.setState({ payout_limit: res.data });
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      pointService.getPoints().then(res => {
+        this.setState({ points: res.data });
+      });
+
+      pointService.getDailyMaxEarning().then(res => {
+        this.setState({ daily_limit: res.data });
+      });
+
+      pointService.getPayoutEarning().then(res => {
+        this.setState({ payout_limit: res.data });
+      });
+    }
+
 
   }
 
@@ -120,7 +129,7 @@ class Points extends React.Component {
       toast('Daily limit updated', { position: 'bottom' });
       pointService.getDailyMaxEarning().then(res => {
         this.setState({ daily_limit: res.data });
-        
+
       });
     });
   }

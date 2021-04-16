@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
 import dashboardService from '../services/dashboardService';
+import Cookies from 'js-cookie';
 
 
 class Dashboard extends React.Component {
@@ -97,96 +98,103 @@ class Dashboard extends React.Component {
 
 
     componentDidMount() {
-        dashboardService.getTotalUsers().then(res => {
-            this.setState({ totalusers: res.data });
-        });
-
-        dashboardService.getTotalOrders().then(res => {
-            this.setState({ totalorder: res.data });
-        });
-
-        dashboardService.getPendingOrders().then(res => {
-            this.setState({ pendingorders: res.data });
-        });
-
-        dashboardService.getPendingVideos().then(res => {
-            this.setState({ pendingvideos: res.data });
-        });
-
-        dashboardService.getUserStatics().then(res => {
-            this.setState({
-                Linechart3: {
-                    labels: res.data.months,
-                    datasets: [
-                        {
-                            label: 'No Of Users(Monthly)',
-                            data: res.data.usage,
-                            fill: false,
-                            backgroundColor: '#ffe227',
-                            borderColor: '#822659',
-                        },
-                    ],
-                }
+        var user = Cookies.get('admin');
+        
+        if (user != null) {
+            dashboardService.getTotalUsers().then(res => {
+                this.setState({ totalusers: res.data });
             });
-        });
 
-        dashboardService.getEarningImpression().then(res => {
-            this.setState({
-                Barchart4: {
-                    labels: res.data.months,
-                    datasets: [
-                        {
-                            label: 'No of Impressions',
-                            data: res.data.usage,
-                            backgroundColor: 'rgb(245, 202, 63)',
-                            backgroundColor: 'rgb(242, 202, 63)',
-                            backgroundColor: 'rgb(245, 208, 63)',
-                            backgroundColor: 'rgb(245, 202, 63)',
-                        },
-
-
-                    ],
-
-
-                }
+            dashboardService.getTotalOrders().then(res => {
+                this.setState({ totalorder: res.data });
             });
-        });
 
-        dashboardService.getTopUsers().then(res => {
-            this.setState({ topusers: res.data });
-        });
-
-        dashboardService.getOrderImpression().then(res => {
-            this.setState({
-                chartDatadoughnut: {
-                    labels: res.data.months,
-                    datasets: [
-                        {
-
-                            data: res.data.usage,
-                            backgroundColor: [
-                                '#072448',
-                                '#54d2d2',
-                                '#ffcb00"',
-                                '#ff6150',
-                                '#f8aa4b',
-
-                            ],
-                            borderColor: [
-                                '#072448',
-                                '#54d2d2',
-                                '#ffcb00"',
-                                '#ff6150',
-                                '#f8aa4b',
-                            ],
-                            borderWidth: 1,
-                        },
-                    ],
-
-
-                }
+            dashboardService.getPendingOrders().then(res => {
+                this.setState({ pendingorders: res.data });
             });
-        });
+
+            dashboardService.getPendingVideos().then(res => {
+                this.setState({ pendingvideos: res.data });
+            });
+
+            dashboardService.getUserStatics().then(res => {
+                this.setState({
+                    Linechart3: {
+                        labels: res.data.months,
+                        datasets: [
+                            {
+                                label: 'No Of Users(Monthly)',
+                                data: res.data.usage,
+                                fill: false,
+                                backgroundColor: '#ffe227',
+                                borderColor: '#822659',
+                            },
+                        ],
+                    }
+                });
+            });
+
+            dashboardService.getEarningImpression().then(res => {
+                this.setState({
+                    Barchart4: {
+                        labels: res.data.months,
+                        datasets: [
+                            {
+                                label: 'No of Impressions',
+                                data: res.data.usage,
+                                backgroundColor: 'rgb(245, 202, 63)',
+                                backgroundColor: 'rgb(242, 202, 63)',
+                                backgroundColor: 'rgb(245, 208, 63)',
+                                backgroundColor: 'rgb(245, 202, 63)',
+                            },
+
+
+                        ],
+
+
+                    }
+                });
+            });
+
+            dashboardService.getTopUsers().then(res => {
+                this.setState({ topusers: res.data });
+            });
+
+            dashboardService.getOrderImpression().then(res => {
+                this.setState({
+                    chartDatadoughnut: {
+                        labels: res.data.months,
+                        datasets: [
+                            {
+
+                                data: res.data.usage,
+                                backgroundColor: [
+                                    '#072448',
+                                    '#54d2d2',
+                                    '#ffcb00"',
+                                    '#ff6150',
+                                    '#f8aa4b',
+
+                                ],
+                                borderColor: [
+                                    '#072448',
+                                    '#54d2d2',
+                                    '#ffcb00"',
+                                    '#ff6150',
+                                    '#f8aa4b',
+                                ],
+                                borderWidth: 1,
+                            },
+                        ],
+
+
+                    }
+                });
+            });
+        } else {
+            this.props.history.push('/admin');
+        }
+
     }
 
 

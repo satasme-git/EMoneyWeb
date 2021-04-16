@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
 import paymentService from '../services/paymentService';
+import Cookies from 'js-cookie';
 
 
 class TwitterEarnHistory extends React.Component {
@@ -28,18 +29,24 @@ class TwitterEarnHistory extends React.Component {
 
   componentDidMount() {
 
-    var completediv = document.getElementById("completediv");
-    completediv.setAttribute("style", "display:none");
-    adminEarningService.getSocialEarning("twitter").then(res => {
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      adminEarningService.getSocialEarning("twitter").then(res => {
 
-      this.setState({ pending: res.data });
+        this.setState({ pending: res.data });
 
-    });
-    adminEarningService.getUserSocialEarning("twitter").then(res => {
+      });
+      adminEarningService.getUserSocialEarning("twitter").then(res => {
 
-      this.setState({ payed: res.data });
+        this.setState({ payed: res.data });
 
-    });
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -56,7 +63,7 @@ class TwitterEarnHistory extends React.Component {
     if (e.target.id == "pending") {
       pendingdiv.setAttribute("style", "display:");
       completediv.setAttribute("style", "display:none");
-      
+
       adminEarningService.getUserSocialEarning("twitter").then(res => {
 
         this.setState({ payed: res.data });
@@ -166,7 +173,7 @@ class TwitterEarnHistory extends React.Component {
                 {/* data table start */}
                 <div className="col-12 mt-5">
                   <div className="row">
-                  <div className="col-4 col-sm-4 col-md-3">Customers Earn History<input id="pending" defaultChecked type="radio" name="answer" defaultValue="completepay" onClick={this.changePaymentType} /></div>
+                    <div className="col-4 col-sm-4 col-md-3">Customers Earn History<input id="pending" defaultChecked type="radio" name="answer" defaultValue="completepay" onClick={this.changePaymentType} /></div>
                     <div className="col-4 col-sm-4 col-md-3">Twitter Earn History<input id="completed" type="radio" name="answer" defaultValue="Pennding" onClick={this.changePaymentType} />
                     </div>
                   </div>

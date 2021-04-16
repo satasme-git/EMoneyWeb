@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import $ from 'jquery'
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 class EYoutube extends React.Component {
 
@@ -31,40 +32,47 @@ class EYoutube extends React.Component {
   }
 
   componentDidMount() {
-    PackageService.getPackageMinMax("youtube", "subscribers").then(res => {
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            ysubscribemin: res.data.min,
-            ysubscribemax: res.data.max
-          }
-        );
-      }
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      PackageService.getPackageMinMax("youtube", "subscribers").then(res => {
 
-    PackageService.getPackageMinMax("youtube", "views").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              ysubscribemin: res.data.min,
+              ysubscribemax: res.data.max
+            }
+          );
+        }
+      });
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            yviewsmin: res.data.min,
-            yviewsmax: res.data.max
-          }
-        );
-      }
-    });
+      PackageService.getPackageMinMax("youtube", "views").then(res => {
 
-    PackageService.getPackageData("youtube", "subscribers").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              yviewsmin: res.data.min,
+              yviewsmax: res.data.max
+            }
+          );
+        }
+      });
 
-      this.setState({ ysubscribedata: res.data });
-    });
+      PackageService.getPackageData("youtube", "subscribers").then(res => {
 
-    PackageService.getPackageData("youtube", "views").then(res => {
+        this.setState({ ysubscribedata: res.data });
+      });
 
-      this.setState({ yviewdata: res.data });
+      PackageService.getPackageData("youtube", "views").then(res => {
 
-    });
+        this.setState({ yviewdata: res.data });
+
+      });
+    }
+
   }
 
   saveYSubscribersMinMax(social, service) {
@@ -262,7 +270,7 @@ class EYoutube extends React.Component {
           {/* main content area start */}
           <div className="main-content">
             {/* header area start */}
-            <br/>
+            <br />
             <div className="page-title-area">
               <div className="row align-items-center">
                 <div className="col-sm-6">

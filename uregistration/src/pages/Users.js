@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Sidebar from "../components/Sidebar";
 import userServices from "../services/userServices";
+import Cookies from 'js-cookie';
 
 class Users extends React.Component {
 
@@ -23,13 +24,19 @@ class Users extends React.Component {
 
   componentDidMount() {
     //initialize datatable
-    userServices.getUsers().then(res => {
-      this.setState(
-        {
-          profiledata: res.data
-        }
-      );
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      userServices.getUsers().then(res => {
+        this.setState(
+          {
+            profiledata: res.data
+          }
+        );
+      });
+    }
+    
   }
 
   componentDidUpdate() {

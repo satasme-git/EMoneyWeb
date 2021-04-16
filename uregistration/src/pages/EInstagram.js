@@ -4,6 +4,7 @@ import PackageService from "../services/packageService";
 import toast from 'toast-me';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 class EInstagram extends React.Component {
   constructor(props) {
@@ -28,40 +29,47 @@ class EInstagram extends React.Component {
   }
 
   componentDidMount() {
-    PackageService.getPackageMinMax("instagram", "followers").then(res => {
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            ifollowmin: res.data.min,
-            ifollowmax: res.data.max
-          }
-        );
-      }
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      PackageService.getPackageMinMax("instagram", "followers").then(res => {
 
-    PackageService.getPackageMinMax("instagram", "likes").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              ifollowmin: res.data.min,
+              ifollowmax: res.data.max
+            }
+          );
+        }
+      });
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            ilikemin: res.data.min,
-            ilikemax: res.data.max
-          }
-        );
-      }
-    });
+      PackageService.getPackageMinMax("instagram", "likes").then(res => {
 
-    PackageService.getPackageData("instagram", "followers").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              ilikemin: res.data.min,
+              ilikemax: res.data.max
+            }
+          );
+        }
+      });
 
-      this.setState({ ifollowdata: res.data });
-    });
+      PackageService.getPackageData("instagram", "followers").then(res => {
 
-    PackageService.getPackageData("instagram", "likes").then(res => {
+        this.setState({ ifollowdata: res.data });
+      });
 
-      this.setState({ ilikedata: res.data });
+      PackageService.getPackageData("instagram", "likes").then(res => {
 
-    });
+        this.setState({ ilikedata: res.data });
+
+      });
+    }
+
   }
 
   saveIfollowersMinMax(social, service) {

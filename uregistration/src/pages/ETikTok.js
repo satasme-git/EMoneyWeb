@@ -5,6 +5,7 @@ import PackageService from "../services/packageService";
 import toast from 'toast-me';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 
 class ETikTok extends React.Component {
@@ -30,40 +31,47 @@ class ETikTok extends React.Component {
   }
 
   componentDidMount() {
-    PackageService.getPackageMinMax("tiktok", "followers").then(res => {
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            tfollowmin: res.data.min,
-            tfollowmax: res.data.max
-          }
-        );
-      }
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      PackageService.getPackageMinMax("tiktok", "followers").then(res => {
 
-    PackageService.getPackageMinMax("tiktok", "likes").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              tfollowmin: res.data.min,
+              tfollowmax: res.data.max
+            }
+          );
+        }
+      });
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            tlikemin: res.data.min,
-            tlikemax: res.data.max
-          }
-        );
-      }
-    });
+      PackageService.getPackageMinMax("tiktok", "likes").then(res => {
 
-    PackageService.getPackageData("tiktok", "followers").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              tlikemin: res.data.min,
+              tlikemax: res.data.max
+            }
+          );
+        }
+      });
 
-      this.setState({ tfollowdata: res.data });
-    });
+      PackageService.getPackageData("tiktok", "followers").then(res => {
 
-    PackageService.getPackageData("tiktok", "likes").then(res => {
+        this.setState({ tfollowdata: res.data });
+      });
 
-      this.setState({ tlikedata: res.data });
+      PackageService.getPackageData("tiktok", "likes").then(res => {
 
-    });
+        this.setState({ tlikedata: res.data });
+
+      });
+    }
+
   }
 
   saveTfollowersMinMax(social, service) {
@@ -102,12 +110,12 @@ class ETikTok extends React.Component {
         PackageService.getPackageData("tiktok", "likes").then(res => {
 
           this.setState({ tlikedata: res.data });
-    
+
         });
       });
   };
 
-  
+
   updateTfollowPackage(setting) {
     var count = document.getElementById("fqty" + setting.id).value;
     var price = document.getElementById("fprice" + setting.id).value;
@@ -265,7 +273,7 @@ class ETikTok extends React.Component {
           {/* main content area start */}
           <div className="main-content">
             {/* header area start */}
-            <br/>
+            <br />
             <div className="page-title-area">
               <div className="row align-items-center">
                 <div className="col-sm-6">
@@ -318,7 +326,7 @@ class ETikTok extends React.Component {
                                       <i
                                         class="ti-pencil"
                                         data-toggle="modal"
-                                        data-target={"#f"+data.id}
+                                        data-target={"#f" + data.id}
                                       ></i>
                                     </td>
                                   </tr>
@@ -532,8 +540,8 @@ class ETikTok extends React.Component {
                   </div>
                 </div>
               </div> */}
-              {/* Vertically centered modal start */}
-              {/* <div className="col-lg-6 mt-5">
+          {/* Vertically centered modal start */}
+          {/* <div className="col-lg-6 mt-5">
                 <div className="modal fade" id="addtlmodal">
                   <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
@@ -631,10 +639,10 @@ class ETikTok extends React.Component {
                   </div>
                 </div>
               </div> */}
-              {/* Vertically centered modal end */}
-              {/* Editbuttonpopbox */}
-              {/* Vertically centered modal start */}
-              {/* <div className="col-lg-6 mt-5">
+          {/* Vertically centered modal end */}
+          {/* Editbuttonpopbox */}
+          {/* Vertically centered modal start */}
+          {/* <div className="col-lg-6 mt-5">
                 <div className="modal fade" id="exampleModalLong">
                   <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
@@ -670,9 +678,9 @@ class ETikTok extends React.Component {
                   </div>
                 </div>
               </div> */}
-              {/* Vertically centered modal end */}
-              {/* Editbuttonpopbox-end */}
-            {/* </div>
+          {/* Vertically centered modal end */}
+          {/* Editbuttonpopbox-end */}
+          {/* </div>
           </div> */}
           {/* table primary end */}
           {/* 2nd table */}

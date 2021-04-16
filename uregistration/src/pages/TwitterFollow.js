@@ -41,14 +41,14 @@ class TwitterFollow extends React.Component {
         var user = Cookies.get('user');
         if (user != null) {
             this.getpageData();
-            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-                if (res.data == "compeleted") {
-                    this.setState({ earnstatus: '' });
+            // userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+            //     if (res.data == "compeleted") {
+            //         this.setState({ earnstatus: '' });
 
-                } else {
-                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-                }
-            });
+            //     } else {
+            //         this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+            //     }
+            // });
 
             earningService.getTotalEarning(Cookies.get('user')).then(res => {
                 this.setState({ total_earning: res.data });

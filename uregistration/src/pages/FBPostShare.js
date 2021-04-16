@@ -40,14 +40,14 @@ class FBPostShare extends React.Component {
     componentDidMount() {
         var user = Cookies.get('user');
         if (user != null) {
-            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-                if (res.data == "compeleted") {
-                    this.setState({ earnstatus: '' });
+            // userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+            //     if (res.data == "compeleted") {
+            //         this.setState({ earnstatus: '' });
                     this.getpageData();
-                } else {
-                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-                }
-            });
+            //     } else {
+            //         this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+            //     }
+            // });
             userServices.getUsers().then((res) => {
                 this.setState({ url: res.data });
             });

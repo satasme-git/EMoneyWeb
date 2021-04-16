@@ -270,7 +270,7 @@ class Login extends React.Component {
                                     <span class="txt1w">
                                         Forgot Username Or Password?&nbsp;&nbsp;
 						                </span>
-                                    <a class="txt2w" href="#">
+                                    <a class="txt2w" href="/resetpassword">
                                         Reset Password
 						                </a>
                                 </div>

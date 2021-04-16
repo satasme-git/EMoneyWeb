@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import Sidebar from "../components/Sidebar";
 import serveyService from "../services/serveyService";
 import moment from 'moment'
+import Cookies from 'js-cookie';
 
 class Approvesurveyqus extends React.Component {
   constructor(props) {
@@ -27,17 +28,23 @@ class Approvesurveyqus extends React.Component {
 
   componentDidMount() {
 
-    serveyService.getPendingServey().then(res => {
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      serveyService.getPendingServey().then(res => {
 
-      this.setState({ serveys: res.data });
+        this.setState({ serveys: res.data });
 
-    });
+      });
 
-    serveyService.getPendingServeyQuestions().then(res => {
+      serveyService.getPendingServeyQuestions().then(res => {
 
-      this.setState({ serveyquestions: res.data });
+        this.setState({ serveyquestions: res.data });
 
-    });
+      });
+    }
+
 
   }
 

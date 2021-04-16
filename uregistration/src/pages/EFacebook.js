@@ -6,6 +6,7 @@ import PackageService from "../services/packageService";
 import toast from 'toast-me';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 class EFacebook extends React.Component {
 
@@ -36,56 +37,62 @@ class EFacebook extends React.Component {
     }
 
     componentDidMount() {
-        PackageService.getPackageMinMax("facebook", "page like").then(res => {
+        var user = Cookies.get('admin');
+        if (user == null) {
+            this.props.history.push('/admin');
+        } else {
+            PackageService.getPackageMinMax("facebook", "page like").then(res => {
 
-            if (JSON.stringify(res.data.social_name) != null) {
-                this.setState(
-                    {
-                        fpalmin: res.data.min,
-                        fpalmax: res.data.max
-                    }
-                );
-            }
-        });
+                if (JSON.stringify(res.data.social_name) != null) {
+                    this.setState(
+                        {
+                            fpalmin: res.data.min,
+                            fpalmax: res.data.max
+                        }
+                    );
+                }
+            });
 
-        PackageService.getPackageMinMax("facebook", "post like").then(res => {
+            PackageService.getPackageMinMax("facebook", "post like").then(res => {
 
-            if (JSON.stringify(res.data.social_name) != null) {
-                this.setState(
-                    {
-                        fpolmin: res.data.min,
-                        fpolmax: res.data.max
-                    }
-                );
-            }
-        });
+                if (JSON.stringify(res.data.social_name) != null) {
+                    this.setState(
+                        {
+                            fpolmin: res.data.min,
+                            fpolmax: res.data.max
+                        }
+                    );
+                }
+            });
 
-        PackageService.getPackageMinMax("facebook", "share").then(res => {
+            PackageService.getPackageMinMax("facebook", "share").then(res => {
 
-            if (JSON.stringify(res.data.social_name) != null) {
-                this.setState(
-                    {
-                        fsharemin: res.data.min,
-                        fsharemax: res.data.max
-                    }
-                );
-            }
-        });
+                if (JSON.stringify(res.data.social_name) != null) {
+                    this.setState(
+                        {
+                            fsharemin: res.data.min,
+                            fsharemax: res.data.max
+                        }
+                    );
+                }
+            });
 
-        PackageService.getPackageData("facebook", "page like").then(res => {
+            PackageService.getPackageData("facebook", "page like").then(res => {
 
-            this.setState({ fpaldata: res.data });
-        });
+                this.setState({ fpaldata: res.data });
+            });
 
-        PackageService.getPackageData("facebook", "post like").then(res => {
+            PackageService.getPackageData("facebook", "post like").then(res => {
 
-            this.setState({ fpoldata: res.data });
-        });
+                this.setState({ fpoldata: res.data });
+            });
 
-        PackageService.getPackageData("facebook", "share").then(res => {
+            PackageService.getPackageData("facebook", "share").then(res => {
 
-            this.setState({ fshdata: res.data });
-        });
+                this.setState({ fshdata: res.data });
+            });
+        }
+
 
     }
 

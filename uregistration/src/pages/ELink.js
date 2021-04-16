@@ -5,6 +5,7 @@ import PackageService from "../services/packageService";
 import toast from 'toast-me';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
+import Cookies from 'js-cookie';
 
 
 class ELink extends React.Component {
@@ -24,22 +25,29 @@ class ELink extends React.Component {
   }
 
   componentDidMount() {
-    PackageService.getPackageMinMax("link", "views").then(res => {
 
-      if (JSON.stringify(res.data.social_name) != null) {
-        this.setState(
-          {
-            lviewmin: res.data.min,
-            lviewmax: res.data.max
-          }
-        );
-      }
-    });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      PackageService.getPackageMinMax("link", "views").then(res => {
 
-    PackageService.getPackageData("link", "views").then(res => {
+        if (JSON.stringify(res.data.social_name) != null) {
+          this.setState(
+            {
+              lviewmin: res.data.min,
+              lviewmax: res.data.max
+            }
+          );
+        }
+      });
 
-      this.setState({ lviewdata: res.data });
-    });
+      PackageService.getPackageData("link", "views").then(res => {
+
+        this.setState({ lviewdata: res.data });
+      });
+    }
+
 
   }
 
@@ -89,7 +97,7 @@ class ELink extends React.Component {
     this.setState({ lviewmax: event.target.value });
   };
 
-  
+
 
   changeLVpackQty = event => {
     this.setState({ lvpackqty: event.target.value });
@@ -179,7 +187,7 @@ class ELink extends React.Component {
           {/* main content area start */}
           <div className="main-content">
             {/* header area start */}
-            <br/>
+            <br />
             <div className="page-title-area">
               <div className="row align-items-center">
                 <div className="col-sm-6">
@@ -232,7 +240,7 @@ class ELink extends React.Component {
                                       <i
                                         class="ti-pencil"
                                         data-toggle="modal"
-                                        data-target={"#f"+data.id}
+                                        data-target={"#f" + data.id}
                                       ></i>
                                     </td>
                                   </tr>
@@ -439,11 +447,11 @@ class ELink extends React.Component {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>
-          
+
         </div>
         {this.state.lviewdata.map((data) => {
           return (
@@ -485,7 +493,7 @@ class ELink extends React.Component {
 
           );
         })}
-        
+
         {/* main content area end */}
         {/* page container area end */}
       </div>

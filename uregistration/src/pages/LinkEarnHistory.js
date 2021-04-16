@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet";
 import adminEarningService from "../services/adminEarningService";
 import Sidebar from '../components/Sidebar';
 import paymentService from "../services/paymentService";
+import Cookies from 'js-cookie';
 
 class InstagramEarnHistory extends React.Component {
 
@@ -39,19 +40,26 @@ class InstagramEarnHistory extends React.Component {
     //   this.setState({ customer: res.data });
 
     // });
-    var completediv = document.getElementById("completediv");
-    completediv.setAttribute("style", "display:none");
-    adminEarningService.getSocialEarning("website").then(res => {
 
-      this.setState({ pending: res.data });
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      adminEarningService.getSocialEarning("website").then(res => {
 
-    });
+        this.setState({ pending: res.data });
 
-    adminEarningService.getUserSocialEarning("website").then(res => {
+      });
 
-      this.setState({ payed: res.data });
+      adminEarningService.getUserSocialEarning("website").then(res => {
 
-    });
+        this.setState({ payed: res.data });
+
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -67,7 +75,7 @@ class InstagramEarnHistory extends React.Component {
     if (e.target.id == "pending") {
       pendingdiv.setAttribute("style", "display:");
       completediv.setAttribute("style", "display:none");
-      
+
       adminEarningService.getUserSocialEarning("website").then(res => {
 
         this.setState({ payed: res.data });

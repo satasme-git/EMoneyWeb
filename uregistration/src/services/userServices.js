@@ -52,6 +52,14 @@ class userServices{
         return axios.post(USER_API_BASE_URL+'/'+ref+'/confirmemail');
     }
 
+    SendPasswordReset(email){
+        return axios.post(USER_API_BASE_URL+'/'+email+'/sendpwlink');
+    }
+
+    resetPassword(user){
+        return axios.post(USER_API_BASE_URL+'/resetpw',user);
+    }
+
     updateUser(user,userId){
         return axios.put(USER_API_BASE_URL+'/'+userId,user);
     }

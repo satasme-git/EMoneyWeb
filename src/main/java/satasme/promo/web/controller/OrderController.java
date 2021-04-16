@@ -238,7 +238,6 @@ public class OrderController {
 						}
 					}
 				}
-				System.out.println("VVVVVVVVVVVVV  " + price);
 				if (price == 0 || notfound == true) {
 					entered = true;
 					responseText = "Contact us for get this price";
@@ -250,7 +249,6 @@ public class OrderController {
 			}
 
 		}
-		System.out.println("ttttttttttt  " + responseText);
 		return responseText;
 	}
 

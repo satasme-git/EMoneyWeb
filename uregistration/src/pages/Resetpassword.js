@@ -17,73 +17,28 @@ class Resetpassword extends React.Component {
         super(props)
         this.state = {
 
-            email: '',
-            key: '',
-            error: ''
-
+            email: ''
 
         }
     }
 
-    userSignin = (e) => {
-        var email = document.getElementById("email").value;
-        var key = document.getElementById("key").value;
-
-        if (email === "") {
-            // this.setState({
-            //     error: 'Please Enter your email!'
-            // });
-            toast('Please Enter your email!');
-        } else if (key === "") {
-            // this.setState({
-            //     error: 'Please Enter your Password!'
-            // });
-            toast('Please Enter your Password!');
-        } else {
-            e.preventDefault();
-            let user = { email: this.state.email, key: this.state.key, }
-            console.log('user=>' + JSON.stringify(user));
-            userServices.logIn(user).then(res => {
-                console.log('resp=>', res)
-                if (res.data != 'failed') {
-                    // const store = new SessionKeystore({ name: 'other' });
-                    // store.set('user', res.data, Date.now() + 1000 * 60 * 20)//20minute
-                    // sconst store = sessionservice.getsessionstore();
-                    // store.set('user', 'supersecret');
-                    // store.on('deleted', ({ name }) => this.props.history.push('/login'));
-                    // store.on('expired', ({ name }) => this.props.history.push('/login'));
-                    // ReactSession.setStoreType("sessionStorage");
-                    // var expires = new Date(year, month, day, hours, minutes, seconds, milliseconds);
-                    // var sessionObject = {
-                    //     expiresAt: expires,
-                    //     someOtherSessionData: {
-                    //         username: ''
-                    //     }
-                    // }
-                    sessionStorage.setItem("user", res.data)
-                    // const reducers = {
-                    //     // ... your other reducers here ...
-                    //     session: sessionService
-                    // };
-                    // const reducer = combineReducers(reducers);
-
-
-                    // const store = combineReducers(reducer)
-                    // sessionService.initSessionService(store);
-                    // sessionService.saveSession("user",res.data)
-
-                    this.props.history.push('/userhome');
-                } else {
-                    // this.setState({
-                    //     error: 'Email or Password invalid!'
-                    // });
-                    toast('Email or Password invalid!');
+    sendResetEmail = (e) => {
+        
+        if (this.state.email != null || this.state.email != "") {
+            userServices.SendPasswordReset(this.state.email).then(res =>{
+                if(res.data=="success"){
+                    var emailsend = document.getElementById("emailsend");
+                    emailsend.style.display = "";
+                    toast("Email sent. Check your inbox", { position: 'bottom' })
+                }else if(res.data=="social"){
+                    toast("This account is logged with social account.Can't reset password", { position: 'bottom' })
+                }else if(res.data=="notfound"){
+                    toast("Invalid Email", { position: 'bottom' })
+                }else{
+                    toast("Something went wrong. Try again later", { position: 'bottom' })
                 }
-
-
             });
         }
-
     }
 
     changeEmailHandlter = (event) => {
@@ -105,13 +60,11 @@ class Resetpassword extends React.Component {
                         <div class="wrap-login100w">
                             <div class="login100-formw validate-formw">
 
-                                <span class="login100-form-titlew" style={{ textAlign:'center'}}>
-                                    Reset Your Password 
+                                <span class="login100-form-titlew" style={{ textAlign: 'center' }}>
+                                    Reset Your Password
                                 </span>
-                                <div class="regwithemal1w">
-                                The verification emali will be sent to mailbox
-					            </div>
-                                <h3 style={{ color: "red", fontSize: "20px", marginLeft: "25%", marginRight: "25%", marginTop: "10px", marginBottom: "10px" }}>{this.state.error}</h3>
+
+
                                 <div class="wrap-input100w validate-inputw" data-validate="Valid email is required: ex@abc.xyz">
                                     <input class="input100w" type="text" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.changeEmailHandlter} />
                                     <span class="focus-input100w"></span>
@@ -119,12 +72,15 @@ class Resetpassword extends React.Component {
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                     </span>
                                 </div>
+                                <div class="regwithemal1w" id="emailsend" style={{ color: "red", display: "none" }}>
+                                    The verification emali will be sent to mailbox
+					            </div>
                                 <br></br>
 
-                       
+
 
                                 <div class="container-login100-form-btnw">
-                                    <button class="login100-form-btnw" onClick={this.userSignin}>
+                                    <button class="login100-form-btnw" onClick={this.sendResetEmail}>
                                         Send
 						            </button>
                                 </div>
@@ -132,23 +88,23 @@ class Resetpassword extends React.Component {
 
 
 
-<br/>
+                                <br />
 
-                               
-                                        <Link to="/login" >
-                                            <div style={{ textAlign:'center'}}>
-                                            Back to  Login
+
+                                <Link to="/login" >
+                                    <div style={{ textAlign: 'center' }}>
+                                        Back to  Login
 						                    </div>
-                                        </Link>
-                                    </div>
-
-                                </div>
-
+                                </Link>
                             </div>
+
                         </div>
+
                     </div>
-               
-            
+                </div>
+            </div>
+
+
         )
     }
 
