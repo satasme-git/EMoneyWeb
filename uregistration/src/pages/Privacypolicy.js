@@ -170,7 +170,7 @@ We may use the information we collect from you when you register, make a purchas
 •	To ask for ratings and reviews of services or products.
 •	To follow up with them after correspondence (live chat, email or phone inquiries)<br /><br />
               <br /><br />
-              <h6>How do we protect your information?    </h6>
+              <h6  style={{ fontWeight: "bold" }}>How do we protect your information?    </h6>
               <br /><br />
 We do not use vulnerability scanning and/or scanning to PCI standards. An external PCI compliant payment gateway handles all CC transactions. We use regular Malware Scanning.
 
@@ -222,7 +222,7 @@ We collect your email address in order to: <br /><br />
                 If at any time you would like to unsubscribe from receiving future emails, you can email us at</h6><br /><br />
 support@Emoneytag.com and we will promptly remove you from ALL correspondence.<br /><br /><br /><br />
 
-              <h6>
+              <h6  style={{ fontWeight: "bold" }}>
                 Contacting Us</h6><br /><br />
 If there are any questions regarding this privacy policy, you may contact us using the information below.<br /><br /><br />
 
@@ -235,7 +235,7 @@ Address 2,<br /><br /><br />
 
 
               <h6 style={{ fontWeight: "bold" }}> Contact Customer Service:<br /><br />
-•	+0000 0000 00000 <br />
+•	+12 3456 789  <br />
 •	support@Emoneytag.com<br /><br />
 
               </h6>
@@ -255,7 +255,7 @@ Address 2,<br /><br /><br />
                 <div class="col-sm-6 col-md-3 item">
                   <h3>Services</h3>
                   <ul>
-                    <li><a href="/termsofservice">Terms of Servivce</a></li>
+                    <li><a href="/termsofservice">Terms of Serivce</a></li>
                     <li><a href="/privacypolicy">Privacy Policy</a></li>
                     <li><a href="#"></a></li>
                   </ul>
@@ -270,7 +270,7 @@ Address 2,<br /><br /><br />
                 </div>
                 <div class="col-md-6 item text">
                   <h3>EmoneyTag</h3>
-                  <p>You can choose this method easily. Only you have to do is complete the
+                  <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                   tasks provided by us, By using your social media account and earn points.
                   You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

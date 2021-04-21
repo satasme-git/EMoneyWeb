@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import pointService from "../services/pointService";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
 
 class Howitworks1 extends React.Component {
 
@@ -65,6 +66,9 @@ class Howitworks1 extends React.Component {
     });
   }
   render() {
+
+
+
     return (
       <div
         id="homepage"
@@ -207,6 +211,11 @@ class Howitworks1 extends React.Component {
             )
           }
         })()}
+
+
+
+   
+          
         <div class="team-boxed">
           <div class="container">
             <div class="intro">
@@ -379,10 +388,10 @@ class Howitworks1 extends React.Component {
                   </div>
                   <div class="col-md-6 item text">
                     <h3>EmoneyTag</h3>
-                    <p style={{ color: "white" }}>You can choose this method easily. Only you have to do is complete the
+                    <p style={{color:"white" , textAlign:"left"}}>You can choose this method easily. Only you have to do is complete the
                     tasks provided by us, By using your social media account and earn points.
                     You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
-                                           media accounts.your one tap can earn points for you.</p>
+                    media accounts.your one tap can earn points for you.</p>
                   </div>
                   <div class="col item social"><a href="#">
                     <i class="icon ion-social-facebook"></i></a><a href="#">

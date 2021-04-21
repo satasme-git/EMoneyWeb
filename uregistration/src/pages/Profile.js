@@ -54,135 +54,135 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            userServices.getProfileImage(user).then(res => {
-                if (res.data.id != null) {
-                    this.setState({ profileimage: "data:image/png;base64," + res.data.picByte });
-                } else {
-                    this.setState({ profileimage: "assets\\images\\icons\\userii.jpg" });
-                }
-            });
-            userServices.getUserById(user).then(res => {
-                if (res.data.user != null) {
-                    if (res.data.user.fname != null) {
-                        this.setState({ fname: res.data.user.fname });
-                    }
-                    if (res.data.user.lname != null) {
-                        this.setState({ lname: res.data.user.lname });
-                    }
-                    if (res.data.user.fname != null) {
-                        this.setState({ c_fname: res.data.user.fname });
-                    }
-                    if (res.data.user.lname != null) {
-                        this.setState({ c_lname: res.data.user.lname });
-                    }
-                    if (res.data.user.email != null) {
-                        if (isNaN(res.data.user.email)) {
-                            this.setState({ email: res.data.user.email });
-                        }
-                    }
-                    if (res.data.user.tempemail != null) {
-                        this.setState({ emailchange: "*You requested email change. Please login to your email and confirm." });
-                    }
-                    if (res.data.user.mobile != null && res.data.user.mobile != 0) {
-                        this.setState({ mobile: res.data.user.mobile });
-                    }
-                    if (res.data.user.gender != null) {
-                        this.setState({ gender: res.data.user.gender });
-                    }
-                    if (res.data.user.dob != null) {
-                        this.setState({ dob: res.data.user.dob });
-                    }
-                    if (res.data.user.specialization != null) {
-                        this.setState({ specialization: res.data.user.specialization });
-                    }
-                    if (res.data.user.education != null) {
-                        this.setState({ education: res.data.user.education });
-                    }
-                    if (res.data.user.country != null) {
-                        this.setState({ basiccountry: res.data.user.country });
-                    }
-                    if (res.data.user.status == "verified") {
-                        this.removeVerifyEmail();
-                    }
-                    if (res.data.user.img != null) {
-                        // this.setState({ profileimage: res.data.user.img });
-                    }
-                }
-                if (res.data.fname != null) {
-                    this.setState({ fname: res.data.fname });
-                }
-                if (res.data.lname != null) {
-                    this.setState({ lname: res.data.lname });
-                }
-                if (res.data.addresno != null) {
-                    this.setState({ number: res.data.addresno });
-                }
-                if (res.data.country != null) {
-                    this.setState({ country: res.data.country });
-                }
-                if (res.data.street != null) {
-                    this.setState({ street: res.data.street });
-                }
-                if (res.data.city != null) {
-                    this.setState({ city: res.data.city });
-                }
-                if (res.data.postal != null) {
-                    this.setState({ postalcode: res.data.postal });
-                }
-                if (res.data.currency != null) {
-                    this.setState({ currency: res.data.currency });
-                }
-                if (res.data.p_pay != null) {
-                    this.setState({ paypalpay: res.data.p_pay });
-                }
-                if (res.data.region != null) {
-                    this.setState({ stateorregion: res.data.region });
-                }
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     userServices.getProfileImage(user).then(res => {
+        //         if (res.data.id != null) {
+        //             this.setState({ profileimage: "data:image/png;base64," + res.data.picByte });
+        //         } else {
+        //             this.setState({ profileimage: "assets\\images\\icons\\userii.jpg" });
+        //         }
+        //     });
+        //     userServices.getUserById(user).then(res => {
+        //         if (res.data.user != null) {
+        //             if (res.data.user.fname != null) {
+        //                 this.setState({ fname: res.data.user.fname });
+        //             }
+        //             if (res.data.user.lname != null) {
+        //                 this.setState({ lname: res.data.user.lname });
+        //             }
+        //             if (res.data.user.fname != null) {
+        //                 this.setState({ c_fname: res.data.user.fname });
+        //             }
+        //             if (res.data.user.lname != null) {
+        //                 this.setState({ c_lname: res.data.user.lname });
+        //             }
+        //             if (res.data.user.email != null) {
+        //                 if (isNaN(res.data.user.email)) {
+        //                     this.setState({ email: res.data.user.email });
+        //                 }
+        //             }
+        //             if (res.data.user.tempemail != null) {
+        //                 this.setState({ emailchange: "*You requested email change. Please login to your email and confirm." });
+        //             }
+        //             if (res.data.user.mobile != null && res.data.user.mobile != 0) {
+        //                 this.setState({ mobile: res.data.user.mobile });
+        //             }
+        //             if (res.data.user.gender != null) {
+        //                 this.setState({ gender: res.data.user.gender });
+        //             }
+        //             if (res.data.user.dob != null) {
+        //                 this.setState({ dob: res.data.user.dob });
+        //             }
+        //             if (res.data.user.specialization != null) {
+        //                 this.setState({ specialization: res.data.user.specialization });
+        //             }
+        //             if (res.data.user.education != null) {
+        //                 this.setState({ education: res.data.user.education });
+        //             }
+        //             if (res.data.user.country != null) {
+        //                 this.setState({ basiccountry: res.data.user.country });
+        //             }
+        //             if (res.data.user.status == "verified") {
+        //                 this.removeVerifyEmail();
+        //             }
+        //             if (res.data.user.img != null) {
+        //                 // this.setState({ profileimage: res.data.user.img });
+        //             }
+        //         }
+        //         if (res.data.fname != null) {
+        //             this.setState({ fname: res.data.fname });
+        //         }
+        //         if (res.data.lname != null) {
+        //             this.setState({ lname: res.data.lname });
+        //         }
+        //         if (res.data.addresno != null) {
+        //             this.setState({ number: res.data.addresno });
+        //         }
+        //         if (res.data.country != null) {
+        //             this.setState({ country: res.data.country });
+        //         }
+        //         if (res.data.street != null) {
+        //             this.setState({ street: res.data.street });
+        //         }
+        //         if (res.data.city != null) {
+        //             this.setState({ city: res.data.city });
+        //         }
+        //         if (res.data.postal != null) {
+        //             this.setState({ postalcode: res.data.postal });
+        //         }
+        //         if (res.data.currency != null) {
+        //             this.setState({ currency: res.data.currency });
+        //         }
+        //         if (res.data.p_pay != null) {
+        //             this.setState({ paypalpay: res.data.p_pay });
+        //         }
+        //         if (res.data.region != null) {
+        //             this.setState({ stateorregion: res.data.region });
+        //         }
 
 
-                // if (this.state.profileimage == "") {
-                //     this.setState({ profileimage: "assets\\images\\icons\\userii.jpg" });
-                // }
-            });
+        //         // if (this.state.profileimage == "") {
+        //         //     this.setState({ profileimage: "assets\\images\\icons\\userii.jpg" });
+        //         // }
+        //     });
 
-            userServices.getProfileCompletion(user).then(res => {
-                if (res.data === "compeleted") {
-                    this.setState({
-                        completeper: 100,
-                        notcompleteper: 0
-                    });
-                } else {
-                    var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
-                    this.setState({
-                        completeper: parseInt(comp),
-                        notcompleteper: (100 - comp)
-                    });
-                }
-            });
-            userServices.getEarnedPoints(user).then(res => {
-                if (res.data.email != null) {
-                    if (isNaN(res.data.email)) {
-                        this.setState({ premail: res.data.email });
-                    } else {
-                        this.setState({ premail: "Not Selected" });
-                    }
-                }
-                if (res.data.mobile != null) {
-                    this.setState({ prmobile: res.data.mobile });
-                }
-                if (res.data.points != null) {
-                    this.setState({ prearningtotal: res.data.points });
-                }
-                if (res.data.url != null) {
-                    // alert(res.data.url)
-                }
-            });
+        //     userServices.getProfileCompletion(user).then(res => {
+        //         if (res.data === "compeleted") {
+        //             this.setState({
+        //                 completeper: 100,
+        //                 notcompleteper: 0
+        //             });
+        //         } else {
+        //             var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+        //             this.setState({
+        //                 completeper: parseInt(comp),
+        //                 notcompleteper: (100 - comp)
+        //             });
+        //         }
+        //     });
+        //     userServices.getEarnedPoints(user).then(res => {
+        //         if (res.data.email != null) {
+        //             if (isNaN(res.data.email)) {
+        //                 this.setState({ premail: res.data.email });
+        //             } else {
+        //                 this.setState({ premail: "Not Selected" });
+        //             }
+        //         }
+        //         if (res.data.mobile != null) {
+        //             this.setState({ prmobile: res.data.mobile });
+        //         }
+        //         if (res.data.points != null) {
+        //             this.setState({ prearningtotal: res.data.points });
+        //         }
+        //         if (res.data.url != null) {
+        //             // alert(res.data.url)
+        //         }
+        //     });
 
-        } else {
-            this.props.history.push('/login');
-        }
+        // } else {
+        //     this.props.history.push('/login');
+        // }
     }
 
     changeThumbnail = e => {
@@ -640,7 +640,7 @@ class Profile extends React.Component {
 
                                 <div class="header__left">
                                     <a href="/userhome">
-                                        <img src="/assets/webicon.png" style={{ width: "161px", height: "61px" }} alt="Emoneytag" title="Emoneytag" />
+                                        <img src="/assets/webicon.png" style={{ width: "201px", height: "51px" }} alt="Emoneytag" title="Emoneytag" />
                                     </a>
                                     <br />
                                 </div>
@@ -745,9 +745,9 @@ class Profile extends React.Component {
                                 </div>
 
 
-                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img> */}
-                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img> */}
-                                {/* <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} /> */}
+                                {/* <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src="assets\images\icons\userii.jpg"></img>
+                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} alt="img" src={this.state.profileimage}></img>
+                                <input type="file" accept="image/*" name="myImage" onChange={this.changeThumbnail} /> */}
                                 {/* <button class="btn btn-outline-primary icon-button" onClick={this.uploadImages} type="button" style={{ width: "15%", marginTop: "10px", marginLeft: "39%" }}><i class="fa fa-camera"></i></button> */}
                             </div>
                         </div>
@@ -760,8 +760,8 @@ class Profile extends React.Component {
 
                             <div id="verifyemaildiv" class="card" style={{ marginRight: "20px", marginBottom: "10px", marginTop: "3%", marginLeft: "20px", backgroundColor: "white" }}>
                                 <h4 style={{ marginLeft: "10px", marginTop: "10px", fontSize: "26px" }}>Verify Your Email:</h4>
-                                <sub style={{ marginLeft: "10px", marginTop: "15px" }}>Go to your mail and click the activation link. If you didn't receive any messages from us, click on the button next to.</sub>
-                                <button class="btn btn-success" type="button" style={{ marginLeft: "25%", marginBottom: "10px", marginTop: "20px", width: "50%" }} onClick={this.sendEmail}>SEND ACTIVATION LINK</button>
+                                <h6 style={{ marginLeft: "10px", marginTop: "15px" }}>Go to your mail and click the activation link. If you didn't receive any messages from us, click on the button next to.</h6>
+                                <button class="btn btn-success" type="button" style={{ marginLeft: "8%", marginBottom: "10px", marginTop: "20px", width: "80%" }} onClick={this.sendEmail}>SEND ACTIVATION LINK</button>
                             </div>
 
                             <div class="card" style={{ marginTop: "10px", marginLeft: "20px", marginRight: "20px", backgroundColor: "white" }}>
@@ -1136,7 +1136,7 @@ class Profile extends React.Component {
                                     </div>
                                     <div class="col-md-6 item text">
                                         <h3>EmoneyTag</h3>
-                                        <p>You can choose this method easily. Only you have to do is complete the
+                                        <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
                                         tasks provided by us, By using your social media account and earn points.
                                         You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

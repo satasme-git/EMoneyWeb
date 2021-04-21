@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import feedbackService from "../services/feedbackService";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import $ from 'jquery';
 
 
 class UserHome extends React.Component {
@@ -19,12 +20,12 @@ class UserHome extends React.Component {
   }
 
   componentDidMount() {
-    var user = Cookies.get('user');
-    if (user != null) {
+    // var user = Cookies.get('user');
+    // if (user != null) {
 
-    } else {
-      this.props.history.push('/login');
-    }
+    // } else {
+    //   this.props.history.push('/login');
+    // }
   }
 
   redirectToHomebl = (e) => {
@@ -98,11 +99,29 @@ class UserHome extends React.Component {
         }
       ]
     });
+
+
+    
+  
   }
 
   render() {
+   
+    $(window).on('load', function () {
+      $("#cover").fadeOut(2000);
+      });
+    
+
     return (
-      <div id="homepage" className="is-header">
+      <div id="homepage" className="is-header" >
+
+   
+
+
+
+
+
+
         <Helmet>
           <meta charSet="utf-8" />
           <title>My Title</title>
@@ -112,7 +131,7 @@ class UserHome extends React.Component {
           <meta name="description"
             content="Get youtube, twitch or instagram views and start to promote your video. Buy views and get 1000 free youtube views now!" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+          <link rel="stylesheet" href="/assets/home-css.css" />
           <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
 
 
@@ -152,7 +171,7 @@ class UserHome extends React.Component {
 
 
           <link type="text/css" rel="stylesheet" href="/assets/css/app69fd.css?id=d97cc8504a674a3a9f71" />
-          <link rel="stylesheet" href="/assets/home-css.css" />
+       
 
           <link rel="alternate" hreflang="x-default" href="index.html" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -219,7 +238,22 @@ class UserHome extends React.Component {
           </section>
         </header>
 
-        <main class="main">
+
+        <main class="main"  >
+  {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+     
+
           <div class="banner" id="banner" data-replace="/order">
             <div class="banner__box">
               <div class="widget bg">
@@ -882,7 +916,7 @@ class UserHome extends React.Component {
                 </div>
                 <div class="col-md-6 item text">
                   <h3>EmoneyTag</h3>
-                  <p>
+                  <p style={{color:"white"}}>
                     You can choose this method easily. Only you have to do is
                     complete the tasks provided by us, By using your social
                     media account and earn points. You can earn points by using

@@ -28,20 +28,20 @@ class Order extends React.Component {
     }
 
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            this.getOrders();
+        // var user = Cookies.get('user');
+        // if (user != null) {
+        //     this.getOrders();
 
-            earningService.getTotalEarning(Cookies.get('user')).then(res => {
-                this.setState({ total_earning: res.data });
-            });
+        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
+        //         this.setState({ total_earning: res.data });
+        //     });
 
-            userServices.getUserById(Cookies.get('user')).then(res => {
-                this.setState({ username: res.data.fname });
-            });
-        } else {
-            this.props.history.push('/login');
-        }
+        //     userServices.getUserById(Cookies.get('user')).then(res => {
+        //         this.setState({ username: res.data.fname });
+        //     });
+        // } else {
+        //     this.props.history.push('/login');
+        // }
 
 
     }
@@ -87,6 +87,12 @@ class Order extends React.Component {
     }
 
     render() {
+        $(window).on('load', function () {
+            $("#cover").fadeOut(2050);
+            });
+    
+
+            
         return (
             <div>
                 <Helmet>
@@ -122,6 +128,19 @@ class Order extends React.Component {
                 </header>
 
                 <div class="main" style={{ backgroundColor: "#dfeef2"}}>
+
+                      {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
+  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  
+  <div id="preloader">
+  <div id="loader"></div>
+</div>
+
+</div>
+
+
+
+          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
 
                     <div class="s-layout">
                         {/* <!-- Sidebar --> */}
