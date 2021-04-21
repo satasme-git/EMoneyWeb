@@ -119,7 +119,6 @@ public class OrderController {
 			boolean entered = false;
 			double total_price = 0;
 			for (int i = 0; i < service.length; i++) {
-				System.out.println(country);
 				Criteria crpk = em.unwrap(Session.class).createCriteria(PackageMinMax.class);
 				crpk.add(Restrictions.eq("service", service[i]));
 				crpk.add(Restrictions.eq("social_name", social));
@@ -188,32 +187,31 @@ public class OrderController {
 					if (country.contains(" ")) {
 						String[] countries = country.split(" ");
 						for (int k = 0; k < countries.length; k++) {
-							System.out.println("inside");
-							String[] split = countries[k].split(",");
-							for (int j = 0; j < split.length; j++) {
-								System.out.println(split[j]);
-								Criteria cr2 = em.unwrap(Session.class).createCriteria(Packages.class);
-								cr2.add(Restrictions.eq("packageMinMax", packageMinMax));
-								cr2.add(Restrictions.eq("country", split[j]));
-								List<Packages> packages = cr2.list();
-								if (cr2.list().isEmpty()) {
-									notfound = true;
-								}
-								int finalcount = 0;
-								double tempprice = 0;
-								for (Packages pack : packages) {
-									if (pack.getCount() >= Integer.parseInt(count[i])) {
-										if (finalcount == 0) {
-											finalcount = pack.getCount();
-											tempprice = pack.getPrice();
-										} else if (finalcount >= pack.getCount()) {
-											finalcount = pack.getCount();
-											tempprice = pack.getPrice();
-										}
-
+							if (i==k) {
+								String[] split = countries[k].split(",");
+								for (int j = 0; j < split.length; j++) {
+									Criteria cr2 = em.unwrap(Session.class).createCriteria(Packages.class);
+									cr2.add(Restrictions.eq("packageMinMax", packageMinMax));
+									cr2.add(Restrictions.eq("country", split[j]));
+									List<Packages> packages = cr2.list();
+									if (cr2.list().isEmpty()) {
+										notfound = true;
 									}
+									int finalcount = 0;
+									double tempprice = 0;
+									for (Packages pack : packages) {
+										if (pack.getCount() >= Integer.parseInt(count[i])) {
+											if (finalcount == 0) {
+												finalcount = pack.getCount();
+												tempprice = pack.getPrice();
+											} else if (finalcount >= pack.getCount()) {
+												finalcount = pack.getCount();
+												tempprice = pack.getPrice();
+											}
+										}
+									}
+									price += tempprice;
 								}
-								price += tempprice;
 							}
 						}
 					} else {

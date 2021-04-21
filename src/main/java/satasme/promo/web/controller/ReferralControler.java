@@ -1,5 +1,6 @@
 package satasme.promo.web.controller;
 
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -115,14 +117,19 @@ public class ReferralControler {
 				this.userRepository.save(user);
 				Login login = new Login();
 				if (node.get("key") != null) {
-					login.setKey(node.get("key").asText());
+//					String pw= bCryptPasswordEncoder.encode(node.get("key").asText());
+					int strength = 10; // work factor of bcrypt
+					BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength,
+							new SecureRandom());
+					String encodedPassword = bCryptPasswordEncoder.encode(node.get("key").asText());
+					login.setKey(encodedPassword);
 				}
 				login.setIsloggedin(false);
 				login.setUser(user);
 				this.loginRepository.save(login);
 				//need to add earnings for the ref
 				Criteria cr = em.unwrap(Session.class).createCriteria(User.class);
-				cr.add(Restrictions.eq("refcode", token));
+				cr.add(Restrictions.eq("refcode", "["+token));
 				User crruser = (User) cr.uniqueResult();
 
 				String crrdate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());

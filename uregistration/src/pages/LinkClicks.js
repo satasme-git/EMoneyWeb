@@ -112,7 +112,7 @@ class LinkClicks extends React.Component {
         var downloadTimer = setInterval(function () {
             // document.getElementById('button').style.display = 'none';
             if (timeleft <= 0) {
-                document.getElementById("time_map").innerHTML = "0 Seconds remaining to next question";
+                document.getElementById("time_map").innerHTML = "You can now redeem points by closing popup window";
                 // document.getElementById('button').style.display = '';
                 if (new_window.closed) {
                     clearInterval(downloadTimer);

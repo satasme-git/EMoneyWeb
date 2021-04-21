@@ -128,6 +128,7 @@ class Login extends React.Component {
     }
 
     statusChangeCallback(response) {
+        console.log(response);
         if (response.status === 'connected') {
             this.testAPI();
         } else if (response.status === 'not_authorized') {

@@ -609,14 +609,23 @@ class Dash extends React.Component {
         //     });
         // } else 
 
-        if (country == null) {
-            country = "";
+        var scountry = document.getElementById("i_f_country");
+        var options = scountry && scountry.options;
+        var sresult = [];
+        var opt;
+        for (var i = 0, iLen = options.length; i < iLen; i++) {
+            opt = options[i];
+
+            if (opt.selected) {
+                sresult.push(opt.value || opt.text);
+
+            }
         }
         if (i_f_check.checked) {
             var social = "instagram";
             var service = "followers"
             var count = val;
-            orderService.getprices(social, service, count, country, Cookies.get('user')).then(res => {
+            orderService.getprices(social, service, count, sresult, Cookies.get('user')).then(res => {
                 this.setState({ total_price: res.data, final_earning: res.data.split("$ ")[1] });
             });
         } else {
@@ -627,14 +636,23 @@ class Dash extends React.Component {
     generateTwitterPrice(val, country) {
         var t_f_check = document.getElementById("t_f_check");
         // var t_l_check = document.getElementById("t_l_check");
-        if (country == null) {
-            country = "";
+        var scountry = document.getElementById("tw_f_country");
+        var options = scountry && scountry.options;
+        var sresult = [];
+        var opt;
+        for (var i = 0, iLen = options.length; i < iLen; i++) {
+            opt = options[i];
+
+            if (opt.selected) {
+                sresult.push(opt.value || opt.text);
+
+            }
         }
         if (t_f_check.checked) {
             var social = "twitter";
             var service = "followers"
             var count = val;
-            orderService.getprices(social, service, count, country, Cookies.get('user')).then(res => {
+            orderService.getprices(social, service, count, sresult, Cookies.get('user')).then(res => {
                 this.setState({ total_price: res.data, final_earning: res.data.split("$ ")[1] });
             });
         } else {
@@ -645,14 +663,23 @@ class Dash extends React.Component {
     generateTiktokPrice(val, country) {
         var ti_f_check = document.getElementById("ti_f_check");
         // var t_l_check = document.getElementById("t_l_check");
-        if (country == null) {
-            country = "";
+        var scountry = document.getElementById("ti_f_country");
+        var options = scountry && scountry.options;
+        var sresult = [];
+        var opt;
+        for (var i = 0, iLen = options.length; i < iLen; i++) {
+            opt = options[i];
+
+            if (opt.selected) {
+                sresult.push(opt.value || opt.text);
+
+            }
         }
         if (ti_f_check.checked) {
             var social = "tiktok";
             var service = "followers"
             var count = val;
-            orderService.getprices(social, service, count, country, Cookies.get('user')).then(res => {
+            orderService.getprices(social, service, count, sresult, Cookies.get('user')).then(res => {
                 this.setState({ total_price: res.data, final_earning: res.data.split("$ ")[1] });
             });
         } else {
@@ -663,14 +690,23 @@ class Dash extends React.Component {
     generateWebPrice(val, country) {
         var w_v_check = document.getElementById("w_v_check");
         // var t_l_check = document.getElementById("t_l_check");
-        if (country == null) {
-            country = "";
+        var scountry = document.getElementById("w_v_country");
+        var options = scountry && scountry.options;
+        var sresult = [];
+        var opt;
+        for (var i = 0, iLen = options.length; i < iLen; i++) {
+            opt = options[i];
+
+            if (opt.selected) {
+                sresult.push(opt.value || opt.text);
+
+            }
         }
         if (w_v_check.checked) {
-            var social = "web";
+            var social = "link";
             var service = "views"
             var count = val;
-            orderService.getprices(social, service, count, country, Cookies.get('user')).then(res => {
+            orderService.getprices(social, service, count, sresult, Cookies.get('user')).then(res => {
                 this.setState({ total_price: res.data, final_earning: res.data.split("$ ")[1] });
             });
         } else {
@@ -787,7 +823,7 @@ class Dash extends React.Component {
 
     changeWviews = event => {
         this.setState({ w_views: event.target.value });
-        this.generateTiktokPrice(event.target.value);
+        this.generateWebPrice(event.target.value);
     };
 
     changeSviews = event => {
@@ -2093,7 +2129,7 @@ class Dash extends React.Component {
                                                 <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/eye.png" alt="" />
                                                     <input type="checkbox" id="y_v_check" checked={this.state.y_v_check} onChange={this.changeYoutubeViewsStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: " 0px", fontSize: "19px" }}><strong>Views</strong></span></div>
                                                 <div class="form-group">
-                                                    <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" onChange={this.changeViews} id="y_v_input" name="quantity" min="100" max="50000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopColor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                    <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.y_views} onChange={this.changeViews} id="y_v_input" name="quantity" min="100" max="50000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopColor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
                                                 </div>
 
                                                 <div class="form-group">
@@ -2183,7 +2219,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/registration.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" onChange={this.changeYoutubesubscribeStatus} id="y_s_check" style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Subscribers</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="y_s_input" disabled="disable" onChange={this.changeSubscribers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.y_subscribe} id="y_s_input" disabled="disable" onChange={this.changeSubscribers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -2290,7 +2326,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/like2.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" id="f_pol_check" checked={this.state.f_pl_check} onChange={this.changeFacebookPostlikeStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Post Likes</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="f_pol_input" name="quantity" onChange={this.changePostLikes} min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.f_Polikes} id="f_pol_input" name="quantity" onChange={this.changePostLikes} min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -2384,7 +2420,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px", marginTop: "2%" }}><img class="button-enter__icon" src="assets/img/icons/like2.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" id="f_pal_check" onChange={this.changeFacebookPagelikeStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Page Likes</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" disabled="disable" id="f_pal_input" name="quantity" onChange={this.changePageLikes} min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.f_Palikes} disabled="disable" id="f_pal_input" name="quantity" onChange={this.changePageLikes} min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -2478,7 +2514,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px", marginTop: "2%" }}><img class="button-enter__icon" src="assets/img/icons/share2.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" id="f_s_check" onChange={this.changeFacebookShareStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Shares</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" disabled="disable" id="f_s_input" onChange={this.changeFShares} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.f_shares} disabled="disable" id="f_s_input" onChange={this.changeFShares} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -2582,7 +2618,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/registration.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" checked={this.state.i_fol_check} id="i_f_check" onChange={this.changeInstagramFollowersStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Followers</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="i_f_input" onChange={this.changeIFollowers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.i_followers} id="i_f_input" onChange={this.changeIFollowers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -2773,7 +2809,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/registration.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" checked={this.state.tw_fol_check} id="t_f_check" onChange={this.changeTwitterFollowersStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Followers</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="t_f_input" onChange={this.changeTwFollowers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.tw_followers} id="t_f_input" onChange={this.changeTwFollowers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -2967,7 +3003,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/registration.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" checked={this.state.ti_fol_check} id="ti_f_check" onChange={this.changeTiktokFollowersStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Followers</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="ti_f_input" onChange={this.changeTtFollowers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.tt__followes} id="ti_f_input" onChange={this.changeTtFollowers} name="quantity" min="100" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -3244,7 +3280,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/registration.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" checked={this.state.w_v_check} id="w_v_check" onChange={this.changeWebViewStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Views</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="w_v_input" onChange={this.changeWviews} name="quantity" min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.w_views} id="w_v_input" onChange={this.changeWviews} name="quantity" min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">
@@ -3341,7 +3377,7 @@ class Dash extends React.Component {
                                                     <div class="form-group" style={{ marginLeft: "5px" }}><img class="button-enter__icon" src="assets/img/icons/registration.png" alt="" style={{ backgroundColor: "#ffffff" }} />
                                                         <input type="checkbox" checked={this.state.s_v_check} id="s_v_check" onChange={this.changeServeyViewStatus} style={{ marginLeft: "5px", height: "13px", fontSize: "15px" }} /><span style={{ marginLeft: "10px", height: "0px", fontSize: "19px" }}><strong>Views</strong></span></div>
                                                     <div class="form-group">
-                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" id="w_v_input" onChange={this.changeSviews} name="quantity" min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
+                                                        <h6 style={{ height: "37px", marginLeft: "10px" }}>QTY :&nbsp;<input type="number" value={this.state.s_views} id="w_v_input" onChange={this.changeSviews} name="quantity" min="1000" max="500000" style={{ width: "150px", borderStyle: "solid", borderRadius: "200px", borderColor: "#e7e7e7", borderTopolor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }} /></h6>
 
                                                     </div>
                                                     <div class="form-group">

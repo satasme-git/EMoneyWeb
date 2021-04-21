@@ -132,14 +132,14 @@ class Howitworks1 extends React.Component {
             &emsp;
                 <div class="header__left" >
 
-                <Link to="/UserHome">
-                    <img
-                      src="/assets/webicon.png"
-                      style={{ width: "15vh", height: "8vh" }}
-                    />
-    
-                    <br />
-                  </Link>
+                    <Link to="/UserHome">
+                      <img
+                        src="/assets/webicon.png"
+                        style={{ width: "15vh", height: "8vh" }}
+                      />
+
+                      <br />
+                    </Link>
                   </div>
                   <div class="header__right">
                     <a href="/register" class="button-register button_yellow ">
@@ -234,15 +234,20 @@ class Howitworks1 extends React.Component {
                       src="assets/Image/earn/completeprofile.png"
                       alt="sample59"
                     />
+
                   </div>
                   <p class="description">
-                  This approach is easy to pick. All you have to do now is complete and fill in the details and finish your profile and win the given points for yourself.
+                    This approach is easy to pick. All you have to do now is complete and fill in the details and finish your profile and win the given points for yourself.
                   </p>
                   <a class="action" href="/EarnCompleteprofile">
-                    <i
+                    {/* <i
                       class="fa fa-arrow-circle-right"
                       style={{ fontSize: "34px" }}
-                    ></i><br/><br/>
+                    ></i> */}
+                    <button class="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                  </a>
+                  <a href="/profile">
+                    <button class="btn btn-success">Earn</button>
                   </a>
                 </div>
               </div>
@@ -266,10 +271,10 @@ class Howitworks1 extends React.Component {
                     you’ll be credited with points.{" "}
                   </p>
                   <a class="action" href="/Earnreferal">
-                    <i
-                      class="fa fa-arrow-circle-right"
-                      style={{ fontSize: "34px" }}
-                    ></i>
+                    <button class="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                  </a>
+                  <a href="/referal">
+                    <button class="btn btn-success">Earn</button>
                   </a>
                 </div>
               </div>
@@ -283,20 +288,20 @@ class Howitworks1 extends React.Component {
                     <img src="assets/Image/earn/see.png" alt="sample59" />
                   </div>
                   <p class="description">
-                  Only you have to do is complete the tasks provided by us, By using your social media account and earn points. You can earn points by using social media accounts.
+                    Only you have to do is complete the tasks provided by us, By using your social media account and earn points. You can earn points by using social media accounts.
                   </p>
                   <a class="action" href="/smengagement">
-                    <i
-                      class="fa fa-arrow-circle-right"
-                      style={{ fontSize: "34px" }}
-                    ></i>
+                    <button class="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                  </a>
+                  <a href="/earnmanagement">
+                    <button class="btn btn-success">Earn</button>
                   </a>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 item">
                 <div class="box">
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
-                    Browsing Websites,Videos and ads({this.state.yvideos} points)
+                    Browsing Videos({this.state.yvideos} points)
                   </h5>
                   <div class="image">
                     <img
@@ -305,18 +310,18 @@ class Howitworks1 extends React.Component {
                     />
                   </div>
                   <p class="description">
-                    Only thing you need to do in this method is browsing ads,
-                    videos and websites.By using this method of earning you can
+                    Only thing you need to do in this method is
+                    videos .By using this method of earning you can
                     earn points easily. You don't need to create accounts or use
                     your social media accounts. You have to complete the tasks
                     we provide to earn points.Focus on what you are good at and
                     best.
                   </p>
                   <a class="action" href="/browsingvideos">
-                    <i
-                      class="fa fa-arrow-circle-right"
-                      style={{ fontSize: "34px" }}
-                    ></i>
+                    <button class="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                  </a>
+                  <a href="/ytvideowatch">
+                    <button class="btn btn-success">Earn</button>
                   </a>
                 </div>
               </div>
@@ -341,10 +346,10 @@ class Howitworks1 extends React.Component {
                     hash tags and specified category.{" "}
                   </p>
                   <a class="action" href="/uploadvideohit">
-                    <i
-                      class="fa fa-arrow-circle-right"
-                      style={{ fontSize: "34px" }}
-                    ></i>
+                    <button class="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                  </a>
+                  <a href="/uploadvideo">
+                    <button class="btn btn-success">Earn</button>
                   </a>
                 </div>
               </div>
@@ -374,7 +379,7 @@ class Howitworks1 extends React.Component {
                   </div>
                   <div class="col-md-6 item text">
                     <h3>EmoneyTag</h3>
-                    <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
+                    <p style={{ color: "white" }}>You can choose this method easily. Only you have to do is complete the
                     tasks provided by us, By using your social media account and earn points.
                     You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
                                            media accounts.your one tap can earn points for you.</p>

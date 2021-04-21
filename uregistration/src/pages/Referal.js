@@ -252,7 +252,7 @@ class Dash extends React.Component {
                                 </div> */}
 
                                 <div style={{marginLeft:"25px"}}>
-                                    <h6>Share though social media</h6>
+                                    <h6>Share through social media</h6>
                                     <br/>
                                     <FacebookShareButton url={this.state.referalLink}>
                                         <FacebookIcon size={40} round={true} />
@@ -275,9 +275,6 @@ class Dash extends React.Component {
                                     <LineShareButton url={this.state.referalLink}>
                                         <LineIcon size={40} round={true} />
                                     </LineShareButton>
-                                    <PinterestShareButton url={this.state.referalLink}>
-                                        <PinterestIcon size={40} round={true} />
-                                    </PinterestShareButton>
                                     <LinkedinShareButton url={this.state.referalLink}>
                                         <LinkedinIcon size={40} round={true} />
                                     </LinkedinShareButton>
