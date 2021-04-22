@@ -144,7 +144,7 @@ class Addeasyquestion extends React.Component {
                   type="button"
                   class="btn btn-success"
                   style={{ width: "300px" }}
-                  value="Add Qustion"
+                  value="Add Question"
                   onClick={this.addClick.bind(this)}
                 />
               </div>

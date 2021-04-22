@@ -157,7 +157,7 @@ class AdminManageOrders extends React.Component {
                     <h4 className="page-title pull-left">Dashboard</h4>
                     <ul className="breadcrumbs pull-left">
                       <li> <Link to="/admin/admindash" > <a >Home</a> </Link></li>
-                      <li><span>Manage Orders</span></li>
+                      <li><span>Manage Orders </span></li>
                     </ul>
                   </div>
                 </div>

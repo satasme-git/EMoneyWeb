@@ -31,46 +31,46 @@ class EarnHistory extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+        var user = Cookies.get('user');
+        if (user != null) {
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     earningService.getSocialEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ social_earn: res.data });
-        //     });
+            earningService.getSocialEarning(Cookies.get('user')).then(res => {
+                this.setState({ social_earn: res.data });
+            });
 
-        //     earningService.getVideoEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ watch_earn: res.data });
-        //     });
+            earningService.getVideoEarning(Cookies.get('user')).then(res => {
+                this.setState({ watch_earn: res.data });
+            });
 
-        //     earningService.getOtherEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ other_earn: res.data });
-        //     });
+            earningService.getOtherEarning(Cookies.get('user')).then(res => {
+                this.setState({ other_earn: res.data });
+            });
 
-        //     earningService.getPercent(Cookies.get('user')).then(res => {
-        //         this.setState({ percent: res.data });
-        //     });
+            earningService.getPercent(Cookies.get('user')).then(res => {
+                this.setState({ percent: res.data });
+            });
 
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
 
-        //     paymentService.getPayedAll(Cookies.get('user')).then(res => {
-        //         this.setState({ total_withdraw: '$ ' + res.data });
-        //     });
+            paymentService.getPayedAll(Cookies.get('user')).then(res => {
+                this.setState({ total_withdraw: '$ ' + res.data });
+            });
 
-        //     paymentService.getPayedList(Cookies.get('user')).then(res => {
-        //         this.setState({ pay_list: res.data });
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            paymentService.getPayedList(Cookies.get('user')).then(res => {
+                this.setState({ pay_list: res.data });
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
     }
 
@@ -133,6 +133,20 @@ class EarnHistory extends React.Component {
                                     </li>
                                 </Link>
                         </div>
+                        
+                        <div class="header__left">
+
+<span class="utext"></span>
+<Link to="/userhome" >
+    <li class="nav-item dropdown  user-menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+
+            <i class="fa fa-home"></i>
+            <span class="hidden-xs"></span>
+        </a>
+    </li>
+</Link>
+</div>
                     </section>
 
                 </header>
@@ -152,6 +166,13 @@ class EarnHistory extends React.Component {
                                             <i class="fa fa-th-large"></i><em>Dashbboard</em>
                                         </a>
                                     </li>
+
+
+                                    <li>
+                                        <a class="s-sidebar__nav-link" href="/earnpage">
+                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
+                                        </a>
+                                    </li>
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/createorder">
                                             <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
@@ -162,11 +183,7 @@ class EarnHistory extends React.Component {
                                             <i class="fa fa-list"></i><em>My Orders</em>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="s-sidebar__nav-link" href="/earnpage">
-                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
-                                        </a>
-                                    </li>
+                                
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/referal">
                                             <i class="fa fa-share-alt"></i><em>Referral</em>
@@ -190,13 +207,13 @@ class EarnHistory extends React.Component {
                         </div>
 
                           {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 

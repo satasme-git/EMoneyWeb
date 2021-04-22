@@ -20,12 +20,12 @@ class UserHome extends React.Component {
   }
 
   componentDidMount() {
-    // var user = Cookies.get('user');
-    // if (user != null) {
+    var user = Cookies.get('user');
+    if (user != null) {
 
-    // } else {
-    //   this.props.history.push('/login');
-    // }
+    } else {
+      this.props.history.push('/login');
+    }
   }
 
   redirectToHomebl = (e) => {
@@ -241,13 +241,13 @@ class UserHome extends React.Component {
 
         <main class="main"  >
   {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 

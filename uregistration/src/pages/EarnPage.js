@@ -24,33 +24,33 @@ class EarnPage extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+        var user = Cookies.get('user');
+        if (user != null) {
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
 
-        //     userServices.getProfileCompletion(Cookies.get('user')).then(res => {
-        //         var earnblock = document.getElementById("earnblock");
-        //         if (res.data == "compeleted") {
-        //             this.setState({ earnstatus: '' });
-        //             var social = document.getElementById("socialearn");
-        //             var upload = document.getElementById("uplaodearn");
-        //             // social.href = "/earnmanagement";
-        //             // upload.href = "/uploadvideo";
-        //             earnblock.setAttribute("style", "color: #FF4019;display:none");
-        //         } else {
-        //             this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
-        //             earnblock.setAttribute("style", "color: #FF4019;display:''");
-        //         }
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getProfileCompletion(Cookies.get('user')).then(res => {
+                var earnblock = document.getElementById("earnblock");
+                if (res.data == "compeleted") {
+                    this.setState({ earnstatus: '' });
+                    var social = document.getElementById("socialearn");
+                    var upload = document.getElementById("uplaodearn");
+                    // social.href = "/earnmanagement";
+                    // upload.href = "/uploadvideo";
+                    earnblock.setAttribute("style", "color: #FF4019;display:none");
+                } else {
+                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+                    earnblock.setAttribute("style", "color: #FF4019;display:''");
+                }
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
     }
 
@@ -118,19 +118,35 @@ class EarnPage extends React.Component {
                                 </li>
                             </Link>
                         </div>
+
+                        
+                        <div class="header__left">
+
+<span class="utext"></span>
+<Link to="/userhome" >
+    <li class="nav-item dropdown  user-menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+
+            <i class="fa fa-home"></i>
+            <span class="hidden-xs"></span>
+        </a>
+    </li>
+</Link>
+</div>
+
                     </section>
 
                 </header>
                 <div class="main">
 
                       {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 
@@ -149,6 +165,13 @@ class EarnPage extends React.Component {
                                             <i class="fa fa-th-large"></i><em>Dashbboard</em>
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a class="s-sidebar__nav-link" href="/earnpage">
+                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
+                                        </a>
+                                    </li>
+
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/createorder">
                                             <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
@@ -159,11 +182,7 @@ class EarnPage extends React.Component {
                                             <i class="fa fa-list"></i><em>My Orders</em>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="s-sidebar__nav-link" href="/earnpage">
-                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
-                                        </a>
-                                    </li>
+                                
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/referal">
                                             <i class="fa fa-share-alt"></i><em>Referral</em>
@@ -276,7 +295,7 @@ class EarnPage extends React.Component {
                                                     <div class="card-body">
                                                         <h5 class="card-title" style={{ textAlign: "center" }}> Browse Videos in Youtube  </h5>
                                                         <br />
-                                                        <a class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" }}>EARN NOW</a>
+                                                        <a class="btn btn-primary" style={{ backgroundColor: "#16c79a", border: "none", width: "100%" ,color:"#fff" }}>EARN NOW</a>
                                                         <br />
                                                     </div>
                                                 </div>

@@ -522,7 +522,7 @@ body {background-color:#dfeef2;}
               <div class="container">
                 <div className="col-md-12 col-sm-12">
                   <div className="row" >
-                    <div className="col-md-6 col-sm-12" style={{ padding: "10px" }}>
+                    <div className="col-md-6 col-sm-12" style={{ padding: "10px" ,  display:"flex"}}>
                       <div className="card">
                         <div className="card-body">
                           <div className="upheader">Upload Your Video</div><br />
@@ -573,7 +573,7 @@ body {background-color:#dfeef2;}
                           <br />
                           <fieldset>
                             <input
-                              placeholder="Time Duration of video (05.00 Min) "
+                              placeholder="Time Duration of video "
                               type="text"
                               value={this.state.timeduration}
                               onChange={this.changeTimeduration}
@@ -586,7 +586,7 @@ body {background-color:#dfeef2;}
                     <br />
                     <div className="col-md-6 col-sm-12" style={{ padding: "10px" }}>
                       <div className="card">
-                        <div className="card-body">
+                        <div className="card-body"><br/>
                           <div className="cradtext1">Upload Thumbnail</div>
                           <br />
                           <div className="wrapper">

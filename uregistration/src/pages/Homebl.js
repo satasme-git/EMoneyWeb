@@ -138,13 +138,13 @@ class Homebl extends React.Component {
 
 
                   {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 
@@ -162,7 +162,7 @@ class Homebl extends React.Component {
                             <img src="https://static.zareklamy.com/images/icons/webapp.svg" alt="Use the web app in your browser" aria-hidden="true" style={{ outline: "2px solid #1A1A1A", outlineOffset: "-2px;" }} /> </a>
                     </div>
                 </div>
-                <h1 class="text-center" style={{ marginTop: "50px", color: "rgb(3,23,44)" }}>Spend your leisure time Wisely</h1><br/>
+                <h1 class="text-center" style={{ marginTop: "50px", color: "rgb(3,23,44)" }}>Spend Your Leisure Time Wisely</h1><br/>
                 {/* <!--articles--> */}
                 <div class="article-list">
                     <div class="container" style={{ marginTop: "10px" }}>

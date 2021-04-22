@@ -155,13 +155,13 @@ class Howitworks extends React.Component {
           style={{ height: "100%", width: "100%", backgroundColor: "white" }}
         >
      {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-     <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+     {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 

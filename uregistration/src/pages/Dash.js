@@ -32,37 +32,37 @@ class Dash extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     earningService.getToday(Cookies.get('user')).then(res => {
-        //         this.setState({ today_earning: res.data });
-        //     });
+        var user = Cookies.get('user');
+        if (user != null) {
+            earningService.getToday(Cookies.get('user')).then(res => {
+                this.setState({ today_earning: res.data });
+            });
 
-        //     earningService.getYesterdayEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ yesterday_earning: res.data });
-        //     });
+            earningService.getYesterdayEarning(Cookies.get('user')).then(res => {
+                this.setState({ yesterday_earning: res.data });
+            });
 
-        //     earningService.getWeekEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ week_earning: res.data });
-        //     });
+            earningService.getWeekEarning(Cookies.get('user')).then(res => {
+                this.setState({ week_earning: res.data });
+            });
 
-        //     earningService.getMonthEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ month_earning: res.data });
-        //     });
+            earningService.getMonthEarning(Cookies.get('user')).then(res => {
+                this.setState({ month_earning: res.data });
+            });
 
-        //     earningService.getBalance(Cookies.get('user')).then(res => {
-        //         this.setState({ balance: res.data });
-        //     });
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getBalance(Cookies.get('user')).then(res => {
+                this.setState({ balance: res.data });
+            });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
     }
     redirectToDash = (e) => {
@@ -127,17 +127,32 @@ class Dash extends React.Component {
                                     </li>
                                 </Link>
                         </div>
+
+                        <div class="header__left">
+
+<span class="utext"></span>
+<Link to="/userhome" >
+    <li class="nav-item dropdown  user-menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+
+            <i class="fa fa-home"></i>
+            <span class="hidden-xs"></span>
+        </a>
+    </li>
+</Link>
+</div>
+
                     </section>
 
                 </header>
   {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 
@@ -158,6 +173,13 @@ class Dash extends React.Component {
                                             <i class="fa fa-th-large"></i><em>Dashbboard</em>
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a class="s-sidebar__nav-link" href="/earnpage">
+                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
+                                        </a>
+                                    </li>
+                                    
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/createorder">
                                             <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
@@ -168,11 +190,7 @@ class Dash extends React.Component {
                                             <i class="fa fa-list"></i><em>My Orders</em>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="s-sidebar__nav-link" href="/earnpage">
-                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
-                                        </a>
-                                    </li>
+                                   
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/referal">
                                             <i class="fa fa-share-alt"></i><em>Referral</em>

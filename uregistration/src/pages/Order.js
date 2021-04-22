@@ -14,6 +14,9 @@ import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
+
+import { MDBDataTable } from 'mdbreact';
+
 class Order extends React.Component {
 
     constructor(props) {
@@ -28,20 +31,20 @@ class Order extends React.Component {
     }
 
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     this.getOrders();
+        var user = Cookies.get('user');
+        if (user != null) {
+            this.getOrders();
 
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
+        } else {
+            this.props.history.push('/login');
+        }
 
 
     }
@@ -123,6 +126,21 @@ class Order extends React.Component {
                                 </li>
                             </Link>
                         </div>
+
+                        
+                        <div class="header__left">
+
+<span class="utext"></span>
+<Link to="/userhome" >
+    <li class="nav-item dropdown  user-menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+
+            <i class="fa fa-home"></i>
+            <span class="hidden-xs"></span>
+        </a>
+    </li>
+</Link>
+</div>
                     </section>
 
                 </header>
@@ -130,13 +148,13 @@ class Order extends React.Component {
                 <div class="main" style={{ backgroundColor: "#dfeef2"}}>
 
                       {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
+  {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
   <div id="preloader">
   <div id="loader"></div>
 </div>
 
-</div>
+</div> */}
 
 
 
@@ -156,6 +174,13 @@ class Order extends React.Component {
                                             <i class="fa fa-th-large"></i><em>Dashbboard</em>
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a class="s-sidebar__nav-link" href="/earnpage">
+                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
+                                        </a>
+                                    </li>
+                                    
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/createorder">
                                             <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
@@ -166,11 +191,7 @@ class Order extends React.Component {
                                             <i class="fa fa-list"></i><em>My Orders</em>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="s-sidebar__nav-link" href="/earnpage">
-                                            <i class="fa fa-dollar"></i><em>Earn Points</em>
-                                        </a>
-                                    </li>
+                                 
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/referal">
                                             <i class="fa fa-share-alt"></i><em>Referral</em>
@@ -196,29 +217,72 @@ class Order extends React.Component {
                         {/* <!-- Content --> */}
                         <main class="s-layout__content" style={{ backgroundColor: "#dfeef2", height: "100%",width:"100%" }}>
 
-                            
+                            {/* ////////////////////////////////////////new table///////////////////////////// */}
+                            <div class="table-responsive">
+<table class="table" style={{marginTop:"100px" , backgroundColor:"white"}}>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Social Name</th>
+      <th scope="col">Service</th>
+      <th scope="col">Url</th>
+      <th scope="col">Date</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Status</th>
 
-                                    <div className="row">
-                                        {/* data table start */}
+    </tr>
+
+  
+
+    
+  </thead>
+  <tbody>
+                                                                    {this.state.orders.map((order, index) => {
+                                                                        return (
+                                                                            <tr key={order.id}>
+                                                                                <td>{index + 1}</td>
+                                                                                <td>{order.social}</td>
+                                                                                <td>{order.service}</td>
+                                                                                <td>{order.social_link}</td>
+                                                                                <td>{moment(order.date).format('DD/MM/YYYY')}</td>
+                                                                                <td>{order.cost}</td>
+                                                                                <td>{order.qty}</td>
+                                                                                <td>{order.status}</td>
+                                                                            </tr>
+                                                                        );
+                                                                    })}
+                                                                </tbody>
+</table>
+</div>
+
+{/* ////////////////////////////////////////new table///////////////////////////// */}
+
+                                    {/* <div className="row">
+                                       
                                         <div className="col-12 mt-5">
                                             <div className="card" >
                                                 <div className="card-body">
                                                     <h4 className="header-title">My Promoted Social Accounts </h4>
+
+
+
                                                     <div className="data-tables">
                                                         <div className="">
-                                                            <table id="example" class="display">
+                                                            <table id="example" class="display" style={{border:1}}>
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>ID</th>
-                                                                        <th>Social Name</th>
-                                                                        <th>Service</th>
-                                                                        <th>Url</th>
-                                                                        <th>Date</th>
-                                                                        <th>Price</th>
-                                                                        <th>Quantity</th>
-                                                                        <th>Status</th>
+                                                                        <th >ID</th>
+                                                                        <th >Social Name</th>
+                                                                        <th >Service</th>
+                                                                        <th >Url</th>
+                                                                        <th >Date</th>
+                                                                        <th >Price</th>
+                                                                        <th >Quantity</th>
+                                                                        <th >Status</th>
                                                                     </tr>
                                                                 </thead>
+                                                                               
                                                                 <tbody>
                                                                     {this.state.orders.map((order, index) => {
                                                                         return (
@@ -238,13 +302,27 @@ class Order extends React.Component {
                                                             </table>
                                                         </div>
                                                     </div>
+
+
+
+
+
+
+
+
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* data table end */}
+                                      
 
 
-                                </div>
+                                </div> */}
+
+
+
+
+
+      
 
 
                         </main>
