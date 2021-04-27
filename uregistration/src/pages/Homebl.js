@@ -239,11 +239,15 @@ class Homebl extends React.Component {
                     </div>
                 </div><br/>
                 <h2 class="text-center" style={{ color: "rgb(3,23,44)" }}>Start Making Money Today</h2>
-                <div class="row" style={{ textAlign: "center", padding: "40px" }}>
-                    <div class="col-sm"></div>
-                    <div class="col-sm"> <a href="/register"> <button type="button" class="btn btn-primary" style={{ background: "#fed049", height: "50px", width: "150px", border: "none", color: "black", fontWeight: "bold" }}>Registration</button></a></div>
-                    <div class="col-sm"></div>
+                
+          <br></br>
+                
+                <div style={{textAlign:"center"}}>
+                <a href="/register"> <button type="button" class="btn btn-primary" style={{ background: "#fed049", height: "50px", width: "150px", border: "none", color: "black", fontWeight: "bold" }}>Registration</button></a>
+
                 </div>
+                <br></br>
+                
                 {/* <!--footer--> */}
                 <div>
                     <div class="footer-dark">

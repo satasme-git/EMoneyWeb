@@ -30,16 +30,16 @@ class InstagramEarnHistory extends React.Component {
 
 
   componentDidMount() {
-    // adminEarningService.getSocialEarning("instagram").then(res => {
+    adminEarningService.getSocialEarning("instagram").then(res => {
 
-    //   this.setState({ service: res.data });
+      this.setState({ service: res.data });
 
-    // });
-    // adminEarningService.getUserSocialEarning("instagram").then(res => {
+    });
+    adminEarningService.getUserSocialEarning("instagram").then(res => {
 
-    //   this.setState({ customer: res.data });
+      this.setState({ customer: res.data });
 
-    // });
+    });
 
     var user = Cookies.get('admin');
     if (user == null) {
@@ -95,6 +95,13 @@ class InstagramEarnHistory extends React.Component {
   }
 
   render() {
+
+
+      //initialize datatable
+      $(document).ready(function () {
+        $("#example1").DataTable();
+      });
+      
     return (
       <div>
         <Helmet>
@@ -154,10 +161,7 @@ class InstagramEarnHistory extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+     
         {/* page container area start */}
         <div className="page-container">
 
