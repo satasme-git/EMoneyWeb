@@ -259,17 +259,11 @@ class ETwitter extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+     
         {/* page container area start */}
-        <div className="page-container">
-          {/* sidebar menu area start */}
-
-          {/* sidebar menu area end */}
+       
           {/* main content area start */}
-          <div className="main-content">
+          <div class="main-content">
             {/* header area start */}
             <br />
             <div className="page-title-area">
@@ -354,7 +348,7 @@ class ETwitter extends React.Component {
                                     value={this.state.tfpackqty}
                                     onChange={this.changeTFpackQty} />
                                 </div>
-                              </div>
+                              </div><br/>
                               <div className="row">
                                 <div className="col-sm"> <label htmlFor="lname">Price : </label>
                                   <input
@@ -365,11 +359,11 @@ class ETwitter extends React.Component {
                                     onChange={this.changeTFpackPrice}
                                   />
                                 </div>
-                              </div>
+                              </div><br/>
                               <div className="row">
                                 <div class="form-group">
-                                  <label for="lname">Country : </label>
-                                  <select class="form-select" id="i_f_country" value={this.state.tfpackcountry}
+                                  <label for="lname">&nbsp; Country : </label> &nbsp;
+                                  &nbsp;<select class="form-select" id="i_f_country" value={this.state.tfpackcountry}
                                     onChange={this.changeTFpackCountry} aria-label="Default select example">
                                     <option selected>--Select--</option>
                                     <option value="AF">Afghanistan</option>
@@ -633,7 +627,7 @@ class ETwitter extends React.Component {
               </div> */}
           {/* Striped table end */}
           {/* 2nd table */}
-        </div>
+      
         {this.state.tfollowdata.map((data) => {
           return (
             <div className="col-lg-6 mt-5">

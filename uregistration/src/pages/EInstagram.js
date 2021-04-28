@@ -258,10 +258,8 @@ class EInstagram extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div class="loader">
-            {/* <!-- preloader area end -->
-    <!-- page container area start --> */}
+     
+    {/* <!-- page container area start -->  */}
             <div class="page-container">
               {/* <!-- sidebar menu area start --> */}
 
@@ -771,8 +769,8 @@ class EInstagram extends React.Component {
                     <!-- 2nd table -->
 
  */}
-                  </div>
-                </div>
+           
+              
               </div>
               {/* <!-- main content area end --> */}
 
@@ -878,7 +876,7 @@ class EInstagram extends React.Component {
                       </div>
                       <div className="row">
                         <div className="col-sm">
-                          <label htmlFor="lname">Country : </label>
+                          <label htmlFor="lname"> &nbsp; &nbsp; Country : </label>
                           <label htmlFor="lname" id={"fcountry" + data.id}>{data.country}</label>
                         </div>
                       </div>

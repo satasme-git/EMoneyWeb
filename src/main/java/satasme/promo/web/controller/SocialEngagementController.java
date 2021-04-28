@@ -103,29 +103,29 @@ public class SocialEngagementController {
 				this.engagementsrep.save(engagement);
 				
 				
-				//check order availability
-				Criteria crue = em.unwrap(Session.class).createCriteria(UserSocialEngagement.class);
-				crue.add(Restrictions.eq("orders", order));
-				crue.add(Restrictions.like("service", service));
-				int size = crue.list().size();
-				String qty = order.getQty();
-				if (order.getService().contains(",")) {
-					String[] split = order.getService().split(",");
-					for (String s : split) {
-						int getqty=Integer.parseInt(s);
-						if (getqty<=size) {
-//							order.setStatus("completed");
-						}
-					}
-				}else {
-					int getqty=Integer.parseInt(qty);
-					if (getqty<=size) {
-//						order.setStatus("completed");
-					}
-				}
-
-				// add points
-
+//				//check order availability
+//				Criteria crue = em.unwrap(Session.class).createCriteria(UserSocialEngagement.class);
+//				crue.add(Restrictions.eq("orders", order));
+//				crue.add(Restrictions.like("service", service));
+//				int size = crue.list().size();
+//				String qty = order.getQty();
+//				if (order.getService().contains(",")) {
+//					String[] split = order.getService().split(",");
+//					for (String s : split) {
+//						int getqty=Integer.parseInt(s);
+//						if (getqty<=size) {
+////							order.setStatus("completed");
+//						}
+//					}
+//				}else {
+//					int getqty=Integer.parseInt(qty);
+//					if (getqty<=size) {
+////						order.setStatus("completed");
+//					}
+//				}
+//
+//				// add points
+//
 				UserPoints userPoints = new UserPoints();
 				userPoints.setPoints(points.getPoints());
 				userPoints.setPointSource(service);

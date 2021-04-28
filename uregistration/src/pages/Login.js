@@ -71,48 +71,34 @@ class Login extends React.Component {
 
     }
     componentDidMount() {
-        var user = Cookies.get('user');
-        if (user != null) {
-            this.props.history.push('/userhome');
-        } else {
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-
-
-            if (window.FB != null) {
-                window.FB.init({
-                    appId: '104862384871706', //Change with your Facebook app id
-                    autoLogAppEvents: true,
-                    xfbml: true,
-                    version: 'v3.0'
-                });
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
             }
-            window.fbAsyncInit = () => {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
-                window.FB.init({
-                    appId: '104862384871706', //Change with your Facebook app id
-                    autoLogAppEvents: true,
-                    xfbml: true,
-                    version: 'v3.0'
-                });
-                window.FB.Event.subscribe('auth.statusChange', response => {
-                    if (response.authResponse) {
-                        this.checkLoginState();
-                    } else {
-                        console.log('[FacebookLoginButton] User cancelled login or did not fully authorize.');
-                    }
-                });
-            };
-        }
 
+        window.fbAsyncInit = () => {
+            window.FB.init({
+                appId: '104862384871706', //Change with your Facebook app id
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.0'
+            });
+
+            window.FB.Event.subscribe('auth.statusChange', response => {
+                if (response.authResponse) {
+                    this.checkLoginState();
+                } else {
+                    console.log('[FacebookLoginButton] User cancelled login or did not fully authorize.');
+                }
+            });
+        };
     }
 
     checkLoginState() {
@@ -128,7 +114,6 @@ class Login extends React.Component {
     }
 
     statusChangeCallback(response) {
-        console.log(response);
         if (response.status === 'connected') {
             this.testAPI();
         } else if (response.status === 'not_authorized') {
@@ -138,23 +123,31 @@ class Login extends React.Component {
         }
     }
 
-    testAPI = (e) => {
+    testAPI() {
         window.FB.api('/me', function (response) {
-            let user = { email: response.id, key: 'facebook' }
-            userServices.facebookLogIn(user).then(res => {
-                if (res.data.id !== null) {
-                    var inFifteenMinutes = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
-                    Cookies.set('user', res.data.user.id, {
-                        expires: inFifteenMinutes
-                    });
-                    // this.props.history.push('/userhome');
-                    window.location.href = "/userhome"
-                } else {
-                    toast('Server maybe offline. Try again later!', { position: 'bottom' });
-                }
-            });
+            console.log('[FacebookLoginButton] Successful login for: ', response);
+
         });
+        this.props.history.push('/UserHome');
     }
+
+    // testAPI = (e) => {
+    //     FB.api('/me', function (response) {
+    //         let user = { email: response.id, key: 'facebook' }
+    //         userServices.facebookLogIn(user).then(res => {
+    //             if (res.data.id !== null) {
+    //                 var inFifteenMinutes = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
+    //                 Cookies.set('user', res.data.user.id, {
+    //                     expires: inFifteenMinutes
+    //                 });
+    //                 // this.props.history.push('/userhome');
+    //                 window.location.href = "/userhome"
+    //             } else {
+    //                 toast('Server maybe offline. Try again later!', { position: 'bottom' });
+    //             }
+    //         });
+    //     });
+    // }
     fbloginSuccessRidirect() {
         this.props.history.push('/userhome');
     }

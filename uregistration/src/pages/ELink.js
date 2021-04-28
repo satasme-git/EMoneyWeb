@@ -175,10 +175,7 @@ class ELink extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+    
         {/* page container area start */}
         <div className="page-container">
           {/* sidebar menu area start */}
@@ -270,7 +267,7 @@ class ELink extends React.Component {
                                     value={this.state.lvpackqty}
                                     onChange={this.changeLVpackQty} />
                                 </div>
-                              </div>
+                              </div>   <br/>
                               <div className="row">
                                 <div className="col-sm"> <label htmlFor="lname">Price : </label>
                                   <input
@@ -282,9 +279,10 @@ class ELink extends React.Component {
                                   />
                                 </div>
                               </div>
+                              <br/>
                               <div className="row">
                                 <div class="form-group">
-                                  <label for="lname">Country : </label>
+                                  <label for="lname"> &nbsp;&nbsp;Country : </label>&nbsp;&nbsp;
                                   <select class="form-select" id="i_f_country" value={this.state.lvpackcountry}
                                     onChange={this.changeLVpackCountry} aria-label="Default select example">
                                     <option selected>--Select--</option>

@@ -197,10 +197,7 @@ class EServey extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+      
         {/* page container area start */}
         <div className="page-container">
           {/* sidebar menu area start */}
@@ -292,7 +289,7 @@ class EServey extends React.Component {
                                     value={this.state.svpackqty}
                                     onChange={this.changeSVpackQty} />
                                 </div>
-                              </div>
+                              </div><br/>
                               <div className="row">
                                 <div className="col-sm"> <label htmlFor="lname">Price : </label>
                                   <input
@@ -304,9 +301,10 @@ class EServey extends React.Component {
                                   />
                                 </div>
                               </div>
+                              <br/>
                               <div className="row">
                                 <div class="form-group">
-                                  <label for="lname">Country : </label>
+                                  <label for="lname">&nbsp;&nbsp; Country : </label>&nbsp;&nbsp;
                                   <select class="form-select" id="i_f_country" value={this.state.svpackcountry}
                                     onChange={this.changeSVpackCountry} aria-label="Default select example">
                                     <option selected>--Select--</option>

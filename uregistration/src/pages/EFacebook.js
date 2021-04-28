@@ -336,11 +336,8 @@ class EFacebook extends React.Component {
 
                 </Helmet>
                 <Sidebar />
-                <div id="preloader">
-                    <div class="loader"></div>
-                </div>
-                {/* <!-- preloader area end -->
-    <!-- page container area start --> */}
+           
+    {/* <!-- page container area start -->  */}
                 <div class="page-container">
                     {/* <!-- sidebar menu area start --> */}
 
@@ -478,8 +475,8 @@ class EFacebook extends React.Component {
                                                                 <div class="col-sm">
                                                                     {" "}
                                                                     <div class="form-group">
-                                                                        <label for="lname">Country : </label>
-                                                                        <select class="form-select" id="i_f_country" value={this.state.fpalpackcountry}
+                                                                    <label for="lname">Country : </label>&nbsp;
+                                                                        <select class="form-select" id="i_f_country"   value={this.state.fpalpackcountry}
                                                                             onChange={this.changeFpalpackCountry} aria-label="Default select example">
                                                                             <option selected>--Select--</option>
                                                                             <option value="AF">Afghanistan</option>
@@ -586,8 +583,8 @@ class EFacebook extends React.Component {
                                                                 <div class="col-sm">
                                                                     {" "}
                                                                     <div class="form-group">
-                                                                        <label for="lname">Country : </label>
-                                                                        <select class="form-select" id="i_f_country" value={this.state.fpolpackcountry}
+                                                                    <label for="lname">   Country : </label>&nbsp;
+                                                                        <select class="form-select" id="i_f_country"value={this.state.fpolpackcountry}
                                                                             onChange={this.changeFpolpackCountry} aria-label="Default select example">
                                                                             <option selected>--Select--</option>
                                                                             <option value="AF">Afghanistan</option>
@@ -694,8 +691,8 @@ class EFacebook extends React.Component {
                                                                 <div class="col-sm">
                                                                     {" "}
                                                                     <div class="form-group">
-                                                                        <label for="lname">Country : </label>
-                                                                        <select class="form-select" id="i_f_country" value={this.state.fshpackcountry}
+                                                                    <label for="lname">   Country : </label>  &nbsp;
+                                                                        <select class="form-select" id="i_f_country"  value={this.state.fshpackcountry}
                                                                             onChange={this.changeFsharepackCountry} aria-label="Default select example">
                                                                             <option selected>--Select--</option>
                                                                             <option value="AF">Afghanistan</option>

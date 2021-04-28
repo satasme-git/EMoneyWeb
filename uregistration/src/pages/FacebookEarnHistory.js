@@ -28,33 +28,33 @@ class FacebookEarnHistory extends React.Component {
   }
   componentDidMount() {
 
-    // var user = Cookies.get('admin');
-    // if (user == null) {
-    //   this.props.history.push('/admin');
-    // } else {
-    //   var completediv = document.getElementById("completediv");
-    //   completediv.setAttribute("style", "display:none");
-    //   adminEarningService.getSocialEarning("facebook").then(res => {
+    var user = Cookies.get('admin');
+    if (user == null) {
+      this.props.history.push('/admin');
+    } else {
+      var completediv = document.getElementById("completediv");
+      completediv.setAttribute("style", "display:none");
+      adminEarningService.getSocialEarning("facebook").then(res => {
 
-    //     this.setState({ payed: res.data });
+        this.setState({ payed: res.data });
 
-    //   });
-    //   adminEarningService.getUserSocialEarning("facebook").then(res => {
+      });
+      adminEarningService.getUserSocialEarning("facebook").then(res => {
 
-    //     this.setState({ pending: res.data });
+        this.setState({ pending: res.data });
 
-    //   });
-    // }
+      });
+    }
 
-    // var completediv = document.getElementById("completediv");
-    // completediv.setAttribute("style", "display:none");
-    // paymentService.getPending().then(res => {
-    //   this.setState({ pending: res.data });
-    // });
+    var completediv = document.getElementById("completediv");
+    completediv.setAttribute("style", "display:none");
+    paymentService.getPending().then(res => {
+      this.setState({ pending: res.data });
+    });
 
-    // paymentService.getPayed().then(res => {
-    //   this.setState({ payed: res.data });
-    // });
+    paymentService.getPayed().then(res => {
+      this.setState({ payed: res.data });
+    });
   }
 
   componentDidUpdate() {

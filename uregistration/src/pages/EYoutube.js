@@ -258,10 +258,7 @@ class EYoutube extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+    
         {/* page container area start */}
         <div className="page-container">
           {/* sidebar menu area start */}
@@ -345,26 +342,113 @@ class EYoutube extends React.Component {
                               <button type="button" className="close" data-dismiss="modal"><span>×</span></button>
                             </div>
                             <div className="modal-body">
+
+{/* ///////////////////////////////////////////////new table modal///////////////////////////////////////////////////// 
+
+<table style={{width:"100%"}}>
+
+  <tr>
+    <td> <label htmlFor="lname">Quantity : </label></td>
+    <td> <input type="text" name="lname"
+                                    style={{ borderStyle: "solid", borderRadius: "5px", borderColor: "#e7e7e7", borderTopColor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }}
+                                    value={this.state.yspackqty}
+                                    onChange={this.changeYSpackQty} /></td>
+  </tr>
+  
+  <tr>
+    <td> <label htmlFor="lname">Price : </label></td>
+    <td>  <input type="text" name="lname"
+                                    style={{ marginLeft: "27px", width: "80%", borderStyle: "solid", borderRadius: "5px", borderColor: "#e7e7e7", borderTopColor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }}
+                                    value={this.state.yspackprice}
+                                    onChange={this.changeYSpackPrice} /></td>
+  </tr>
+  
+  <tr>
+    <td><label for="lname">   Country : </label></td>
+    <td><select class="form-select" id="i_f_country" style={{marginLeft:"20px"}} value={this.state.yspackcountry}
+                                    onChange={this.changeYSpackCountry} aria-label="Default select example">
+                                    <option selected>--Select--</option>
+                                    <option value="AF">Afghanistan</option>
+                                    <option value="AM">Armenia</option>
+                                    <option value="AZ">Azerbaijan</option>
+                                    <option value="BH">Bahrain</option>
+                                    <option value="BD">Bangladesh</option>
+                                    <option value="BT">Bhutan</option>
+                                    <option value="IO">British Indian Ocean Territory</option>
+                                    <option value="BN">Brunei Darussalam</option>
+                                    <option value="KH">Cambodia</option>
+                                    <option value="CN">China</option>
+                                    <option value="CX">Christmas Island</option>
+                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                    <option value="GE">Georgia</option>
+                                    <option value="HK">Hong Kong</option>
+                                    <option value="IN">India</option>
+                                    <option value="ID">Indonesia</option>
+                                    <option value="IR">Iran</option>
+                                    <option value="IQ">Iraq</option>
+                                    <option value="IL">Israel</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="JO">Jordan</option>
+                                    <option value="KZ">Kazakhstan</option>
+                                    <option value="KP">Korea, Democratic People's Republic of</option>
+                                    <option value="KR">Korea, Republic of</option>
+                                    <option value="KW">Kuwait</option>
+                                    <option value="KG">Kyrgyzstan</option>
+                                    <option value="LA">Lao</option>
+                                    <option value="LB">Lebanon</option>
+                                    <option value="MY">Malaysia</option>
+                                    <option value="MV">Maldives</option>
+                                    <option value="MN">Mongolia</option>
+                                    <option value="MM">Myanmar (Burma)</option>
+                                    <option value="NP">Nepal</option>
+                                    <option value="OM">Oman</option>
+                                    <option value="PK">Pakistan</option>
+                                    <option value="PH">Philippines</option>
+                                    <option value="QA">Qatar</option>
+                                    <option value="RU">Russian Federation</option>
+                                    <option value="SA">Saudi Arabia</option>
+                                    <option value="SG">Singapore</option>
+                                    <option value="LK">Sri Lanka</option>
+                                    <option value="SY">Syria</option>
+                                    <option value="TW">Taiwan</option>
+                                    <option value="TJ">Tajikistan</option>
+                                    <option value="TH">Thailand</option>
+                                    <option value="TP">East Timor</option>
+                                    <option value="TM">Turkmenistan</option>
+                                    <option value="AE">United Arab Emirates</option>
+                                    <option value="UZ">Uzbekistan</option>
+                                    <option value="VN">Vietnam</option>
+                                    <option value="YE">Yemen</option>
+                                  </select></td> 
+  </tr>
+  
+</table>
+
+///////////////////////////////////////////////new table modal///////////////////////////////////////////////////// */}
+
+                
                               <div className="row">
-                                <div className="col-sm"> <label htmlFor="lname">Quantity : </label>
+                                <div className="col-sm">
+                                   <label htmlFor="lname">Quantity : </label>
                                   <input type="text" name="lname"
                                     style={{ width: "80%", borderStyle: "solid", borderRadius: "5px", borderColor: "#e7e7e7", borderTopColor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }}
                                     value={this.state.yspackqty}
                                     onChange={this.changeYSpackQty} />
                                 </div>
-                              </div>
+                              </div> <br/>
                               <div className="row">
-                                <div className="col-sm"> <label htmlFor="lname">Price : </label>
+                                <div className="col-sm">
+                                   <label htmlFor="lname">Price : </label>
                                   <input type="text" name="lname"
                                     style={{ marginLeft: "27px", width: "80%", borderStyle: "solid", borderRadius: "5px", borderColor: "#e7e7e7", borderTopColor: "#e7e7e7", backgroundColor: "#ffffff", padding: "5px" }}
                                     value={this.state.yspackprice}
                                     onChange={this.changeYSpackPrice} />
                                 </div>
-                              </div>
+                              </div><br/>
                               <div className="row">
                                 <div class="form-group">
-                                  <label for="lname">Country : </label>
-                                  <select class="form-select" id="i_f_country" value={this.state.yspackcountry}
+                                  <label for="lname"> &nbsp;&nbsp;  Country : </label>
+                                  <select class="form-select" id="i_f_country" style={{marginLeft:"7px"}} value={this.state.yspackcountry}
                                     onChange={this.changeYSpackCountry} aria-label="Default select example">
                                     <option selected>--Select--</option>
                                     <option value="AF">Afghanistan</option>
@@ -459,8 +543,8 @@ class EYoutube extends React.Component {
                               </div>
                               <div className="row">
                                 <div class="form-group">
-                                  <label for="lname">Country : </label>
-                                  <select class="form-select" id="i_f_country" value={this.state.yvpackcountry}
+                                <label for="lname"> &nbsp;&nbsp;  Country : </label>
+                                  <select class="form-select" style={{marginLeft:"7px"}} id="i_f_country" value={this.state.yvpackcountry}
                                     onChange={this.changeYVpackCountry} aria-label="Default select example">
                                     <option selected>--Select--</option>
                                     <option value="AF">Afghanistan</option>
