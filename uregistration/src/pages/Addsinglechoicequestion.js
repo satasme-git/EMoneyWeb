@@ -323,7 +323,7 @@ class Addsinglechoicequestion extends React.Component {
           <div class="row" style={{ textAlign: "center" }}>
 
             <div class="col">
-              <input type='button' class="btn btn-success" style={{ width: "300px" }} value='Add Qustion' onClick={this.addClick.bind(this)} />
+              <input type='button' class="btn btn-success" style={{ width: "300px" }} value='Add Question' onClick={this.addClick.bind(this)} />
             </div>
 
 

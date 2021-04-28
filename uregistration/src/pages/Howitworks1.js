@@ -231,7 +231,7 @@ class Howitworks1 extends React.Component {
               </p>
             </div>
             <div class="row people">
-              <div class="col-md-6 col-lg-4 item">
+              <div class="col-md-6 col-lg-4 item" style={{display:"flex"}}>
                 <div class="box">
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                     {" "}
@@ -261,7 +261,7 @@ class Howitworks1 extends React.Component {
                 </div>
               </div>
 
-              <div class="col-md-6 col-lg-4 item">
+              <div class="col-md-6 col-lg-4 item" style={{display:"flex"}}>
                 <div class="box">
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                     {" "}
@@ -287,7 +287,7 @@ class Howitworks1 extends React.Component {
                   </a>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-4 item">
+              <div class="col-md-6 col-lg-4 item" style={{display:"flex"}}>
                 <div class="box">
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                     Leaving Engagement on Social Media(Maximum {this.state.social} points)
@@ -307,7 +307,7 @@ class Howitworks1 extends React.Component {
                   </a>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-4 item">
+              <div class="col-md-6 col-lg-4 item" style={{display:"flex"}}>
                 <div class="box">
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                     Browsing Videos({this.state.yvideos} points)
@@ -334,7 +334,7 @@ class Howitworks1 extends React.Component {
                   </a>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-4 item">
+              <div class="col-md-6 col-lg-4 item" style={{display:"flex"}}>
                 <div class="box">
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                     Upload Videos({this.state.uvideos} points)
