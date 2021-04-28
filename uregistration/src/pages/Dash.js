@@ -502,6 +502,7 @@ class Dash extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/earnmanagement"
                       ></a>
 
                       <div class="imageali">
@@ -525,7 +526,7 @@ class Dash extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
-                        href=""
+                        href="/earnmanagement"
                       ></a>
                       <div class="imageali">
                         <img
@@ -548,6 +549,7 @@ class Dash extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/earnmanagement"
                       ></a>
                       <div class="imageali">
                         {" "}
@@ -571,6 +573,7 @@ class Dash extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/earnmanagement"
                       ></a>
                       <div class="imageali">
                         <img
@@ -593,6 +596,7 @@ class Dash extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/earnmanagement"
                       ></a>
                       <div class="imageali">
                         <img
@@ -616,7 +620,7 @@ class Dash extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
-                        href="#"
+                        href="/earnmanagement"
                       ></a>
                       <div class="imageali">
                         <img

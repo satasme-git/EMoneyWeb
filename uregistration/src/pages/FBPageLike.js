@@ -201,6 +201,11 @@ class FBPageLike extends React.Component {
                                             </a>
                                         </li>
                                         <li>
+                                            <a class="s-sidebar__nav-link" href="/earnpage">
+                                                <i class="fa fa-dollar"></i><em>Earn Points</em>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="s-sidebar__nav-link" href="/createorder">
                                                 <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
                                             </a>
@@ -210,11 +215,7 @@ class FBPageLike extends React.Component {
                                                 <i class="fa fa-list"></i><em>My Orders</em>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="s-sidebar__nav-link" href="/earnpage">
-                                                <i class="fa fa-dollar"></i><em>Earn Points</em>
-                                            </a>
-                                        </li>
+                                    
                                         <li>
                                             <a class="s-sidebar__nav-link" href="/referal">
                                                 <i class="fa fa-share-alt"></i><em>Referral</em>
@@ -313,6 +314,11 @@ class FBPageLike extends React.Component {
                                             </a>
                                         </li>
                                         <li>
+                                            <a class="s-sidebar__nav-link" href="/earnpage">
+                                                <i class="fa fa-dollar"></i><em>Earn Points</em>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="s-sidebar__nav-link" href="/createorder">
                                                 <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
                                             </a>
@@ -322,11 +328,7 @@ class FBPageLike extends React.Component {
                                                 <i class="fa fa-list"></i><em>My Orders</em>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="s-sidebar__nav-link" href="/earnpage">
-                                                <i class="fa fa-dollar"></i><em>Earn Points</em>
-                                            </a>
-                                        </li>
+                                    
                                         <li>
                                             <a class="s-sidebar__nav-link" href="/referal">
                                                 <i class="fa fa-share-alt"></i><em>Referral</em>
