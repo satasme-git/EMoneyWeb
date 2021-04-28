@@ -28,23 +28,23 @@ class FacebookEarnHistory extends React.Component {
   }
   componentDidMount() {
 
-    var user = Cookies.get('admin');
-    if (user == null) {
-      this.props.history.push('/admin');
-    } else {
-      var completediv = document.getElementById("completediv");
-      completediv.setAttribute("style", "display:none");
-      adminEarningService.getSocialEarning("facebook").then(res => {
+    // var user = Cookies.get('admin');
+    // if (user == null) {
+    //   this.props.history.push('/admin');
+    // } else {
+    //   var completediv = document.getElementById("completediv");
+    //   completediv.setAttribute("style", "display:none");
+    //   adminEarningService.getSocialEarning("facebook").then(res => {
 
-        this.setState({ payed: res.data });
+    //     this.setState({ payed: res.data });
 
-      });
-      adminEarningService.getUserSocialEarning("facebook").then(res => {
+    //   });
+    //   adminEarningService.getUserSocialEarning("facebook").then(res => {
 
-        this.setState({ pending: res.data });
+    //     this.setState({ pending: res.data });
 
-      });
-    }
+    //   });
+    // }
 
     // var completediv = document.getElementById("completediv");
     // completediv.setAttribute("style", "display:none");
@@ -91,6 +91,13 @@ class FacebookEarnHistory extends React.Component {
   }
 
   render() {
+
+
+    $(document).ready(function () {
+      $('#dtBasicExample').DataTable();
+      $('.dataTables_length').addClass('bs-select');
+      });
+
     return (
       <div>
         <Helmet>
@@ -184,13 +191,18 @@ class FacebookEarnHistory extends React.Component {
                     </div>
                   </div>
                 </div>
+
+
+                {/* ///////////////////////nwe table///////////////////////// */}
+              
+                {/* ///////////////////////nwe table///////////////////////// */}
                 <div className="col-12 mt-5" id="pendingdiv">
 
                   <div className="card">
                     <div className="card-body" id="paymenttable">
                       <h4 className="header-title">Customers Earn History</h4>
                       <div className="data-tables">
-                        <table id="example1" class="display">
+                        <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                           <thead>
                             <tr>
                               <th>Name</th>

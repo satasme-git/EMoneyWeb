@@ -84,6 +84,12 @@ class TwitterEarnHistory extends React.Component {
 
   render() {
 
+
+        //initialize datatable
+        $(document).ready(function () {
+          $("#example1").DataTable();
+        });
+
     return (
       <div>
         <Helmet>
@@ -143,10 +149,7 @@ class TwitterEarnHistory extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+      
         {/* page container area start */}
         <div className="page-container">
 

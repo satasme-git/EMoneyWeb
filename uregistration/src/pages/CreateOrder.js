@@ -111,7 +111,7 @@ class Dash extends React.Component {
 
     }
 
-    componentDidMount() {
+     componentDidMount() {
         var user = Cookies.get('user');
         const value = queryString.parse(this.props.location.search);
         const token = value.url;
@@ -2002,6 +2002,8 @@ class Dash extends React.Component {
                     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 
+
+
                 </Helmet>
 
                 <header class="header" style={{ marginLeft: "63px", height: "63px" }}>
@@ -2014,7 +2016,7 @@ class Dash extends React.Component {
                                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
                                         <i class="fa fa-user"></i>
-                                        <span class="hidden-xs">{this.state.username}</span>
+                                        <span class="hidden-xs"> &nbsp; {this.state.username}</span>
                                     </a>
                                 </li>
                             </Link>
@@ -3491,16 +3493,50 @@ class Dash extends React.Component {
                                                 </form>
 
 
+
+
+
                                                 <h4 style={{ marginLeft: "10px", marginTop: "30px" }}>Survey no: {this.state.serveyid} </h4>
                                                 <h6 style={{ marginLeft: "10px", marginTop: "30px" }}><span style={{ color: "red" }}>*maximum 60 questions</span>&nbsp;&nbsp;&nbsp;&nbsp;(Total questions: {this.state.total_questions}) </h6>
-                                                <div class="container" style={{ marginTop: "20px" }}>
+
+
+
+       {/* //////////////////////////////////////////////new tab/////////////////////////////////////////////////////////////// */}
+
+
+       <nav style={{marginTop:"25px"}}>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-one-tab" data-toggle="tab" href="#nav-one" role="tab" aria-controls="nav-home" aria-selected="true" style={{color:"black"}} >Yes / No Question</a>
+    <a class="nav-item nav-link" id="nav-two-tab" data-toggle="tab" href="#nav-two" role="tab" aria-controls="nav-profile" aria-selected="false"  style={{color:"black"}} >Single Choice Question</a>
+    <a class="nav-item nav-link" id="nav-tree-tab" data-toggle="tab" href="#nav-tree" role="tab" aria-controls="nav-contact" aria-selected="false"  style={{color:"black"}} >Multiple Choice Question</a>
+    <a class="nav-item nav-link" id="nav-four-tab" data-toggle="tab" href="#nav-four" role="tab" aria-controls="nav-contact" aria-selected="false"  style={{color:"black"}} >Essay Question  </a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab"> <Addyesnoquestion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
+  </div>
+  <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab"><Addsinglechoicequestion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
+  </div>
+  <div class="tab-pane fade" id="nav-tree" role="tabpanel" aria-labelledby="nav-tree-tab"><Addmultiplechoicequstion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
+  </div>
+  <div class="tab-pane fade" id="nav-four" role="tabpanel" aria-labelledby="nav-four-tab"> <Addeasyquestion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} /></div>
+</div>
+
+<br/>
+
+
+        {/* //////////////////////////////////////////////new tab/////////////////////////////////////////////////////////////// */}
+
+{/* ////////////////////////////////////////////////////old tab////////////////////////////////////////////////////////////////// */}
+
+                                                {/* <div class="container" style={{ marginTop: "20px" }}>
                                                     <ul class="nav nav-tabs">
                                                         <div class="row" style={{ textAlign: "center" }}>
                                                             <div class="col-sm-3">
                                                                 {" "}
                                                                 <li class="active">
                                                                     <button>
-                                                                        <a data-toggle="tab" href="#home" style={{ color: "black",textDecoration: "none",  }}>
+                                                                        <a data-toggle="tab" href="#home" style={{ color: "black" }}>
                                                                             Yes / No Question{" "}
                                                                         </a>
                                                                     </button>
@@ -3510,7 +3546,7 @@ class Dash extends React.Component {
                                                             <div class="col-sm-3">
                                                                 {" "}
                                                                 <li>
-                                                                    <a data-toggle="tab" href="#menu111" style={{ color: "black", textDecoration: "none" }}>
+                                                                    <a data-toggle="tab" href="#menu111" style={{ color: "black"}}>
                                                                         Single Choice Question
                                   </a>
                                                                 </li>
@@ -3518,7 +3554,7 @@ class Dash extends React.Component {
                                                             <div class="col-sm-3">
                                                                 {" "}
                                                                 <li>
-                                                                    <a data-toggle="tab" href="#menu222" style={{ color: "black", textDecoration: "none" }}>
+                                                                    <a data-toggle="tab" href="#menu222" style={{ color: "black"}}>
                                                                         Multiple Choice Question
                                   </a>
                                                                 </li>
@@ -3526,7 +3562,7 @@ class Dash extends React.Component {
                                                             <div class="col-sm-3">
                                                                 {" "}
                                                                 <li>
-                                                                    <a data-toggle="tab" href="#menu333" style={{ color: "black", textDecoration: "none" }}>
+                                                                    <a data-toggle="tab" href="#menu333" style={{ color: "black"}}>
                                                                         Essay Question
                                   </a>
                                                                 </li>
@@ -3536,33 +3572,38 @@ class Dash extends React.Component {
 
                                                     <div class="tab-content">
                                                         <div id="home" class="tab-pane  in active">
-                                                            {/* /////////////////////////////////////Yes / No Question////////////////////// */}
+                                                            
 
                                                             <Addyesnoquestion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
 
-                                                            {/* /////////////////////////////////////Yes / No Question////////////////////// */}
+                                                            
                                                         </div>
                                                         <div id="menu111" class="tab-pane fade">
-                                                            {/* /////////////////////////////////////Single Choice Question////////////////////// */}
+                                                            
                                                             <Addsinglechoicequestion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
-                                                            {/* /////////////////////////////////////Single Choice Question////////////////////// */}
+                                                            
                                                         </div>
                                                         <div id="menu222" class="tab-pane fade">
-                                                            {/* /////////////////////////////////////Multiple Choice Question////////////////////// */}
+                                                            
                                                             <Addmultiplechoicequstion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
-                                                            {/* /////////////////////////////////////Multiple Choice Question////////////////////// */}
+                                                           
                                                         </div>
                                                         <div id="menu333" class="tab-pane fade">
-                                                            {/* /////////////////////////////////////Easy Question////////////////////// */}
+                                                           
                                                             <Addeasyquestion serveyid={this.state.serveyid} views={this.state.s_views} changeFinalPrice={this.generateServeyPrice} />
-                                                            {/* /////////////////////////////////////Easy Question////////////////////// */}
+                                                            
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> */}
+
+{/* ////////////////////////////////////////////////////old tab////////////////////////////////////////////////////////////////// */}
+
 
                                             </div>
 
                                         </div>
+
+    
 
                                         <div class="form-group" style={{ marginLeft: "20px", marginTop: "10px" }}>
 

@@ -151,7 +151,7 @@ class SmEngagement extends React.Component {
                             <div
                                 class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item"><h3 style={{ color: "rgb(3,23,44)" }}>Step 03</h3><a href="#"><img class="img-fluid" src="assets/Image/earn/fbe.png" alt="" /></a>
 
-                                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p></div>
+                                <p class="description"></p></div>
                         </div>
                     </div>
 
