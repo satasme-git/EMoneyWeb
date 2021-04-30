@@ -167,10 +167,7 @@ class InstagramEarnHistory extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div className="loader" />
-        </div>
-        {/* preloader area end */}
+     
         {/* page container area start */}
         <div className="page-container">
 

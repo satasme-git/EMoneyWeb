@@ -173,6 +173,7 @@ class UploadVideo extends React.Component {
           <link rel="stylesheet" href="/assets/css/dash.css" />
           <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
           <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
         </Helmet>
         <Style>{`
 
@@ -458,11 +459,27 @@ body {background-color:#dfeef2;}
                   <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
                     <i class="fa fa-user"></i>
-                    <span class="hidden-xs">{this.state.username}</span>
+                    <span class="hidden-xs"> &nbsp;  {this.state.username}</span>
                   </a>
                 </li>
               </Link>
             </div>
+
+
+            <div class="header__left">
+
+<span class="utext"></span>
+<Link to="/userhome" >
+    <li class="nav-item dropdown  user-menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+
+            <i class="fa fa-home"></i>
+            <span class="hidden-xs"></span>
+        </a>
+    </li>
+</Link>
+</div>
+
           </section>
 
         </header>
@@ -487,6 +504,13 @@ body {background-color:#dfeef2;}
                       <i class="fa fa-dollar"></i><em>Earn Points</em>
                     </a>
                   </li>
+
+                  <li>
+                    <a class="s-sidebar__nav-link" href="/referal">
+                      <i class="fa fa-share-alt"></i><em>Referral</em>
+                    </a>
+                  </li>
+                  
                   <li>
                     <a class="s-sidebar__nav-link" href="/createorder">
                       <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
@@ -498,11 +522,7 @@ body {background-color:#dfeef2;}
                     </a>
                   </li>
            
-                  <li>
-                    <a class="s-sidebar__nav-link" href="/referal">
-                      <i class="fa fa-share-alt"></i><em>Referral</em>
-                    </a>
-                  </li>
+               
                   <li>
                     <a class="s-sidebar__nav-link" href="/earnhistory">
                       <i class="fa fa-bitcoin"></i><em>Billings</em>
@@ -541,8 +561,11 @@ body {background-color:#dfeef2;}
                               className="selectop"
                               value={this.state.category}
                               onChange={this.changeCategory}
+                              style={{paddingRight:"50px"}}
+                              
                             >
-                              <option value="Entertainment">Entertainment</option>
+               
+                              <option value="Entertainment">Entertainment </option>
                               <option value="Comedy">Comedy</option>
                               <option value="Music">Music</option>
                               <option value="Culture">Culture</option>

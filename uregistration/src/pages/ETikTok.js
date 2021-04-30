@@ -213,8 +213,7 @@ class ETikTok extends React.Component {
   render() {
     return (
       <div>
-        {/* page container area start */}
-        <div className="page-container">
+ 
           {/* sidebar menu area start */}
           <Helmet>
             <meta charset="utf-8" />
@@ -299,6 +298,9 @@ class ETikTok extends React.Component {
             />
           </Helmet>
           <Sidebar />
+
+                 {/* page container area start */}
+        <div className="page-container">
           {/* sidebar menu area end */}
           {/* main content area start */}
           <div className="main-content">

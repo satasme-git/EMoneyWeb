@@ -26,6 +26,7 @@ body {
 
 /* Font Family */
 
+
 /* animationicon */
 
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
@@ -567,6 +568,9 @@ body {
 /* Responsive columns - one column layout (vertical) on small screens */
 
 @media screen and (max-width: 600px) {
+
+
+
   .column {
     width: 100%;
     display: block;
@@ -595,6 +599,9 @@ body {
 /* Responsive columns - one column layout (vertical) on small screens */
 
 @media screen and (max-width: 600px) {
+
+
+
   .column {
     width: 100%;
     display: block;

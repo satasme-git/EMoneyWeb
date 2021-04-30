@@ -93,10 +93,10 @@ class FacebookEarnHistory extends React.Component {
   render() {
 
 
-    $(document).ready(function () {
-      $('#dtBasicExample').DataTable();
-      $('.dataTables_length').addClass('bs-select');
-      });
+    // $(document).ready(function () {
+    //   $('#dtBasicExample').DataTable();
+    //   $('.dataTables_length').addClass('bs-select');
+    //   });
 
     return (
       <div>
@@ -197,12 +197,11 @@ class FacebookEarnHistory extends React.Component {
               
                 {/* ///////////////////////nwe table///////////////////////// */}
                 <div className="col-12 mt-5" id="pendingdiv">
-
                   <div className="card">
                     <div className="card-body" id="paymenttable">
                       <h4 className="header-title">Customers Earn History</h4>
                       <div className="data-tables">
-                        <table  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                      <table id="example1" class="display">
                           <thead>
                             <tr>
                               <th>Name</th>
@@ -211,6 +210,7 @@ class FacebookEarnHistory extends React.Component {
                             </tr>
                           </thead>
                           <tbody>
+
                             {this.state.pending.map((data) => {
                               return (
                                 <tr>
@@ -221,6 +221,13 @@ class FacebookEarnHistory extends React.Component {
                                 </tr>
                               );
                             })}
+
+    {/* ////////////////////////////////////////test data///////////////////////////////////////////// */}
+
+
+    {/* ////////////////////////////////////////test data///////////////////////////////////////////// */}
+
+
                           </tbody>
                         </table>
                       </div>
@@ -253,16 +260,13 @@ class FacebookEarnHistory extends React.Component {
                               </tr>
                             );
                           })}
-                          {/* <tr>
-                            <td>001</td>
-                            <td> parveen </td>
-                            <td>praveem@gmail.com</td>
-                            <td>2020.30.30</td>
-                            <td> card  </td>
-                            <td> 500$  </td>
 
 
-                          </tr> */}
+    {/* ////////////////////////////////////////test data///////////////////////////////////////////// */}
+
+
+    {/* ////////////////////////////////////////test data///////////////////////////////////////////// */}
+
                         </tbody>
                       </table>
 

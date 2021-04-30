@@ -146,18 +146,7 @@ class Earnreferal extends React.Component {
         })()}
 
 
-          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
-  <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
-  
-  <div id="preloader">
-  <div id="loader"></div>
-</div>
 
-</div>
-
-
-
-          {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
 
         <div class="article-list" style={{ width: "100%", height: "100% " }}>
           <div class="container">
