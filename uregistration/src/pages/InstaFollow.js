@@ -158,11 +158,27 @@ class InstaFollow extends React.Component {
                                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
                                             <i class="fa fa-user"></i>
-                                            <span class="hidden-xs">{this.state.username}</span>
+                                            <span class="hidden-xs"> &nbsp;  {this.state.username}</span>
                                         </a>
                                     </li>
                                 </Link>
                             </div>
+
+                            <div class="header__left">
+
+<span class="utext"></span>
+<Link to="/userhome" >
+    <li class="nav-item dropdown  user-menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+
+            <i class="fa fa-home"></i>
+            <span class="hidden-xs"></span>
+        </a>
+    </li>
+</Link>
+</div>
+
+
                         </section>
 
                     </header>
@@ -187,6 +203,12 @@ class InstaFollow extends React.Component {
                                                 <i class="fa fa-dollar"></i><em>Earn Points</em>
                                             </a>
                                         </li>
+
+                                        <li>
+                                            <a class="s-sidebar__nav-link" href="/referal">
+                                                <i class="fa fa-share-alt"></i><em>Referral</em>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a class="s-sidebar__nav-link" href="/createorder">
                                                 <i class="fa fa-plus"></i><em>Promote Youtube/Social</em><i class="fa fa-plus"></i><em>Create order</em>
@@ -198,11 +220,7 @@ class InstaFollow extends React.Component {
                                             </a>
                                         </li>
                                   
-                                        <li>
-                                            <a class="s-sidebar__nav-link" href="/referal">
-                                                <i class="fa fa-share-alt"></i><em>Referral</em>
-                                            </a>
-                                        </li>
+                                   
                                         <li>
                                             <a class="s-sidebar__nav-link" href="/earnhistory">
                                                 <i class="fa fa-bitcoin"></i><em>Billings</em>
@@ -299,6 +317,11 @@ class InstaFollow extends React.Component {
                                             </a>
                                         </li>
                                         <li>
+                                            <a class="s-sidebar__nav-link" href="/referal">
+                                                <i class="fa fa-share-alt"></i><em>Referral</em>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="s-sidebar__nav-link" href="/createorder">
                                                 <i class="fa fa-plus"></i><em>Promote Youtube/Social</em><i class="fa fa-plus"></i>
                                             </a>
@@ -309,11 +332,7 @@ class InstaFollow extends React.Component {
                                             </a>
                                         </li>
                                   
-                                        <li>
-                                            <a class="s-sidebar__nav-link" href="/referal">
-                                                <i class="fa fa-share-alt"></i><em>Referral</em>
-                                            </a>
-                                        </li>
+                                    
                                         <li>
                                             <a class="s-sidebar__nav-link" href="/earnhistory">
                                                 <i class="fa fa-bitcoin"></i><em>Billings</em>

@@ -110,11 +110,7 @@ class Approvevdeos extends React.Component {
 
         </Helmet>
         <Sidebar />
-        <div id="preloader">
-          <div class="loader"></div>
-        </div>
-        {/*    <!-- preloader area end -->
-    <!-- page container area start --> */}
+     
         <div class="page-container">
 
           {/* <!-- main content area start -->  */}

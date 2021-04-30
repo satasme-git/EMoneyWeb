@@ -198,6 +198,9 @@ class ETwitter extends React.Component {
 
     return (
       <div>
+
+             
+          {/* sidebar menu area start */}
         <Helmet>
           <meta charset="utf-8" />
           <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -259,8 +262,9 @@ class ETwitter extends React.Component {
 
         </Helmet>
         <Sidebar />
-     
-        {/* page container area start */}
+      {/* page container area start */}
+      <div className="page-container">
+        
        
           {/* main content area start */}
           <div class="main-content">
@@ -576,6 +580,9 @@ class ETwitter extends React.Component {
               </div>
             </div>
           </div>
+
+          
+          
           {/* main content area end */}
           {/* table primary start */}
 
@@ -627,7 +634,7 @@ class ETwitter extends React.Component {
               </div> */}
           {/* Striped table end */}
           {/* 2nd table */}
-      
+      </div>
         {this.state.tfollowdata.map((data) => {
           return (
             <div className="col-lg-6 mt-5">

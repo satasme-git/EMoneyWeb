@@ -197,9 +197,10 @@ class UserHome extends React.Component {
 
             <div class="header__left">
               <Link to="/UserHome">
-                <img
+                <img className="mainlogo"
                   src="/assets/webiconCopy.png"
-                  style={{ width: "161px", height: "61px" }}
+                  style={{ width: "161px" }}
+                  // style={{ width: "161px", height: "61px" }}
                 />
 
                 <br />
@@ -639,6 +640,7 @@ class UserHome extends React.Component {
                         id="quick_start"
                         class="preset-card"
                         onClick={this.redirectCreateorder}
+                        style={{padding:"8px"}}
                       >
                         <div class="preset-card__image quick_start">
                           <img
@@ -663,6 +665,7 @@ class UserHome extends React.Component {
                         id="promotion"
                         class="preset-card"
                         onClick={this.redirectCreateorder}
+                        style={{padding:"8px"}}
                       >
                         <div class="preset-card__image promotion">
                           <img

@@ -232,7 +232,7 @@ class Howitworks1 extends React.Component {
             </div>
             <div class="row people">
               <div class="col-md-6 col-lg-4 item" style={{display:"flex"}}>
-                <div class="box">
+                <div class="box"  >
                   <h5 class="name" style={{ color: "rgb(3,23,44)" }}>
                     {" "}
                     Complete Your Profile({this.state.profile} points)
@@ -253,7 +253,7 @@ class Howitworks1 extends React.Component {
                       class="fa fa-arrow-circle-right"
                       style={{ fontSize: "34px" }}
                     ></i> */}
-                    <button class="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                    <button class="btn btn-primary" >Detail</button>&nbsp;&nbsp;
                   </a>
                   <a href="/profile">
                     <button class="btn btn-success">Earn</button>

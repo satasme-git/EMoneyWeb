@@ -127,7 +127,7 @@ class YTVideoWatch extends React.Component {
                                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
                                             <i class="fa fa-user"></i>
-                                            <span class="hidden-xs">{this.state.username}</span>
+                                            <span class="hidden-xs"> &nbsp;  {this.state.username}</span>
                                         </a>
                                     </li>
                                 </Link>
@@ -158,6 +158,11 @@ class YTVideoWatch extends React.Component {
                                         </a>
                                     </li>
                                     <li>
+                                        <a class="s-sidebar__nav-link" href="/referal">
+                                            <i class="fa fa-share-alt"></i><em>Referral</em>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a class="s-sidebar__nav-link" href="/createorder">
                                             <i class="fa fa-plus"></i><em>Promote Youtube/Social</em>
                                         </a>
@@ -168,11 +173,7 @@ class YTVideoWatch extends React.Component {
                                         </a>
                                     </li>
                                
-                                    <li>
-                                        <a class="s-sidebar__nav-link" href="/referal">
-                                            <i class="fa fa-share-alt"></i><em>Referral</em>
-                                        </a>
-                                    </li>
+                               
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/earnhistory">
                                             <i class="fa fa-bitcoin"></i><em>Billings</em>
