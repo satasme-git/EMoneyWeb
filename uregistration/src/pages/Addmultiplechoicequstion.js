@@ -56,30 +56,7 @@ class Addmultiplechoicequstion extends React.Component {
                       aria-describedby="inputGroup-sizing-sm"
 
                     />
-                    <input
-                      type='button' value='Remove' onClick={this.removeClick.bind(this, i)}
-                      style={{
-                        borderRadius: "5px",
-                        backgroundColor: "red",
-                        color: "white",
-                        width: "80px",
-                        textAlign: "center",
-                        marginLeft: "5px"
-                      }}
-
-                    />
-                    <input
-                      type='button' value='Submit' onClick={this.submitClick.bind(this, i)}
-                      style={{
-                        borderRadius: "5px",
-                        backgroundColor: "blue",
-                        color: "white",
-                        width: "80px",
-                        textAlign: "center",
-                        marginLeft: "5px"
-                      }}
-
-                    />
+             
 
                   </div>
 
@@ -182,6 +159,32 @@ class Addmultiplechoicequstion extends React.Component {
 
 
                 </ul>
+
+
+                <input
+                      type='button' value='Remove' onClick={this.removeClick.bind(this, i)}
+                      style={{
+                        borderRadius: "5px",
+                        backgroundColor: "red",
+                        color: "white",
+                        width: "80px",
+                        textAlign: "center",
+                        marginLeft: "5px"
+                      }}
+
+                    />
+                    <input
+                      type='button' value='Submit' onClick={this.submitClick.bind(this, i)}
+                      style={{
+                        borderRadius: "5px",
+                        backgroundColor: "blue",
+                        color: "white",
+                        width: "80px",
+                        textAlign: "center",
+                        marginLeft: "5px"
+                      }}
+
+                    />
 
               </form>
 

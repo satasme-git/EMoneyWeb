@@ -146,7 +146,7 @@ class Privacypolicy extends React.Component {
           <div class="col-6" style={{ marginTop: "120px" }}>
 
             <div className="privcy" style={{ color: "#0f3057" }}>
-              <div>  <h6 style={{ fontWeight: "bold" }}>  EMONEYTAG PRIVACY POLICY </h6> </div><br /><br />
+              <div>  <h6 style={{ fontWeight: "bold" }}>  EMONEYTAG PRIVACY POLICY </h6> </div><br /><br /><br />
 This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website - <a href=" https://www.Emoneytag.com  " >www.Emoneytag.com </a> .<br /><br />
               <br /><br />
 

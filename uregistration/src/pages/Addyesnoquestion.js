@@ -47,7 +47,10 @@ class Addyesnoquestion extends React.Component {
                       aria-describedby="inputGroup-sizing-sm"
                     />
                     <br />
-                    <input
+              
+                  </div>
+                </ul>
+                <input
                       type='button' value='Remove' onClick={this.removeClick.bind(this, i)}
                       style={{
                         borderRadius: "5px",
@@ -71,8 +74,7 @@ class Addyesnoquestion extends React.Component {
                       }}
 
                     />
-                  </div>
-                </ul>
+
               </form>
             </div>
           </div>
