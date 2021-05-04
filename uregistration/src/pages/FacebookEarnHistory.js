@@ -58,10 +58,7 @@ class FacebookEarnHistory extends React.Component {
   }
 
   componentDidUpdate() {
-    //initialize datatable
-    $(document).ready(function () {
-      $("#example1").DataTable();
-    });
+  
 
   }
 
@@ -97,6 +94,13 @@ class FacebookEarnHistory extends React.Component {
     //   $('#dtBasicExample').DataTable();
     //   $('.dataTables_length').addClass('bs-select');
     //   });
+
+      //initialize datatable
+      $(document).ready(function () {
+        $("#example1").DataTable();
+        $("#example2").DataTable();
+      });
+      
 
     return (
       <div>

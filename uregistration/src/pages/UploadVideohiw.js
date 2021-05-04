@@ -148,12 +148,12 @@ class UploadVideohit extends React.Component {
               </p>
             </div>
                         <div class="row articles">
-                            <div class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item"> <h3 style={{ color: "rgb(3,23,44)" }}>Step 01</h3><a href="#"><img class="img-fluid" src="assets/Image/earn/cme.png" alt="" /></a>
+                            <div class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item"> <h3 style={{ color: "rgb(3,23,44)" }}>Step 01</h3><a href="#"><br/><img class="img-fluid" src="assets/Image/earn/cme.png" alt="" /></a>
 
                                 <p class="description">Focus on what you are good at and what works best for you. There are 3 ways to earn money on emoneyTag and each of them is distinguished by a feature that might suit you best. Engagement and your time are key to high earnings.</p></div>
 
                             <div
-                                class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item"> <h3 style={{ color: "rgb(3,23,44)" }}>Step 02</h3><a href="#"><img class="img-fluid" src="assets/Image/earn/uve.png" alt="" /></a>
+                                class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item" > <h3 style={{ color: "rgb(3,23,44)" }}>Step 02</h3><a href="#"><br/><img class="img-fluid" src="assets/Image/earn/uve.png" alt="" /></a>
 
                                 <p class="description">By uploading videos you can earn points. If you are a content creator, this is the most suitable method of earnings.Your video should be 50MB  and it should not exceeded 5 minutes.</p></div>
                         </div>

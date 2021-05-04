@@ -32,10 +32,7 @@ class Homebl extends React.Component {
 
 
         
-    $(window).on('load', function () {
-        $("#cover").fadeOut(1000);
-        });
-    
+  
         
         return (
             <div id="homepage" className="is-header" style={{ backgroundColor: "white", height: "100%", width: "100%" }}>

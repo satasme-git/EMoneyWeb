@@ -195,9 +195,10 @@ class YTVideoWatch extends React.Component {
                             <div class="" style={{ paddingTop: "30px" }}>
 
                                 <section class="py-5">
-                                    <h2 class="text-center mb-5">Watch Youtube Videos</h2>
-                                    <div class="ytcontainer" style={{ paddingTop: "100px" }}>
-                                        <div class="row" style={{ marginTop: "-15%", padding: "80px" }}>
+                                    <h2 class="text-center mb-5" >Watch Youtube Videos</h2>
+                                    <br/>
+                                    <div class="ytcontainer">
+                                        <div class="row" style={{  paddingLeft:"20px", paddingRight:"20px"}}>
                                             <div class="col-md-6 col-lg-4 text-center">
                                                 <div class="card mb-4">
                                                     <div class="bg-white card-header" >

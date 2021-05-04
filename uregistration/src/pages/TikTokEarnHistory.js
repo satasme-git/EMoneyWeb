@@ -51,11 +51,7 @@ class TikTokEarnHistory extends React.Component {
   }
 
   componentDidUpdate() {
-    //initialize datatable
-    $(document).ready(function () {
-      $("#example1").DataTable();
-    });
-
+  
   }
 
   changePaymentType = (e) => {
@@ -85,11 +81,15 @@ class TikTokEarnHistory extends React.Component {
 
   render() {
 
-
-       //initialize datatable
-       $(document).ready(function () {
+      //initialize datatable
+      $(document).ready(function () {
         $("#example1").DataTable();
+        $("#example2").DataTable();
       });
+  
+
+
+    
 
     return (
 

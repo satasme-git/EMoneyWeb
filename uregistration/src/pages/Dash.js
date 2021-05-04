@@ -280,7 +280,7 @@ class Dash extends React.Component {
                                                         <h4 class="card-title"  style={{fontSize:"3.1vh"}}>&nbsp;Last 7 days(Points)</h4>
 
                                                         <h6 class="text-muted card-subtitle mb-2" style={{fontSize:"3.1vh"}}>
-                                                         {this.state.week_earning}
+                                                        &nbsp;{this.state.week_earning}
                                                         </h6>
                                                     </div>
                                                 </div>
@@ -301,7 +301,7 @@ class Dash extends React.Component {
                                                     >
                                                         <h4 class="card-title"  style={{fontSize:"3.1vh"}}> &nbsp;This month(Points)</h4>
                                                         <h6 class="text-muted card-subtitle mb-2" style={{fontSize:"3.1vh"}}>
-                                                       {this.state.month_earning}
+                                                        &nbsp;{this.state.month_earning}
                                                         </h6>
                                                     </div>
                                                 </div>

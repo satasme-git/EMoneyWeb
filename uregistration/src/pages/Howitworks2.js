@@ -181,7 +181,7 @@ class Howitworks2 extends React.Component {
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-5 offset-lg-1 offset-xl-0 item"> <h3 style={{ color: "rgb(3,23,44)" }}>Step 02</h3><br />
                                 <a href="#"><img class="img-fluid" src="assets/Image/earn/co1.jpeg" alt="" /></a>
-
+                                <br/><br/><br/><br/>
                                 <p class="description">In step 02 you can set the amount of likes, shares, views accourding to your need. And the amount you have to pay will be displayed. You can get the service after complete the payment proccess.</p>
                             </div>
 

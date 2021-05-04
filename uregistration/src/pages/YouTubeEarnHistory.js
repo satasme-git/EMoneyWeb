@@ -63,6 +63,7 @@ class YouTubeEarnHistory extends React.Component {
     //initialize datatable
     $(document).ready(function () {
       $("#example").DataTable();
+      $("#example2").DataTable();
     });
   }
 
@@ -94,6 +95,12 @@ class YouTubeEarnHistory extends React.Component {
   }
 
   render() {
+
+        //initialize datatable
+        $(document).ready(function () {
+          $("#example").DataTable();
+          $("#example2").DataTable();
+        });
 
     return (
       <div>
@@ -193,7 +200,7 @@ class YouTubeEarnHistory extends React.Component {
                     <div className="card-body" id="paymenttable">
                       <h4 className="header-title">Customers Earn History</h4>
                       <div className="data-tables">
-                        <table id="example" class="display">
+                        <table id="example2" class="display">
                           <thead>
                             <tr>
                               <th>Name</th>
@@ -216,6 +223,8 @@ class YouTubeEarnHistory extends React.Component {
                                       Mark As Payed
                                     </button>
                                   </td> */}
+
+                                  
                                 </tr>
                               );
                             })}
@@ -233,7 +242,7 @@ class YouTubeEarnHistory extends React.Component {
                     <div className="card-body" id="Completetable">
                       <h4 className="header-title">Youtube Earn History</h4>
 
-                      <table id="example2" class="display">
+                      <table id="example" class="display">
                         <thead>
                           <tr>
                             <th>Service</th>
