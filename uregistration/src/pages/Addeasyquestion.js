@@ -38,7 +38,11 @@ class Addeasyquestion extends React.Component {
                       aria-label="With textarea"
                     ></input>
                     <br />
-                    <input
+              
+                  </div>
+                </ul>
+
+                <input
                       type='button' value='Remove' onClick={this.removeClick.bind(this, i)}
                       style={{
                         borderRadius: "5px",
@@ -62,8 +66,6 @@ class Addeasyquestion extends React.Component {
                       }}
 
                     />
-                  </div>
-                </ul>
               </form>
             </div>
           </div>

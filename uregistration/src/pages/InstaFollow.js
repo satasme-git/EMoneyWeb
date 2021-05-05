@@ -150,22 +150,23 @@ class InstaFollow extends React.Component {
                     
                     </Helmet>
                     <header class="header" style={{ marginLeft: "63px", height: "63px" }}>
-                        <section class="container header__inner">
-                            <div class="header__right">
+                    <section class="container header__inner">
+                        <div class="header__right">
 
-                                <span class="utext">{this.state.total_earning}</span>
-                                <Link to="/profile" >
-                                    <li class="nav-item dropdown  user-menu">
-                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                            <span class="utext">{this.state.total_earning}</span>
+                            <Link to="/profile" >
+                                <li class="nav-item dropdown  user-menu">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
-                                            <i class="fa fa-user"></i>
-                                            <span class="hidden-xs"> &nbsp;  {this.state.username}</span>
-                                        </a>
-                                    </li>
-                                </Link>
-                            </div>
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-xs"> &nbsp;  {this.state.username}</span>
+                                    </a>
+                                </li>
+                            </Link>
+                        </div>
 
-                            <div class="header__left">
+                        
+                        <div class="header__left">
 
 <span class="utext"></span>
 <Link to="/userhome" >
@@ -179,8 +180,7 @@ class InstaFollow extends React.Component {
 </Link>
 </div>
 
-
-                        </section>
+                    </section>
 
                     </header>
                     <div class="main">

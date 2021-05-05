@@ -63,10 +63,7 @@ class InstagramEarnHistory extends React.Component {
   }
 
   componentDidUpdate() {
-    //initialize datatable
-    $(document).ready(function () {
-      $("#example1").DataTable();
-    });
+ 
 
   }
   changePaymentType = (e) => {
@@ -97,10 +94,11 @@ class InstagramEarnHistory extends React.Component {
   render() {
 
 
-      //initialize datatable
-      $(document).ready(function () {
-        $("#example1").DataTable();
-      });
+        //initialize datatable
+    $(document).ready(function () {
+      $("#example1").DataTable();
+      $("#example2").DataTable();
+    });
       
     return (
       <div>

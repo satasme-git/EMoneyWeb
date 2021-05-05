@@ -259,7 +259,7 @@ class Points extends React.Component {
                               {this.state.points.map((data) => {
                                 return (
                                   <tr>
-                                    <td>{data.pointSource}</td>
+                                    <td>{data.pointSource} </td>
                                     <td>{data.points}</td>
                                     <td>
                                       <i
@@ -267,6 +267,7 @@ class Points extends React.Component {
                                         data-toggle="modal"
                                         data-target={"#" + data.id}
                                       ></i>
+                                      
                                     </td>
                                   </tr>
                                 );
@@ -370,7 +371,7 @@ class Points extends React.Component {
                               <input type="text" style={{ border: "solid 2px" }} disabled defaultValue={data.pointSource} />
                               <br /><br />
                               <label for="Edit" >Edit Point :</label>
-                              <input type="text" style={{ border: "solid 2px" }} id="Edit" name="Edit" defaultValue={data.points} onChange={this.changePoint} />
+                              &nbsp;&nbsp;&nbsp;<input type="text" style={{ border: "solid 2px" }} id="Edit" name="Edit" defaultValue={data.points} onChange={this.changePoint} />
                               <br /><br />
 
 

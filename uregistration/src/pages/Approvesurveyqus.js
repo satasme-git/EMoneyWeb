@@ -146,7 +146,7 @@ class Approvesurveyqus extends React.Component {
 
           <script src="/assetsadmin/js/maps.js"></script>
 
-          <link
+          {/* <link
             rel="stylesheet"
             type="text/css"
             href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"
@@ -165,7 +165,7 @@ class Approvesurveyqus extends React.Component {
             rel="stylesheet"
             type="text/css"
             href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css"
-          />
+          /> */}
         </Helmet>
         <Sidebar />
 

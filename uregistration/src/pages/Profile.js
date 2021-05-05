@@ -640,7 +640,7 @@ class Profile extends React.Component {
 
                                 <div class="header__left">
                                     <a href="/userhome">
-                                        <img src="/assets/webicon.png" style={{ width: "201px", height: "51px" }} alt="Emoneytag" title="Emoneytag" />
+                                        <img src="/assets/webicon.png" style={{ width: "161px" }} alt="Emoneytag" title="Emoneytag" />
                                     </a>
                                     <br />
                                 </div>
@@ -687,23 +687,23 @@ class Profile extends React.Component {
 
 
 
-                                <table style={{ marginLeft: "50px" }} >
+                                <table style={{ marginLeft: "50px" , }} >
 
                                     <tr style={{ textAlign: "left" }}>
                                         <td>E-mail</td>&nbsp;&nbsp;&nbsp;:&nbsp;
   <td>{this.state.premail}</td>
 
-                                    </tr>
+                                    </tr><br/>
                                     <tr style={{ textAlign: "left" }}>
                                         <td>Contact No</td>&nbsp;&nbsp;&nbsp;:&nbsp;
   <td>{this.state.prmobile}</td>
 
-                                    </tr>
+                                    </tr><br/>
                                     <tr style={{ textAlign: "left" }}>
                                         <td>Earned Points</td>&nbsp;&nbsp;&nbsp;:&nbsp;
   <td>{this.state.prearningtotal}</td>
 
-                                    </tr>
+                                    </tr><br/>
                                 </table>
 
 
@@ -735,7 +735,7 @@ class Profile extends React.Component {
                             </div>
                             <div class="col-sm-4" style={{ textAlign: "center" }}><br></br>
                                 <h4 class="card-title">Profile Image</h4>
-                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} src={this.state.profileimage}></img>
+                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} src={this.state.profileimage}></img><br/>
                                 {/* /////////////////////new upload iamge/////////////// */}
                                 <div class="input-group mb-3">
                                     <div class="custom-file">

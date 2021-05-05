@@ -44,9 +44,7 @@ class AdminPaymentAnagement extends React.Component {
   }
 
   componentDidUpdate() {
-    $(document).ready(function () {
-      $("#example").DataTable();
-    });
+  
   }
 
   changePaymentType = (e) => {
@@ -102,6 +100,11 @@ class AdminPaymentAnagement extends React.Component {
 
   render() {
 
+    $(document).ready(function () {
+      $("#example1").DataTable();
+      $("#example2").DataTable();
+    });
+
     return (
       <div>
         <Helmet>
@@ -146,12 +149,13 @@ class AdminPaymentAnagement extends React.Component {
 
 
           <script src="/assetsadmin/js/maps.js"></script>
+{/* ////////////////////////update 2021-05-04 datatable////////////////////////////////////////// */}
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+{/* ////////////////////////update 2021-05-04 datatable////////////////////////////////////////// */}
 
 
-
-
-
-
+          
 
 
 
@@ -195,7 +199,7 @@ class AdminPaymentAnagement extends React.Component {
                     <div className="card-body" id="paymenttable">
                       <h4 className="header-title">Pennding Payment</h4>
                       <div className="data-tables">
-                        <table id="example" class="display">
+                        <table id="example1" class="display">
                           <thead>
                             <tr>
                               <th>Name</th>
@@ -234,7 +238,7 @@ class AdminPaymentAnagement extends React.Component {
                   <div className="card">
                     <div className="card-body" id="Completetable">
                       <h4 className="header-title">Complete Payment</h4>
-
+                      <div className="data-tables">
                       <table id="example2" class="display">
                         <thead>
                           <tr>
@@ -269,13 +273,15 @@ class AdminPaymentAnagement extends React.Component {
                           </tr> */}
                         </tbody>
                       </table>
-
+</div>
                     </div>
                   </div>
                 </div>
                 {/* Primary table end */}
               </div>
             </div>
+
+    
           </div>
           {/* main content area end */}
 

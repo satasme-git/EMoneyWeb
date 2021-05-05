@@ -366,43 +366,43 @@ class Howitworks1 extends React.Component {
             </div>
 
           </div>
-          <div class="footer-dark">
-            <footer>
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-6 col-md-3 item">
-                    <h3>Services</h3>
-                    <ul>
-                      <li><a href="/termsofservice">Terms of Service</a></li>
-                      <li><a href="/privacypolicy">Privacy Policy</a></li>
-                      <li><a href="#"></a></li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-6 col-md-3 item">
-                    <h3>Contacts Us</h3>
-                    <ul>
-                      <li><a href="#">support@emoneytag.com</a></li>
-                      <li><a href="#">FAQ</a></li>
-
-                    </ul>
-                  </div>
-                  <div class="col-md-6 item text">
-                    <h3>EmoneyTag</h3>
-                    <p style={{color:"white" , textAlign:"left"}}>You can choose this method easily. Only you have to do is complete the
-                    tasks provided by us, By using your social media account and earn points.
-                    You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
-                    media accounts.your one tap can earn points for you.</p>
-                  </div>
-                  <div class="col item social"><a href="#">
-                    <i class="icon ion-social-facebook"></i></a><a href="#">
-                      <i class="icon ion-social-twitter"></i></a><a href="#">
-                      <i class="icon ion-social-youtube"></i></a><a href="#">
-                      <i class="icon ion-social-instagram"></i></a></div>
+          <div class="footer-dark" >
+          <footer>
+            <div class="container">
+              <div class="row" >
+                <div class="col-sm-6 col-md-3 item" style={{textAlign:"left"}}>
+                  <h3 >Services</h3>
+                  <ul>
+                    <li><a href="/termsofservice">Terms of Service</a></li>
+                    <li><a href="/privacypolicy">Privacy Policy</a></li>
+                    <li><a href="#"></a></li>
+                  </ul>
                 </div>
-                <p class="copyright">©️ 2021 — EMONEYTAG.COM</p>
+                <div class="col-sm-6 col-md-3 item" style={{textAlign:"left"}}>
+                  <h3>Contacts Us</h3>
+                  <ul>
+                    <li><a href="#">support@emoneytag.com</a></li>
+                    <li><a href="#">FAQ</a></li>
 
+                  </ul>
+                </div>
+                <div class="col-md-6 item text" style={{textAlign:"left"}}>
+                  <h3>EmoneyTag</h3>
+                  <p style={{color:"white"}}>You can choose this method easily. Only you have to do is complete the
+                  tasks provided by us, By using your social media account and earn points.
+                  You can earn points by using Facebook, Twitter, Instagram, YouTube and TikTok social
+                                           media accounts.your one tap can earn points for you.</p>
+                </div>
+                <div class="col item social"><a href="#">
+                  <i class="icon ion-social-facebook"></i></a><a href="#">
+                    <i class="icon ion-social-twitter"></i></a><a href="#">
+                    <i class="icon ion-social-youtube"></i></a><a href="#">
+                    <i class="icon ion-social-instagram"></i></a></div>
               </div>
-            </footer>
+              <p class="copyright">©️ 2021 — EMONEYTAG.COM</p>
+
+            </div>
+          </footer>
           </div>
         </div>
       </div>

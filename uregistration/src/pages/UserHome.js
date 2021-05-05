@@ -302,6 +302,7 @@ class UserHome extends React.Component {
                       id="quick_start"
                       class="preset-card"
                       // onClick={this.redirectToWatch}
+                      
                     >
                       <div class="preset-card__image quick_start">
                         <img
@@ -321,6 +322,8 @@ class UserHome extends React.Component {
                       >
                         I need to <span class="text_yellow">watch </span>
                         <br /> videos to earn points
+                        
+                        
                       </div>
                     </div>
 
@@ -455,6 +458,7 @@ class UserHome extends React.Component {
               <div class="allcard">
                 <div class="row">
                   <div class="col-6 col-sm-4 col-md-2">
+                  
                     <div
                       style={{
                         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
@@ -466,6 +470,7 @@ class UserHome extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/createorder"
                       ></a>
 
                       <div class="imageali">
@@ -489,6 +494,7 @@ class UserHome extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/createorder"
                         href=""
                       ></a>
                       <div class="imageali">
@@ -512,6 +518,7 @@ class UserHome extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/createorder"
                       ></a>
                       <div class="imageali">
                         {" "}
@@ -535,6 +542,7 @@ class UserHome extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/createorder"
                       ></a>
                       <div class="imageali">
                         <img
@@ -557,6 +565,7 @@ class UserHome extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
+                        href="/createorder"
                       ></a>
                       <div class="imageali">
                         <img
@@ -580,7 +589,8 @@ class UserHome extends React.Component {
                     >
                       <a
                         class="card-block stretched-link text-decoration-none"
-                        href="#"
+                        href="/createorder"
+                        
                       ></a>
                       <div class="imageali">
                         <img

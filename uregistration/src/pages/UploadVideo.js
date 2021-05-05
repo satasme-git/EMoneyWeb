@@ -188,14 +188,14 @@ class UploadVideo extends React.Component {
 .maxmin{
   color: red;
   text-align: left;
-  font-size: 3vh;
+  font-size: 3vhmax;
 }
 
 
 .maxmin1{
   color: red;
   text-align: left;
-  font-size: 3vh;
+  font-size: 3vhmax;
   paddingBottom: 500px;
 
 }
@@ -346,7 +346,7 @@ body {background-color:#dfeef2;}
 
 .upheader{
 
-    font-size: 50px;
+    font-size: 4vwmax;
     font-weight: 500;
     z-index: -1px;
 }
@@ -443,7 +443,7 @@ body {background-color:#dfeef2;}
 
 
 .selectcatagor{
-  font-size: 4vh;
+  font-size: 4vhmax;
   padding-bottom: 10px;
 
   
@@ -539,11 +539,15 @@ body {background-color:#dfeef2;}
                 </ul>
               </nav>
             </div>
+
+
+
+
             <main class="s-layout__content" style={{ height: "100%", marginTop: "50px", width: "100%" }}>
               <div class="container">
                 <div className="col-md-12 col-sm-12">
                   <div className="row" >
-                    <div className="col-md-6 col-sm-12" style={{ padding: "10px" ,  display:"flex"}}>
+                    <div className="col-md-6 col-sm-12 "  style={{ padding: "10px"  }}>
                       <div className="card">
                         <div className="card-body">
                           <div className="upheader">Upload Your Video</div><br />
@@ -604,6 +608,7 @@ body {background-color:#dfeef2;}
                               style={{ border: "solid 1px", borderRadius: "10px", padding: "5px" }}
                             />
                           </fieldset>
+                          <br/><br/><br/><br/><br/><br/>
                         </div>
                       </div>
                     </div>
@@ -654,7 +659,17 @@ body {background-color:#dfeef2;}
                 </div>
 
               </div>
+
+              
+  
+
             </main>
+
+
+      
+
+
+            
           </div>
         </div>
       </div >

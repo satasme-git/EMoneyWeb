@@ -50,10 +50,6 @@ class TwitterEarnHistory extends React.Component {
   }
 
   componentDidUpdate() {
-    //initialize datatable
-    $(document).ready(function () {
-      $("#example1").DataTable();
-    });
 
   }
 
@@ -84,11 +80,12 @@ class TwitterEarnHistory extends React.Component {
 
   render() {
 
+    //initialize datatable
+    $(document).ready(function () {
+      $("#example1").DataTable();
+      $("#example2").DataTable();
+    });
 
-        //initialize datatable
-        $(document).ready(function () {
-          $("#example1").DataTable();
-        });
 
     return (
       <div>

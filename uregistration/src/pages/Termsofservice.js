@@ -151,7 +151,7 @@ class Termsofservice extends React.Component {
 
 
 
-              <h6 style={{ fontWeight: "bold" }} >  EMONEYTAG TERMS OF SERVICE  </h6 ><br /><br />
+              <h6 style={{ fontWeight: "bold" }} >  EMONEYTAG TERMS OF SERVICE  </h6 ><br /><br /><br />
               <h6 style={{ fontWeight: "bold" }} >    1. Disclaimer 1.0</h6  >    <br />
 USER IS ADVISED TO READ THE TERMS OF SERVICES WITH UTMOST CARE BEFORE VISITING EMONEYTAG AND ITS SERVICES. AN ACT OF CONTINUING TO STAY AT AND USE EMONEYTAG AND SUBSCRIBING TO ANY PACKAGE OFFERED THROUGH THIS WEBSITE SHALL BE PRESUMED THAT THE USER AGREES TO ABIDE BY ALL THE PROVISIONS OF THE TERMS OF SERVICE. PLEASE NOTE THAT THE TERMS OF SERVICES ARE BINDING ON THE USER.<br /><br />
 
