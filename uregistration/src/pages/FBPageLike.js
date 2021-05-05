@@ -308,7 +308,7 @@ class FBPageLike extends React.Component {
                                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 
                                             <i class="fa fa-user"></i>
-                                            <span class="hidden-xs">{this.state.username}</span>
+                                            <span class="hidden-xs"> &nbsp;  {this.state.username}</span>
                                         </a>
                                     </li>
                                 </Link>
