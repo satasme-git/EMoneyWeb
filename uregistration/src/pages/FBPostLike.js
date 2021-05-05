@@ -88,7 +88,7 @@ class FBPostLike extends React.Component {
     }
 
     handleClick(urlS) {
-        let fblike = { userid: Cookies.get('user'), service: "Facebook Page Like", orderid: urlS.id }
+        let fblike = { userid: Cookies.get('user'), service: "Facebook Post Like", orderid: urlS.id }
 
 
         socialmedia.addFacebookLike(fblike)
@@ -100,6 +100,7 @@ class FBPostLike extends React.Component {
                     var x = document.getElementById("" + urlS.id);
                     x.innerHTML = "Liked";
                     x.disabled = true;
+                    window.location="/fbpostlike";
                 }
             });
 
@@ -110,7 +111,7 @@ class FBPostLike extends React.Component {
     }
 
     handleClick(urlS) {
-        let fblike = { userid: Cookies.get('user'), service: "Facebook Page Like", orderid: urlS.id }
+        let fblike = { userid: Cookies.get('user'), service: "Facebook Post Like", orderid: urlS.id }
 
 
         socialmedia.addFacebookLike(fblike)
@@ -122,6 +123,7 @@ class FBPostLike extends React.Component {
                     var x = document.getElementById("" + urlS.id);
                     x.innerHTML = "Liked";
                     x.disabled = true;
+                    window.location="/fbpostlike";
                 }
             });
 

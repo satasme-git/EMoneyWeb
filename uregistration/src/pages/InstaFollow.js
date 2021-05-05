@@ -90,6 +90,7 @@ class InstaFollow extends React.Component {
                     var x = document.getElementById("" + urlS.id);
                     x.innerHTML = "Followed";
                     x.disabled = true;
+                    window.location="/instafollow";
                 }
             });
     }

@@ -11,10 +11,9 @@ import earningService from "../services/earningService";
 import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import Pagination from '../components/Pagination';
-import PostShareCard from '../components/PostShareCard';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-import PostLikeCard from "../components/PostLikeCard";
+import PostShareCard from "../components/PostShareCard";
 import pointService from "../services/pointService";
 
 class FBPostShare extends React.Component {
@@ -34,7 +33,7 @@ class FBPostShare extends React.Component {
             points: ''
 
         }
-
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -89,7 +88,7 @@ class FBPostShare extends React.Component {
     }
 
     handleClick(urlS) {
-        let fblike = { userid: Cookies.get('user'), service: "Facebook Page Like", orderid: urlS.id }
+        let fblike = { userid: Cookies.get('user'), service: "Facebook Post Share", orderid: urlS.id }
 
         socialmedia.addFacebookLike(fblike)
             .then(res => {
@@ -100,6 +99,7 @@ class FBPostShare extends React.Component {
                     var x = document.getElementById("" + urlS.id);
                     x.innerHTML = "Liked";
                     x.disabled = true;
+                    window.location="/fbpostshare";
                 }
             });
     }
@@ -107,6 +107,7 @@ class FBPostShare extends React.Component {
     OpenRedirect(MyPath) {
         window.open(MyPath, "", "toolbar=no,status=no,menubar=no,location=center,scrollbars=no,resizable=no,height=500,width=657");
     }
+
     
 
     redirectToOrders = (e) => {
@@ -378,7 +379,7 @@ class FBPostShare extends React.Component {
                                                 </div>
 
                                             </div>
-                                            {currentCountries.map(country => <PostLikeCard key={country.id} country={country} count={this.state.points} handleClick={this.handleClick} />)}
+                                            {currentCountries.map(country => <PostShareCard key={country.id} country={country} count={this.state.points} handleClick={this.handleClick} />)}
 
 
                                         </div>

@@ -17,7 +17,7 @@ const YtSubCard = props => {
             <div>
               <img src="/assets/Image/new image size/icon/5.png" width="150px" height="150px" />
             </div>
-
+            <div>{props.count} points earned</div>
             <div style={{ margin: "20px" }}><button class="btn btn-primary mt-2" disabled="disable" id={id} value={status}>Subscribed</button>
               <p id="Liked"></p></div>
           </div>
@@ -36,7 +36,7 @@ const YtSubCard = props => {
             <div>
               <img src="/assets/Image/new image size/icon/5.png" width="150px" height="150px" />
             </div>
-
+            <div>{props.count} points available</div>
             <div style={{ margin: "20px" }}><button class="btn btn-success mt-2" id={id} value={status} onClick={(e) => props.handleClick({ url: code2, id: id })}>Subscribe</button>
               <p id="Liked"></p></div>
           </div>

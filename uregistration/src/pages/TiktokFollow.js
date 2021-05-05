@@ -86,6 +86,7 @@ class TiktokFollow extends React.Component {
                     var x = document.getElementById("" + urlS.id);
                     x.innerHTML = "Liked";
                     x.disabled = true;
+                    window.location="/tiktokfollow";
                 }
             });
     }

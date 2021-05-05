@@ -15,7 +15,7 @@ const InstaFollowCard = props => {
             {/* <div class="fb-page" data-href={code2} data-tabs="cover" data-width="" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
             </div> */}
             <div>
-              <img src="/assets/Image/new image size/icon/3.png" width="150px" height="150px" />
+              <img src="/assets/Image/new image size/icon/1.png" width="150px" height="150px" />
             </div>
             <div>{props.count} points earned</div>
 

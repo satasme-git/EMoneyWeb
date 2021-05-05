@@ -12,6 +12,7 @@ import Pagination from '../components/Pagination';
 import YtSubCard from '../components/YtSubCard';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import pointService from "../services/pointService";
 
 class YTSub extends React.Component {
 
@@ -26,7 +27,8 @@ class YTSub extends React.Component {
             allCountries: [],
             currentCountries: [],
             currentPage: null,
-            totalPages: null
+            totalPages: null,
+            points: ''
 
         }
         this.handleClick = this.handleClick.bind(this);
@@ -41,6 +43,9 @@ class YTSub extends React.Component {
 
         userServices.getUserById(Cookies.get('user')).then(res => {
             this.setState({ username: res.data.fname });
+        });
+        pointService.getServicePoints("Youtube Subscribe").then(res => {
+            this.setState({ points: res.data });
         });
     }
 
@@ -369,7 +374,7 @@ class YTSub extends React.Component {
                                                 </div>
 
                                             </div>
-                                            {currentCountries.map(country => <YtSubCard key={country.id} country={country} handleClick={this.handleClick} />)}
+                                            {currentCountries.map(country => <YtSubCard key={country.id} country={country} count={this.state.points} handleClick={this.handleClick} />)}
 
 
                                         </div>

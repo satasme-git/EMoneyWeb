@@ -107,7 +107,7 @@ class LinkClicks extends React.Component {
     }
 
     showTimer(new_window, id) {
-        var timeleft = 10;
+        var timeleft = 180;
         var that = this;
         var downloadTimer = setInterval(function () {
             // document.getElementById('button').style.display = 'none';
