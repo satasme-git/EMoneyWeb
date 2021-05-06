@@ -244,8 +244,9 @@ Address 2,<br /><br /><br />
 
 
               <h6 style={{ fontWeight: "bold" }}> Contact Customer Service:<br /><br />
-•	+12 3456 789  <br />
-•	support@Emoneytag.com<br /><br />
+              •	+95 996 0799 446 <br />
+•	+94 772 767 767 <br />
+•	Emoneytag.com<br /><br />
 
               </h6>
 
