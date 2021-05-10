@@ -64,37 +64,37 @@ class Dash extends React.Component {
         }
     }
     componentDidMount() {
-        // var user = Cookies.get('user');
-        // if (user != null) {
-        //     referalService.getUserById(user).then(res => {
+        var user = Cookies.get('user');
+        if (user != null) {
+            referalService.getUserById(user).then(res => {
 
-        //         this.setState({
-        //             totolrefered: res.data,
+                this.setState({
+                    totolrefered: res.data,
 
-        //         });
-        //     });
+                });
+            });
 
-        //     referalService.getTotalRefers(user).then(res => {
+            referalService.getTotalRefers(user).then(res => {
 
-        //         this.setState({
-        //             referalLink: res.data,
+                this.setState({
+                    referalLink: res.data,
 
-        //         });
-        //     });
+                });
+            });
 
-        //     earningService.getTotalEarning(Cookies.get('user')).then(res => {
-        //         this.setState({ total_earning: res.data });
-        //     });
+            earningService.getTotalEarning(Cookies.get('user')).then(res => {
+                this.setState({ total_earning: res.data });
+            });
 
-        //     userServices.getUserById(Cookies.get('user')).then(res => {
-        //         this.setState({ username: res.data.fname });
-        //     });
-        //     pointService.getServicePoints("Referal").then(res => {
-        //         this.setState({ referalpoint: res.data });
-        //       });
-        // } else {
-        //     this.props.history.push('/login');
-        // }
+            userServices.getUserById(Cookies.get('user')).then(res => {
+                this.setState({ username: res.data.fname });
+            });
+            pointService.getServicePoints("Referal").then(res => {
+                this.setState({ referalpoint: res.data });
+              });
+        } else {
+            this.props.history.push('/login');
+        }
 
 
 
@@ -305,9 +305,60 @@ class Dash extends React.Component {
                                 </div>
 
 
-                                
-{/* <label for="male">{this.state.totolrefered} </label> */}
+                                <br/>
 
+{/* /////////////////////premium card set ///////////////////////////// */}
+<div class="row" style={{paddingLeft:"20px" , paddingRight:"25px",textAlign:"center" , color:"white" }} >
+  <div class="col-sm-4">
+      
+  <div class="card " style={{background: "linear-gradient(to bottom, #70706F 0%, #BEC0C2 100%)" , borderRadius:"10px" , boxShadow:"5px 8px 10px rgba(0,0,0,0.28)", border:"none"}}>
+  <div class="card-body" >
+    <h5 class="card-title" >Silver </h5>
+    <p class="card-text" style={{color:"white"}}>
+    100
+Referal needed
+    </p>
+
+    <h5>You Refereled {this.state.totolrefered} People</h5>
+    
+  </div>
+</div>
+
+</div>
+  <div class="col-sm-4">
+  <div class="card " style={{background: "linear-gradient(to bottom, #B78628 0%, #FCC201 100%)" , borderRadius:"10px" , boxShadow:"5px 8px 10px rgba(0,0,0,0.28)", border:"none"}}>
+  <div class="card-body" >
+    <h5 class="card-title" >Gold </h5>
+    <p class="card-text" style={{color:"white"}}>
+    200
+Referal needed
+    </p>
+    <h5>You Refereled {this.state.totolrefered} People</h5>
+  </div>
+</div>
+
+</div>
+  <div class="col-sm-4">
+  <div class="card"  style={{background: "linear-gradient(to bottom, #264555 0%, #66777E 100%)" , borderRadius:"10px" , boxShadow:"5px 8px 10px rgba(0,0,0,0.28)", border:"none"}}>
+  <div class="card-body" >
+    <h5 class="card-title" >Platinum </h5>
+    <p class="card-text" style={{color:"white"}} >
+    300
+Referal needed
+    </p>
+    <h5>You Refereled {this.state.totolrefered} People</h5>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+<br/><br/><br/>
+{/* /////////////////////premium card set ///////////////////////////// */}
 
 
                             </div>
