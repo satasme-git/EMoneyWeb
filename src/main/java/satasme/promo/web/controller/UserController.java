@@ -486,6 +486,8 @@ public class UserController {
 
 	@PutMapping("/{id}")
 	public Object updateUser(@RequestBody ObjectNode node, @PathVariable(value = "id") long userid) {
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> : rnyterer e");
 		boolean errorfound = false;
 		User existingUser = this.userRepository.findById(userid)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found with id:" + userid));
@@ -513,6 +515,48 @@ public class UserController {
 		if (node.get("mobile") != null) {
 			existingUser.setMobile(node.get("mobile").asInt());
 		}
+		
+		if (node.get("whatsapp") != null) {
+			existingUser.setWhatsapp(node.get("whatsapp").asInt());
+		}
+		if (node.get("viber") != null) {
+			existingUser.setViber(node.get("viber").asInt());
+		}
+		if (node.get("teligram") != null) {
+			existingUser.setTeligram(node.get("teligram").asInt());
+		}
+		if (node.get("wechat") != null) {
+			existingUser.setWechat(node.get("wechat").asText());
+		}
+		if (node.get("fbplink") != null) {
+			existingUser.setFbplink(node.get("fbplink").asText());
+		}
+		
+		if (node.get("addresLine1") != null) {
+			existingUser.setAddresLine1(node.get("addresLine1").asText());
+		}
+		if (node.get("addresLine2") != null) {
+			existingUser.setAddresLine2(node.get("addresLine2").asText());
+		}
+		if (node.get("resizipcode") != null) {
+			existingUser.setResizipcode(node.get("resizipcode").asText());
+		}
+		if (node.get("residistrict") != null) {
+			existingUser.setResidistrict(node.get("residistrict").asText());
+		}
+		if (node.get("resiprovince") != null) {
+			existingUser.setResiprovince(node.get("resiprovince").asText());
+		}
+		if (node.get("resinetialcountry") != null) {
+			existingUser.setResinetialcountry(node.get("resinetialcountry").asText());
+		}
+		
+		if (node.get("age") != null) {
+			existingUser.setAge(node.get("age").asText());
+		}
+		
+		
+		
 		if (node.get("location") != null) {
 			existingUser.setLocation(node.get("location").asText());
 		}
@@ -531,6 +575,46 @@ public class UserController {
 		if (node.get("education") != null) {
 			existingUser.setEducation(node.get("education").asText());
 		}
+		
+		if (node.get("university") != null) {
+			existingUser.setUniversity(node.get("university").asText());
+		}
+		if (node.get("collage") != null) {
+			existingUser.setCollage(node.get("collage").asText());
+		}
+		
+		
+		if (node.get("occupation") != null) {
+			existingUser.setOccupation(node.get("occupation").asText());
+		}
+		
+		if (node.get("employer") != null) {
+			existingUser.setEmployer(node.get("employer").asText());
+		}
+		
+		if (node.get("designation") != null) {
+			existingUser.setDesignation(node.get("designation").asText());
+		}
+		
+		if (node.get("hobbies") != null) {
+			existingUser.setHobbies(node.get("hobbies").asText());
+		}
+		
+		
+		if (node.get("currentLiving") != null) {
+			existingUser.setCurrentLiving(node.get("currentLiving").asText());
+		}
+		if (node.get("resident") != null) {
+			existingUser.setResident(node.get("resident").asText());
+		}
+		if (node.get("idnumber") != null) {
+			existingUser.setIdnumber(node.get("idnumber").asText());
+		}
+		if (node.get("passport") != null) {
+			existingUser.setPassport(node.get("passport").asText());
+		}
+		
+		
 		if (node.get("key") != null) {
 			List<Login> logins = loginRepository.findAll();
 			for (Login login : logins) {

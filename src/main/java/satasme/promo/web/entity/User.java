@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name="users")
 public class User {
@@ -30,6 +32,37 @@ public class User {
 	String img;
 	@Column(name="mobile")
 	int mobile;
+//	
+	@Column(name="whatsapp")
+	@ColumnDefault(value = "0")
+	int whatsapp;
+	@Column(name="viber")
+	@ColumnDefault(value = "0")
+	int viber;
+	@Column(name="teligram")
+	@ColumnDefault(value = "0")
+	int teligram;
+	@Column(name="wechat")
+	String wechat;
+	@Column(name="fbplink")
+	String fbplink;
+	
+	@Column(name="addresLine1")
+	String addresLine1;
+	@Column(name="addresLine2")
+	String addresLine2;
+	@Column(name="resizipcode")
+	String resizipcode;
+	@Column(name="residistrict")
+	String residistrict;
+	@Column(name="resiprovince")
+	String resiprovince;
+	@Column(name="resinetialcountry")
+	String resinetialcountry;
+	
+	@Column(name="age")
+	String age;
+	
 	@Column(name="location")
 	String location;
 	@Column(name="status")
@@ -51,6 +84,28 @@ public class User {
 	@Column(name="reg_date")
 	String regdate;
 	
+	@Column(name="university")
+	String university;
+	@Column(name="collage")
+	String collage;
+	
+	@Column(name="occupation")
+	String occupation;
+	@Column(name="employer")
+	String employer;
+	@Column(name="designation")
+	String designation;
+	@Column(name="hobbies")
+	String hobbies;
+	
+	@Column(name="currentLiving")
+	String currentLiving;
+	@Column(name="resident")
+	String resident;
+	@Column(name="idnumber")
+	String idnumber;
+	@Column(name="passport")
+	String passport;
 	
 	public User() {
 		
@@ -74,6 +129,7 @@ public class User {
 		this.education = education;
 		this.refcode=refcode;
 	}
+	
 
 	public String getRefcode() {
 		return refcode;
@@ -193,4 +249,181 @@ public class User {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+
+	public int getWhatsapp() {
+		return whatsapp;
+	}
+
+	public void setWhatsapp(int whatsapp) {
+		this.whatsapp = whatsapp;
+	}
+
+	public int getViber() {
+		return viber;
+	}
+
+	public void setViber(int viber) {
+		this.viber = viber;
+	}
+
+	public int getTeligram() {
+		return teligram;
+	}
+
+	public void setTeligram(int teligram) {
+		this.teligram = teligram;
+	}
+
+	public String getWechat() {
+		return wechat;
+	}
+
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
+	}
+
+	public String getFbplink() {
+		return fbplink;
+	}
+
+	public void setFbplink(String fbplink) {
+		this.fbplink = fbplink;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	public String getCollage() {
+		return collage;
+	}
+
+	public void setCollage(String collage) {
+		this.collage = collage;
+	}
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	public String getEmployer() {
+		return employer;
+	}
+
+	public void setEmployer(String employer) {
+		this.employer = employer;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public String getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
+	}
+
+	public String getCurrentLiving() {
+		return currentLiving;
+	}
+
+	public void setCurrentLiving(String currentLiving) {
+		this.currentLiving = currentLiving;
+	}
+
+	public String getResident() {
+		return resident;
+	}
+
+	public void setResident(String resident) {
+		this.resident = resident;
+	}
+
+	public String getIdnumber() {
+		return idnumber;
+	}
+
+	public void setIdnumber(String idnumber) {
+		this.idnumber = idnumber;
+	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
+
+	public String getAddresLine1() {
+		return addresLine1;
+	}
+
+	public void setAddresLine1(String addresLine1) {
+		this.addresLine1 = addresLine1;
+	}
+
+	public String getAddresLine2() {
+		return addresLine2;
+	}
+
+	public void setAddresLine2(String addresLine2) {
+		this.addresLine2 = addresLine2;
+	}
+
+	public String getResizipcode() {
+		return resizipcode;
+	}
+
+	public void setResizipcode(String resizipcode) {
+		this.resizipcode = resizipcode;
+	}
+
+	public String getResidistrict() {
+		return residistrict;
+	}
+
+	public void setResidistrict(String residistrict) {
+		this.residistrict = residistrict;
+	}
+
+	public String getResiprovince() {
+		return resiprovince;
+	}
+
+	public void setResiprovince(String resiprovince) {
+		this.resiprovince = resiprovince;
+	}
+
+	public String getResinetialcountry() {
+		return resinetialcountry;
+	}
+
+	public void setResinetialcountry(String resinetialcountry) {
+		this.resinetialcountry = resinetialcountry;
+	}
+	
 }

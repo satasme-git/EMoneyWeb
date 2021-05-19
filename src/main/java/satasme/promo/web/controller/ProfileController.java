@@ -63,29 +63,88 @@ public class ProfileController {
 		double total_points=0;
 		User user=userRepository.findById(userid).orElseThrow(() -> new ResourceNotFoundException("User not found with id:" + userid));
 		if (user.getFname()!=null && !(user.getFname().isEmpty())) {
-			total_points+=6.5;
+			total_points+=2;
 		}
 		if (user.getLname()!=null && !(user.getLname().isEmpty())) {
-			total_points+=6.5;
+			total_points+=2;
 		}
 		
 		if (user.getMobile()!=0) {
-			total_points+=6.5;
+			total_points+=8;
 		}
+		
 		if (user.getStatus().equals("verified")) {
-			total_points+=6.5;
+			total_points+=4;
+		}
+		if (user.getWhatsapp()!=0) {
+			total_points+=8;
+		}
+		if (user.getViber()!=0) {
+			total_points+=8;
+		}
+		if (user.getTeligram()!=0) {
+			total_points+=8;
+		}
+		if (user.getWechat()!=null && !(user.getWechat().isEmpty())) {
+			total_points+=8;
+		}
+		if (user.getFbplink()!=null && !(user.getFbplink().isEmpty())) {
+			total_points+=8;
+		}
+		if (user.getCurrentLiving()!=null && !(user.getCurrentLiving().isEmpty())) {
+			total_points+=5;
+		}
+		if (user.getCountry()!=null && !(user.getCountry().isEmpty())) {
+			total_points+=5;
+		}
+		if (user.getResident()!=null && !(user.getResident().isEmpty())) {
+			total_points+=5;
+		}
+		if (user.getIdnumber()!=null && !(user.getIdnumber().isEmpty())) {
+			total_points+=10;
+		}
+		if (user.getPassport()!=null && !(user.getPassport().isEmpty())) {
+			total_points+=10;
 		}
 		if (user.getDob()!=null && !(user.getDob().isEmpty())) {
-			total_points+=6.5;
+			total_points+=4;
+		}
+		if (user.getAge()!=null && !(user.getAge().isEmpty())) {
+			total_points+=3;
 		}
 		if (user.getEducation()!=null && !(user.getEducation().isEmpty())) {
-			total_points+=6.5;
+			total_points+=10;
 		}
 		if (user.getGender()!=null && !(user.getGender().isEmpty())) {
-			total_points+=6.5;
+			total_points+=4;
 		}
 		if (user.getSpecialization()!=null && !(user.getSpecialization().isEmpty())) {
-			total_points+=6.5;
+			total_points+=0;
+		}
+		
+		if (user.getUniversity()!=null && !(user.getUniversity().isEmpty())) {
+			total_points+=10;
+		}
+		if (user.getCollage()!=null && !(user.getCollage().isEmpty())) {
+			total_points+=10;
+		}
+		if (user.getOccupation()!=null && !(user.getOccupation().isEmpty())) {
+			total_points+=10;
+		}
+		if (user.getEmployer()!=null && !(user.getEmployer().isEmpty())) {
+			total_points+=10;
+		}
+		if (user.getDesignation()!=null && !(user.getDesignation().isEmpty())) {
+			total_points+=10;
+		}
+		if (user.getHobbies()!=null && !(user.getHobbies().isEmpty())) {
+			total_points+=10;
+		}
+		
+		
+		
+		if (user.getAddresLine1()!=null && !(user.getAddresLine1().isEmpty())&&user.getAddresLine2()!=null && !(user.getAddresLine2().isEmpty())&&user.getResizipcode()!=null && !(user.getResizipcode().isEmpty())&&user.getResidistrict()!=null && !(user.getResidistrict().isEmpty())&&user.getResiprovince()!=null && !(user.getResiprovince().isEmpty())&&user.getResinetialcountry()!=null && !(user.getResinetialcountry().isEmpty())) {
+			total_points+=8;
 		}
 		
 		Criteria crp = em.unwrap(Session.class).createCriteria(ImageModel.class);
@@ -93,44 +152,18 @@ public class ProfileController {
 		ImageModel imgmModel=(ImageModel) crp.uniqueResult();
 		if(imgmModel!=null) {
 			if(imgmModel.getPicByte()!=null) {
-				total_points+=6.5;
+				total_points+=8;
 				
 			}
 		}
 		
 		PaymentReceiver payList=paymentRepositoryImpl.findUserFullDetails(user.getId());
-		if (payList.getCity()!=null && !(payList.getCity().isEmpty())) {
-			total_points+=4.61;
+		if (payList.getCity()!=null && !(payList.getCity().isEmpty())&&payList.getCountry()!=null && !(payList.getCountry().isEmpty())&&payList.getCurrency()!=null && !(payList.getCurrency().isEmpty())&&payList.getP_pay()!=null && !(payList.getP_pay().isEmpty())&&payList.getFname()!=null && !(payList.getFname().isEmpty())&&payList.getLname()!=null && !(payList.getLname().isEmpty())&&payList.getLname()!=null && !(payList.getLname().isEmpty())&&payList.getLname()!=null && !(payList.getLname().isEmpty())&&payList.getPostal()!=null && !(payList.getPostal().isEmpty())&&payList.getRegion()!=null && !(payList.getRegion().isEmpty())&&payList.getStreet()!=null && !(payList.getStreet().isEmpty())&&payList.getAddresno()!=null && !(payList.getAddresno().isEmpty())) {
+			total_points+=8;
 		}
-		if (payList.getCountry()!=null && !(payList.getCountry().isEmpty())) {
-			total_points+=4.61;
-		}
-		if (payList.getCurrency()!=null && !(payList.getCurrency().isEmpty())) {
-			total_points+=2.61;
-		}
-		if (payList.getP_pay()!=null && !(payList.getP_pay().isEmpty())) {
-			total_points+=2.00;
-		}
-		if (payList.getFname()!=null && !(payList.getFname().isEmpty())) {
-			total_points+=4.61;
-		}
-		if (payList.getLname()!=null && !(payList.getLname().isEmpty())) {
-			total_points+=4.61;
-		}
-		if (payList.getPostal()!=null && !(payList.getPostal().isEmpty())) {
-			total_points+=4.61;
-		}
-		if (payList.getRegion()!=null && !(payList.getRegion().isEmpty())) {
-			total_points+=4.61;
-		}
-		if (payList.getStreet()!=null && !(payList.getStreet().isEmpty())) {
-			total_points+=4.61;
-		}
-		if (payList.getAddresno()!=null && !(payList.getAddresno().isEmpty())) {
-			total_points+=4.61;
-		}
+	
 		
-		if(total_points==99.99) {
+		if(total_points==199.99) {
 			Criteria cr = em.unwrap(Session.class).createCriteria(UserPoints.class);
 			cr.add(Restrictions.eq("user", user));
 			cr.add(Restrictions.eq("pointSource", "Profile Completion"));
@@ -152,6 +185,7 @@ public class ProfileController {
 		}else {
 			int round_ponts = (int) total_points;
 			responseText="Your profile is "+round_ponts+"% completed.";
+		
 		}
 		return responseText;
 	}

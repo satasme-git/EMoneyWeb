@@ -7,6 +7,11 @@ import Cookies from 'js-cookie';
 import Chart from "react-google-charts";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import moment from 'moment' // 2.20.1
+
+const _format = 'YYYY-MM-DD'
+const _current_year = moment().format(_format)
+
 
 class Profile extends React.Component {
 
@@ -20,6 +25,18 @@ class Profile extends React.Component {
             fname: '',
             lname: '',
             mobile: '',
+            whatsapp:'',
+            viber:'',
+            teligram:'',
+            wechat:'',
+            fbplink:'',
+            addresLine1:'',
+            addresLine2:'',
+            resizipcode:'',
+            residistrict:'',
+            resiprovince:'',
+            resinetialcountry:'',
+
             c_fname: '',
             image: '',
             c_lname: '',
@@ -30,6 +47,19 @@ class Profile extends React.Component {
             stateorregion: '',
             specialization: '',
             education: '',
+            university:"",
+            collage:'',
+
+            occupation:"",
+            employer:"",
+            designation:"",
+            hobbies:"",
+
+            currentLiving:"",
+            resident:"",
+            idnumber:"",
+            passport:"",
+
             dob: '',
             country: '',
             currency: '',
@@ -45,7 +75,8 @@ class Profile extends React.Component {
             prmobile: "",
             prearningtotal: "",
             emailchange: "",
-            paypalpay: ""
+            paypalpay: "",
+            age:''
 
         }
         this.contactInfo = this.contactInfo.bind(this);
@@ -88,6 +119,49 @@ class Profile extends React.Component {
                     if (res.data.user.mobile != null && res.data.user.mobile != 0) {
                         this.setState({ mobile: res.data.user.mobile });
                     }
+
+
+                    if (res.data.user.whatsapp != null && res.data.user.whatsapp != 0) {
+                        this.setState({ whatsapp: res.data.user.whatsapp });
+                    }
+                    if (res.data.user.viber != null && res.data.user.viber != 0) {
+                        this.setState({ viber: res.data.user.viber });
+                    }
+                    if (res.data.user.teligram != null && res.data.user.teligram != 0) {
+                        this.setState({ teligram: res.data.user.teligram });
+                    }
+                    if (res.data.user.wechat != null) {
+                        this.setState({ wechat: res.data.user.wechat });
+                    }
+                    if (res.data.user.fbplink != null) {
+                        this.setState({ fbplink: res.data.user.fbplink });
+                    }
+
+                    if (res.data.user.addresLine1 != null) {
+                        this.setState({ addresLine1: res.data.user.addresLine1 });
+                    }
+                    if (res.data.user.addresLine2 != null) {
+                        this.setState({ addresLine2: res.data.user.addresLine2 });
+                    }
+                    if (res.data.user.resizipcode != null) {
+                        this.setState({ resizipcode: res.data.user.resizipcode });
+                    }
+                    if (res.data.user.residistrict != null) {
+                        this.setState({ residistrict: res.data.user.residistrict });
+                    }
+                    if (res.data.user.resiprovince != null) {
+                        this.setState({ resiprovince: res.data.user.resiprovince });
+                    }
+                    if (res.data.user.resinetialcountry != null) {
+                        this.setState({ resinetialcountry: res.data.user.resinetialcountry });
+                    }
+
+
+
+                    if (res.data.user.age != null) {
+                        this.setState({ age: res.data.user.age });
+                    }
+
                     if (res.data.user.gender != null) {
                         this.setState({ gender: res.data.user.gender });
                     }
@@ -100,6 +174,41 @@ class Profile extends React.Component {
                     if (res.data.user.education != null) {
                         this.setState({ education: res.data.user.education });
                     }
+
+                    if (res.data.user.university != null) {
+                        this.setState({ university: res.data.user.university });
+                    }
+                    if (res.data.user.collage != null) {
+                        this.setState({ collage: res.data.user.collage});
+                    }
+
+                    if (res.data.user.occupation != null) {
+                        this.setState({ occupation: res.data.user.occupation});
+                    }
+                    if (res.data.user.employer != null) {
+                        this.setState({ employer: res.data.user.employer});
+                    }
+                    if (res.data.user.designation != null) {
+                        this.setState({ designation: res.data.user.designation});
+                    }
+                    if (res.data.user.hobbies != null) {
+                        this.setState({ hobbies: res.data.user.hobbies});
+                    }
+
+                    if (res.data.user.currentLiving != null) {
+                        this.setState({ currentLiving: res.data.user.currentLiving});
+                    }
+                    if (res.data.user.resident != null) {
+                        this.setState({ resident: res.data.user.resident});
+                    }
+                    if (res.data.user.idnumber != null) {
+                        this.setState({ idnumber: res.data.user.idnumber});
+                    }
+                    if (res.data.user.passport != null) {
+                        this.setState({ passport: res.data.user.passport});
+                    }
+
+
                     if (res.data.user.country != null) {
                         this.setState({ basiccountry: res.data.user.country });
                     }
@@ -155,10 +264,14 @@ class Profile extends React.Component {
                     });
                 } else {
                     var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    var comp2=(parseInt(comp)/200)*100;
+
                     this.setState({
-                        completeper: parseInt(comp),
-                        notcompleteper: (100 - comp)
+                        completeper: parseInt(comp2),
+                        notcompleteper: (100 - comp2),
+                        prearningtotal:comp
                     });
+                  
                 }
             });
             userServices.getEarnedPoints(user).then(res => {
@@ -206,10 +319,13 @@ class Profile extends React.Component {
                             });
                         } else {
                             var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                            var comp2=(parseInt(comp)/200)*100;
                             this.setState({
-                                completeper: parseInt(comp),
-                                notcompleteper: (100 - comp)
+                                completeper: parseInt(comp2),
+                                notcompleteper: (100 - comp2),
+                                prearningtotal:comp
                             });
+                         
                         }
                     });
                     userServices.getEarnedPoints(user).then(res => {
@@ -268,7 +384,7 @@ class Profile extends React.Component {
     // }
     contactInfo = (e) => {
         e.preventDefault();
-        let user = { fname: this.state.c_fname, lname: this.state.c_lname, mobile: parseInt(this.state.mobile) }
+        let user = { fname: this.state.c_fname, lname: this.state.c_lname, mobile: parseInt(this.state.mobile), whatsapp: parseInt(this.state.whatsapp) , viber: parseInt(this.state.viber), teligram: parseInt(this.state.teligram), wechat: this.state.wechat, wechat: this.state.wechat,fbplink:this.state.fbplink,age:this.state.age   ,addresLine1:this.state.addresLine1,addresLine2:this.state.addresLine2,resizipcode:this.state.resizipcode,residistrict:this.state.residistrict,resiprovince:this.state.resiprovince,resinetialcountry:this.state.resinetialcountry}
 
         userServices.updateUser(user, Cookies.get('user')).then(res => {
             toast('Successfully Updated', { position: 'bottom' });
@@ -282,10 +398,14 @@ class Profile extends React.Component {
                     });
                 } else {
                     var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    var comp2=(parseInt(comp)/200)*100;
                     this.setState({
-                        completeper: parseInt(comp),
-                        notcompleteper: (100 - comp)
+                        completeper: parseInt(comp2),
+                        notcompleteper: (100 - comp2),
+                        prearningtotal:comp
                     });
+
+                  
                 }
             });
             userServices.getEarnedPoints(user).then(res => {
@@ -325,10 +445,13 @@ class Profile extends React.Component {
                         });
                     } else {
                         var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                        var comp2=(parseInt(comp)/200)*100;
                         this.setState({
-                            completeper: parseInt(comp),
-                            notcompleteper: (100 - comp)
+                            completeper: parseInt(comp2),
+                            notcompleteper: (100 - comp2),
+                            prearningtotal:comp
                         });
+                     
                     }
                 });
                 userServices.getEarnedPoints(user).then(res => {
@@ -374,10 +497,13 @@ class Profile extends React.Component {
                     });
                 } else {
                     var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    var comp2=(parseInt(comp)/200)*100;
                     this.setState({
-                        completeper: parseInt(comp),
-                        notcompleteper: (100 - comp)
+                        completeper: parseInt(comp2),
+                        notcompleteper: (100 - comp2),
+                        prearningtotal:comp
                     });
+                
                 }
             });
             userServices.getEarnedPoints(user).then(res => {
@@ -402,7 +528,7 @@ class Profile extends React.Component {
     }
 
     basicInfo = (e) => {
-        let user = { country: this.state.basiccountry, gender: this.state.gender, dob: this.state.dob }
+        let user = { country: this.state.basiccountry,age:this.state.age, gender: this.state.gender, dob: this.state.dob, currentLiving: this.state.currentLiving, resident: this.state.resident, idnumber: this.state.idnumber, passport: this.state.passport }
 
         userServices.updateUser(user, Cookies.get('user')).then(res => {
             toast('Successfully Updated', { position: 'bottom' });
@@ -416,10 +542,13 @@ class Profile extends React.Component {
                     });
                 } else {
                     var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    var comp2=(parseInt(comp)/200)*100;
                     this.setState({
-                        completeper: parseInt(comp),
-                        notcompleteper: (100 - comp)
+                        completeper: parseInt(comp2),
+                        notcompleteper: (100 - comp2),
+                        prearningtotal:comp
                     });
+                  
                 }
             });
             userServices.getEarnedPoints(user).then(res => {
@@ -444,7 +573,7 @@ class Profile extends React.Component {
     }
 
     experience = (e) => {
-        let user = { specialization: this.state.specialization, education: this.state.education }
+        let user = { specialization: this.state.specialization, education: this.state.education, university: this.state.university, collage: this.state.collage }
 
         userServices.updateUser(user, Cookies.get('user')).then(res => {
             toast('Successfully Updated', { position: 'bottom' });
@@ -458,10 +587,13 @@ class Profile extends React.Component {
                     });
                 } else {
                     var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    var comp2=(parseInt(comp)/200)*100;
                     this.setState({
-                        completeper: parseInt(comp),
-                        notcompleteper: (100 - comp)
+                        completeper: parseInt(comp2),
+                        notcompleteper: (100 - comp2),
+                        prearningtotal:comp
                     });
+                 
                 }
             });
             userServices.getEarnedPoints(user).then(res => {
@@ -484,6 +616,52 @@ class Profile extends React.Component {
             });
         });
     }
+
+    otherDetails = (e) => {
+        let user = { occupation: this.state.occupation, employer: this.state.employer, designation: this.state.designation, hobbies: this.state.hobbies }
+
+        userServices.updateUser(user, Cookies.get('user')).then(res => {
+            toast('Successfully Updated', { position: 'bottom' });
+            this.props.history.push('/profile');
+            var user = Cookies.get('user');
+            userServices.getProfileCompletion(user).then(res => {
+                if (res.data === "compeleted") {
+                    this.setState({
+                        completeper: 100,
+                        notcompleteper: 0
+                    });
+                } else {
+                    var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    var comp2=(parseInt(comp)/200)*100;
+                    this.setState({
+                        completeper: parseInt(comp2),
+                        notcompleteper: (100 - comp2),
+                        prearningtotal:comp
+                    });
+                  
+                }
+            });
+            userServices.getEarnedPoints(user).then(res => {
+                if (res.data.email != null) {
+                    if (isNaN(res.data.email)) {
+                        this.setState({ premail: res.data.email });
+                    } else {
+                        this.setState({ premail: "Not Selected" });
+                    }
+                }
+                if (res.data.mobile != null) {
+                    this.setState({ prmobile: res.data.mobile });
+                }
+                if (res.data.points != null) {
+                    this.setState({ prearningtotal: res.data.points });
+                }
+                if (res.data.url != null) {
+                    // alert(res.data.url)
+                }
+            });
+        });
+    }
+
 
     removeVerifyEmail = (e) => {
         var emaildiv = document.getElementById("verifyemaildiv");
@@ -576,6 +754,43 @@ class Profile extends React.Component {
     changemobile = e => {
         this.setState({ mobile: e.target.value });
     };
+    changwhatsapp = e => {
+        this.setState({ whatsapp: e.target.value });
+    };
+    changeviber = e => {
+        this.setState({ viber: e.target.value });
+    };
+    changeteligram = e => {
+        this.setState({ teligram: e.target.value });
+    };
+    changewechat = e => {
+        this.setState({ wechat: e.target.value });
+    };
+    changefbplink = e => {
+        this.setState({ fbplink: e.target.value });
+    };
+
+    changeAddressLine1 = e => {
+        this.setState({ addresLine1: e.target.value });
+    };
+    changeAddressLine2 = e => {
+        this.setState({ addresLine2: e.target.value });
+    };
+    changeResidentialZipCode = e => {
+        this.setState({ resizipcode: e.target.value });
+    };
+    changeResidentalDistrict = e => {
+        this.setState({ residistrict: e.target.value });
+    };
+    changeResidetialProvince = e => {
+        this.setState({ resiprovince: e.target.value });
+    };
+    changeResidentialCountry = e => {
+        this.setState({ resinetialcountry: e.target.value });
+    };
+
+
+
 
     changeBasicCountry = e => {
         this.setState({ basiccountry: e.target.value });
@@ -585,9 +800,35 @@ class Profile extends React.Component {
         this.setState({ gender: e.target.value });
     };
 
-    changeDOB = e => {
-        this.setState({ dob: e.target.value });
+
+    changeCurrentLiving = e => {
+        this.setState({ currentLiving: e.target.value });
     };
+    changeResident = e => {
+        this.setState({ resident: e.target.value });
+    };
+    changeIDNumber = e => {
+        this.setState({ idnumber: e.target.value });
+    };
+    changePassport = e => {
+        this.setState({ passport: e.target.value });
+    };
+
+    changeDOB = e => {
+        const startDate = moment(e.target.value);
+        const timeEnd = moment(_current_year);
+        const diff = timeEnd.diff(startDate);
+        const diffDuration = moment.duration(diff);
+    
+        this.setState({ 
+            dob: e.target.value,
+            age:diffDuration.years(),
+        });
+    };
+    changeAge = e => {
+        this.setState({ age: e.target.value });
+    };
+
 
     changeSpecialization = e => {
         this.setState({ specialization: e.target.value });
@@ -596,6 +837,27 @@ class Profile extends React.Component {
     changeEducation = e => {
         this.setState({ education: e.target.value });
     };
+    changeUniversity = e => {
+        this.setState({ university: e.target.value });
+    };
+
+    changeCollage = e => {
+        this.setState({ collage: e.target.value });
+    };
+
+    changeOccupation = e => {
+        this.setState({ occupation: e.target.value });
+    };
+    changeEmployer = e => {
+        this.setState({ employer: e.target.value });
+    };
+    changeDesignation = e => {
+        this.setState({ designation: e.target.value });
+    };
+    changeHobbies = e => {
+        this.setState({ hobbies: e.target.value });
+    };
+
 
     // uploadImages = e => {
 
@@ -716,6 +978,13 @@ class Profile extends React.Component {
 
 
                                 <h4 class="card-title" >Profile Strength</h4>
+                                {
+                                    this.state.notcompleteper<49?
+                                    <sub style={{color:'red',margin:-5}}>{ Math.round(this.state.notcompleteper* 100)/100} % to be complete to earn $0.25</sub>
+                                    :
+                                   null
+                                }
+                               
                                 <Chart
 
                                     chartType="PieChart"
@@ -728,6 +997,7 @@ class Profile extends React.Component {
                                     ]}
                                     options={{
                                         title: '',
+                                        marginTop:-5
                                     }}
                                     rootProps={{ 'data-testid': '1' }}
                                 />
@@ -735,7 +1005,7 @@ class Profile extends React.Component {
                             </div>
                             <div class="col-sm-4" style={{ textAlign: "center" }}><br></br>
                                 <h4 class="card-title">Profile Image</h4>
-                                <img style={{ width: "35%", height: "35%", marginLeft: "30%" }} src={this.state.profileimage}></img><br/>
+                                <img style={{ width: "30%", marginLeft: "30%" }} src={this.state.profileimage}></img><br/>
                                 {/* /////////////////////new upload iamge/////////////// */}
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
@@ -978,6 +1248,130 @@ class Profile extends React.Component {
                                                 <sub style={{ fontSize: "13px" }}>Mobile Number</sub>
                                                 <input class="form-control" type="text" id="mobile" value={this.state.mobile} onChange={this.changemobile} style={{ width: "100%", marginTop: "10px" }} placeholder="Mobile Number" /></div>
                                         </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>WhatsApp Number</sub>
+                                                <input class="form-control" type="text" id="whatsapp" value={this.state.whatsapp} onChange={this.changwhatsapp} style={{ width: "100%", marginTop: "10px" }} placeholder="WhatsApp Number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Viber Number</sub>
+                                                <input class="form-control" type="text" id="viber" value={this.state.viber} onChange={this.changeviber} style={{ width: "100%", marginTop: "10px" }} placeholder="Viber Number" /></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Tele grame Number</sub>
+                                                <input class="form-control" type="text" id="telegramme" value={this.state.teligram} onChange={this.changeteligram} style={{ width: "100%", marginTop: "10px" }} placeholder="Tele grame Number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>WeChat Id</sub>
+                                                <input class="form-control" type="text" id="wechat" value={this.state.wechat} onChange={this.changewechat} style={{ width: "100%", marginTop: "10px" }} placeholder="WeChat ID" /></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Facebook Profile Link</sub>
+                                                <input class="form-control" type="text" id="fbplink" value={this.state.fbplink} onChange={this.changefbplink} style={{ width: "100%", marginTop: "10px" }} placeholder="Facebook Profile Link" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group"><h4 style={{ fontSize: "13px", margin: "-5px" }}>Resident  Address</h4></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Address Line 1</sub>
+                                                <input class="form-control" type="text" id="fbplink" value={this.state.addresLine1} onChange={this.changeAddressLine1} style={{ width: "100%", marginTop: "10px" }} placeholder="Address Line 1" /></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Address Line 2</sub>
+                                                <input class="form-control" type="text" id="fbplink" value={this.state.addresLine2} onChange={this.changeAddressLine2} style={{ width: "100%", marginTop: "10px" }} placeholder="Address Line 1" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Zip Code</sub>
+                                                <input class="form-control" type="text" id="wechat" value={this.state.resizipcode} onChange={this.changeResidentialZipCode} style={{ width: "100%", marginTop: "10px" }} placeholder="Zip Code" /></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>District</sub>
+                                                <input class="form-control" type="text" id="fbplink" value={this.state.residistrict} onChange={this.changeResidentalDistrict} style={{ width: "100%", marginTop: "10px" }} placeholder="District" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Province</sub>
+                                                <input class="form-control" type="text" id="wechat" value={this.state.resiprovince} onChange={this.changeResidetialProvince} style={{ width: "100%", marginTop: "10px" }} placeholder="Province" /></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Country</sub>
+                                                <div class="form-group" style={{ width: "100%", marginTop: "10px" }}>
+                                                <select class="form-control" value={this.state.resinetialcountry} onChange={this.changeResidentialCountry} >
+                                                        <option>--Select--</option>
+                                                        <option value="AF">Afghanistan</option>
+                                                        <option value="AM">Armenia</option>
+                                                        <option value="AZ">Azerbaijan</option>
+                                                        <option value="BH">Bahrain</option>
+                                                        <option value="BD">Bangladesh</option>
+                                                        <option value="BT">Bhutan</option>
+                                                        <option value="IO">British Indian Ocean Territory</option>
+                                                        <option value="BN">Brunei Darussalam</option>
+                                                        <option value="KH">Cambodia</option>
+                                                        <option value="CN">China</option>
+                                                        <option value="CX">Christmas Island</option>
+                                                        <option value="CC">Cocos (Keeling) Islands</option>
+                                                        <option value="GE">Georgia</option>
+                                                        <option value="HK">Hong Kong</option>
+                                                        <option value="IN">India</option>
+                                                        <option value="ID">Indonesia</option>
+                                                        <option value="IR">Iran</option>
+                                                        <option value="IQ">Iraq</option>
+                                                        <option value="IL">Israel</option>
+                                                        <option value="JP">Japan</option>
+                                                        <option value="JO">Jordan</option>
+                                                        <option value="KZ">Kazakhstan</option>
+                                                        <option value="KP">Korea, Democratic People's Republic of</option>
+                                                        <option value="KR">Korea, Republic of</option>
+                                                        <option value="KW">Kuwait</option>
+                                                        <option value="KG">Kyrgyzstan</option>
+                                                        <option value="LA">Lao</option>
+                                                        <option value="LB">Lebanon</option>
+                                                        <option value="MY">Malaysia</option>
+                                                        <option value="MV">Maldives</option>
+                                                        <option value="MN">Mongolia</option>
+                                                        <option value="MM">Myanmar (Burma)</option>
+                                                        <option value="NP">Nepal</option>
+                                                        <option value="OM">Oman</option>
+                                                        <option value="PK">Pakistan</option>
+                                                        <option value="PH">Philippines</option>
+                                                        <option value="QA">Qatar</option>
+                                                        <option value="RU">Russian Federation</option>
+                                                        <option value="SA">Saudi Arabia</option>
+                                                        <option value="SG">Singapore</option>
+                                                        <option value="LK">Sri Lanka</option>
+                                                        <option value="SY">Syria</option>
+                                                        <option value="TW">Taiwan</option>
+                                                        <option value="TJ">Tajikistan</option>
+                                                        <option value="TH">Thailand</option>
+                                                        <option value="TP">East Timor</option>
+                                                        <option value="TM">Turkmenistan</option>
+                                                        <option value="AE">United Arab Emirates</option>
+                                                        <option value="UZ">Uzbekistan</option>
+                                                        <option value="VN">Vietnam</option>
+                                                        <option value="YE">Yemen</option>
+                                                    </select>
+                                                    </div>
+                                                    </div>  
+                                        </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-sm-6" style={{ width: "477.5px", minWidth: "25%" }}>
@@ -986,6 +1380,7 @@ class Profile extends React.Component {
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </form>
                             </div>
 
@@ -1001,7 +1396,7 @@ class Profile extends React.Component {
                                     <div class="form-row">
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
-                                                <sub style={{ fontSize: "13px" }}>Country</sub>
+                                                <sub style={{ fontSize: "13px" }}>Citizenship</sub>
                                                 {/* <input class="form-control" type="text" id="country" value={this.state.basiccountry} onChange={this.changeBasicCountry} style={{ width: "100%", marginTop: "10px" }} placeholder="Country" />*/}
                                                 <select class="form-control" value={this.state.basiccountry} onChange={this.changeBasicCountry} style={{ width: "100%", marginTop: "10px" }}>
                                                     <option>--Select--</option>
@@ -1061,15 +1456,103 @@ class Profile extends React.Component {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6">
                                             <div class="form-group">
-                                                <sub style={{ fontSize: "13px" }}>Gender</sub>
-                                                <input class="form-control" id="gender" type="text" value={this.state.gender} onChange={this.changeGender} style={{ width: "100%", marginTop: "10px" }} placeholder="Gender" /></div>
+                                                <sub style={{ fontSize: "13px" }}>Current Living Contry</sub>
+                                                <select class="form-control" value={this.state.currentLiving} onChange={this.changeCurrentLiving} style={{ width: "100%", marginTop: "10px" }}>
+                                                    <option>--Select--</option>
+                                                    <option value="AF">Afghanistan</option>
+                                                    <option value="AM">Armenia</option>
+                                                    <option value="AZ">Azerbaijan</option>
+                                                    <option value="BH">Bahrain</option>
+                                                    <option value="BD">Bangladesh</option>
+                                                    <option value="BT">Bhutan</option>
+                                                    <option value="IO">British Indian Ocean Territory</option>
+                                                    <option value="BN">Brunei Darussalam</option>
+                                                    <option value="KH">Cambodia</option>
+                                                    <option value="CN">China</option>
+                                                    <option value="CX">Christmas Island</option>
+                                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                                    <option value="GE">Georgia</option>
+                                                    <option value="HK">Hong Kong</option>
+                                                    <option value="IN">India</option>
+                                                    <option value="ID">Indonesia</option>
+                                                    <option value="IR">Iran</option>
+                                                    <option value="IQ">Iraq</option>
+                                                    <option value="IL">Israel</option>
+                                                    <option value="JP">Japan</option>
+                                                    <option value="JO">Jordan</option>
+                                                    <option value="KZ">Kazakhstan</option>
+                                                    <option value="KP">Korea, Democratic People's Republic of</option>
+                                                    <option value="KR">Korea, Republic of</option>
+                                                    <option value="KW">Kuwait</option>
+                                                    <option value="KG">Kyrgyzstan</option>
+                                                    <option value="LA">Lao</option>
+                                                    <option value="LB">Lebanon</option>
+                                                    <option value="MY">Malaysia</option>
+                                                    <option value="MV">Maldives</option>
+                                                    <option value="MN">Mongolia</option>
+                                                    <option value="MM">Myanmar (Burma)</option>
+                                                    <option value="NP">Nepal</option>
+                                                    <option value="OM">Oman</option>
+                                                    <option value="PK">Pakistan</option>
+                                                    <option value="PH">Philippines</option>
+                                                    <option value="QA">Qatar</option>
+                                                    <option value="RU">Russian Federation</option>
+                                                    <option value="SA">Saudi Arabia</option>
+                                                    <option value="SG">Singapore</option>
+                                                    <option value="LK">Sri Lanka</option>
+                                                    <option value="SY">Syria</option>
+                                                    <option value="TW">Taiwan</option>
+                                                    <option value="TJ">Tajikistan</option>
+                                                    <option value="TH">Thailand</option>
+                                                    <option value="TP">East Timor</option>
+                                                    <option value="TM">Turkmenistan</option>
+                                                    <option value="AE">United Arab Emirates</option>
+                                                    <option value="UZ">Uzbekistan</option>
+                                                    <option value="VN">Vietnam</option>
+                                                    <option value="YE">Yemen</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Resident</sub>
+                                                <input class="form-control" type="text" id="resident" value={this.state.resident} onChange={this.changeResident} style={{ width: "100%", marginTop: "10px" }} placeholder="Resident" /></div>
+                                        </div>
+                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                         <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>ID Number</sub>
+                                                <input class="form-control" id="idnumber" type="text" value={this.state.idnumber} onChange={this.changeIDNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="ID number" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Passport No</sub>
+                                                <input class="form-control" type="text" id="passport" value={this.state.passport} onChange={this.changePassport} style={{ width: "100%", marginTop: "10px" }} placeholder="Passport" /></div>
+                                        </div>
+                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                         <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Gender</sub>
+                                                <input class="form-control" id="gender" type="text" value={this.state.gender} onChange={this.changeGender} style={{ width: "100%", marginTop: "10px" }} placeholder="Gender" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Date of Birth</sub>
                                                 <input class="form-control" type="date" id="dob" value={this.state.dob} onChange={this.changeDOB} style={{ width: "100%", marginTop: "10px" }} placeholder="Date of Birth" /></div>
+                                        </div>
+                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Age</sub>
+                                                <input class="form-control" type="text" id="age" value={this.state.age} onChange={this.changeAge}  style={{ width: "100%", marginTop: "10px" }} placeholder="Age" /></div>
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -1098,9 +1581,38 @@ class Profile extends React.Component {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6">
                                             <div class="form-group">
-                                                <sub style={{ fontSize: "13px" }}>Education</sub>
-                                                <input class="form-control" id="education" type="text" value={this.state.education} onChange={this.changeEducation} style={{ width: "100%", marginTop: "10px" }} placeholder="Education" /></div>
+                                            <sub style={{ fontSize: "13px" }}>Education</sub>
+                                                <div className="form-group" style={{ width: "100%", marginTop: "10px" }}>
+                                                    {/* <input class="form-control" type="text" value={this.state.country} onChange={this.changeCountry} placeholder="Country" /> */}
+                                                    <select className="form-control" value={this.state.education} onChange={this.changeEducation} >
+                                                        <option>--Select--</option>
+                                                        <option value="Mater">Master</option>
+                                                        <option value="gradu">Graduated</option>
+                                                        <option value="ugradu">Under Graduate</option>
+                                                        <option value="highscl">High School</option>
+                                                        <option value="basic">Basic Education</option>
+                                                    </select>
+                                                </div>
+                                                {/* <sub style={{ fontSize: "13px" }}>Education</sub>
+                                                <input class="form-control" id="education" type="text" value={this.state.education} onChange={this.changeEducation} style={{ width: "100%", marginTop: "10px" }} placeholder="Education" /> */}
+                                                
+                                                </div>
                                         </div>
+                                    </div>
+                                   
+                                    <div className="form-row">
+                                            <div className="col-12 col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <sub style={{ fontSize: "13px" }}>University</sub>
+                                                    <input class="form-control" id="education" type="text" value={this.state.university} onChange={this.changeUniversity} style={{ width: "100%", marginTop: "10px" }} placeholder="University" />
+                                                </div>
+                                            </div>
+                                            <div className="col-12 col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <sub style={{ fontSize: "13px" }}>Collage</sub>
+                                                    <input class="form-control" id="education" type="text" value={this.state.collage} onChange={this.changeCollage} style={{ width: "100%", marginTop: "10px" }} placeholder="Collage" />
+                                                </div>
+                                            </div>
                                     </div>
 
                                     <div class="form-row">
@@ -1112,6 +1624,159 @@ class Profile extends React.Component {
                                     </div>
                                 </form>
                             </div>
+
+
+                            <div class="card" style={{ marginLeft: "20px", marginRight: "20px", marginBottom: "20px", marginTop: "20px" }}>
+                                <form style={{ margin: "20px" }}>
+                                <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-12">
+                                            <div class="form-group"><h4 style={{ fontSize: "26px",  }}>Other details</h4></div>
+                                            <sub style={{ fontSize: "15px" }}>Add your job details and other get better paid monetization ads.&nbsp;</sub>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Occupation</sub>
+                                                <div className="form-group" style={{ width: "100%", marginTop: "10px" }}>
+                                                    {/* <input class="form-control" type="text" value={this.state.country} onChange={this.changeCountry} placeholder="Country" /> */}
+                                                    <select className="form-control" value={this.state.occupation} onChange={this.changeOccupation} >
+                                                        <option>--Select--</option>
+                                                        <option value="Accountant">Accountant</option>
+                                                        <option value="Actor">Actor /Actress</option>
+                                                        <option value="Architect">Architect</option>
+                                                        <option value="Author">Author</option>
+                                                        <option value="Baker">Baker</option>
+                                                        <option value="Driver">Driver</option>
+                                                        <option value="Carpenter">Carpenter</option>
+                                                        <option value="Chef">Chef/Cook</option>
+                                                        <option value="Cleaner">Cleaner</option>
+                                                        <option value="Dentist">Dentist</option>
+                                                        <option value="Designer">Designer</option>
+                                                        <option value="Doctor">Doctor</option>
+                                                        <option value="Electrician">Electrician</option>
+                                                        <option value="Engineer">Engineer</option>
+                                                        <option value="Factoryw">Factory worker</option>
+                                                        <option value="Farmer">Farmer</option>
+                                                        <option value="Fireman">Fireman/Fire fighter</option>
+                                                        <option value="Fisherman">Fisherman</option>
+                                                        <option value="Hairdresser">Hairdresser</option>
+                                                        <option value="Journalist">Journalist</option>
+                                                        <option value="Lawyer">Lawyer</option>
+                                                        <option value="Lecturer">Lecturer</option>
+                                                        <option value="Librarian">Librarian</option>
+                                                        <option value="Mechanic">Mechanic</option>
+                                                        <option value="Model">Model</option>
+                                                        <option value="Nurse">Nurse</option>
+                                                        <option value="Painter">Painter</option>
+                                                        <option value="Pharmacist">Pharmacist</option>
+                                                        <option value="Photographer">Photographer</option>
+                                                        <option value="Pilot">Pilot</option>
+                                                        <option value="Plumber">Plumber</option>
+                                                        <option value="Politician">Politician</option>
+                                                        <option value="Policeman">Policeman/Policewoman</option>
+                                                        <option value="Postman">Postman</option>
+                                                        <option value="Scientist">Scientist</option>
+                                                        <option value="Secretary">Secretary</option>
+                                                        <option value="Soldier">Soldier</option>
+                                                        <option value="Tailor">Tailor</option>
+                                                        <option value="Teacher">Teacher</option>
+                                                        <option value="Waiter">Waiter/Waitress</option>
+                                                        <option value="Other">Other</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6">
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Employer Name</sub>
+                                                <input class="form-control" id="employer" type="text" value={this.state.employer} onChange={this.changeEmployer} style={{ width: "100%", marginTop: "10px" }} placeholder="Employer Name" />
+                                                
+                                                </div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div className="form-row">
+                                            <div className="col-12 col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <sub style={{ fontSize: "13px" }}>Designation</sub>
+                                                    <input class="form-control" id="designation" type="text" value={this.state.designation} onChange={this.changeDesignation} style={{ width: "100%", marginTop: "10px" }} placeholder="Designation" />
+                                                </div>
+                                            </div>
+                                            <div className="col-12 col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <sub style={{ fontSize: "13px" }}>Interest In / Hobbies</sub>
+                                                    
+                                                    {/* <input class="form-control" id="hobbies" type="text" value={this.state.hobbies} onChange={this.changeHobbies} style={{ width: "100%", marginTop: "10px" }} placeholder="Collage" /> */}
+                                                    <select class="form-control" value={this.state.hobbies}  onChange={this.changeHobbies} >
+                                                        <option>--Select--</option>
+                                                        <option value="Acting">Acting</option>
+                                                        <option value="Arts">Arts</option>
+                                                        <option value="Archery">Archery</option>
+                                                        <option value="Badminton">Badminton</option>
+                                                        <option value="Baseball">Baseball</option>
+                                                        <option value="Basketball">Basketball</option>
+                                                        <option value="Beat">Beat boxing</option>
+                                                        <option value="Bird">Bird watching</option>
+                                                        <option value="Boating">Boating</option>
+                                                        <option value="Boxing">Boxing</option>
+                                                        <option value="Camping">Camping</option>
+                                                        <option value="CarRacing">Car Racing</option>
+                                                        <option value="Cartooning">Cartooning</option>
+                                                        <option value="Chess">Chess</option>
+                                                        <option value="Collecting">Collecting</option>
+                                                        <option value="Coloring">Coloring</option>
+                                                        <option value="Cooking">Cooking</option>
+                                                        <option value="Cycling">Cycling</option>
+                                                        <option value="Dancing">Dancing</option>
+                                                        <option value="Darts">Darts </option>
+                                                        <option value="DigitalPhotography">Digital Photography</option>
+                                                        <option value="Diving">Diving</option>
+                                                        <option value="Drawing">Drawing</option>
+                                                        <option value="Exercise">Exercise</option>
+                                                        <option value="Fishing">Fishing</option>
+                                                        <option value="Football">Football</option>
+                                                        <option value="FourWheeling">Four Wheeling</option>
+                                                        <option value="FreeClimbing">Free Climbing</option>
+                                                        <option value="Gardening">Gardening</option>
+                                                        <option value="Guitar">Guitar</option>
+                                                        <option value="Hiking">Hiking</option>
+                                                        <option value="Hunting">Hunting</option>
+                                                        <option value="IceDiving">Ice Diving</option>
+                                                        <option value="JumpRoping">Jump Roping</option>
+                                                        <option value="Meditation">Meditation</option>
+                                                        <option value="Paintball">Paintball</option>
+                                                        <option value="Painting">Painting</option>
+                                                        <option value="Playingmusic">Playing music</option>
+                                                        <option value="Rafting">Rafting</option>
+                                                        <option value="Reading">Reading</option>
+                                                        <option value="Shopping">Shopping</option>
+                                                        <option value="Storytelling">Storytelling</option>
+                                                        <option value="Surfing">Surfing</option>
+                                                        <option value="Swimming">Swimming</option>
+                                                        <option value="Tennis">Tennis</option>
+                                                        <option value="Walking">Walking</option>
+                                                        <option value="Wrestling">Wrestling</option>
+                                                        <option value="Writing">Writing</option>
+                                                        <option value="Yoga">Yoga</option>
+                                                        <option value="Zumba">Zumba</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-sm-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group" style={{ width: "50%" }}>
+                                                <button class="btn btn-info" type="button" style={{ marginLeft: "10%" }} onClick={this.otherDetails}>Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="footer-dark">
