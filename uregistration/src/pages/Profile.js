@@ -1009,7 +1009,7 @@ class Profile extends React.Component {
                                 {/* /////////////////////new upload iamge/////////////// */}
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="myImage" onChange={this.changeThumbnail} />
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="myImage" onChange={this.changeThumbnail} /><br/>
                                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                     </div>
                                 </div>

@@ -199,13 +199,20 @@ class Contactuspage extends React.Component {
 
                             <div style={{ color: "#383e56" }}>
                               <i class="fa fa-phone"></i>&nbsp;
-                         +0123456789
+                         + 95 996 0799 446 <br/>
+                       
+                         </div>
+
+                         <div style={{ color: "#383e56" }}>
+                              <i class="fa fa-phone"></i>&nbsp;
+                        
+                         + 94 772 767 767
                          </div>
 
 
                             <div style={{ color: "#383e56" }}>
                               <i class="fa fa-envelope"></i>&nbsp;
-                              support@emoneytag.com
+                              Emoneytag.com
                          </div><br /><br />
 
 

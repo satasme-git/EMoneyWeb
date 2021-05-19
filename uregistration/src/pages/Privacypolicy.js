@@ -142,11 +142,11 @@ class Privacypolicy extends React.Component {
         })()}
 
         <div class="row">
-          <div class="col-3"></div>
-          <div class="col-6" style={{ marginTop: "120px" }}>
+          <div class="col-2"></div>
+          <div class="col-8" style={{ marginTop: "120px" }}>
 
             <div className="privcy" style={{ color: "#0f3057" }}>
-              <div>  <h6 style={{ fontWeight: "bold" }}>  EMONEYTAG PRIVACY POLICY </h6> </div><br /><br /><br />
+              <div>  <h6 style={{ fontWeight: "bold" }}>  <br /><br />EMONEYTAG PRIVACY POLICY </h6> </div><br /><br /><br />
 This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website - <a href=" https://www.Emoneytag.com  " >www.Emoneytag.com </a> .<br /><br />
               <br /><br />
 
@@ -161,14 +161,23 @@ Provide us with feedback on our products or services collecting from provided or
               <br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>How do we use your information?   </h6><br /><br />
-We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:
-•	To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.
-•	To improve our website in order to better serve you.
-•	To allow us to better service you in responding to your customer service requests.
-•	To administer a contest, promotion, survey or other site feature.
-•	To quickly process your transactions.
-•	To ask for ratings and reviews of services or products.
-•	To follow up with them after correspondence (live chat, email or phone inquiries)<br /><br />
+We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:<br />
+
+
+<ul>
+ <li> • To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.</li>
+  <li>• To improve our website in order to better serve you.</li>
+  <li> • To allow us to better service you in responding to your customer service requests.</li>
+  <li>• To administer a contest, promotion, survey or other site feature.</li>
+  <li>	• To quickly process your transactions.</li>
+  <li>• To ask for ratings and reviews of services or products.</li>
+  <li>	• To follow up with them after correspondence (live chat, email or phone inquiries)</li>
+
+</ul>  
+
+
+
+<br /><br />
               <br /><br />
               <h6  style={{ fontWeight: "bold" }}>How do we protect your information?    </h6>
               <br /><br />
@@ -235,8 +244,9 @@ Address 2,<br /><br /><br />
 
 
               <h6 style={{ fontWeight: "bold" }}> Contact Customer Service:<br /><br />
-•	+12 3456 789  <br />
-•	support@Emoneytag.com<br /><br />
+              •	+95 996 0799 446 <br />
+•	+94 772 767 767 <br />
+•	Emoneytag.com<br /><br />
 
               </h6>
 
@@ -244,7 +254,7 @@ Address 2,<br /><br /><br />
             </div>
 
           </div>
-          <div class="col-3"></div>
+          <div class="col-2"></div>
         </div>
 
 

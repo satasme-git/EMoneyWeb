@@ -371,7 +371,7 @@ class Points extends React.Component {
                               <input type="text" style={{ border: "solid 2px" }} disabled defaultValue={data.pointSource} />
                               <br /><br />
                               <label for="Edit" >Edit Point :</label>
-                              &nbsp;&nbsp;&nbsp;<input type="text" style={{ border: "solid 2px" }} id="Edit" name="Edit" defaultValue={data.points} onChange={this.changePoint} />
+                              &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="text" style={{ border: "solid 2px" }} id="Edit" name="Edit" defaultValue={data.points} onChange={this.changePoint} />
                               <br /><br />
 
 

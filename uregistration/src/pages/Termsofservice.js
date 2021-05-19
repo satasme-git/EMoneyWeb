@@ -151,7 +151,7 @@ class Termsofservice extends React.Component {
 
 
 
-              <h6 style={{ fontWeight: "bold" }} >  EMONEYTAG TERMS OF SERVICE  </h6 ><br /><br /><br />
+              <h6 style={{ fontWeight: "bold" }} >  <br /><br />EMONEYTAG TERMS OF SERVICE  </h6 ><br /><br /><br />
               <h6 style={{ fontWeight: "bold" }} >    1. Disclaimer 1.0</h6  >    <br />
 USER IS ADVISED TO READ THE TERMS OF SERVICES WITH UTMOST CARE BEFORE VISITING EMONEYTAG AND ITS SERVICES. AN ACT OF CONTINUING TO STAY AT AND USE EMONEYTAG AND SUBSCRIBING TO ANY PACKAGE OFFERED THROUGH THIS WEBSITE SHALL BE PRESUMED THAT THE USER AGREES TO ABIDE BY ALL THE PROVISIONS OF THE TERMS OF SERVICE. PLEASE NOTE THAT THE TERMS OF SERVICES ARE BINDING ON THE USER.<br /><br />
 
@@ -225,8 +225,9 @@ USER IS ADVISED TO READ THE TERMS OF SERVICES WITH UTMOST CARE BEFORE VISITING E
 5.9 Subject to any additional or separate written agreement, the TOS constitutes the entire agreement between Emoneytag and you with respect to the Services.<br /><br />
 5.10 The headings, subheadings and numbers in the TOS are for convenience of the reader and reference only, and they do not aim to limit, construe, define, or determine the scope of the provisions herein contained.<br /><br />
 5.11 Emoneytag has its official Privacy Policy forming the part of the TOS. It is posted separately on www.Emoneytag.com to facilitate the reader and to emphasize special consideration.<br /><br />
-5.12 If Emoneytag fails to enforce any right available at the TOS, any additional agreement or any law for the time being in force, it shall neither imply that Emoneytag waives the right nor deprive its entitlement to enforce such right subsequently.<br />
+5.12 If Emoneytag fails to enforce any right available at the TOS, any additional agreement or any law for the time being in force, it shall neither imply that Emoneytag waives the right nor deprive its entitlement to enforce such right subsequently.<br /><br />
 5.13 Emoneytag may assign any right arising from the TOS to any person or entity. The user agrees not to assign the right available at the TOS to any person or entity. <br /><br />
+5.14 This point can be able to change from admin panel.<br/>
               <h6 style={{ fontWeight: "bold" }} > 6. Governing Law, Jurisdiction and Service of Notice: </h6 ><br /><br />
 6.1 All disputes arising from the TOS shall be resolved by an independent arbitration.<br /><br />
 6.2 In case, the arbitration fails to resolve the dispute, the matter may be brought before the court having competent jurisdiction in Toronto.<br /><br />
@@ -257,7 +258,7 @@ USER IS ADVISED TO READ THE TERMS OF SERVICES WITH UTMOST CARE BEFORE VISITING E
               <h6 style={{ fontWeight: "bold" }} >  12. Confidential Information:<br /><br /> </h6>
 12.1 Parties agree not to disclose the confidential information of each other without written permission of the concerned party unless required by competent governmental authorities. Such confidential information includes, without limitation, the business secrets and strategies and identifiable information of the clients.<br /><br />
               <h6 style={{ fontWeight: "bold" }} >  13. Contact:<br /> </h6>
-13.1 For all communication relating to the operation of the TOS, as well as support, sales, and billing, the following email addresses shall be used: support@Emoneytag.com<br /><br />
+13.1 For all communication relating to the operation of the TOS, as well as support, sales, and billing, the following email addresses shall be used: Emoneytag.com<br /><br />
 13.2 For physical mailing of checks and other documents, the following address shall be used:<br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>
@@ -269,8 +270,9 @@ Address 2,<br /><br /><br />
 
 
               <h6 style={{ fontWeight: "bold" }}> Contact Customer Service:<br /><br />
-•	+0000 0000 00000 <br />
-•	support@Emoneytag.com<br /><br />
+•	+95 996 0799 446 <br />
+•	+94 772 767 767 <br />
+•	Emoneytag.com<br /><br />
 
               </h6>
 
