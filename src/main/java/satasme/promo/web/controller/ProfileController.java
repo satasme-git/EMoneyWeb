@@ -74,7 +74,7 @@ public class ProfileController {
 		}
 		
 		if (user.getStatus().equals("verified")) {
-			total_points+=4;
+			total_points+=8;
 		}
 		if (user.getWhatsapp()!=0) {
 			total_points+=8;
@@ -150,8 +150,10 @@ public class ProfileController {
 		Criteria crp = em.unwrap(Session.class).createCriteria(ImageModel.class);
 		crp.add(Restrictions.eq("user", user));
 		ImageModel imgmModel=(ImageModel) crp.uniqueResult();
+		
 		if(imgmModel!=null) {
 			if(imgmModel.getPicByte()!=null) {
+			
 				total_points+=8;
 				
 			}

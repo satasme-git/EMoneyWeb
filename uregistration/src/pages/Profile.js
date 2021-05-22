@@ -1707,7 +1707,7 @@ class Profile extends React.Component {
                                             <div className="col-12 col-sm-12 col-md-6">
                                                 <div class="form-group">
                                                     <sub style={{ fontSize: "13px" }}>Interest In / Hobbies</sub>
-                                                    
+                                                    <div className="form-group" style={{ width: "100%", marginTop: "10px" }}>   
                                                     {/* <input class="form-control" id="hobbies" type="text" value={this.state.hobbies} onChange={this.changeHobbies} style={{ width: "100%", marginTop: "10px" }} placeholder="Collage" /> */}
                                                     <select class="form-control" value={this.state.hobbies}  onChange={this.changeHobbies} >
                                                         <option>--Select--</option>
@@ -1762,6 +1762,7 @@ class Profile extends React.Component {
                                                         <option value="Yoga">Yoga</option>
                                                         <option value="Zumba">Zumba</option>
                                                     </select>
+                                                </div>
                                                 </div>
                                             </div>
                                     </div>
