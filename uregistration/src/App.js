@@ -88,6 +88,8 @@ import ServeyEarnHistory from "./pages/ServeyEarnHistory";
 import Sidebar from './components/Sidebar';
 import Dash from './pages/CreateOrder';
 import { ToastContainer, toast } from 'react-toast'
+import RegisterAdmin from './pages/RegisterAdmin';
+
 
 
 let hashHistory = Router.hashHistory;
@@ -201,6 +203,7 @@ class App extends Component {
 
                      {/* admin */}
                      <Route path="/admin/" exact component={AdminLogin}></Route>
+                     <Route path="/admin/admin" exact component={RegisterAdmin}></Route>
                      <Route path="/admin/admindash" exact component={Dashboard}></Route>
                      <Route path="/admin/adminmanageorders" exact component={AdminManageOrders}></Route>
                      <Route path="/admin/adminpaymentmanagement" exact component={AdminPaymentAnagement}></Route>

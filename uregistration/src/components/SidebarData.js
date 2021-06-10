@@ -4,11 +4,13 @@ import * as AiIcons from "react-icons/ai";
 
 import * as RiIcons from "react-icons/ri";
 import * as SiIcons from "react-icons/si";
+import { ContactlessSharp } from "@material-ui/icons";
+
 
 
 export const SidebarData = [
 
-
+      
   {
     title: "Dashboard",
     path: "/admin/admindash",
@@ -19,6 +21,11 @@ export const SidebarData = [
     title: "Users",
     path: "/admin/users",
     icon: <AiIcons.AiOutlineDashboard />,
+  },
+  {
+    title: "Admins Registration",
+    path: "/admin/admin",
+    icon: <RiIcons.RiProfileFill />,
   },
 
   {
@@ -146,4 +153,6 @@ export const SidebarData = [
     path: "/admin/approvevideos",
     icon: <AiIcons.AiFillVideoCamera />,
   },
+  
+  
 ];

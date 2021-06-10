@@ -7,7 +7,7 @@ import dashboardService from '../services/dashboardService';
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert';
 
-class Dashboard extends React.Component {
+class DashboardAdmin extends React.Component {
 
     constructor(props) {
         super(props);
@@ -98,7 +98,7 @@ class Dashboard extends React.Component {
 
 
     componentDidMount() {
-        var user = Cookies.get('admin');
+        var user = Cookies.get('admin2');
         
         if (user != null) {
             dashboardService.getTotalUsers().then(res => {
@@ -204,8 +204,8 @@ class Dashboard extends React.Component {
               {
                   label: 'Yes',
                   onClick: () => {
-                      Cookies.remove('admin');
-                      Cookies.remove('role')
+                      Cookies.remove('admin2');
+                      Cookies.remove('role2')
                       this.props.history.push('/admin');
                   }
               },
@@ -289,22 +289,18 @@ class Dashboard extends React.Component {
                     
                     <div className="main-content">
                         {/* <!-- header area start --> */}
-                        
-                        <button class="s-sidebar__nav-link" onClick={this.logout}>
-                                            <i class="fa fa-flash"></i><em>Logout</em>
-                                        </button>
                         <br />
-                        <br></br>
                         <div className="page-title-area">
                             <div className="row align-items-center">
                                 <div className="col-sm-6">
-                                
                                     <div className="breadcrumbs-area clearfix">
-                                        <h4 className="page-title pull-left">Dashboard</h4>
+                                        <h4 className="page-title pull-left">Dashboard Admin</h4>
                                         
                                         <ul className="breadcrumbs pull-left">
-                                       
-                                            <li> <Link to="/admin/admindash" > <a >Home</a> </Link></li>
+                                        <a class="s-sidebar__nav-link" onClick={this.logout}>
+                                            <i class="fa fa-flash"></i><em>Logout</em>
+                                        </a>
+                                            <li> <Link to="/admin/admindash1" > <a >Home</a> </Link></li>
                                             
                                             <li><span>Dashboard</span></li>
                                             
@@ -518,4 +514,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard
+export default DashboardAdmin

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PackageService from "../services/packageService";
+import TimerService from "../services/timerService";
 import toast from 'toast-me';
 import { Helmet } from "react-helmet";
 import Sidebar from '../components/Sidebar';
@@ -13,7 +14,8 @@ class ELink extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      oldtime:'',
+      timer:'',
       lviewmin: 0,
       lviewmax: 0,
       lvpackqty: '',
@@ -46,11 +48,23 @@ class ELink extends React.Component {
 
         this.setState({ lviewdata: res.data });
       });
+      TimerService.getNewTime().then(res => {
+        this.setState({ timer: res.data });
+      });
     }
 
 
   }
-
+  
+  saveNewTimer(){
+  //  alert(oldtime);
+   
+    
+    let timer={timer:this.state.timer}
+    TimerService.editTimer(timer).then(res => {
+      toast(res.data, { position: 'bottom' })
+    });
+  }
   saveLViewsMinMax(social, service) {
     let settings = { social_name: social, service: service, min: this.state.lviewmin, max: this.state.lviewmax }
     PackageService.createPackageMinMax(settings)
@@ -88,7 +102,9 @@ class ELink extends React.Component {
         }
       });
   };
-
+  changeTimer = event => {
+    this.setState({ timer: event.target.value });
+  };
   changeLViewsMin = event => {
     this.setState({ lviewmin: event.target.value });
   };
@@ -444,7 +460,57 @@ class ELink extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>
+      </div>
+      <div className="col-lg-6 mt-5">
+                  <div className="card">
+                    <div className="card-body">
+                      <h4 className="header-title">Update Timer</h4>
+                      <div className="single-table">
+                        <div className="table-responsive">
+                          <table className="table text-center">
+                            <thead className="text-uppercase">
+                              <tr>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  {/* <label htmlFor="timer">Old Time</label><br />
+                                  <input
+                                    type="text"
+                                    name="timer"
+                                    placeholder={this.state.timer}
+                                    style={{ border: "1px solid black", textAlign: "center" }}
+                                    
+                                    
+                                  /> */}
+                                  <br />
+                                  <label htmlFor="timer">New Time:</label><br />
+                                  <input
+                                    type="text"
+                                    name="timer"
+                                    placeholder="Time for Seconds"
+                                    style={{ border: "1px solid black", textAlign: "center" }}
+                                    value={this.state.timer}
+                                    onChange={this.changeTimer}
+                                    required
+                                  />
+                                  <br />
+                                  <br />
+                                  <button
+                                    type="submit"
+                                    class="btn btn-success"
+                                    onClick={() => this.saveNewTimer()}
+                                  >Update</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      </div>
 
               </div>
             </div>

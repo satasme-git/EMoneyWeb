@@ -47,7 +47,7 @@ public class AdminLoginController {
 			boolean userfound=false;
 			boolean pwfound=false;
 			AdminLogin getadmin=null;
-			List<AdminLogin> admins=adminLoginRepository.findAll();
+			List<AdminLogin> admins =adminLoginRepository.findAll();
 			for (AdminLogin admin : admins) {
 				if (admin.getEmail().equals(email) && admin.getPassword().equals(pw)) {
 					userfound=true;
@@ -68,5 +68,6 @@ public class AdminLoginController {
 			return responseText;
 		}
 	}
+
 	
 }

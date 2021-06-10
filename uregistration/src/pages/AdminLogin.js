@@ -5,6 +5,7 @@ import adminServices from '../services/adminServices';
 import toast from 'toast-me';
 import Cookies from 'js-cookie';
 
+
 class AdminLogin extends React.Component {
 
   constructor(props) {
@@ -18,6 +19,7 @@ class AdminLogin extends React.Component {
     }
   }
 
+
   componentDidMount() {
     var user = Cookies.get('admin');
     if (user != null) {
@@ -25,7 +27,8 @@ class AdminLogin extends React.Component {
     } else {
     }
   }
-
+  
+  
   userSignin = (e) => {
     e.preventDefault();
 
@@ -45,7 +48,34 @@ class AdminLogin extends React.Component {
           Cookies.set('role', res.data.role, {
             expires: inFifteenMinutes
           });
-          this.props.history.push('/admin/admindash');
+          
+          
+          //filtering admin types
+           
+            var admin_role = Cookies.get('role');
+                if(admin_role=="SuperAdmin"){
+                  Cookies.set('admin', res.data.adminid, {
+                    expires: inFifteenMinutes
+                  });
+                  Cookies.set('role', res.data.role, {
+                    expires: inFifteenMinutes
+                  });
+                  this.props.history.push('/admin/admindash');
+                }
+                else if(admin_role=="admin"){
+                  Cookies.set('admin2', res.data.adminid, {
+                    expires: inFifteenMinutes
+                  });
+                  Cookies.set('role2', res.data.role, {
+                    expires: inFifteenMinutes
+                  });
+                  this.props.history.push('/admin/admindash1'); 
+                }else{
+                  this.props.history.push('/admin'); 
+                }
+               
+          
+          
         } else {
           toast('Email or Password invalid!', { position: 'bottom' });
         }
@@ -53,6 +83,7 @@ class AdminLogin extends React.Component {
     }
 
   }
+
 
   changeEmail = (event) => {
     this.setState({

@@ -126,7 +126,7 @@ class Register extends React.Component {
 			} else {
 				let user = { email: this.state.email, key: this.state.key, key1: this.state.key1 }
 				userServices.createUser(user).then(res => {
-					// this.props.history.push('/Login');
+					this.props.history.push('/Login');
 
 					if (res.status === 200) {
 						if (res.data === 'Success') {
@@ -213,7 +213,7 @@ class Register extends React.Component {
 					Cookies.set('user', res.data.user.id, {
 						expires: inFifteenMinutes
 					});
-					// this.props.history.push('/userhome');
+					 this.props.history.push('/userhome');
 					window.location.href = "/userhome"
 				} else {
 					toast('Server maybe offline. Try again later!', { position: 'bottom' });
