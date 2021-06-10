@@ -71,6 +71,7 @@ public class PaymentController {
 	private UserPaymentRepository userPaymentRepository;
 	@Autowired
 	private UserPaymentRepositoryImpl userPaymentRepositoryImpl;
+
 	@Autowired
 	private UserSocialEngagementRepository engagementsrep;
 	@Autowired

@@ -20,15 +20,15 @@ public class AdminLogin {
 	String email;
 	@Column(name="password")
 	String password;
-	@Column(name="role")
+	@Column(nullable =false,name="role")
 	String role;
 	@Column(name="status")
 	String status;
-	
+
 	public AdminLogin() {
 		super();
 	}
-	
+
 	public AdminLogin(String username, String email, String password, String role, String status) {
 		super();
 		this.username = username;

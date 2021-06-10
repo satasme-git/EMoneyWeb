@@ -4,7 +4,7 @@ public class AdminLoginResponse {
 
 	long adminid;
 	String role;
-	
+
 	public AdminLoginResponse() {
 		super();
 	}
@@ -30,6 +30,6 @@ public class AdminLoginResponse {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
+
+
 }

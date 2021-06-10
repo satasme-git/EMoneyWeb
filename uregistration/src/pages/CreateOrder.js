@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import orderService from "../services/orderService";
@@ -15,7 +16,8 @@ import toast from 'toast-me';
 import queryString from 'query-string';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
+ //get json for convert currency
+import country_currency_gtr from '../country_currency.json';
 /*///////////////////////import add question page/////////////////*/
 import Addyesnoquestion from "./Addyesnoquestion";
 import Addsinglechoicequestion from "./Addsinglechoicequestion";
@@ -24,8 +26,10 @@ import Addeasyquestion from "./Addeasyquestion";
 import serveyService from "../services/serveyService";
 /*///////////////////////import add question page/////////////////*/
 
-class Dash extends React.Component {
 
+
+class Dash extends React.Component {
+   
     constructor(props) {
 
         super(props)
@@ -111,7 +115,9 @@ class Dash extends React.Component {
 
     }
 
+
      componentDidMount() {
+        
         var user = Cookies.get('user');
         const value = queryString.parse(this.props.location.search);
         const token = value.url;
@@ -1867,7 +1873,7 @@ class Dash extends React.Component {
             //     });
             // } else 
             if (tw_f_check.checked) {
-                let orderdetails = { user: Cookies.get('user'), country: fresult, social: 'twitter', agegroup: fagegroup, gender: fgender, link: this.state.twitter_link, cost: this.state.final_earning, service: 'followers', count: this.state.tw_followers }
+                let orderdetails = { user: Cookies.tt('user'), country: fresult, social: 'twitter', agegroup: fagegroup, gender: fgender, link: this.state.twitter_link, cost: this.state.final_earning, service: 'followers', count: this.state.tw_followers }
 
                 orderService.saveorder(orderdetails).then(res => {
                     if (res.status === 200 && res.statusText === 'OK') {
@@ -1977,7 +1983,27 @@ class Dash extends React.Component {
         }
 
     }
+   //convert currency
+    getmoreCurrency(){
+        //alert("aaaaaaaaaaa");
+        if(this.state.total_price != "Contact us for get this price" && !(this.state.youtube_link == "" && this.state.facebook_link == "" && this.state.insta_link == "" && this.state.twitter_link == "" && this.state.tiktok_link == "" && this.state.web_link == "" && this.state.serveyclick == false)){
+        const convertCurrency = require('nodejs-currency-converter');
+        var datetime = new Date();
+        var cur = document.getElementById("cr_country").value;
+        
+        
+            var new1 = convertCurrency(1, this.state.total_price, cur,datetime.toISOString().slice(0,10)).then(response => response);
+            this.state.total_price=new1;
+            return this.state.total_price;
+           // alert(new1);
+        //    console.log(datetime.toISOString().slice(0,10));
+        //    console.log(this.state.total_price);
+        //    console.log(cur);
+            //return this.state.total_price;
+        }
+    
 
+    }
 
     checkClick() {
         alert("aaaaaaaaaaa")
@@ -1989,7 +2015,7 @@ class Dash extends React.Component {
         $(window).on('load', function () {
             $("#cover").fadeOut(2050);
             });
-
+            console.log(country_currency_gtr);
         return (
 
             <div style={{ backgroundColor: "white" }}>
@@ -2468,6 +2494,7 @@ class Dash extends React.Component {
                                                             <div class="col-12 col-md-4">
                                                                 <span><b>Region</b></span>
                                                                 <select class="form-select" id="f_pal_country" className="selectpicker" multiple data-live-search="true" onChange={() => this.generateFacebookPrice(this.state.f_Palikes, "pal")} data-actions-box="true">
+                                                                    
 
                                                                     <option value="AF">Afghanistan</option>
                                                                     <option value="AM">Armenia</option>
@@ -3618,13 +3645,25 @@ class Dash extends React.Component {
                                                     <h4><strong>Total : </strong></h4>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <h4><strong>{this.state.total_price}</strong></h4>
+                                                    <h4><strong id="newvalue">{this.state.total_price}</strong></h4>
                                                 </div>
-                                                <br />
+                                                
+                                                <div class="col-md-6">
+                                                            <span><b>Currency</b></span>&nbsp;&nbsp;&nbsp;
+                                                            <select  class="form-select" className="selectpicker" id="cr_country"  onChange={()=>this.getmoreCurrency()}   data-actions-box="true">
+
+                                                                <option value="#" selected></option>
+                                                                {country_currency_gtr.map((object, i) => <option value={object.currency_code}>{object.country}</option>)}
+                                                                    
+                                                            </select>
+                                                           
+                                                        </div>
+                                                        <br />
                                             </div>
                                             {/* <div class="text-center">
                                                 <button class="btn btn-success" type="button" onClick={this.checkoutOrder}><img class="button-enter__icon" src="assets/img/icons/cart.png" alt="" /><strong>Checkout</strong></button>
                                             </div> */}
+
                                             {
 
                                                 this.state.total_price != "Contact us for get this price" && !(this.state.youtube_link == "" && this.state.facebook_link == "" && this.state.insta_link == "" && this.state.twitter_link == "" && this.state.tiktok_link == "" && this.state.web_link == "" && this.state.serveyclick == false) ?
@@ -3646,8 +3685,14 @@ class Dash extends React.Component {
                                                     /> :
                                                     <p></p>
                                             }
+                                            
+                                                
+                                            
 
+                                                    
+                                            
 
+                                    
                                             {/* <script src="https://www.paypal.com/sdk/js?client-id=ARBe1vbFU4IHz1fbYF1wtG3kW8AV09wrsie-rqXafRx1Q8sBqplzOd5mYv_v0M0kTlFJzbJDxri8MmvP" /> */}
                                         </div>
                                     </div>

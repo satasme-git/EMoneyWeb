@@ -15,12 +15,14 @@ import WebsiteClick from '../components/WebsiteClick';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import pointService from "../services/pointService";
+import TimerService from "../services/timerService";
 
 class LinkClicks extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
+            timer:'',
             url: [],
             tiktokf: '',
             followed: false,
@@ -60,6 +62,9 @@ class LinkClicks extends React.Component {
             pointService.getServicePoints("Website Views").then(res => {
                 this.setState({ points: res.data });
             });
+            TimerService.getNewTime().then(res => {
+                this.setState({ timer: res.data });
+              });
         } else {
             this.props.history.push('/login');
         }
@@ -107,7 +112,7 @@ class LinkClicks extends React.Component {
     }
 
     showTimer(new_window, id) {
-        var timeleft = 180;
+        var timeleft = this.state.timer;
         var that = this;
         var downloadTimer = setInterval(function () {
             // document.getElementById('button').style.display = 'none';

@@ -1061,31 +1061,39 @@ class Profile extends React.Component {
                                                 <sub style={{ fontSize: "13px" }}>Last Name</sub>
                                                 <div class="form-group" ><input class="form-control" type="text" value={this.state.lname} onChange={this.changeLastName} style={{ width: "100%", marginTop: "10px" }} placeholder="Last name" /></div>
                                             </div>
+                                            
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-sm-12 col-md-6">
-                                                <sub style={{ fontSize: "13px" }}>Number</sub>
-                                                <div class="form-group" ><input class="form-control" type="text" value={this.state.number} onChange={this.changeNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="Number" /></div>
+                                        <div class="col-12 col-sm-12 col-md-6">
+                                                <sub style={{ fontSize: "13px" }}>Contact Number</sub>
+                                                <div class="form-group" ><input class="form-control" type="text" value={this.state.number} onChange={this.changeNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="Contact Number" /></div>
                                             </div>
+                                        
                                             <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
                                                 <sub style={{ fontSize: "13px" }}>Street</sub>
                                                 <div class="form-group" ><input class="form-control" type="text" value={this.state.street} onChange={this.changeStreet} style={{ width: "100%", marginTop: "10px" }} placeholder="Street" /></div>
                                             </div>
+                                            
+                                            
                                         </div>
                                         <div class="form-row">
-                                            <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
-                                                <sub style={{ fontSize: "13px" }}>Postal Code</sub>
-                                                <div class="form-group" ><input class="form-control" type="text" value={this.state.postalcode} onChange={this.changePostalCOde} style={{ width: "100%", marginTop: "10px" }} placeholder="Postal Code" /></div>
-                                            </div>
+                                        
+                                            
                                             <div class="col-12 col-sm-12 col-md-6">
                                                 <sub style={{ fontSize: "13px" }}>City</sub>
                                                 <div class="form-group" ><input class="form-control" type="text" value={this.state.city} onChange={this.changeCity} style={{ width: "100%", marginTop: "10px" }} placeholder="City" /></div>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
                                                 <sub style={{ fontSize: "13px" }}>State Or Region</sub>
                                                 <div class="form-group" style={{ width: "100%", marginTop: "10px" }}><input class="form-control" type="text" value={this.state.stateorregion} onChange={this.changeregion} placeholder="State or region" /></div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                        <div class="form-row">
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
+                                                <sub style={{ fontSize: "13px" }}>Postal Code</sub>
+                                                <div class="form-group" ><input class="form-control" type="text" value={this.state.postalcode} onChange={this.changePostalCOde} style={{ width: "100%", marginTop: "10px" }} placeholder="Postal Code" /></div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
                                                 <sub style={{ fontSize: "13px" }}>Country</sub>
@@ -1147,7 +1155,8 @@ class Profile extends React.Component {
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                            
+                                     </div>
                                         <div class="form-row">
                                             <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
                                                 <sub style={{ fontSize: "13px" }}>Currency</sub>
@@ -1241,25 +1250,31 @@ class Profile extends React.Component {
                                                 <sub style={{ fontSize: "13px" }}>Last Name</sub>
                                                 <input class="form-control" id="lname" type="text" value={this.state.c_lname} onChange={this.changeContactLName} style={{ width: "100%", marginTop: "10px" }} placeholder="Last name" /></div>
                                         </div>
+                                       
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                    <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Mobile Number</sub>
                                                 <input class="form-control" type="text" id="mobile" value={this.state.mobile} onChange={this.changemobile} style={{ width: "100%", marginTop: "10px" }} placeholder="Mobile Number" /></div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
-                                            <div class="form-group">
-                                                <sub style={{ fontSize: "13px" }}>WhatsApp Number</sub>
-                                                <input class="form-control" type="text" id="whatsapp" value={this.state.whatsapp} onChange={this.changwhatsapp} style={{ width: "100%", marginTop: "10px" }} placeholder="WhatsApp Number" /></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                    <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Viber Number</sub>
                                                 <input class="form-control" type="text" id="viber" value={this.state.viber} onChange={this.changeviber} style={{ width: "100%", marginTop: "10px" }} placeholder="Viber Number" /></div>
                                         </div>
+                                   
+                                        
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>WhatsApp Number</sub>
+                                                <input class="form-control" type="text" id="whatsapp" value={this.state.whatsapp} onChange={this.changwhatsapp} style={{ width: "100%", marginTop: "10px" }} placeholder="WhatsApp Number" /></div>
+                                        </div>
+                                   
+                                        
+                                        
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Tele grame Number</sub>
@@ -1267,15 +1282,17 @@ class Profile extends React.Component {
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
-                                            <div class="form-group">
-                                                <sub style={{ fontSize: "13px" }}>WeChat Id</sub>
-                                                <input class="form-control" type="text" id="wechat" value={this.state.wechat} onChange={this.changewechat} style={{ width: "100%", marginTop: "10px" }} placeholder="WeChat ID" /></div>
-                                        </div>
+                                    
+                                        
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Facebook Profile Link</sub>
                                                 <input class="form-control" type="text" id="fbplink" value={this.state.fbplink} onChange={this.changefbplink} style={{ width: "100%", marginTop: "10px" }} placeholder="Facebook Profile Link" /></div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>WeChat Id</sub>
+                                                <input class="form-control" type="text" id="wechat" value={this.state.wechat} onChange={this.changewechat} style={{ width: "100%", marginTop: "10px" }} placeholder="WeChat ID" /></div>
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -1290,27 +1307,31 @@ class Profile extends React.Component {
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Address Line 2</sub>
-                                                <input class="form-control" type="text" id="fbplink" value={this.state.addresLine2} onChange={this.changeAddressLine2} style={{ width: "100%", marginTop: "10px" }} placeholder="Address Line 1" /></div>
+                                                <input class="form-control" type="text" id="fbplink" value={this.state.addresLine2} onChange={this.changeAddressLine2} style={{ width: "100%", marginTop: "10px" }} placeholder="Address Line 2" /></div>
                                         </div>
+                                        
+                                        
+                                        
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
-                                            <div class="form-group">
-                                                <sub style={{ fontSize: "13px" }}>Zip Code</sub>
-                                                <input class="form-control" type="text" id="wechat" value={this.state.resizipcode} onChange={this.changeResidentialZipCode} style={{ width: "100%", marginTop: "10px" }} placeholder="Zip Code" /></div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                    <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>District</sub>
                                                 <input class="form-control" type="text" id="fbplink" value={this.state.residistrict} onChange={this.changeResidentalDistrict} style={{ width: "100%", marginTop: "10px" }} placeholder="District" /></div>
                                         </div>
-                                    </div>
-                                    <div class="form-row">
+                                   
+                                   
+                                       
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Province</sub>
                                                 <input class="form-control" type="text" id="wechat" value={this.state.resiprovince} onChange={this.changeResidetialProvince} style={{ width: "100%", marginTop: "10px" }} placeholder="Province" /></div>
                                         </div>
+                                    </div>
+                                    <div class="form-row">
+                                    
+                                   
+                                       
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Country</sub>
@@ -1371,6 +1392,11 @@ class Profile extends React.Component {
                                                     </select>
                                                     </div>
                                                     </div>  
+                                 </div>
+                                 <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
+                                            <div class="form-group">
+                                                <sub style={{ fontSize: "13px" }}>Zip Code</sub>
+                                                <input class="form-control" type="text" id="wechat" value={this.state.resizipcode} onChange={this.changeResidentialZipCode} style={{ width: "100%", marginTop: "10px" }} placeholder="Zip Code" /></div>
                                         </div>
                                     </div>
                                     <div class="form-row">
