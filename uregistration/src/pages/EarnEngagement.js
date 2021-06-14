@@ -90,7 +90,10 @@ class EarnEnagement extends React.Component {
         Cookies.remove('user')
         this.props.history.push('/homebl');
     }
-
+    BackToPage = (e) =>{
+        this.props.history.push('/earnpage');
+        window.location.reload();
+    }
     render() {
         return (
             <div>
@@ -189,12 +192,19 @@ class EarnEnagement extends React.Component {
                                 </ul>
                             </nav>
                         </div>
+                        
                         <main class="s-layout__content" style={{ width: "100%", height: "100% ", backgroundColor: "#dfeef2" }} >
                             <div>
 
+                            
 
                                 <div class="container" style={{ width: "100%", height: "100% ", backgroundColor: "#dfeef2" }}>
+                                
                                     <div class="card1">
+                                    <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                         <h2 class="text-center mb-5" style={{ marginTop: "70px" }}>Social Media Engagements</h2>
 
                                         <div class="class row" >

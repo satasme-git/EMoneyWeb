@@ -56,16 +56,16 @@ class YTSub extends React.Component {
             });
     }
 
-    // onPageChanged = data => {
-    //     const { allCountries } = this.state;
-    //     const { currentPage, totalPages, pageLimit } = data;
+    onPageChanged = data => {
+        const { allCountries } = this.state;
+        const { currentPage, totalPages, pageLimit } = data;
 
-    //     const offset = (currentPage - 1) * pageLimit;
-    //     const currentCountries = allCountries.slice(offset, offset + pageLimit);
+        const offset = (currentPage - 1) * pageLimit;
+        const currentCountries = allCountries.slice(offset, offset + pageLimit);
 
 
-    //     this.setState({ currentPage, currentCountries, totalPages });
-    // }
+        this.setState({ currentPage, currentCountries, totalPages });
+    }
 
     handleClick(urlS) {
         let fblike = { userid: Cookies.get('user'), service: "Youtube Subscribe", orderid: urlS.id }
@@ -80,6 +80,7 @@ class YTSub extends React.Component {
                     var x = document.getElementById("" + urlS.id);
                     x.innerHTML = "Subscribed";
                     x.disabled = true;
+                    window.location="/ytsub";
                 }
             });
 
@@ -136,7 +137,10 @@ class YTSub extends React.Component {
             ]
         });
     }
-
+    BackToPage = (e) =>{
+        this.props.history.push('/earnmanagement');
+        window.location.reload();
+    }
     render() {
         const { allCountries, currentCountries, currentPage, totalPages } = this.state;
         const totalCountries = allCountries.length;
@@ -241,6 +245,10 @@ class YTSub extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ width: "100%", height: "100% ", backgroundColor: "#dfeef2" }} >
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
 
@@ -353,6 +361,10 @@ class YTSub extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ width: "100%", height: "100% ", backgroundColor: "#dfeef2" ,marginTop:"20px" }} >
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
                                             <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">
@@ -367,11 +379,16 @@ class YTSub extends React.Component {
                                                             Page <span className="font-weight-bold">{currentPage}</span> / <span className="font-weight-bold">{totalPages}</span>
                                                         </span>
                                                     )}
+
+
+
+
+                                        
                                                 </div>
 
 
                                                 <div className="d-flex flex-row py-4 align-items-center">
-                                                    <Pagination totalRecords={totalCountries} pageLimit={5} pageNeighbours={1} onPageChanged={this.onPageChanged} />
+                                                    <Pagination totalRecords={totalCountries} pageLimit={10} pageNeighbours={1} onPageChanged={this.onPageChanged} />
                                                 </div>
 
                                             </div>

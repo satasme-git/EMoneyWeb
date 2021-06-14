@@ -1065,8 +1065,8 @@ class Profile extends React.Component {
                                         </div>
                                         <div class="form-row">
                                         <div class="col-12 col-sm-12 col-md-6">
-                                                <sub style={{ fontSize: "13px" }}>Contact Number</sub>
-                                                <div class="form-group" ><input class="form-control"  type="tel" pattern="[0-9]{11}"  value={this.state.number} onChange={this.changeNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="Contact Number" required/></div>
+                                                <sub style={{ fontSize: "13px" }}>Address Number</sub>
+                                                <div class="form-group" ><input class="form-control"  type="text"  value={this.state.number} onChange={this.changeNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="Adress Number" /></div>
                                             </div>
                                         
                                             <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
