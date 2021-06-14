@@ -43,11 +43,11 @@ class AdminPaymentAnagement extends React.Component {
   changePaymentType = (e) => {
     var pendingdiv = document.getElementById("pendingdiv");
     var completediv = document.getElementById("completediv");
-    var downloadbtn = document.getElementById("downloadbtn");
+    //var downloadbtn = document.getElementById("downloadbtn");
     if (e.target.id == "pending") {
       pendingdiv.setAttribute("style", "display:");
       completediv.setAttribute("style", "display:none");
-      downloadbtn.setAttribute("style", "display:");
+    // downloadbtn.setAttribute("style", "display:");
       paymentService.getPending().then((res) => {
         this.setState({ pending: res.data });
       });
@@ -55,7 +55,7 @@ class AdminPaymentAnagement extends React.Component {
     } else {
       pendingdiv.setAttribute("style", "display:none");
       completediv.setAttribute("style", "display:");
-      downloadbtn.setAttribute("style", "display:none");
+     // downloadbtn.setAttribute("style", "display:none");
       paymentService.getPayed().then((res) => {
         this.setState({ payed: res.data });
       });
@@ -291,7 +291,7 @@ class AdminPaymentAnagement extends React.Component {
 {/* //////////////////////////////////////////End pendding payment table//////////////////////// */}
 
 {/* //////////////////////////////////////////Start Complete payment table//////////////////////// */}
-<div className="col-12 mt-5" id="pendingdiv">
+{/* <div className="col-12 mt-5" id="#">
                   <div className="card">
                     <div className="card-body" id="paymenttable">
                       <h4 className="header-title">Complete Payment</h4>
@@ -324,7 +324,7 @@ class AdminPaymentAnagement extends React.Component {
                       </table>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
 {/* //////////////////////////////////////////End Complete payment table//////////////////////// */}
 
@@ -335,9 +335,9 @@ class AdminPaymentAnagement extends React.Component {
 
 
 
-{/* //////////////////////////////////////old table end /////////////////////////////////////////////////////////////////////////
+{/* //////////////////////////////////////old table end ///////////////////////////////////////////////////////////////////////// */}
 
-                <div className="col-12 mt-5" id="pendingdiv">
+               {/* <div className="col-12 mt-5" id="pendingdiv">
                   <div className="card">
                     <div className="card-body" id="paymenttable">
                       <h4 className="header-title">Pennding Payment</h4>
@@ -383,7 +383,7 @@ class AdminPaymentAnagement extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
              
 
              
@@ -422,7 +422,7 @@ class AdminPaymentAnagement extends React.Component {
                     </div>
                   </div>
                 </div>
-                 */}
+                
 
 
 

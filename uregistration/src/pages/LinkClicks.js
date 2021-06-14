@@ -415,7 +415,7 @@ class LinkClicks extends React.Component {
 
 
                                                 <div className="d-flex flex-row py-4 align-items-center">
-                                                    <Pagination totalRecords={totalCountries} pageLimit={6} pageNeighbours={1} onPageChanged={this.onPageChanged} />
+                                                    <Pagination totalRecords={totalCountries} pageLimit={8} pageNeighbours={1} onPageChanged={this.onPageChanged} />
                                                 </div>
 
                                             </div>

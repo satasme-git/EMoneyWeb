@@ -1066,7 +1066,7 @@ class Profile extends React.Component {
                                         <div class="form-row">
                                         <div class="col-12 col-sm-12 col-md-6">
                                                 <sub style={{ fontSize: "13px" }}>Contact Number</sub>
-                                                <div class="form-group" ><input class="form-control" type="text" value={this.state.number} onChange={this.changeNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="Contact Number" /></div>
+                                                <div class="form-group" ><input class="form-control"  type="tel" pattern="[0-9]{11}"  value={this.state.number} onChange={this.changeNumber} style={{ width: "100%", marginTop: "10px" }} placeholder="Contact Number" required/></div>
                                             </div>
                                         
                                             <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px" }}>
@@ -1256,12 +1256,12 @@ class Profile extends React.Component {
                                     <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Mobile Number</sub>
-                                                <input class="form-control" type="text" id="mobile" value={this.state.mobile} onChange={this.changemobile} style={{ width: "100%", marginTop: "10px" }} placeholder="Mobile Number" /></div>
+                                                <input class="form-control" type="tel" pattern="[0-9]{11}" id="mobile" value={this.state.mobile} onChange={this.changemobile} style={{ width: "100%", marginTop: "10px" }} placeholder="Mobile Number" required/></div>
                                         </div>
                                     <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Viber Number</sub>
-                                                <input class="form-control" type="text" id="viber" value={this.state.viber} onChange={this.changeviber} style={{ width: "100%", marginTop: "10px" }} placeholder="Viber Number" /></div>
+                                                <input class="form-control" type="tel"  pattern="[0-9]{11}" id="viber" value={this.state.viber} onChange={this.changeviber} style={{ width: "100%", marginTop: "10px" }} placeholder="Viber Number" required/></div>
                                         </div>
                                    
                                         
@@ -1270,7 +1270,7 @@ class Profile extends React.Component {
                                     <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>WhatsApp Number</sub>
-                                                <input class="form-control" type="text" id="whatsapp" value={this.state.whatsapp} onChange={this.changwhatsapp} style={{ width: "100%", marginTop: "10px" }} placeholder="WhatsApp Number" /></div>
+                                                <input class="form-control" type="tel"  pattern="[0-9]{11}" id="whatsapp" value={this.state.whatsapp} onChange={this.changwhatsapp} style={{ width: "100%", marginTop: "10px" }} placeholder="WhatsApp Number" required/></div>
                                         </div>
                                    
                                         
@@ -1278,7 +1278,7 @@ class Profile extends React.Component {
                                         <div class="col-12 col-sm-12 col-md-6" style={{ width: "477.5px", minWidth: "25%" }}>
                                             <div class="form-group">
                                                 <sub style={{ fontSize: "13px" }}>Tele grame Number</sub>
-                                                <input class="form-control" type="text" id="telegramme" value={this.state.teligram} onChange={this.changeteligram} style={{ width: "100%", marginTop: "10px" }} placeholder="Tele grame Number" /></div>
+                                                <input class="form-control" type="tel"  pattern="[0-9]{11}" id="telegramme" value={this.state.teligram} onChange={this.changeteligram} style={{ width: "100%", marginTop: "10px" }} placeholder="Tele grame Number" required /></div>
                                         </div>
                                     </div>
                                     <div class="form-row">
