@@ -177,7 +177,10 @@ class LinkClicks extends React.Component {
             ]
         });
     }
-
+    BackToPage = (e) =>{
+        this.props.history.push('/earnpage');
+        window.location.reload();
+    }
 
     render() {
         const { allCountries, currentCountries, currentPage, totalPages } = this.state;
@@ -270,6 +273,10 @@ class LinkClicks extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ height: "100%", width: "100%", backgroundColor: "#dfeef2" }}>
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
                                             <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">
@@ -394,6 +401,10 @@ class LinkClicks extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ height: "100%", width: "100%", backgroundColor: "#dfeef2", marginTop: "20px" }}>
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div id="rem_time" style={{ width: "100%", backgroundColor: "red", height: "50px", marginTop: "50px", textAlign: "center", display: "none" }}>
                                             <h6 style={{ padding: "15px", color: "white" }} id="time_map"></h6>
@@ -415,7 +426,7 @@ class LinkClicks extends React.Component {
 
 
                                                 <div className="d-flex flex-row py-4 align-items-center">
-                                                    <Pagination totalRecords={totalCountries} pageLimit={6} pageNeighbours={1} onPageChanged={this.onPageChanged} />
+                                                    <Pagination totalRecords={totalCountries} pageLimit={8} pageNeighbours={1} onPageChanged={this.onPageChanged} />
                                                 </div>
 
                                             </div>

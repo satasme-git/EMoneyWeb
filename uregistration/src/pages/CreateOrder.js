@@ -3648,7 +3648,7 @@ class Dash extends React.Component {
                                                     <h4><strong id="newvalue">{this.state.total_price}</strong></h4>
                                                 </div>
                                                 
-                                                <div class="col-md-6">
+                                                {/* <div class="col-md-6">
                                                             <span><b>Currency</b></span>&nbsp;&nbsp;&nbsp;
                                                             <select  class="form-select" className="selectpicker" id="cr_country"  onChange={()=>this.getmoreCurrency()}   data-actions-box="true">
 
@@ -3657,7 +3657,7 @@ class Dash extends React.Component {
                                                                     
                                                             </select>
                                                            
-                                                        </div>
+                                                        </div> */}
                                                         <br />
                                             </div>
                                             {/* <div class="text-center">

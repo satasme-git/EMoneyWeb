@@ -131,7 +131,10 @@ class TwitterFollow extends React.Component {
             ]
         });
     }
-
+    BackToPage = (e) =>{
+        this.props.history.push('/earnmanagement');
+        window.location.reload();
+    }
     render() {
         const { allCountries, currentCountries, currentPage, totalPages } = this.state;
         const totalCountries = allCountries.length;
@@ -237,6 +240,10 @@ class TwitterFollow extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ height: "100%" }}>
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
                                             <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">
@@ -345,6 +352,10 @@ class TwitterFollow extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ height: "100%" ,marginTop:"20px"}}>
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
                                             <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">

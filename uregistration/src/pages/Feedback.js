@@ -227,7 +227,7 @@ class Feedback extends React.Component {
                                   <button type="button" className="close" data-dismiss="modal"><span>×</span></button>
                                 </div>
                                 <div className="modal-body">
-                                  <p>{data.message}</p>
+                                  <textarea>{data.message}</textarea>
                                   <br />
                                   <div className="row">
                                     <div className="col-sm">

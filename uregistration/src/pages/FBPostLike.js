@@ -157,6 +157,10 @@ class FBPostLike extends React.Component {
             ]
         });
     }
+    BackToPage = (e) =>{
+        this.props.history.push('/earnmanagement');
+        window.location.reload();
+    }
 
     render() {
         const { allCountries, currentCountries, currentPage, totalPages } = this.state;
@@ -249,6 +253,10 @@ class FBPostLike extends React.Component {
                             </div>
                             <main class="s-layout__content">
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
                                             <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">
@@ -378,6 +386,10 @@ class FBPostLike extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{ marginTop: "20px" }}>
                                 <div className="row mb-5">
+                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div className="row d-flex flex-row py-5" id="fbdatacard">
                                             <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">

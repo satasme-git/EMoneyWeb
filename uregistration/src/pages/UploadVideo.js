@@ -162,7 +162,10 @@ class UploadVideo extends React.Component {
       ]
     });
   }
-
+  BackToPage = (e) =>{
+    this.props.history.push('/earnpage');
+    window.location.reload();
+}
   render() {
     return (
 
@@ -544,6 +547,10 @@ body {background-color:#dfeef2;}
 
 
             <main class="s-layout__content" style={{ height: "100%", marginTop: "50px", width: "100%" }}>
+            <a   class="class row" style={{ marginTop: "0px",marginLeft:"1px"}} onClick={this.BackToPage}>
+                                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                                        
+                                    </a>
               <div class="container">
                 <div className="col-md-12 col-sm-12">
                   <div className="row" >
