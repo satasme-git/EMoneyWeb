@@ -58,8 +58,8 @@ class Feedback extends React.Component {
       if (res.status === 200 && res.statusText === 'OK') {
         if (res.data == "success") {
           feedbackService.getFeedbacks().then(res => {
-
-            this.setState({ feedbacks: res.data });
+              this.setState({ feedbacks: res.data });
+              window.location.reload();
 
           });
         }
