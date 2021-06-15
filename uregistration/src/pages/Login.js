@@ -85,10 +85,10 @@ class Login extends React.Component {
 
         window.fbAsyncInit = () => {
             window.FB.init({
-                appId: '104862384871706', //Change with your Facebook app id
+                appId: '497375044821589', //Change with your Facebook app id
                 autoLogAppEvents: true,
                 xfbml: true,
-                version: 'v3.0'
+                version: 'v11.0'
             });
 
             window.FB.Event.subscribe('auth.statusChange', response => {
@@ -108,6 +108,7 @@ class Login extends React.Component {
     }
 
     loginfb() {
+
         window.FB.login(this.checkLoginState(), {
             scope: 'email'
         });
@@ -123,31 +124,31 @@ class Login extends React.Component {
         }
     }
 
-    testAPI() {
-        window.FB.api('/me', function (response) {
-            console.log('[FacebookLoginButton] Successful login for: ', response);
+    // testAPI() {
+    //     window.FB.api('/me', function (response) {
+    //         console.log('[FacebookLoginButton] Successful login for: ', response);
 
-        });
-        this.props.history.push('/UserHome');
-    }
-
-    // testAPI = (e) => {
-    //     FB.api('/me', function (response) {
-    //         let user = { email: response.id, key: 'facebook' }
-    //         userServices.facebookLogIn(user).then(res => {
-    //             if (res.data.id !== null) {
-    //                 var inFifteenMinutes = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
-    //                 Cookies.set('user', res.data.user.id, {
-    //                     expires: inFifteenMinutes
-    //                 });
-    //                 // this.props.history.push('/userhome');
-    //                 window.location.href = "/userhome"
-    //             } else {
-    //                 toast('Server maybe offline. Try again later!', { position: 'bottom' });
-    //             }
-    //         });
     //     });
+    //     this.props.history.push('/UserHome');
     // }
+
+    testAPI = (e) => {
+        FB.api('/me', function (response) {
+            let user = { email: response.id, key: 'facebook' }
+            userServices.facebookLogIn(user).then(res => {
+                if (res.data.id !== null) {
+                    var inFifteenMinutes = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
+                    Cookies.set('user', res.data.user.id, {
+                        expires: inFifteenMinutes
+                    });
+                    //this.props.history.push('/userhome');
+                    window.location.href = "/userhome";
+                } else {
+                    toast('Server maybe offline. Try again later!', { position: 'bottom' });
+                }
+            });
+        });
+    }
     fbloginSuccessRidirect() {
         this.props.history.push('/userhome');
     }
@@ -213,60 +214,60 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                <div class="limiterw">
-                    <div class="container-login100w">
-                        <div class="wrap-login100w">
-                            <div class="login100-formw validate-formw">
+                <div className="limiterw">
+                    <div className="container-login100w">
+                        <div className="wrap-login100w">
+                            <div className="login100-formw validate-formw">
 
-                                <span class="login100-form-titlew">
+                                <span className="login100-form-titlew">
                                     Welcome
                                 </span>
-                                <div class="regwithemal1w">
+                                <div className="regwithemal1w">
                                     Log With Email
 					            </div>
                                 <h3 style={{ color: "red", fontSize: "20px", marginLeft: "25%", marginRight: "25%", marginTop: "10px", marginBottom: "10px" }}>{this.state.error}</h3>
                                 <form onSubmit={this.userSignin}>
-                                    <div class="wrap-input100w validate-inputw" data-validate="Valid email is required: ex@abc.xyz">
-                                        <input class="input100w" type="text" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.changeEmailHandlter} />
-                                        <span class="focus-input100w"></span>
-                                        <span class="symbol-input100w">
-                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <div className="wrap-input100w validate-inputw" data-validate="Valid email is required: ex@abc.xyz">
+                                        <input className="input100w" type="text" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.changeEmailHandlter} />
+                                        <span className="focus-input100w"></span>
+                                        <span className="symbol-input100w">
+                                            <i className="fa fa-envelope" aria-hidden="true"></i>
                                         </span>
                                     </div>
                                     <br></br>
 
-                                    <div class="wrap-input100w validate-inputw" data-validate="Password is required">
-                                        <input class="input100w" type="password" name="pass" id="pwlogin" value={this.state.key} onChange={this.changekey} placeholder="Password" />
-                                        <span class="focus-input100w"></span>
-                                        <span class="symbol-input100w">
-                                            <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <div className="wrap-input100w validate-inputw" data-validate="Password is required">
+                                        <input className="input100w" type="password" name="pass" id="pwlogin" value={this.state.key} onChange={this.changekey} placeholder="Password" />
+                                        <span className="focus-input100w"></span>
+                                        <span className="symbol-input100w">
+                                            <i className="fa fa-lock" aria-hidden="true"></i>
                                         </span>
                                     </div>
                                     <div>
                                         <input style={{ marginLeft: "20px" }} type="checkbox" onClick={this.showpassword} />Show Password
                                 </div>
 
-                                    <div class="container-login100-form-btnw">
-                                        <input type="submit" class="login100-form-btnw" value="Login" />
+                                    <div className="container-login100-form-btnw">
+                                        <input type="submit" className="login100-form-btnw" value="Login" />
 
                                     </div>
                                 </form>
 
                                 {/* <!--line --> */}
-                                {/* <div class="container">
-                                    <hr class="hr-text" data-content="AND" />
+                                {/* <div className="container">
+                                    <hr className="hr-text" data-content="AND" />
                                 </div> */}
 
 
 
-                                <div class="text-center p-t-12">
+                                <div className="text-center p-t-12">
 
-                                    <span class="txt1w">
+                                    <span className="txt1w">
                                         Forgot Username Or Password?&nbsp;&nbsp;
 						                </span>
-                                    <a class="txt2w" href="/resetpassword">
+                                    <Link className="txt2w" to="/resetpassword">
                                         Reset Password
-						                </a>
+						                </Link>
                                 </div>
                                 <div style={{ width: "100%", height: "10%" }} >
                                     <button className="my-facebook-button-class"
@@ -300,14 +301,14 @@ class Login extends React.Component {
 
                                 </div>
 
-                                <div class="text-center p-t-12">
-                                    <span class="txt1w">
+                                <div className="text-center p-t-12">
+                                    <span className="txt1w">
                                         Didn't have An Account?&nbsp;&nbsp;
 						                </span>
-                                    <Link to="/register" >
-                                        <a class="txt2w">
+                                    <Link to="/register" className="txt2w">
+                                        
                                             Sign Up
-						                    </a>
+						                    
                                     </Link>
                                 </div>
                                 <br />

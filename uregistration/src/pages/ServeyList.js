@@ -375,7 +375,7 @@ class ServeyList extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{marginTop:"20px"}}>
                                 <div className="row mb-5">
-                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                <a   class="class row" style={{ marginTop: "70px", marginLeft:"10px"}} onClick={this.BackToPage}>
                                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
                                         
                                     </a>
