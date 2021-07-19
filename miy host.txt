@@ -12,7 +12,9 @@ pw: PJYgV75f#hwPt
 
 ssh login
 185.148.129.187
+root
 941c06078647ca16
+7822
 
 
 
