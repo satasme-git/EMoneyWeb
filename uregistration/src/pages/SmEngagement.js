@@ -134,6 +134,7 @@ class SmEngagement extends React.Component {
                     }
                 })()}
                 <div class="article-list" style={{ width: "100%", height: "100% " }}>
+                <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <div class="container">
                         <div class="intro"><br/>
                             <h3 class="text-center" style={{ color: "rgb(3,23,44)", marginTop: "13%" }}><br /><strong>&nbsp;Social&nbsp; Media&nbsp;Engagements&nbsp;</strong><br /><br /></h3>

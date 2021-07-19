@@ -234,6 +234,7 @@ class Dash extends React.Component {
 
                         {/* <!-- Content --> */}
                         <main class="s-layout__content" style={{ backgroundColor: "#dfeef2", height: "100%" }}>
+                        <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                             <div>
                                 <div class="container" style={{ marginTop: "30px", backgroundColor: "#dfeef2", marginBottom: "10px" }}>
                                     <h4 style={{ padding: "10px", marginLeft: "10px", marginTop: "5%" }}>Referral Program</h4>

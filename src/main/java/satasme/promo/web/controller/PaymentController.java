@@ -103,7 +103,7 @@ public class PaymentController {
 				Criteria crp = em.unwrap(Session.class).createCriteria(DailyEarnLimit.class);
 				crp.add(Restrictions.eq("type", "Payout Limit"));
 				DailyEarnLimit limit=(DailyEarnLimit) crp.uniqueResult();
-				if ((total_points * 0.03) > limit.getLimit()) {
+				if ((total_points * 0.001) > limit.getLimit()) {
 					Criteria cr = em.unwrap(Session.class).createCriteria(PaymentReceiver.class);
 					cr.add(Restrictions.eq("user", user));
 					PaymentReceiver payr = (PaymentReceiver) cr.uniqueResult();
@@ -112,7 +112,7 @@ public class PaymentController {
 					pr.setCus_id(String.valueOf(user.getId()));
 					pr.setName(user.getFname() + " " + user.getLname());
 					pr.setEmail(user.getEmail());
-					pr.setAmount("$" + df.format(total_points * 0.03));
+					pr.setAmount("$" + df.format(total_points * 0.001));
 					pr.setCurrency(payr.getCurrency());
 					py_list.add(pr);
 				}
@@ -169,13 +169,13 @@ public class PaymentController {
 				for (UserPoints up : po_list) {
 					total_points += up.getPoints();
 				}
-				if ((total_points * 0.03) > 10) {
+				if ((total_points * 0.001) > 10) {
 					Criteria crpr = em.unwrap(Session.class).createCriteria(PaymentReceiver.class);
 					crpr.add(Restrictions.eq("user", user));
 					PaymentReceiver payre=(PaymentReceiver) crpr.uniqueResult();
 					PayoutResponse pr = new PayoutResponse();
 					pr.setEmail(payre.getP_pay());
-					pr.setAmount("" + df.format(total_points * 0.03));
+					pr.setAmount("" + df.format(total_points * 0.001));
 					pr.setCurrency(payre.getCurrency());
 					pr.setCus_id("123");
 					pr.setNote("Payment for engagements in Emoneytag");
@@ -214,7 +214,7 @@ public class PaymentController {
 		List<UserPoints> po_list = cre.list();
 		double total_points = 0;
 		for (UserPoints up : po_list) {
-			if((total_points * 0.03)<getamount) {
+			if((total_points * 0.001)<getamount) {
 				total_points += up.getPoints();
 				up.setStatus("payed");
 				this.userPointsRepository.save(up);

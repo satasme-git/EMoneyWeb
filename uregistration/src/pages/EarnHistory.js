@@ -152,7 +152,7 @@ class EarnHistory extends React.Component {
                 </header>
 
                 <div class="main">
-
+                <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <div class="s-layout">
                         <div class="s-layout__sidebar" style={{ height: "100%" }}>
                             <a class="s-sidebar__trigger" href="#0" style={{ width: "63px" }}>

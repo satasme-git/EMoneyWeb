@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
+import toast from 'toast-me';
 import feedbackService from "../services/feedbackService";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
@@ -58,6 +59,7 @@ class UserHome extends React.Component {
     feedbackService.SaveFeedback(Cookies.get('user'), details).then(res => {
       if (res.status === 200 && res.statusText === 'OK') {
         if (res.data == "success") {
+          toast("Massage Sent!", { position: 'bottom' })
           this.setState({
             qtype: "I have a question",
             subject: "",
@@ -67,6 +69,7 @@ class UserHome extends React.Component {
 
       }
     });
+
   };
 
   changeQtype = (e) => {
@@ -181,6 +184,7 @@ class UserHome extends React.Component {
           <link rel="stylesheet" href="/assets/assets/css/Footer-Dark.css" />
           <link rel="stylesheet" href="/assets/assets/css/styles.css"></link>
           <script src="/assets/home-js.js"></script>
+          
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
           {/* <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> */}
         </Helmet>
@@ -241,6 +245,7 @@ class UserHome extends React.Component {
 
 
         <main class="main"  >
+        
   {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
   {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 
   
@@ -958,7 +963,9 @@ class UserHome extends React.Component {
         </div>
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        
       </div>
+      
     );
   }
 }

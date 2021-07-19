@@ -222,6 +222,7 @@ class Approvesurveyqus extends React.Component {
 
             {/* page title area end */}
             <div className="main-content-inner">
+            <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
               <div className="row">
                 {/* data table start */}
                 <div className="col-12 mt-5">

@@ -135,6 +135,7 @@ class LinkClicks extends React.Component {
                                 x.disabled = true;
                             }
                         });
+                        window.location.reload();
 
                 }
             } else {
@@ -146,6 +147,7 @@ class LinkClicks extends React.Component {
                     toast("Required time not completed", { position: 'bottom' })
                     var elements = document.getElementById("rem_time");
                     elements.style.display = 'none';
+                    window.location.reload();
                 }
             }
 
@@ -272,6 +274,7 @@ class LinkClicks extends React.Component {
                                 </nav>
                             </div>
                             <main class="s-layout__content" style={{ height: "100%", width: "100%", backgroundColor: "#dfeef2" }}>
+                            <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <div className="row mb-5">
                                 <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
                                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>

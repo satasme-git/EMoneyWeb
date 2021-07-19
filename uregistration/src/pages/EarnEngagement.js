@@ -194,6 +194,7 @@ class EarnEnagement extends React.Component {
                         </div>
                         
                         <main class="s-layout__content" style={{ width: "100%", height: "100% ", backgroundColor: "#dfeef2" }} >
+                        <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                             <div>
 
                             

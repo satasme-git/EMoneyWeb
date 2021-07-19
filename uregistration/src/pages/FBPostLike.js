@@ -196,6 +196,7 @@ class FBPostLike extends React.Component {
                     </header>
 
                     <div class="main" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
+                        
 
                         <div class="s-layout">
                             <div class="s-layout__sidebar" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
@@ -252,6 +253,7 @@ class FBPostLike extends React.Component {
                                 </nav>
                             </div>
                             <main class="s-layout__content">
+                            <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <div className="row mb-5">
                                 <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
                                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
@@ -408,7 +410,7 @@ class FBPostLike extends React.Component {
 
 
                                                 <div className="d-flex flex-row py-4 align-items-center">
-                                                    <Pagination totalRecords={totalCountries} pageLimit={6} pageNeighbours={1} onPageChanged={this.onPageChanged} />
+                                                    <Pagination totalRecords={totalCountries} pageLimit={10} pageNeighbours={1} onPageChanged={this.onPageChanged} />
                                                 </div>
 
                                             </div>

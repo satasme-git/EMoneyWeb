@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 import toast from 'toast-me';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import Cookies from 'js-cookie';
-
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 const CLIENT_ID = '613851969001-bakoc12jk787o0k34plimm6cq1tsklra.apps.googleusercontent.com';
 //<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=497375044821589&autoLogAppEvents=1" nonce="h8A6PbVI"></script>
 // import { data } from 'jquery';
 
-class Login extends React.Component {
+class SubmitePage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -251,7 +252,48 @@ class Login extends React.Component {
       });
     }
   
-  
+    sayHello= (e) =>{
+       
+        confirmAlert({
+            title: 'Confirm',
+            message: 'Did you click fb like button?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+        
+                        toast('Thank you !Please,await a minute....', { position: 'bottom' });
+                        var ischeckd=1;
+                        var inFifteenMinutes = new Date(
+                            new Date().getTime() + 2 * 60 * 60 * 1000
+                          );
+
+                          Cookies.set("ischeckd",ischeckd , {
+                            expires: inFifteenMinutes,
+                          });
+                          window.close();
+                        
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        toast('Did not Add Points..Try again!', { position: 'bottom' });
+                        var ischeckd=null;
+                        var inFifteenMinutes = new Date(
+                            new Date().getTime() + 2 * 60 * 60 * 1000
+                          );
+
+                          Cookies.set("ischeckd",ischeckd , {
+                            expires: inFifteenMinutes,
+                          });
+                    }
+                    
+                }
+            ]
+        });
+      }
+    
   
   
 
@@ -264,40 +306,17 @@ class Login extends React.Component {
                         <div className="wrap-login100w">
                             <div className="login100-formw validate-formw">
 
-                                <span className="login100-form-titlew">
-                                    Welcome
-                                </span>
+                                
                                 <div className="regwithemal1w">
-                                    Log With Email
+                                   <h4>You must click this button</h4> 
 					            </div>
-                                <h3 style={{ color: "red", fontSize: "20px", marginLeft: "25%", marginRight: "25%", marginTop: "10px", marginBottom: "10px" }}>{this.state.error}</h3>
-                                <form onSubmit={this.userSignin}>
-                                    <div className="wrap-input100w validate-inputw" data-validate="Valid email is required: ex@abc.xyz">
-                                        <input className="input100w" type="text" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.changeEmailHandlter} />
-                                        <span className="focus-input100w"></span>
-                                        <span className="symbol-input100w">
-                                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <br></br>
-
-                                    <div className="wrap-input100w validate-inputw" data-validate="Password is required">
-                                        <input className="input100w" type="password" name="pass" id="pwlogin" value={this.state.key} onChange={this.changekey} placeholder="Password" />
-                                        <span className="focus-input100w"></span>
-                                        <span className="symbol-input100w">
-                                            <i className="fa fa-lock" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <input style={{ marginLeft: "20px" }} type="checkbox" onClick={this.showpassword} />Show Password
-                                </div>
-
+                               
+                                
                                     <div className="container-login100-form-btnw">
-                                        <input type="submit" className="login100-form-btnw" value="Login" />
+                                        <input type="button" className="login100-form-btnw" onClick={this.sayHello} value="Submit" />
 
                                     </div>
-                                </form>
-
+                                
                                 {/* <!--line --> */}
                                 {/* <div className="container">
                                     <hr className="hr-text" data-content="AND" />
@@ -305,60 +324,12 @@ class Login extends React.Component {
 
 
 
-                                <div className="text-center p-t-12">
+                             
+                               
 
-                                    <span className="txt1w">
-                                        Forgot Username Or Password?&nbsp;&nbsp;
-						                </span>
-                                    <Link className="txt2w" to="/resetpassword">
-                                        Reset Password
-						                </Link>
-                                </div>
-                                {/* <div style={{ width: "100%", height: "10%" }} >
-                                    <button className="my-facebook-button-class"
-                                        onClick={
-                                            () => this.loginfb()
-                                        } >
-                                        </button>
-                                        fb login
-                                </div> */}
-                                <br></br>
+                               
 
-                                <div style={{ width: "100%" }}>
-                                    {this.state.isLogined ?
-                                        <GoogleLogout
-                                            clientId={CLIENT_ID}
-                                            buttonText='Logout'
-                                            onLogoutSuccess={this.logout}
-                                            onFailure={this.handleLogoutFailure}
-                                            className="button"
-                                        >
-                                        </GoogleLogout> : <GoogleLogin
-                                            clientId={CLIENT_ID}
-                                            buttonText='Signin with Google'
-                                            onSuccess={this.login}
-                                            onFailure={this.handleLoginFailure}
-                                            cookiePolicy={'single_host_origin'}
-                                            responseType='code,token'
-                                            className="button"
-                                        />
-                                    }
-
-
-                                </div>
-
-                                <div className="text-center p-t-12">
-                                    <span className="txt1w">
-                                        Didn't have An Account?&nbsp;&nbsp;
-						                </span>
-                                    <Link to="/register" className="txt2w">
-                                        
-                                            Sign Up
-						                    
-                                    </Link>
-                                </div>
-                                <br />
-                                <br />
+                               
                             </div>
                         </div>
                     </div>
@@ -368,4 +339,4 @@ class Login extends React.Component {
     }
 
 }
-export default Login
+export default SubmitePage

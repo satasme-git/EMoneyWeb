@@ -188,7 +188,8 @@ class InstaFollow extends React.Component {
 
                     </header>
                     <div class="main">
-
+                       
+                    <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <div class="s-layout">
                             <div class="s-layout__sidebar" style={{ height: "100%" }}>
                                 <a class="s-sidebar__trigger" href="#0">
@@ -244,6 +245,7 @@ class InstaFollow extends React.Component {
                                 </nav>
                             </div>
                             <main class="s-layout__content">
+                            <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <div className="row mb-5">
                                 <a   class="class row" style={{ marginTop: "70px", marginLeft:"10px"}} onClick={this.BackToPage}>
                                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
@@ -361,7 +363,7 @@ class InstaFollow extends React.Component {
                             </div>
                             <main class="s-layout__content" style={{marginTop:"20px"}}>
                                 <div className="row mb-5">
-                                <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
+                                <a   class="class row" style={{ marginTop: "70px" ,marginLeft:"20px"}} onClick={this.BackToPage}>
                                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
                                         
                                     </a>

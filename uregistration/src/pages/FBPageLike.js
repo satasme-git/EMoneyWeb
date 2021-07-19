@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useScreenshot } from 'use-react-screenshot';
 import socialmedia from "../services/socialmedia";
 import toast from 'toast-me';
 import { Link } from 'react-router-dom';
@@ -16,15 +17,14 @@ import PageLikeCard from '../components/PageLikeCard';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import pointService from "../services/pointService";
+const storage = require('node-sessionstorage')
 
 class FBPageLike extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-
             count: 0,
-
             pagelike: '',
             url: [],
             total_earning: '',
@@ -34,10 +34,12 @@ class FBPageLike extends React.Component {
             currentCountries: [],
             currentPage: null,
             totalPages: null,
-            points: ''
+            points: '',
+            
 
         }
         this.handleClick = this.handleClick.bind(this);
+        
     }
 
     componentDidMount() {
@@ -48,6 +50,7 @@ class FBPageLike extends React.Component {
             //     if (res.data == "compeleted") {
             //         this.setState({ earnstatus: '' });
                     this.getpageData();
+                   
             //     } else {
             //         this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
             //     }
@@ -88,8 +91,8 @@ class FBPageLike extends React.Component {
         socialmedia.getFacebookPageLike(Cookies.get('user'), "Facebook Page Like")
             .then(res => {
                 this.setState({ allCountries: res.data });
-
             });
+           
     }
 
     onPageChanged = data => {
@@ -102,28 +105,51 @@ class FBPageLike extends React.Component {
 
         this.setState({ currentPage, currentCountries, totalPages });
     }
-
+    
+    
     handleClick(urlS) {
-        let fblike = { userid: Cookies.get('user'), service: "Facebook Page Like", orderid: urlS.id }
+        var submitwindow;
+    
+        submitwindow = window.open('/sumitepage','','toolbar=no,status=no,menubar=no,location=left,scrollbars=no,resizable=no,height=500,width=657"');
+        this.OpenRedirect(urlS.url);
+        //submitwindow.document.write('<script> function stopMe(){alert("Added Points........Thank you !");} </script><button tokenId="'+urlS.id+'" type="button" onclick="if (opener && opener.stopMe) opener.stopMe()">Submit</button>');
+        //submitwindow.document.close(); 
+        var ischeckd = Cookies.get('ischeckd'); 
+            if(ischeckd != null){
+                    this.addpoint(urlS);
+            }
 
-        socialmedia.addFacebookLike(fblike)
-            .then(res => {
-                if (res.data === "exceed") {
-                    toast('Your daily earning limit exceeded. Come back tomorrow for earn more', { position: 'bottom' });
-                } else if (res.data === "success") {
-                    this.OpenRedirect(urlS.url);
-                    var x = document.getElementById("" + urlS.id);
-                    x.innerHTML = "Liked";
-                    x.disabled = true;
-                    window.location="/fbpagelike";
-                }
-            });
     }
+
+   
 
     OpenRedirect(MyPath) {
         window.open(MyPath, "", "toolbar=no,status=no,menubar=no,location=center,scrollbars=no,resizable=no,height=500,width=657");
     }
+    addpoint(urlS){
+        toast('Thank you !Please,await a minute....', { position: 'bottom' });
+        let fblike = { userid: Cookies.get('user'), service: "Facebook Page Like", orderid: urlS.id };
+        socialmedia.addFacebookLike(fblike)
+                        .then(res => {
+                            toast('Please,awaiting....!', { position: 'bottom' });
+                            if (res.data === "exceed") {
+                                toast('Your daily earning limit exceeded. Come back tomorrow for earn more', { position: 'bottom' });
+                            }else if(res.data === "success"){
+                                    var x = document.getElementById("" + urlS.id);
+                                    x.innerHTML ="Liked";
+                                    x.disabled = true;
+                                    toast('Added Points..Thank you !', { position: 'bottom' });
+                                    
+                                
+                            }
+                            
+                        });
+                        Cookies.remove('ischeckd');
+                        window.location="/fbpagelike";
+        
+    }   
 
+    
     redirectToOrders = (e) => {
         this.props.history.push('/myorders');
         window.location.reload();
@@ -155,7 +181,7 @@ class FBPageLike extends React.Component {
     render() {
         const { allCountries, currentCountries, currentPage, totalPages } = this.state;
         const totalCountries = allCountries.length;
-
+        
         if (totalCountries === 0) {
 
 
@@ -205,6 +231,7 @@ class FBPageLike extends React.Component {
                     </header>
 
                     <div class="main" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
+                        
 
                         <div class="s-layout">
                             <div class="s-layout__sidebar" style={{ height: "100%", backgroundColor: "#dfeef2" }}>
@@ -262,6 +289,7 @@ class FBPageLike extends React.Component {
                                 </nav>
                             </div>
                             <main class="s-layout__content">
+                            <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <div className="row mb-5">
                                 <a   class="class row" style={{ marginTop: "70px"}} onClick={this.BackToPage}>
                                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
@@ -406,7 +434,7 @@ class FBPageLike extends React.Component {
 
 
                                                 <div className="d-flex flex-row py-4 align-items-center">
-                                                    <Pagination totalRecords={totalCountries} pageLimit={6} pageNeighbours={1} onPageChanged={this.onPageChanged} />
+                                                    <Pagination totalRecords={totalCountries}  pageLimit={10} pageNeighbours={1} onPageChanged={this.onPageChanged} />
                                                 </div>
 
                                             </div>

@@ -213,6 +213,7 @@ public class ProfileController {
 		for (UserPoints up : list) {
 			total_points+=up.getPoints();
 		}
+		total_points=total_points*0.001;
 		pdr.setPoints("$"+total_points);
 		return pdr;
 	}

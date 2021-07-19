@@ -56,6 +56,7 @@ class Howitworks extends React.Component {
           <link rel="stylesheet" href="/assets/css/Article-Cards.css" />
           <link rel="stylesheet" href="/assets/css/Team-Boxed.css" />
           <link rel="stylesheet" href="/assets/css/Article-List.css" />
+          <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Helmet>
         {(() => {
           if (Cookies.get('user') == null) {
@@ -169,6 +170,7 @@ class Howitworks extends React.Component {
       
 
           <div class="row">
+          
             <h1
               style={{
                 marginRight: " 20%",

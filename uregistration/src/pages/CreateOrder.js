@@ -1563,34 +1563,34 @@ class Dash extends React.Component {
                 let orderdetails = { user: Cookies.get('user'), country: vresult + ',' + sresult, social: 'youtube', agegroup: vagegroup + ',' + sagegroup, gender: vgender + ',' + sgender, link: this.state.youtube_link, cost: this.state.final_earning, service: 'views,subscribers', count: this.state.y_views + "," + this.state.y_subscribe }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             } else if (y_v_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: vresult + '', social: 'youtube', agegroup: vagegroup, gender: vgender, link: this.state.youtube_link, cost: this.state.final_earning, service: 'views', count: this.state.y_views }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             } else if (y_s_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: sresult + '', social: 'youtube', agegroup: sagegroup, gender: sgender, link: this.state.youtube_link, cost: this.state.final_earning, service: 'subscribers', count: this.state.y_subscribe }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                   // }
                 });
             }
 
@@ -1681,78 +1681,78 @@ class Dash extends React.Component {
                 let orderdetails = { user: Cookies.get('user'), country: polresult + ',' + palresult + ',' + sresult, social: 'facebook', agegroup: polagegroup + ',' + palagegroup + ',' + sagegroup, gender: polgender + ',' + palgender + ',' + sgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'post likes,page likes,shares', count: this.state.f_Polikes + "," + this.state.f_Palikes + ',' + this.state.f_shares }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             } else if (f_pol_check.checked && f_pal_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: polresult + ',' + palresult, social: 'facebook', agegroup: polagegroup + ',' + palagegroup, gender: polgender + ',' + palgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'post likes,page likes', count: this.state.f_Polikes + "," + this.state.f_Palikes }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                   // }
                 });
             } else if (f_pol_check.checked && f_s_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: polresult + ',' + sresult, social: 'facebook', agegroup: polagegroup + ',' + sagegroup, gender: polgender + ',' + sgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'post likes,shares', count: this.state.f_Polikes + "," + this.state.f_shares }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                   // }
                 });
             } else if (f_pal_check.checked && f_s_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: palresult + ',' + sresult, social: 'facebook', agegroup: palagegroup + ',' + sagegroup, gender: palgender + ',' + sgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'page likes,shares', count: this.state.f_Palikes + "," + this.state.f_shares }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             } else if (f_pol_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: polresult, social: 'facebook', agegroup: polagegroup, gender: polgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'post likes', count: this.state.f_Polikes }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             } else if (f_pal_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: palresult, social: 'facebook', agegroup: palagegroup, gender: palgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'page likes', count: this.state.f_Palikes }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             } else if (f_s_check.checked) {
                 let orderdetails = { user: Cookies.get('user'), country: sresult, social: 'facebook', agegroup: palagegroup, gender: palgender, link: this.state.facebook_link, cost: this.state.final_earning, service: 'shares', count: this.state.f_Palikes }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                   // if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             }
         } else if (menu3.classList.contains("active")) {
@@ -1806,12 +1806,12 @@ class Dash extends React.Component {
                 let orderdetails = { user: Cookies.get('user'), country: fresult, social: 'instagram', agegroup: fagegroup, gender: fgender, link: this.state.insta_link, cost: this.state.final_earning, service: 'followers', count: this.state.i_followers }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                   // }
                 });
             }
             // else if (i_l_check.checked) {
@@ -1826,7 +1826,7 @@ class Dash extends React.Component {
             //     });
             // }
         } else if (menu4.classList.contains("active")) {
-            var tw_f_check = document.getElementById("t_f_check");
+            var t_f_check = document.getElementById("t_f_check");
             // var tw_l_check = document.getElementById("t_l_check");
             var fcountry = document.getElementById("tw_f_country");
             var options = fcountry && fcountry.options;
@@ -1872,16 +1872,16 @@ class Dash extends React.Component {
             //         }
             //     });
             // } else 
-            if (tw_f_check.checked) {
+            if (t_f_check.checked) {
                 let orderdetails = { user: Cookies.tt('user'), country: fresult, social: 'twitter', agegroup: fagegroup, gender: fgender, link: this.state.twitter_link, cost: this.state.final_earning, service: 'followers', count: this.state.tw_followers }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                    //if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
                             window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
                         }
-                    }
+                    //}
                 });
             }
             // else if (tw_l_check.checked) {
@@ -1924,12 +1924,12 @@ class Dash extends React.Component {
                 let orderdetails = { user: Cookies.get('user'), country: fresult, social: 'tiktok', agegroup: fagegroup, gender: fgender, link: this.state.tiktok_link, cost: this.state.final_earning, service: 'followers', count: this.state.tw_followers }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                   // if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             }
         } else if (menu6.classList.contains("active")) {
@@ -1961,12 +1961,12 @@ class Dash extends React.Component {
                 let orderdetails = { user: Cookies.get('user'), country: fresult, social: 'website', agegroup: fagegroup, gender: fgender, link: this.state.web_link, cost: this.state.final_earning, service: 'views', count: this.state.w_views }
 
                 orderService.saveorder(orderdetails).then(res => {
-                    if (res.status === 200 && res.statusText === 'OK') {
+                   // if (res.status === 200 && res.statusText === 'OK') {
                         if (res.data === "success") {
-                            window.location.reload();
                             toast('Order Completed!', { position: 'bottom' });
+                            window.location.reload();
                         }
-                    }
+                    //}
                 });
             }
 
@@ -1976,34 +1976,35 @@ class Dash extends React.Component {
 
             serveyService.completeQuestion(settings).then(res => {
                 if (res.data == "success") {
-                    window.location.reload();
                     toast('Order Completed!', { position: 'bottom' });
+                    window.location.reload();
+                    
                 }
             });
         }
 
     }
    //convert currency
-    getmoreCurrency(){
-        //alert("aaaaaaaaaaa");
-        if(this.state.total_price != "Contact us for get this price" && !(this.state.youtube_link == "" && this.state.facebook_link == "" && this.state.insta_link == "" && this.state.twitter_link == "" && this.state.tiktok_link == "" && this.state.web_link == "" && this.state.serveyclick == false)){
-        const convertCurrency = require('nodejs-currency-converter');
-        var datetime = new Date();
-        var cur = document.getElementById("cr_country").value;
+    // getmoreCurrency(){
+    //     //alert("aaaaaaaaaaa");
+    //     if(this.state.total_price != "Contact us for get this price" && !(this.state.youtube_link == "" && this.state.facebook_link == "" && this.state.insta_link == "" && this.state.twitter_link == "" && this.state.tiktok_link == "" && this.state.web_link == "" && this.state.serveyclick == false)){
+    //     const convertCurrency = require('nodejs-currency-converter');
+    //     var datetime = new Date();
+    //     var cur = document.getElementById("cr_country").value;
         
         
-            var new1 = convertCurrency(1, this.state.total_price, cur,datetime.toISOString().slice(0,10)).then(response => response);
-            this.state.total_price=new1;
-            return this.state.total_price;
-           // alert(new1);
-        //    console.log(datetime.toISOString().slice(0,10));
-        //    console.log(this.state.total_price);
-        //    console.log(cur);
-            //return this.state.total_price;
-        }
+    //         var new1 = convertCurrency(1, this.state.total_price, cur,datetime.toISOString().slice(0,10)).then(response => response);
+    //         this.state.total_price=new1;
+    //         return this.state.total_price;
+    //        // alert(new1);
+    //     //    console.log(datetime.toISOString().slice(0,10));
+    //     //    console.log(this.state.total_price);
+    //     //    console.log(cur);
+    //         //return this.state.total_price;
+    //     }
     
 
-    }
+    // }
 
     checkClick() {
         alert("aaaaaaaaaaa")
@@ -2067,6 +2068,7 @@ class Dash extends React.Component {
                 </header>
 
                 <div class="main">
+                <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
                     {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
   {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 

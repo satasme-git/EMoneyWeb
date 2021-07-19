@@ -937,6 +937,7 @@ class Profile extends React.Component {
 
                         </header>
                     </div>
+                    <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <br></br><br></br><br></br>
                     <div class="card">
                         <div class="row">

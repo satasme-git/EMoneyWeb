@@ -119,7 +119,7 @@ class Howitworks2 extends React.Component {
                     } else {
                         return (
                             <header class="header" style={{ padding: "0 20px", backgroundColor: "#f9f9f9", boxShadow: "0 4px 4px rgba(0,0,0,.05)" }}>
-
+                                <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <section class="container header__inner">
                                     <a class="action" href="/howitworks">
                                         <i

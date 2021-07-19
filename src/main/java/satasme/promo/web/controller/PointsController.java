@@ -303,7 +303,7 @@ public class PointsController {
 				total_points+=up.getPoints();
 			}
 		}
-		double round_total = total_points*0.003;
+		double round_total = total_points*0.001;
 		DecimalFormat df = new DecimalFormat("####0.00");
 		return "$"+df.format(round_total);
 	}
@@ -322,7 +322,7 @@ public class PointsController {
 		for (UserPoints up : list) {
 			total_points+=up.getPoints();
 		}
-		double round_total = total_points*0.003;
+		double round_total = total_points*0.001;
 		double percent=(round_total/10)*100;
 		DecimalFormat df = new DecimalFormat("####0.0");
 		

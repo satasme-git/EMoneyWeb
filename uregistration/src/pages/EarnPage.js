@@ -44,7 +44,10 @@ class EarnPage extends React.Component {
                     // upload.href = "/uploadvideo";
                     earnblock.setAttribute("style", "color: #FF4019;display:none");
                 } else {
-                    this.setState({ earnstatus: res.data + ' Complete your profile to start earning' });
+                    var comp = res.data.split("Your profile is ")[1].split("% completed.")[0];
+                    this.setState({ 
+                        earnstatus:'Your profile is '+ (comp/2)+'% completed.Complete your profile to start earning' 
+                    });
                     earnblock.setAttribute("style", "color: #FF4019;display:''");
                 }
             });
@@ -138,6 +141,7 @@ class EarnPage extends React.Component {
 
                 </header>
                 <div class="main">
+                <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
                       {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
   {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 

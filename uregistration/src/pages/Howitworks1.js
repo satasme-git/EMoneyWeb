@@ -217,6 +217,7 @@ class Howitworks1 extends React.Component {
    
           
         <div class="team-boxed">
+        <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <div class="container">
             <div class="intro">
               <h2

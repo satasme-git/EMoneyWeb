@@ -146,6 +146,7 @@ class Order extends React.Component {
                 </header>
 
                 <div class="main" style={{ backgroundColor: "#dfeef2"}}>
+                <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
                       {/* ////////////////////preloader////////////////////////////////////////////////////////// */}
   {/* <div id="cover"> <span class="glyphicon glyphicon-refresh w3-spin preloader-Icon"></span> 

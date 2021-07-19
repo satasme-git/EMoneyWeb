@@ -26,7 +26,7 @@ const PageLikeCard = props => {
             </div>
             <div>{props.count} points earned</div>
 
-            <div style={{ margin: "20px" }}><button class="btn btn-primary mt-2" disabled="disable" id={id} value={status}>{status}</button>
+            <div style={{ margin: "20px" }}><button type="button" class="btn btn-primary mt-2" disabled="disable" id={id} value={status}>{status}</button>
               <p id="Liked"></p></div>
           </div>
         </div>
@@ -46,7 +46,7 @@ const PageLikeCard = props => {
             </div>
             <div>{props.count} points available</div>
 
-            <div style={{ margin: "20px" }}><button class="btn btn-success mt-2" id={id} value={status} onClick={(e) => props.handleClick({ url: code2, id: id })}>{status}</button>
+            <div style={{ margin: "20px" }}><button type="button" class="btn btn-success mt-2" id={id} value={status} onClick={(e) => props.handleClick({ url: code2, id: id })}>{status}</button>
               <p id="Liked"></p></div>
           </div>
         </div>

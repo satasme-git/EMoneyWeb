@@ -149,6 +149,7 @@ class Earnreferal extends React.Component {
 
 
         <div class="article-list" style={{ width: "100%", height: "100% " }}>
+        <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <div class="container">
             <div class="intro">
               <h3

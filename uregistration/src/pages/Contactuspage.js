@@ -8,6 +8,11 @@ class Contactuspage extends React.Component {
     super(props);
     this.state = {
       username: "",
+      subject: "",
+      message: "",
+      qtype: "",
+      name:"",
+      email:"",
     };
   }
 
@@ -25,6 +30,25 @@ class Contactuspage extends React.Component {
 
   redirectCreateorder = (e) => {
     this.props.history.push("/createorder");
+  };
+  changeQtype = (e) => {
+    this.setState({ qtype: e.target.value });
+  };
+  changeEmail = (e) => {
+    this.setState({ email: e.target.value });
+  };
+  changeName = (e) => {
+    this.setState({ name: e.target.value });
+  };
+  changeSubject = (e) => {
+    this.setState({ subject: e.target.value });
+  };
+
+  changeMessage = (e) => {
+    this.setState({ message: e.target.value });
+  };
+  sendEmail = (e) => {
+          //alert("hello");
   };
 
   render() {
@@ -155,6 +179,7 @@ class Contactuspage extends React.Component {
 
 
         <main class="main" style={{ backgroundColor: "#fff" }}>
+        <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <div class="banner" id="banner" data-replace="/order">
             <div class="banner__box">
               <div class="widget bg">
@@ -254,9 +279,9 @@ class Contactuspage extends React.Component {
             </div>
             <div class="contacts">
               <div class="contacts__form">
-                <form action="" class="form">
+                <form onSubmit={this.sendEmail} class="form">
                   <div class="form__left">
-                    <select type="text" placeholder="Name" class="form__input">
+                    <select type="text" placeholder="Name" onChange={this.changeQtype} class="form__input">
                       <option value="" selected="selected">
                         I have a question
                       </option>
@@ -268,6 +293,7 @@ class Contactuspage extends React.Component {
                       type="text"
                       placeholder="Name"
                       maxlength="50"
+                      onChange={this.changeName}
                       required="required"
                       class="form__input"
                     />
@@ -275,6 +301,7 @@ class Contactuspage extends React.Component {
                       type="email"
                       placeholder="Email"
                       maxlength="50"
+                      onChange={this.changeEmail}
                       required="required"
                       class="form__input"
                     />{" "}
@@ -282,6 +309,7 @@ class Contactuspage extends React.Component {
                       type="text"
                       placeholder="Subject "
                       maxlength="150"
+                      onChange={this.changeSubject}
                       required="required"
                       class="form__input"
                     />
@@ -290,6 +318,7 @@ class Contactuspage extends React.Component {
                     <textarea
                       placeholder="Message"
                       maxlength="1500"
+                      onChange={this.changeMessage}
                       required="required"
                       class="form__textarea form__textarea--margin-top"
                     ></textarea>
@@ -298,7 +327,7 @@ class Contactuspage extends React.Component {
                     <div id="captcha"></div>
                   </div>
 
-                  <button type="button" class="btn btn-dark">
+                  <button type="button" type="submit" class="btn btn-dark">
                     SUBMIT
                   </button>
 

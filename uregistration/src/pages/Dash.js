@@ -79,8 +79,11 @@ class Dash extends React.Component {
                 {
                     label: 'Yes',
                     onClick: () => {
+                      //window.open('/sumitepage','','toolbar=no,status=no,menubar=no,location=left,scrollbars=no,resizable=no,height=500,width=657"');
                         Cookies.remove('user')
                         this.props.history.push('/homebl')
+                        
+                     
                     }
                 },
                 {
@@ -107,7 +110,7 @@ class Dash extends React.Component {
                     <link rel="stylesheet" href="/assets/css/dash.css" />
                     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
                     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+                    <script data-ad-client="ca-pub-9982225669544459" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
@@ -210,7 +213,14 @@ class Dash extends React.Component {
                                             <i class="fa fa-flash"></i><em>Logout</em>
                                         </a>
                                     </li>
-
+                                    {/* <li>
+                                    <a href="/sumitepage" class="button-enter button_yellow ">
+                                            <div class="button-enter__text">
+                                                <span>submit</span>
+                                            </div>
+                                           
+                                        </a>
+                                    </li> */}
 
                                 </ul>
                             </nav>

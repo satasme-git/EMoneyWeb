@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
+import AdSense from 'react-adsense';
 import { Helmet } from "react-helmet";
 import Cookies from 'js-cookie';
 import { confirmAlert } from 'react-confirm-alert'; // Import
@@ -37,7 +38,7 @@ class Homebl extends React.Component {
         return (
             <div id="homepage" className="is-header" style={{ backgroundColor: "white", height: "100%", width: "100%" }}>
                 <Helmet>
-
+                    
                     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
                     <link rel="stylesheet" href="assets/css/styles.min.css" />
                     <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css" />
@@ -82,6 +83,7 @@ class Homebl extends React.Component {
                                             </div>
                                             <img class="button-enter__icon" src="assets/Image/earn/user.svg" alt=""></img>
                                         </a>
+                                        
                                     </div>
                                 </section>
 
@@ -286,7 +288,9 @@ class Homebl extends React.Component {
                         </footer>
                     </div>
                 </div>
+                
             </div>
+            
         )
     }
 }

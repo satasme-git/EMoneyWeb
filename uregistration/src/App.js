@@ -89,6 +89,7 @@ import Sidebar from './components/Sidebar';
 import Dash from './pages/CreateOrder';
 import { ToastContainer, toast } from 'react-toast'
 import RegisterAdmin from './pages/RegisterAdmin';
+import SubmitePage from './pages/SubmitePage';
 
 
 
@@ -179,6 +180,7 @@ class App extends Component {
                      {/* temp path */}
 
                      <Route path="/dash" component={Dashb}></Route>
+                     <Route path="/sumitepage" component={SubmitePage}></Route>
                      <Route path="/earnmanagement" component={EarnEnagement}></Route>
                      <Route path="/fbpagelike" component={FBPageLike}></Route>
                      <Route path="/fbpostlike" component={FBPostLike}></Route>
