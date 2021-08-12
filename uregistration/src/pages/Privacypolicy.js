@@ -147,31 +147,31 @@ class Privacypolicy extends React.Component {
 
             <div className="privcy" style={{ color: "#0f3057" }}>
               <div>  <h6 style={{ fontWeight: "bold" }}>  <br /><br />EMONEYTAG PRIVACY POLICY </h6> </div><br /><br /><br />
-This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website - <a href=" https://www.Emoneytag.com  " >www.Emoneytag.com </a> .<br /><br />
+              This Privacy Policy is designed to provide a better service for those concerned about how to use their Personal Identifiable Information (PII) online. As described in U.S. Privacy Law and Information Security, PII is information that a person can use to identify, contact, or locate, or identify himself with, or other information in context. Please read our Privacy Policy carefully to get a clear idea of how we collect, use, protect or otherwise handle your personally identifiable information through our website-<a href=" https://www.Emoneytag.com  " >www.Emoneytag.com </a> .<br /><br />
               <br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>What personal information do we collect from the people that visit our blog, website or app? </h6><br /><br />
 
-When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address or other details to help you with your experience.<br /><br />
+              When ordering or registering on our website, you will be asked to enter your name, email address or other details, as appropriate, to assist you with your experience.<br /><br />
               <br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>When do we collect information?  </h6><br /><br />
-We collect information from you when you register on our site, place an order, subscribe to a newsletter, respond to a survey, fill out a form, Use Live Chat, Open a Support Ticket or enter information on our site.
-Provide us with feedback on our products or services collecting from provided or publicly available links to personal profiles in social networks such as facebook, instagram, youtube, linkedin & other.<br /><br />
+              We collect information from you when you register on our website, place an order, subscribe to a newsletter, answer a survey, fill out a form, use live chat, open a support ticket or visit our website. Give us feedback on our products or services that are added to the personal profiles of Facebook, Instagram, YouTube, LinkedIn and other social networks or added to publicly available links.<br /><br />
               <br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>How do we use your information?   </h6><br /><br />
-We may use the information we collect from you when you register, make a purchase, sign up for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:<br />
+              We collect data when you sign up, make purchases, sign up for our newsletter, respond to surveys, marketing communications, browse the Site, or use other website features in the following ways and this information can be used for:<br /><br></br>
 
 
 <ul>
- <li> • To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.</li>
-  <li>• To improve our website in order to better serve you.</li>
-  <li> • To allow us to better service you in responding to your customer service requests.</li>
-  <li>• To administer a contest, promotion, survey or other site feature.</li>
-  <li>	• To quickly process your transactions.</li>
-  <li>• To ask for ratings and reviews of services or products.</li>
-  <li>	• To follow up with them after correspondence (live chat, email or phone inquiries)</li>
+ <li> • Allow us to personalize your experience and deliver the kind of content and products you like best.</li>
+  <li>• To improve our website to give a better service for you.</li>
+  <li> • Allows us to better serve you by responding to your customer service requests.</li>
+  <li>• when conducting a contest, promotion, survey or any other site feature.</li>
+  <li>	• Execute your transactions quickly.</li>
+  <li>• Inquiries for service or product evaluation and review.</li>
+  <li>	• Contact them after the correspondence (live chat, email or phone call)
+</li>
 
 </ul>  
 
@@ -181,51 +181,37 @@ We may use the information we collect from you when you register, make a purchas
               <br /><br />
               <h6  style={{ fontWeight: "bold" }}>How do we protect your information?    </h6>
               <br /><br />
-We do not use vulnerability scanning and/or scanning to PCI standards. An external PCI compliant payment gateway handles all CC transactions. We use regular Malware Scanning.
-
-Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.
-
-We implement a variety of security measures when a user places an order to maintain the safety of your personal information.
-
-All transactions are processed through a gateway provider and are not stored or processed on our servers.<br /><br />
+              We do not use risk scanning and/or scanning in accordance with PCI standards. An external PCI compliant payment portal handles all CC transactions. We often use malware scanning. Your personal information is behind secure networks and is accessible only to a limited number of people who have exclusive access to such systems and want to keep the information confidential. In addition to that, all sensitive or credit information you provide is encrypted through Secure Socket Layer (SSL) technology. We enforce many measures of security when a user places an order to maintain the security of your personal information. All transactions are made through the portal provider and are not stored or processed on our servers.<br /><br />
               <br /><br />
               <h6 style={{ fontWeight: "bold" }}>Do we use 'cookies'? </h6>
               <br /><br />
-Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. For instance, we use cookies to help us remember and process the items in your shopping cart. They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.<br /><br />
+              We use cookies. Cookies are small files that a website or service provider transfers to the hard drive of your computer through the web browser, allowing the website or service provider's system to identify your browser and store some information. On our website, we use cookies to remember and process items in your shopping cart. We use them to understand your preferences based on past or present site activities so that we can provide better services to you. We also use cookies to analyze data about site traffic and site interactions. From that, we can provide better site experiences and tools in the future.<br /><br />
               <br /><br />
               <h6 style={{ fontWeight: "bold" }}> We use cookies to:</h6>
               <br /><br />
-•	Help remember and process the items in the shopping cart.<br /><br />
-•	Understand and save user's preferences for future visits.<br /><br />
-•	Keep track of advertisements.<br /><br />
-•	Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf.
-You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser's Help Menu to learn the correct way to modify your cookies.
-If you turn cookies off, Some of the features that make your site experience more efficient may not function properly. It won't affect the user's experience that make your site experience more efficient and may not function properly.<br /><br />
+•	Help to remember and process the contents of the shopping cart.<br /><br />
+•	Understand and save user preferences for future trips.<br /><br />
+•	Pursue ads.<br /><br />
+•	analyze overall data about site traffic and site interaction to provide better site experience and tools in the future. 
+<br></br>
+<br></br>
+We may also use trusted third-party services to get this information on our behalf. You can choose to alert your computer when a cookie is sent, or you can choose to deactivate cookies. You do this through your browser settings. Because the browser is slightly different, see your browser's help menu to learn the correct way to change your cookies. If you disable cookies, some of the features that make your website experience more efficient will not work properly. This does not affect the user experience that makes your website experience more efficient and may not function properly.<br /><br />
               <br /><br />
               <h6 style={{ fontWeight: "bold" }}>Third-party disclosure </h6>
               <br /><br />
-We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it's release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property or safety.
-However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.
-Third-party links
-Occasionally, at our discretion, we may include or offer third-party products or services on our website. These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.<br /><br />
+              We do not sell or transfer your personal information to foreigners without informing the user. This includes Website Partners and other parties who assist us in maintaining our website, running our business or serving our customers as long as they agree to keep this information confidential. By law, we may also disclose information when enforcing our Website Policy or when such disclosures are appropriate in our or other people's rights, property or security. This personal information may be passed on to other parties for marketing or advertising. Third-Party Links At our discretion, these third party websites may have their own privacy policies for the inclusion or provision of third party products or services on our Website. Therefore, we take no responsibility for the content and activities of these affiliate sites.<br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>CAN SPAM Act </h6>
               <br /><br />
 
-The CAN-SPAM Act is a law that sets the rules for commercial email, establishes requirements for commercial messages, gives recipients the right to have emails stopped from being sent to them, and spells out tough penalties for violations.<br /><br />
-We collect your email address in order to: <br /><br />
-•	Send information, respond to inquiries, and/or other requests or questions
-•	Process orders and to send information and updates pertaining to orders.
-•	Send you additional information related to your product and/or service<br /><br />
+              The CAN-SPAM law sets out the rules for commercial e-mail, sets the requirements for e-mail, gives recipients the right to refrain from sending emails, and imposes severe penalties for violations. <br /><br />
+              We add your email address:<br /><br />
+
+•	Sending information, answering inquiries and/or other inquiries or questions. Order processing and sending order related information and updates. Send you additional information about your product and/or service<br /><br />
               <br /><br />
               <h6 style={{ fontWeight: "bold" }}>
                 To be in accordance with CAN SPAM, we agree to the following:</h6><br /><br />
-•	Not use false or misleading subjects or email addresses.
-•	Identify the message as an advertisement in some reasonable way.
-•	Include the physical address of our business or site headquarters.
-•	Monitor third-party email marketing services for compliance, if one is used.
-•	Honor opt-out/unsubscribe requests quickly.
-•	Allow users to unsubscribe by using the link at the bottom of each email.<br /><br /><br /><br />
+                Don't use wrong and misleading topics or email addresses. Define the message as a reasonable advertisement. Enter the physical address of our business or head office. If used, monitor compliance with third-party email marketing services. Fulfil unsubscribed/unsubscribed requests quickly. To unsubscribe us we allow users to use the link at the bottom of each email.<br /><br /><br /><br />
 
               <h6 style={{ fontWeight: "bold" }}>
                 If at any time you would like to unsubscribe from receiving future emails, you can email us at</h6><br /><br />
