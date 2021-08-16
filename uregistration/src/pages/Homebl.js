@@ -265,7 +265,7 @@ class Homebl extends React.Component {
                                         <h3>Contacts Us</h3>
                                         <ul>
                                             <li><a href="#">support@emoneytag.com</a></li>
-                                            <li><a href="#">FAQ</a></li>
+                                            <li><a href="/faq">FAQ</a></li>
 
                                         </ul>
                                     </div>

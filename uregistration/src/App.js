@@ -90,6 +90,7 @@ import Dash from './pages/CreateOrder';
 import { ToastContainer, toast } from 'react-toast'
 import RegisterAdmin from './pages/RegisterAdmin';
 import SubmitePage from './pages/SubmitePage';
+import FAQ from './pages/FAQ';
 
 
 
@@ -147,6 +148,7 @@ class App extends Component {
                   {/* <Body/> */}
                   <Switch>
                      <Route path="/" exact component={Homebl}></Route>
+                     <Route path="/faq" exact component={FAQ}></Route>
                      <Route path="/register" exact component={Register}></Route>
                      <Route path="/login" component={Login}></Route>
                      <Route path="/profile" component={Profile}></Route>
