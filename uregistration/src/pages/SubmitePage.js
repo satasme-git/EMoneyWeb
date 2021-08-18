@@ -3,6 +3,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react';
 import userServices from '../services/userServices';
+import screenshotServices from '../services/screenshotService';
 import { Link } from 'react-router-dom';
 import toast from 'toast-me';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
@@ -24,7 +25,8 @@ class SubmitePage extends React.Component {
             error: '',
             isLogined: false,
             accessToken: '',
-
+            image_path: '',
+           
 
         }
         this.login = this.login.bind(this);
@@ -251,47 +253,72 @@ class SubmitePage extends React.Component {
           'Thanks for logging in, ' + response.name + '!';
       });
     }
+    changeThumbnail = e => {
+
+        this.setState({image_path:e.target.files[0] });
+       
+    };
   
     sayHello= (e) =>{
-       
-        confirmAlert({
-            title: 'Confirm',
-            message: 'Did you click fb like button?',
-            buttons: [
-                {
-                    label: 'Yes',
-                    onClick: () => {
-        
-                        toast('Thank you !Please,await a minute....', { position: 'bottom' });
-                        var ischeckd=1;
-                        var inFifteenMinutes = new Date(
-                            new Date().getTime() + 2 * 60 * 60 * 1000
-                          );
-
-                          Cookies.set("ischeckd",ischeckd , {
-                            expires: inFifteenMinutes,
-                          });
-                          window.close();
-                        
-                    }
-                },
-                {
-                    label: 'No',
-                    onClick: () => {
-                        toast('Did not Add Points..Try again!', { position: 'bottom' });
-                        var ischeckd=null;
-                        var inFifteenMinutes = new Date(
-                            new Date().getTime() + 2 * 60 * 60 * 1000
-                          );
-
-                          Cookies.set("ischeckd",ischeckd , {
-                            expires: inFifteenMinutes,
-                          });
-                    }
+        if (this.state.image_path === '') {
+            toast('Empty! Try Again', { position: 'bottom' });
+          }else{
+            screenshotServices.saveScreenshot(this.state.image_path,Cookies.get('user')).
+            then(res => {
+                if (res.data == "Success") {
+                    confirmAlert({
+                        title: 'Confirm',
+                        message: 'Did you click fb like button & upload Screenshot?',
+                        buttons: [
+                            {
+                                label: 'Yes',
+                                onClick: () => {
                     
+                                    toast('Thank you !Please,await a minute....', { position: 'bottom' });
+                                    var ischeckd=1;
+                                    var inFifteenMinutes = new Date(
+                                        new Date().getTime() + 2 * 60 * 60 * 1000
+                                      );
+            
+                                      Cookies.set("ischeckd",ischeckd , {
+                                        expires: inFifteenMinutes,
+                                      });
+                                      window.close();
+                                    
+                                }
+                            },
+                            {
+                                label: 'No',
+                                onClick: () => {
+                                    toast('Did not Add Points..Try again!', { position: 'bottom' });
+                                    var ischeckd=null;
+                                    var inFifteenMinutes = new Date(
+                                        new Date().getTime() + 2 * 60 * 60 * 1000
+                                      );
+            
+                                      Cookies.set("ischeckd",ischeckd , {
+                                        expires: inFifteenMinutes,
+                                      });
+                                }
+                                
+                            }
+                        ]
+                    });
+                } else {
+                  toast('Failed to upload ScreenShot', { position: 'bottom' });
                 }
-            ]
-        });
+      
+              }).catch(() => {
+                this.setState({
+                  progress: 0,
+                  message: "Could not upload the file!",
+                  currentFile: undefined,
+                });
+              });
+          }
+        
+       
+       
       }
     
   
@@ -308,15 +335,21 @@ class SubmitePage extends React.Component {
 
                                 
                                 <div className="regwithemal1w">
-                                   <h4>You must click this button</h4> 
+                                   <h4>Uplode ScreenShot!</h4> 
 					            </div>
                                
-                                
+                                <form onSubmit={this.sayHello} enctype="multipart/form-data" >
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="image_path" value={this.state.image_path} onChange={this.changeThumbnail} /><br/>
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                </div>
                                     <div className="container-login100-form-btnw">
-                                        <input type="button" className="login100-form-btnw" onClick={this.sayHello} value="Submit" />
+                                        <input type="submit" className="login100-form-btnw"  value="Submit" />
 
                                     </div>
-                                
+                                </form>
                                 {/* <!--line --> */}
                                 {/* <div className="container">
                                     <hr className="hr-text" data-content="AND" />

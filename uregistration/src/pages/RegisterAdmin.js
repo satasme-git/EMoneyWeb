@@ -325,7 +325,7 @@ handleLogoutFailure(response) {
 									<div class="col-12 col-md-4" >
 						
                                     <div class="form-group" style={{ width: "100%", marginTop: "10px" }}>
-                                                <select class="form-control" id="role"value={this.state.role} onChange={this.changeRole} required >
+                                                <select class="form-control" id="role" value={this.state.role} onChange={this.changeRole} required >
                                                         <option value="">--Select Role--</option>
                                                         <option value="SuperAdmin">Super Admin</option>
                                                         <option value="admin">Admin</option>
