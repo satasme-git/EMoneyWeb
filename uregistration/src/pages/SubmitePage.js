@@ -274,7 +274,7 @@ class SubmitePage extends React.Component {
                                 label: 'Yes',
                                 onClick: () => {
                     
-                                    toast('Thank you !Please,await a minute....', { position: 'bottom' });
+                                    toast('Thank you !Please,await a minute.....', { position: 'bottom' });
                                     var ischeckd=1;
                                     var inFifteenMinutes = new Date(
                                         new Date().getTime() + 2 * 60 * 60 * 1000
