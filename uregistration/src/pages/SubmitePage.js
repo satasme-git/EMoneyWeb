@@ -255,7 +255,7 @@ class SubmitePage extends React.Component {
     }
     changeThumbnail = e => {
 
-        this.setState({image_path:e.target.files[0] });
+        this.setState({image_path:e.target.files});
        
     };
   
