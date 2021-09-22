@@ -213,6 +213,11 @@ class Dash extends React.Component {
                                             <i class="fa fa-flash"></i><em>Logout</em>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a class="s-sidebar__nav-link" href="/sumitepage">
+                                            <em>submit page</em>
+                                        </a>
+                                    </li>
                                     {/* <li>
                                     <a href="/sumitepage" class="button-enter button_yellow ">
                                             <div class="button-enter__text">

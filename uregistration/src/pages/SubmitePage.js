@@ -25,7 +25,7 @@ class SubmitePage extends React.Component {
             error: '',
             isLogined: false,
             accessToken: '',
-            image_path: '',
+            image_path: null,
            
 
         }
@@ -255,12 +255,13 @@ class SubmitePage extends React.Component {
     }
     changeThumbnail = e => {
 
-        this.setState({image_path:e.target.files});
+        this.setState({image_path:e.target.files[0]});
        
     };
   
     sayHello= (e) =>{
-        if (this.state.image_path === '') {
+        //console.log(this.state.image_path)
+        if (this.state.image_path === null) {
             toast('Empty! Try Again', { position: 'bottom' });
           }else{
             screenshotServices.saveScreenshot(this.state.image_path,Cookies.get('user')).
@@ -338,18 +339,18 @@ class SubmitePage extends React.Component {
                                    <h4>Uplode ScreenShot!</h4> 
 					            </div>
                                
-                                <form onSubmit={this.sayHello} enctype="multipart/form-data" >
+                               
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="image_path" value={this.state.image_path} onChange={this.changeThumbnail} /><br/>
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="image_path"   onChange={this.changeThumbnail} /><br/>
                                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                     </div>
                                 </div>
                                     <div className="container-login100-form-btnw">
-                                        <input type="submit" className="login100-form-btnw"  value="Submit" />
+                                        <input type="submit" className="login100-form-btnw"  value="Submit" onClick={this.sayHello}/>
 
                                     </div>
-                                </form>
+                                
                                 {/* <!--line --> */}
                                 {/* <div className="container">
                                     <hr className="hr-text" data-content="AND" />
