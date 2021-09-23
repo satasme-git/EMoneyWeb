@@ -6,13 +6,16 @@ class screenshotService{
 
         formData.append("image_path", image_path);
 
-        return axios.post(SS_API_BASE_URL,userId,formData, {
+        return axios.post(SS_API_BASE_URL+'/uploadimage/'+userId,formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             }
         });
       
     }
+
+ 
     
 }
+
 export default new screenshotService()
