@@ -10,10 +10,13 @@ public interface FilesStorageService {
 	public void init();
 
 	public void save(MultipartFile file,long userid,String uploadid);
-	
+	public void saveScreenserver(MultipartFile file,long userid);
+
+
 	public void saveProfile(MultipartFile file,long userid);
 
-	public Resource load(String filename,String userid,String uploadid);
+
+	public Resource load(String filename, String userid, String uploadid);
 
 	public Resource loadProfile(String filename);
 

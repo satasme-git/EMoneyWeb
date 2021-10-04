@@ -20,21 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import satasme.promo.web.entity.DailyEarnLimit;
-import satasme.promo.web.entity.Orders;
-import satasme.promo.web.entity.PackageMinMax;
-import satasme.promo.web.entity.Points;
-import satasme.promo.web.entity.SocialEngagementResponse;
-import satasme.promo.web.entity.User;
-import satasme.promo.web.entity.UserPoints;
-import satasme.promo.web.entity.UserSocialEngagement;
-import satasme.promo.web.repository.LoginRepository;
-import satasme.promo.web.repository.OrdersRepository;
-import satasme.promo.web.repository.PaymentReceiverRepositoryImpl;
-import satasme.promo.web.repository.UserPointsRepository;
-import satasme.promo.web.repository.UserRepository;
-import satasme.promo.web.repository.UserSocialEngagementRepository;
-import satasme.promo.web.repository.UserSocialEngagementRepositoryImpl;
+import satasme.promo.web.entity.*;
+import satasme.promo.web.repository.*;
 
 @RestController
 @RequestMapping("/api/socialengage")
@@ -51,6 +38,8 @@ public class SocialEngagementController {
 	private UserSocialEngagementRepository engagementsrep;
 	@Autowired
 	private UserSocialEngagementRepositoryImpl engagementsImpl;
+	@Autowired
+	private ScreenShotsRepository screenShotsRepository;
 
 	@PostMapping
 	public String enagageInSocial(@RequestBody ObjectNode node) {
@@ -139,7 +128,27 @@ public class SocialEngagementController {
 		}
 
 	}
+	@PostMapping("/removess")
+	public String removePoint(@RequestBody ObjectNode node){
+		String crrdate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		String userid = node.get("userid").asText();
+		String point = node.get("point").asText();
+		String ssid = node.get("ssid").asText();
+		User user = this.userRepository.findById(Long.valueOf(userid)).get();
+		double removePoint= (-1)* Double.valueOf(point);
+				UserPoints userPoints = new UserPoints();
+				userPoints.setPoints(removePoint);
+				userPoints.setDate(crrdate);
+				userPoints.setStatus("Active");
+				userPoints.setUser(user);
+				this.userPointsRepository.save(userPoints);
+				this.screenShotsRepository.deleteById(Long.valueOf(ssid));
 
+		return "success";
+
+
+
+	}
 	@GetMapping("/{id}/{service}")
 	public List<SocialEngagementResponse> getEngagementsByUser(@PathVariable(value = "id") long userid,
 			@PathVariable(value = "service") String service) {

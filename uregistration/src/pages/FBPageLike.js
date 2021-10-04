@@ -422,8 +422,7 @@ class FBPageLike extends React.Component {
                                                 <div className="d-flex flex-row align-items-center">
 
                                                     <h2 className={headerClass} >
-                                                        <strong className="text-secondary" style={{ textAlign: "center" }}>{totalCountries}</strong> Page Likes Available
-    </h2>
+                                                        <strong className="text-secondary" style={{ textAlign: "center" }}>{totalCountries}</strong> Page Likes Available  <h3 class="text-danger">Allow popups and redirects on the browser before click the like button</h3></h2>
 
                                                     {currentPage && (
                                                         <span className="current-page d-inline-block h-100 pl-4 text-secondary">

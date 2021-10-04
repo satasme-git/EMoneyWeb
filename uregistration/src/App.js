@@ -91,6 +91,7 @@ import { ToastContainer, toast } from 'react-toast'
 import RegisterAdmin from './pages/RegisterAdmin';
 import SubmitePage from './pages/SubmitePage';
 import FAQ from './pages/FAQ';
+import Screenshots from './pages/Screenshots';
 
 
 
@@ -208,6 +209,7 @@ class App extends Component {
                      {/* admin */}
                      <Route path="/admin/" exact component={AdminLogin}></Route>
                      <Route path="/admin/admin" exact component={RegisterAdmin}></Route>
+                     <Route path="/admin/screenshot" exact component={Screenshots}></Route>
                      <Route path="/admin/admindash" exact component={Dashboard}></Route>
                      <Route path="/admin/adminmanageorders" exact component={AdminManageOrders}></Route>
                      <Route path="/admin/adminpaymentmanagement" exact component={AdminPaymentAnagement}></Route>

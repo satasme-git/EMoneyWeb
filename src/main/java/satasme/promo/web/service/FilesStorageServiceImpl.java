@@ -51,6 +51,25 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 		}
 	}
 
+
+	@Override
+	public void saveScreenserver(MultipartFile file, long userid) {
+
+		try {
+			if (!Files.exists(Paths.get("screenshots"))) {
+				Files.createDirectory(Paths.get("screenshots"));
+			}
+			Path userroot=Paths.get("screenshots/"+userid);
+			if (!Files.exists(userroot)) {
+				Files.createDirectory(userroot);
+			}
+			Files.copy(file.getInputStream(), userroot.resolve(file.getOriginalFilename()));
+		} catch (Exception e) {
+			throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
+		}
+
+	}
+
 	@Override
 	public Resource load(String filename,String userid,String uploadid) {
 		try {

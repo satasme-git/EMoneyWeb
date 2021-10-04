@@ -215,17 +215,10 @@ class Dash extends React.Component {
                                     </li>
                                     <li>
                                         <a class="s-sidebar__nav-link" href="/sumitepage">
-                                            <em>submit page</em>
+                                            <em> Testing</em>
                                         </a>
                                     </li>
-                                    {/* <li>
-                                    <a href="/sumitepage" class="button-enter button_yellow ">
-                                            <div class="button-enter__text">
-                                                <span>submit</span>
-                                            </div>
-                                           
-                                        </a>
-                                    </li> */}
+                                   
 
                                 </ul>
                             </nav>

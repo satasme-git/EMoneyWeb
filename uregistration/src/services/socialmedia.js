@@ -13,6 +13,9 @@ class socialmediaServices{
     updateService(socialmedia,socialmediaId){
         return axios.put(SOCIALMEDIA_API_BASE_URL+'/'+socialmediaId,socialmedia);
     }
+    removePoint(ss){
+        return axios.post(SOCIALMEDIA_API_BASE_URL+'/removess',ss);
+    }
     
 }
 export default new socialmediaServices()

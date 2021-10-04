@@ -17,6 +17,7 @@ import satasme.promo.web.entity.User;
 import satasme.promo.web.exceptions.ResourceNotFoundException;
 import satasme.promo.web.repository.ScreenShotsRepository;
 import satasme.promo.web.repository.UserRepository;
+import satasme.promo.web.service.FilesStorageService;
 
 
 import java.io.File;
@@ -35,6 +36,13 @@ public class ScreenShotController {
     private ScreenShotsRepository screenShotsRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private FilesStorageService storageService;
+
+    @GetMapping("/all")
+    public Object getAllUsers() {
+        return this.screenShotsRepository.findAll();
+    }
 
     @PostMapping("/uploadimage/{id}")
         public  String saveScreenShots(@RequestParam("image_path") MultipartFile multipartFile,@PathVariable(value = "id") long userid)
@@ -47,10 +55,11 @@ public class ScreenShotController {
                 ss.setImagepath(fileName);
                 ss.setUser(user);
         ScreenShot savedImage = this.screenShotsRepository.save(ss);
-        String uploadDir = "uploads/screenshots/";
-        Path userroot= Paths.get(uploadDir);
-       
-        Files.copy(multipartFile.getInputStream(), userroot.resolve(multipartFile.getOriginalFilename()));
+        storageService.saveScreenserver(multipartFile,userid);
+//        String uploadDir = "uploads/screenshots/";
+//        Path userroot= Paths.get(uploadDir);
+//
+//        Files.copy(multipartFile.getInputStream(), userroot.resolve(multipartFile.getOriginalFilename()));
        
 
         return "Success";

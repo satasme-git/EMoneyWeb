@@ -121,7 +121,11 @@ export const SidebarData = [
       },
     ],
   },
-  
+  {
+    title: "Screenshots  Settings",
+    path: "/admin/screenshot",
+    icon: <RiIcons.RiFeedbackFill />,
+  },
 
   {
     title: "Point Settings",
