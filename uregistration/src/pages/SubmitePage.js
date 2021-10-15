@@ -336,7 +336,7 @@ class SubmitePage extends React.Component {
 
                                 
                                 <div className="regwithemal1w">
-                                   <h4>Uplode ScreenShot!</h4> 
+                                   <h4>Upload ScreenShot!</h4> 
                                    <h3><p class="text-danger">Upload the screenshot of your like. We check it once you uploaded it and your points wlii deduct for wrong screenshots</p></h3>
 					            </div>
                                

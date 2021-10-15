@@ -56,10 +56,10 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 	public void saveScreenserver(MultipartFile file, long userid) {
 
 		try {
-			if (!Files.exists(Paths.get("screenshots"))) {
-				Files.createDirectory(Paths.get("screenshots"));
+			if (!Files.exists(Paths.get("uregistration/public/screenshots"))) {
+				Files.createDirectory(Paths.get("uregistration/public/screenshots"));
 			}
-			Path userroot=Paths.get("screenshots/"+userid);
+			Path userroot=Paths.get("uregistration/public/screenshots/"+userid);
 			if (!Files.exists(userroot)) {
 				Files.createDirectory(userroot);
 			}

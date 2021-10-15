@@ -61,22 +61,24 @@ class Screenshots extends React.Component {
     var ssid = document.getElementById("ssid").value;
     var userid = document.getElementById("userid").value;
     let ss = { userid: userid,point:point,ssid: ssid };
-    // console.log(removess);
+     console.log(ss);
     // toast('Please,awaiting....!', { position: 'bottom' });
     socialmedia.removePoint(ss)
     .then(res => {
       //console.log(ss);
         toast('Please,awaiting....!', { position: 'bottom' });
         if (res.data === "success") {
+          
+          this.props.history.push('/admin/screenshot');
           toast('Removed Points.. !', { position: 'bottom' });
-          //console.log(ss);
+          console.log("success");
         }else{
                
           toast('Have Some Error.. !', { position: 'bottom' });    
                 
             
         }
-        
+        this.props.history.push('/admin/screenshot');
     });
 
        
