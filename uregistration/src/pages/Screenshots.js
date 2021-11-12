@@ -29,10 +29,10 @@ class Screenshots extends React.Component {
     this.state = {
 
       status: '',
-      ssdata:[] ,
-      point:'',
-      ssid:'', 
-      userid:''
+      ssdata: [],
+      point: '',
+      ssid: '',
+      userid: ''
     }
   }
 
@@ -42,17 +42,19 @@ class Screenshots extends React.Component {
     if (user == null) {
       this.props.history.push('/admin');
     } else {
-     ScreenshotService.getAll().then(res => {
+      ScreenshotService.getAll().then(res => {
 
         this.setState({
-           ssdata: res.data,
-           
-          });
-          
+          ssdata: res.data,
+
+        });
+
+       
+
       });
-    //   earningService.getBalance(Cookies.get('user')).then(res => {
-    //     this.setState({ balance: res.data });
-    // });
+      //   earningService.getBalance(Cookies.get('user')).then(res => {
+      //     this.setState({ balance: res.data });
+      // });
     }
 
   }
@@ -60,29 +62,29 @@ class Screenshots extends React.Component {
     var point = document.getElementById("point").value;
     var ssid = document.getElementById("ssid").value;
     var userid = document.getElementById("userid").value;
-    let ss = { userid: userid,point:point,ssid: ssid };
-     console.log(ss);
+    let ss = { userid: userid, point: point, ssid: ssid };
+    console.log(ss);
     // toast('Please,awaiting....!', { position: 'bottom' });
     socialmedia.removePoint(ss)
-    .then(res => {
-      //console.log(ss);
+      .then(res => {
+        //console.log(ss);
         toast('Please,awaiting....!', { position: 'bottom' });
         if (res.data === "success") {
-          
+
           this.props.history.push('/admin/screenshot');
           toast('Removed Points.. !', { position: 'bottom' });
           console.log("success");
-        }else{
-               
-          toast('Have Some Error.. !', { position: 'bottom' });    
-                
-            
+        } else {
+
+          toast('Have Some Error.. !', { position: 'bottom' });
+
+
         }
         this.props.history.push('/admin/screenshot');
-    });
+      });
 
-       
-    
+
+
 
   }
 
@@ -94,14 +96,14 @@ class Screenshots extends React.Component {
   }
   changePoint = (event) => {
     this.setState({
-        point: event.target.value
+      point: event.target.value
     });
-}
-  
+  }
 
-  
 
- 
+
+
+
   render() {
     //Datatable HTML
 
@@ -193,38 +195,44 @@ class Screenshots extends React.Component {
                           <h4 className="header-title">Screenshots</h4>
                           <div className="data-tables">
                             <div className="container">
-                              <table id="example" class="display"  style={{ textAlign: "center" }}>
-                                <thead>
-                                
-                                  <tr>
-                                    <th>Screenshot ID</th>
-                                    <th>User Id</th>
-                                    <th>View</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {this.state.ssdata.map((data) => {
-                                    return (
-                                      <tr>
-                                       
-                                        <td>{data.id}</td>
-                                        <td>{data.user.id}</td>
-                                        <td><i className="ti-eye" data-toggle="modal" data-target={"#" + data.id} /></td>
-                                      </tr>
-                                    );
+                              <table id="example" class="display" style={{ textAlign: "center" }}>
+                              <thead>
+
+                              <tr>
+                              <th>Screenshot ID</th>
+                              <th>User Id</th>
+                              <th>View</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                            {this.state.ssdata.map((data) => {
+                              return (
+                              <tr>
+
+                              <td>{data.id}</td>
+                              <td>{data.user_id}</td>
+                            {/* <td><i className="ti-eye" data-toggle="modal" data-target={"#" + data.id} /></td> */}
+                              <td>
+                           
+                          <img src={` https://app.emoneytag.live/public/images/Members/${data.image}`} style={{width:100}}></img>
+                         
+                              </td>
+                              {/* <img src={'http://localhost:8000/public/images/members/${data.image}'} style="width:52px"/> */}
+                              </tr>
+                            );
                                   })}
-                                </tbody>
+                              </tbody>
                               </table>
+                            </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
 
 
 
-                    {/* <table id="example" class="display">
+                      {/* <table id="example" class="display">
                       <thead>
                         <tr>
                           <th>Order ID</th>
@@ -263,70 +271,74 @@ class Screenshots extends React.Component {
                     </table> */}
 
 
-                  </div>
+                    </div>
 
 
 
-                  {/* data table start */}
+                    {/* data table start */}
 
 
-                  {/* Modal */}
+                    {/* Modal */}
 
-                  {this.state.ssdata.map((data) => {
+                    {this.state.ssdata.map((data) => {
 
-                    return (
-                      <div className="modal fade" id={data.id}>
-                        <div className="modal-dialog modal-dialog-centered" role="document">
-                          <div className="modal-content">
-                            <div className="modal-header">
-                              <h5 className="modal-title">Screenshots  Views</h5>
-                              
-                              <button type="button" className="close" data-dismiss="modal"><span>×</span></button>
-                            </div>
-                            <div className="modal-body">
-                            <form onSubmit={this.removePoint}>
-                              <div className="row">
-                              <input className="input100w" type="hidden"  name="ssid" id="ssid"  value={data.id}  style={{ width: "50%" }}/>
-                              <input className="input100w" type="hidden"  name="userid" id="userid"  value={data.user.id}  style={{ width: "50%" }}/>
-                                <div className="col-sm">
-                                <input className="input100w" type="number" placeholder="Remove Points" name="point" id="point"  value={this.state.point} onChange={this.changePoint} style={{ width: "50%" }} required/>
-                              
-                                <div className="container-login100-form-btnw">
-                                        <input type="submit" className="login100-form-btnw" value="Remove" style={{ width: "50%" }}/>
+                      return (
+                        <div className="modal fade" id={data.id}>
+                          <div className="modal-dialog modal-dialog-centered" role="document">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                <h5 className="modal-title">Screenshots  Views</h5>
 
+                                <button type="button" className="close" data-dismiss="modal"><span>×</span></button>
+                              </div>
+                              <div className="modal-body">
+                                <form onSubmit={this.removePoint}>
+                                  <div className="row">
+                                    <input className="input100w" type="hidden" name="ssid" id="ssid" value={data.id} style={{ width: "50%" }} />
+                                    <input className="input100w" type="hidden" name="userid" id="userid" value={data.user_id} style={{ width: "50%" }} />
+                                    <div className="col-sm">
+                                      <input className="input100w" type="number" placeholder="Remove Points" name="point" id="point" value={this.state.point} onChange={this.changePoint} style={{ width: "50%" }} required />
+
+                                      <div className="container-login100-form-btnw">
+                                        <input type="submit" className="login100-form-btnw" value="Remove" style={{ width: "50%" }} />
+
+                                      </div>
                                     </div>
-                                </div>
-                              </div> 
-                              
-                            </form>  
-                              <img src={'/screenshots/'+(data.user.id)+'/'+(data.imagepath)} style={{ width: "100%", height: "100%", padding: "10px" }}></img>
-                            </div>
-                            <div className="modal-footer">
-                              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  </div>
+
+                                </form>
+                                <img src={'/screenshots/' + (data.imagepath)} style={{ width: "100%", height: "100%", padding: "10px" }}></img>
+                                {/* <img src={'/uregistration/public/screenshots/'+(data.imagepath)} style={{ width: "100%", height: "100%", padding: "10px" }}></img> */}
+                                {/* <img src={'/screenshots/'+(data.user.id)+'/'+(data.imagepath)} style={{ width: "100%", height: "100%", padding: "10px" }}></img> */}
+
+
+                              </div>
+                              <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
 
 
 
+                  </div>
+                  {/* data table end */}
                 </div>
-                {/* data table end */}
               </div>
             </div>
+            {/* main content area end */}
+
           </div>
-          {/* main content area end */}
+          {/* page container area end */}
+        </div >
 
-        </div>
-        {/* page container area end */}
-      </div >
-
-    );
+        );
   }
 }
 
 
-export default Screenshots
+        export default Screenshots
 

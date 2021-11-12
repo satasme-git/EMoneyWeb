@@ -56,6 +56,8 @@ public class ScreenShotController {
                 ss.setUser(user);
         ScreenShot savedImage = this.screenShotsRepository.save(ss);
         storageService.saveScreenserver(multipartFile,userid);
+        
+//     System.out.println();
 //        String uploadDir = "uploads/screenshots/";
 //        Path userroot= Paths.get(uploadDir);
 //

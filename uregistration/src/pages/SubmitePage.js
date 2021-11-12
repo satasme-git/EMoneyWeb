@@ -264,8 +264,13 @@ class SubmitePage extends React.Component {
         if (this.state.image_path === null) {
             toast('Empty! Try Again', { position: 'bottom' });
           }else{
+            // screenshotServices.saveStudent().
             screenshotServices.saveScreenshot(this.state.image_path,Cookies.get('user')).
+            
             then(res => {
+
+                
+
                 if (res.data == "Success") {
                     confirmAlert({
                         title: 'Confirm',
@@ -306,7 +311,8 @@ class SubmitePage extends React.Component {
                         ]
                     });
                 } else {
-                  toast('Failed to upload ScreenShot', { position: 'bottom' });
+                    console.log("YYYYYYYYYYYYYYYYYYYYYY : "+res.data);
+                //   toast('Failed to upload ScreenShot', { position: 'bottom' });
                 }
       
               }).catch(() => {

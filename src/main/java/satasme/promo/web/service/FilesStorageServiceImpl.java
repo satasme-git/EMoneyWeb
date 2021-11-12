@@ -59,11 +59,20 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 			if (!Files.exists(Paths.get("uregistration/public/screenshots"))) {
 				Files.createDirectory(Paths.get("uregistration/public/screenshots"));
 			}
-			Path userroot=Paths.get("uregistration/public/screenshots/"+userid);
-			if (!Files.exists(userroot)) {
-				Files.createDirectory(userroot);
-			}
-			Files.copy(file.getInputStream(), userroot.resolve(file.getOriginalFilename()));
+			StringBuilder filenames=new StringBuilder();
+			String filename=file.getOriginalFilename();
+			Path userroot=Paths.get("uregistration/public/screenshots",filename);
+//			if (!Files.exists(userroot)) {
+//				Files.createDirectory(userroot);
+//			}
+//			System.out.println(">>>>>>>> get original file name >>>> :  "+file.getOriginalFilename()+" / "+userid);
+//			Files.copy(file.getInputStream(), userroot.resolve(file.getOriginalFilename()));
+			
+			
+//			Path userroot=Paths.get("uregistration/public/screenshots");
+			Files.write(userroot, file.getBytes());
+			
+			
 		} catch (Exception e) {
 			throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 		}
